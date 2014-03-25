@@ -350,7 +350,7 @@ $(document).ready(function() {
           votes>0&&tnum.text("+"+tnum.text());
         })
       :
-        N.json[plist.data ('type')][func]($.extend(obj,thumb: (curr.hasClass("up")?1:-1)}), function(r) {
+        N.json[plist.data ('type')][func]($.extend(obj,{thumb: (curr.hasClass("up")?1:-1)}), function(r) {
           cont.children(".voted").removeClass("voted");
           curr.addClass("voted");
           var votes = parseInt(r.message);
