@@ -1,3 +1,5 @@
+Nerdz Black - Default NERDZ template. See COPYING for license.
+
 FILES/DIRECTORY ORGANIZATION
 ==============================
 
