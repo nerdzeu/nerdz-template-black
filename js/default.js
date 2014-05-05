@@ -319,7 +319,10 @@ $(document).ready(function() {
                 if (document.location.hash == '#last')
                     refto.find ('.frmcomment textarea[name=message]').focus();
                 else if (document.location.hash)
-                    $(document).scrollTop ($(document.location.hash).offset().top);
+                    if( $(document.location.hash).length ) 
+                        $(document).scrollTop ($(document.location.hash).offset().top);
+                    else
+                        showAllComments($(".all_comments_btn")[0], function() {$(document).scrollTop ($(document.location.hash).offset().top);})
             });
         }
         else
@@ -402,11 +405,11 @@ $(document).ready(function() {
         });
     });
 
-    plist.on ('click', '.all_comments_btn', function() {
+    var showAllComments = function(el, callback) {
         // TODO do not waste precious performance by requesting EVERY
         // comment, but instead adapt the limited function to allow
         // specifying a start parameter without 'num'.
-        var btn         = $(this),
+        var btn         = $(el),
             btnDb       = btn.parent().parent(),
             moreBtn     = btnDb.find (".more_btn"),
             commentList = btn.parents ("div[id^=\"commentlist\"]"),
@@ -421,7 +424,11 @@ $(document).ready(function() {
             moreBtn.hide().data ("morecount", Math.ceil (parseInt (parsed.find (".commentcount").html()) / 10));
             push.find ("div[id^=\"c\"]").remove();
             push.find ('form.frmcomment').eq (0).parent().before (res);
+            if($.isFunction(callback)) callback();
         });
+    };
+    plist.on ('click', '.all_comments_btn', function() {
+        showAllComments(this);
     });
 
     plist.on('click',".qu_ico",function() {
