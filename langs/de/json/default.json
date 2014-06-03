@@ -226,5 +226,7 @@
     "YES" : "Ja",
     "YESTERDAY" : "gestern",
     "YOUR_PROJECTS" : "Ihre Projekte",
-    "YOU_FOLLOW" : "Du folgst gerade"
+    "YOU_BLACKLISTED_THIS_USER" : "Sie auf der schwarzen Liste dieser Benutzers",
+    "YOU_FOLLOW" : "Du folgst gerade",
+    "YOU_HAVE_BEEN_BLACKLISTED" : "Sie haben auf der schwarzen Liste"
 }

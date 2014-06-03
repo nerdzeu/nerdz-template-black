@@ -227,5 +227,7 @@
     "YES" : "Yes",
     "YESTERDAY" : "Yesterday",
     "YOUR_PROJECTS" : "Your projects",
-    "YOU_FOLLOW" : "You're following"
+    "YOU_BLACKLISTED_THIS_USER" : "You blacklisted this user",
+    "YOU_FOLLOW" : "You're following",
+    "YOU_HAVE_BEEN_BLACKLISTED" : "You have been blacklisted"
 }

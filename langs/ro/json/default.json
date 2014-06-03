@@ -226,5 +226,7 @@
     "YES" : "Da",
     "YESTERDAY" : "ieri",
     "YOUR_PROJECTS" : "proiectele dumneavoastră",
-    "YOU_FOLLOW" : "Il urmaresti"
+    "YOU_BLACKLISTED_THIS_USER" : "Te pe lista neagră acest utilizator",
+    "YOU_FOLLOW" : "Il urmaresti",
+    "YOU_HAVE_BEEN_BLACKLISTED" : "Tu au fost pe lista neagră"
 }

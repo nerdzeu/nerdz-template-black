@@ -226,5 +226,7 @@
     "YES" : "Jedan",
     "YESTERDAY" : "jučer",
     "YOUR_PROJECTS" : "svoje projekte",
-    "YOU_FOLLOW" : "Ti si sljedeći"
+    "YOU_BLACKLISTED_THIS_USER" : "Ovo morate zapamtiti",
+    "YOU_FOLLOW" : "Ti si sljedeći",
+    "YOU_HAVE_BEEN_BLACKLISTED" : "Nisi bio u inozemstvu."
 }
