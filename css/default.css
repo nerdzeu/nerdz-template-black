@@ -350,7 +350,7 @@ html, #body
     font-size: 85%;
 }
 
-.nerdz_thumbs
+.nerdz_thumbs, .revisions
 {
     font-size: 80%; 
     margin-bottom: 10px; 
@@ -369,7 +369,7 @@ html, #body
     color: #FF3300;
 }
 
-.vote:hover
+.vote:hover, .revisions:hover
 {
     color: #FFFFA3;
     cursor: pointer;

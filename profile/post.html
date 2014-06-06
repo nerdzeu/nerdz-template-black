@@ -7,6 +7,11 @@
         :
         {/if}
         <div class="nerdz_date">
+            <span class="revisions">
+                {if="$revisions_n > 0"}
+                <span title="{$number_of_modifications}: {$revisions_n}" class="oldrev" data-refto="post{$hpid_n}" data-revisions="{$revisions_n}" data-hpid="{$hpid_n}">&#9664;</span>&nbsp;&nbsp;
+                {/if}
+            </span>
             <time>{$datetime_n}</time>
             <span class="thumbs">
               &nbsp;|&nbsp;              

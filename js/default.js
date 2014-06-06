@@ -322,12 +322,170 @@ $(document).ready(function() {
                     if( $(document.location.hash).length ) 
                         $(document).scrollTop ($(document.location.hash).offset().top);
                     else
-                        showAllComments($(".all_comments_btn")[0], function() {$(document).scrollTop ($(document.location.hash).offset().top);})
+                        showAllComments($(".all_comments_btn")[0], function() {$(document).scrollTop ($(document.location.hash).offset().top);});
             });
         }
         else
         {
             refto.html('');
+        }
+    });
+
+    plist.on('click', ".oldrev", function() {
+        var me = $(this), refto = $(this).data('refto');
+        var revno = parseInt( $(this).data('revisions') );
+        var func = "getRevision";
+        var obj = {hpid: $(this).data('hpid'), revNo: revno};
+        var id = 'hpid';
+
+        if(me.hasClass("comment")) {
+            func = "getCommentRevision";
+            obj = {hcid: $(this).data('hcid'), revNo: revno};
+            id = 'hcid';
+        }
+
+        if(!$(this).data('original-rev')) {
+            $(this).data('original-rev', revno);
+        }
+
+        if(revno > 0) {
+            N.json[plist.data('type')][func](obj, function(r) {
+                var tagTime = me.parent().parent(), timeVal = null;
+                if(id === 'hcid') {
+                    tagTime = tagTime.find('a');
+                    timeVal = tagTime.text();
+                } else {
+                    tagTime = tagTime.find('time');
+                    timeVal = tagTime.html();
+                }
+
+                tagTime.html(r.datetime);
+                if(!me.parent().find(".newrev").length) {
+                    var s = $(document.createElement("span"));
+                    s.attr("class", "newrev" + (id === 'hcid' ? ' comment' : ''));
+                    s.attr('data-refto', refto);
+                    s.attr('data-'+id, me.data(id));
+                    s.html("&#9654;");
+                    me.parent().append(s);
+                }
+
+                var div = null, pidTag = null;
+                if(id === 'hcid') {
+                    div = $("#" + refto).find(".nerdz_comments");
+                    pidTag = $(document.createElement("span"));
+                    pidTag.append( div.find(".delcomment") );
+                    pidTag.html(pidTag.html() + "#1");
+                    pidTag.css('font-size','0');
+                } else {
+                    div = $("#" + refto).find(".nerdz_message div:first");
+                    if(!div.length) {
+                        div = $("#" + refto).find(".news div:first");
+                    }
+                    pidTag = div.find("span:first");
+                    pidTag.remove();
+                }
+
+                var storeName = plist.data('type') + "store" + func;
+
+                var elms = {};                    
+                if(!sessionStorage[storeName]) { //init store
+                    elms[me.data(id)] = [];
+                    elms[me.data(id)][revno] = {};
+                    elms[me.data(id)][revno].message = div.html();
+                    elms[me.data(id)][revno].time = timeVal;
+                    sessionStorage[storeName] = JSON.stringify(elms);
+                } else { // store exists
+                    elms = JSON.parse(sessionStorage[storeName]);
+                    if(!elms[me.data(id)]) {
+                        elms[me.data(id)] = [];
+                    }
+                    if(!elms[me.data(id)][revno]) {
+                        elms[me.data(id)][revno] = {};
+                        elms[me.data(id)][revno].message = div.html();
+                        elms[me.data(id)][revno].time = timeVal;
+                        sessionStorage[storeName] = JSON.stringify(elms);
+                    }
+                }
+
+                div.html(r.message);
+                if(pidTag.html().search(/^#\d+$/) != -1) {
+                    pidTag.html(pidTag.html() + " - rev: " + revno);
+                } else {
+                    pidTag.html(pidTag.html().replace(/(#.+?):\s*(\d+)/, function($0, $1, $2) {
+                        return $1 +": " + revno;
+                    }));
+                }
+                div.prepend(pidTag);
+
+                var rev = revno - 1;
+                me.data('revisions', rev);
+                if(rev === 0) {
+                    me.hide();
+                }
+            });
+        }
+    });
+
+    plist.on('click', '.newrev', function() {
+        var me = $(this), refto = $(this).data('refto');
+
+        var func = "getRevision";
+        var id = 'hpid';
+        var tagTime =  me.parent().parent().find('time');
+
+        if(me.hasClass("comment")) {
+            func = "getCommentRevision";
+            id = 'hcid';
+            tagTime = me.parent().parent().find('a');
+        }
+        var storeName = plist.data('type') + "store" + func;
+
+        if(sessionStorage[storeName]) {
+            var elms = JSON.parse(sessionStorage[storeName]);
+            if(elms[me.data(id)]) {
+
+                if(id === 'hcid') {
+                    div = $("#" + refto).find(".nerdz_comments");
+                    pidTag = $(document.createElement("span"));
+                    pidTag.append( div.find(".delcomment") );
+                    pidTag.html(pidTag.html() + "#1");
+                } else {
+                    div = $("#" + refto).find(".nerdz_message div:first");
+                    if(!div.length) {
+                        div = $("#" + refto).find(".news div:first");
+                    }
+                    pidTag = div.find("span:first");
+                    pidTag.remove();
+                }
+
+                elms[me.data(id)] = elms[me.data(id)].filter(function(v) { return v !== null; });
+                div.html(elms[me.data(id)][0].message);
+                tagTime.html(elms[me.data(id)][0].time);
+                elms[me.data(id)][0] = null;
+                elms[me.data(id)] = elms[me.data(id)].filter(function(v) { return v !== null; });
+                sessionStorage[storeName] = JSON.stringify(elms);
+                //update counter
+                var d = me.parent().find(".oldrev");
+                var rev  = parseInt(d.data('revisions')) + 1;
+                d.data('revisions', rev);
+
+                pidTag.html(pidTag.html().replace(/(#.+?):\s*(\d+)/, function($0, $1, $2) {
+                     return $1 +": " + (rev == 1 ? rev+1 : rev);
+                }));
+
+                if(id === 'hcid') {
+                    pidTag.css('font-size', '0');
+                }
+                
+                div.prepend(pidTag);
+                if(rev >= parseInt(d.data('original-rev'))){
+                    me.remove();
+                    pidTag.html(pidTag.html().replace(/(#\d+).*:\s*(\d+)/, function($0, $1, $2) {
+                        return $1;
+                    }));
+                }
+                d.show();
+            }
         }
     });
 
@@ -474,34 +632,46 @@ $(document).ready(function() {
         e.preventDefault();
         var refto = $('#' + $(this).data('refto')), hpid = $(this).data('hpid');
         var editlang = $(this).html();
-        var form = function(fid,hpid,message,edlang,prev) {
-                    return     '<form style="margin-bottom:40px" id="' +fid+ '" data-hpid="'+hpid+'">' +
+
+        var getF = "getPost", editF = "editPost";
+        var getObj = {hpid: hpid};
+        var editObj = {hpid: hpid};
+        var id = hpid;
+        var type = 'hpid';
+
+        if($(this).hasClass("comment")) {
+            type = 'hcid';
+            getF = "getComment";
+            editF = "editComment";
+            getObj = {hcid: $(this).data('hcid') };
+            editObj = {hcid: $(this).data('hcid') };
+            id = hcid;
+        }
+
+        var form = function(fid,id,message,edlang,prev, type) {
+                    return     '<form style="margin-bottom:40px" id="' +fid+ '" data-'+type+'="'+id+'">' +
                                '<textarea id="'+fid+'abc" autofocus style="width:99%; height:125px">' +message+ '</textarea><br />' +
                                '<input type="submit" value="' + edlang +'" style="float: right; margin-top:5px" />' +
                                 '<button type="button" style="float:right; margin-top: 5px" class="preview" data-refto="#'+fid+'abc">'+prev+'</button>'+
                                '<button type="button" style="float:left; margin-top:5px" onclick="window.open(\'/bbcode.php\')">BBCode</button>' +
                            '</form>';
                     };
-            N.json[plist.data('type')].getPost({hpid: hpid},function(d) {
+            N.json[plist.data('type')][getF](getObj,function(d) {
                  var fid = refto.attr('id') + 'editform';
-                 refto.html(form(fid,hpid,d.message,editlang,$(".preview").html()));
+                 refto.html(form(fid,id,d.message,editlang,$(".preview").html(), type));
 
                  $('#'+fid).on('submit',function(e) {
                       e.preventDefault();
-                      N.json[plist.data('type')].editPost(
-                            {
-                                 hpid: $(this).data('hpid'),
-                                 message: $(this).children('textarea').val()
-                            },function(d)
-                            {
+                      N.json[plist.data('type')][editF]($.extend(editObj, {message: $(this).children('textarea').val()}),
+                          function(d) {
                                  if(d.status == 'ok')
                                  {
                                       refto.slideToggle("slow");
-                                      N.html[plist.data('type')].getPost({hpid: hpid}, function(o) {
+                                      N.html[plist.data('type')][getF](getObj, function(o) {
                                             refto.html(o);
                                             refto.slideToggle("slow");
-                                            if(refto.data("hide").length) {
-                                                $(refto.find("div.small")[0]).prepend('<a class="hide" style="float:right; margin-left:3px" data-postid="post'+hpid+'">'+refto.data("hide")+'</a>');
+                                            if(refto.data("hide")) {
+                                                $(refto.find("div.small")[0]).prepend('<a class="hide" style="float:right; margin-left:3px" data-postid="post'+id+'">'+refto.data("hide")+'</a>');
                                             }
                                       });
                                  }
