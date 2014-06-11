@@ -628,7 +628,7 @@ $(document).ready(function() {
         });
     });
 
-    plist.on('click',".editpost",function(e) {
+    plist.on('click',".edit",function(e) {
         e.preventDefault();
         var refto = $('#' + $(this).data('refto')), hpid = $(this).data('hpid');
         var editlang = $(this).html();
@@ -643,8 +643,9 @@ $(document).ready(function() {
             type = 'hcid';
             getF = "getComment";
             editF = "editComment";
-            getObj = {hcid: $(this).data('hcid') };
-            editObj = {hcid: $(this).data('hcid') };
+            var hcid =  $(this).data('hcid');
+            getObj = {hcid: hcid };
+            editObj = {hcid: hcid };
             id = hcid;
         }
 
