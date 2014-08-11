@@ -6,20 +6,6 @@ $(document).ready(function() {
     var load = false; //gestisce i caricamenti ed evita sovrapposizioni. Dichiarata qui che è il foglio che viene incluso di default ovunque e per primo
     plist.html('<h1>'+loading+'...</h1>');
 
-    var fixHeights = function() {
-        plist.find(".nerdz_message").each (function() {
-            var el = $(this).find('div:first');
-            // TODO: switch from attr('data-parsed') to data('parsed')
-            if ((el.height() >= 200 || el.find ('.gistLoad').length > 0) && !el.attr('data-parsed'))
-            {
-                el.data ('real-height', el.height()).addClass ("compressed");
-                var n = el.next();
-                n.prepend ('<p class="more">&gt;&gt; ' + N.getLangData().EXPAND + ' &lt;&lt;</p>'); // Spaces master race.
-            }
-            el.attr('data-parsed','1');
-        });
-    };
-
     var onRemoveHiddenPost = function() {
         var me = $(this), target = me.data ("target"), lv = localStorage.getItem ("hid").split ("|"), serialized = "";
         $("#" + target).slideToggle (function() {
@@ -83,7 +69,7 @@ $(document).ready(function() {
             }
         });
 
-        fixHeights();
+        window.fixHeights();
     };
 
 

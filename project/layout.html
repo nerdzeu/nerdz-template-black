@@ -149,6 +149,7 @@
                     plist.html(data);
                     load = true;
                     sessionStorage.setItem(sl,"0");
+                    window.fixHeights();
                 });
             });
             
@@ -177,6 +178,7 @@
                                     plist.append(data);
                                     load = true;
                                     sessionStorage.setItem(sl,"0");
+                                    window.fixHeights();
                                 }
                             });
                         }
@@ -191,6 +193,7 @@
                                 plist.append(data);
                                 load = false;
                                 sessionStorage.setItem(sl,"1");
+                                window.fixHeights();
                             }
                         });
                     }

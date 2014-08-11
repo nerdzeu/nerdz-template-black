@@ -1,15 +1,37 @@
 $(document).ready(function() {
     var loading = N.getLangData().LOADING;
+
+    window.fixHeights = function() {
+        plist.find(".nerdz_message").each (function() {
+            var el = $(this).find('div:first');
+            if ((el.height() >= 200 || el.find ('.gistLoad').length > 0) && !el.data('parsed'))
+            {
+                el.data ('real-height', el.height()).addClass ("compressed");
+                var n = el.next();
+                n.prepend ('<p class="more">&gt;&gt; ' + N.getLangData().EXPAND + ' &lt;&lt;</p>'); // Spaces master race.
+            }
+            el.attr('data-parsed','1');
+        });
+    };
+
     $("iframe").attr('scrolling','no');
     $("body").append($('<br />'));
+
     // append version information
     if ($("#left_col").length && window.location.pathname == "/home.php" && typeof Nversion !== 'undefined' && Nversion != 'null')
         // according to stackoverflow, using 'target' in HTML5 is alright so let's do it
-        $("#left_col .title").eq (0).append (" <span class='small' style='font-weight: normal; vertical-align: middle'><a href='https://github.com/nerdzeu/nerdz.eu/commit/" + Nversion + "' target='wowsoversion' style='color: #000 !important'>[" + Nversion + "]</a></span>").find ('a').css ('vertical-align', 'middle');
+        $("#left_col .title").eq (0).append (
+                " <span class='small' style='font-weight: normal; vertical-align: middle'><a href='https://github.com/nerdzeu/nerdz.eu/commit/" +
+                Nversion + 
+                "' target='wowsoversion' style='color: #000 !important'>[" +
+                Nversion + 
+                "]</a></span>").find ('a').css ('vertical-align', 'middle');
+
     // load the prettyprinter
     var append_theme = "", _h = $("head");
     if (localStorage.getItem ("has-dark-theme") == 'yep')
         append_theme = "?skin=sons-of-obsidian";
+
     var prettify = document.createElement ("script");
     prettify.type = "text/javascript";
     prettify.src  = 'https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.js' + append_theme;

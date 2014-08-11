@@ -11,7 +11,7 @@
     // JS section
     "js": {
         "default": [ "js/default.js", {
-            "lang": [ "LOADING" ]
+            "lang": [ "LOADING", "EXPAND" ]
         } ],
         "home": [ "js/home.js", {
             "lang": [ "HIDDEN_POSTS", "EXPAND" ],
