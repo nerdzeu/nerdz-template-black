@@ -400,10 +400,12 @@ $(document).ready(function() {
                     pidTag.css('font-size','0');
                 } else {
                     div = $("#" + refto).find(".nerdz_message div:first");
+                    pidTag = $("#" + refto).find(".nerdz_message span:first");
                     if(!div.length) {
                         div = $("#" + refto).find(".news div:first");
+                        pidTag = $("#" + refto).find(".news span:first");
                     }
-                    pidTag = div.find("span:first");
+
                     pidTag.remove();
                 }
 
