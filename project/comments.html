@@ -13,6 +13,9 @@
             {$value.from_n}
         </a>
         <span class="nerdz_date">
+          {if="$value.caneditcomment_b"}
+            <a class="edit comment" data-hcid="{$value.hcid_n}" data-refto="{$value.uid_n}">{$edit}</a>
+          {/if}
           <span class="revisions">
                 {if="$value.revisions_n > 0"}
                 <span title="{$number_of_modifications}: {$value.revisions_n}" class="oldrev comment" data-refto="{$value.uid_n}" data-revisions="{$value.revisions_n}" data-hcid="{$value.hcid_n}">&#9664;</span>&nbsp;&nbsp;
