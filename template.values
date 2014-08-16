@@ -14,7 +14,7 @@
             "lang": [ "LOADING", "EXPAND" ]
         } ],
         "home": [ "js/home.js", {
-            "lang": [ "HIDDEN_POSTS", "EXPAND" ],
+            "lang": [ "HIDDEN_POSTS", "EXPAND", "HIDE" ],
             "outputVersion": true // you should probably not change this
         } ],
         "preferences": "js/preferences.js",

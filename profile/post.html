@@ -6,7 +6,7 @@
         {else}
         :
         {/if}
-        <div class="nerdz_date">
+       	<div class="nerdz_date">
             <span class="revisions">
                 {if="$revisions_n > 0"}
                 <span title="{$number_of_modifications}: {$revisions_n}" class="oldrev" data-refto="post{$hpid_n}" data-revisions="{$revisions_n}" data-hpid="{$hpid_n}">&#9664;</span>&nbsp;&nbsp;
@@ -14,14 +14,14 @@
             </span>
             <time>{$datetime_n}</time>
             <span class="thumbs">
-              &nbsp;|&nbsp;              
-              <span class='thumbs-counter{if="$thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$thumbs_n > 0"}+{/if}{$thumbs_n}</span>
-              &nbsp;&nbsp;
-              <div class="nerdz_thumbs" data-refto="{$hpid_n}">
-                <i class='vote up{if="$uthumb_n == 1"} voted{/if}'>&#9650;</i>&nbsp;&nbsp;
-                <i class='vote down{if="$uthumb_n ==-1"} voted{/if}'>&#9660;</i>&nbsp;&nbsp;
-              </div>
-            </span>
+                &nbsp;|&nbsp;              
+                <span class='thumbs-counter{if="$thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$thumbs_n > 0"}+{/if}{$thumbs_n}</span>
+                &nbsp;&nbsp;
+                <span class="nerdz_thumbs" data-refto="{$hpid_n}">
+                  <a class='vote up{if="$uthumb_n == 1"} voted{/if}'>&#9650;</a>&nbsp;&nbsp;
+                  <a class='vote down{if="$uthumb_n ==-1"} voted{/if}'>&#9660;</a>&nbsp;&nbsp;
+                </span>
+          </span>
         </div>
     </div>
     <div class="{if="$news_b"}news{else}nerdz_message{/if}">

@@ -695,9 +695,8 @@ $(document).ready(function() {
                                       N.html[plist.data('type')][getF](getObj, function(o) {
                                             refto.html(o);
                                             refto.slideToggle("slow");
-                                            if(refto.data("hide")) {
-                                                $(refto.find("div.small")[0]).prepend('<a class="hide" style="float:right; margin-left:3px" data-postid="post'+id+'">'+refto.data("hide")+'</a>');
-                                            }
+                                            $(refto.find("div.small")[0]).prepend('<a class="hide" style="float:right; margin-left:3px" data-postid="post'+id+'">'+N.getLangData().HIDE+'</a>');
+                                            
                                       });
                                  }
                                  else {

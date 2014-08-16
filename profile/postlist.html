@@ -15,17 +15,17 @@
               </span>
               <time>{$value.datetime_n}</time>
               <span class="thumbs">
-                &nbsp;|&nbsp;              
-                <span class='thumbs-counter{if="$value.thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$value.thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$value.thumbs_n > 0"}+{/if}{$value.thumbs_n}</span>
-                &nbsp;&nbsp;
-                <div class="nerdz_thumbs" data-refto="{$value.hpid_n}">
-                  <i class='vote up{if="$value.uthumb_n == 1"} voted{/if}'>&#9650;</i>&nbsp;&nbsp;
-                  <i class='vote down{if="$value.uthumb_n ==-1"} voted{/if}'>&#9660;</i>&nbsp;&nbsp;
-                </div>
+                   &nbsp;|&nbsp;              
+                   <span class='thumbs-counter{if="$value.thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$value.thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$value.thumbs_n > 0"}+{/if}{$value.thumbs_n}</span>
+                   &nbsp;&nbsp;
+                   <span class="nerdz_thumbs" data-refto="{$value.hpid_n}">
+                       <a class='vote up{if="$value.uthumb_n == 1"} voted{/if}'>&#9650;</a>&nbsp;&nbsp;
+                       <a class='vote down{if="$value.uthumb_n ==-1"} voted{/if}'>&#9660;</a>&nbsp;&nbsp;
+                   </span>
               </span>
             </div>
         </div>
-        <div class="nerdz_message">
+        <div class="{if="$value.news_b"}news{else}nerdz_message{/if}">
             <div>
                 <span class="nerdz_date" style="font-size: 7pt">
                     #{$value.pid_n}
@@ -57,7 +57,7 @@
                             </span>
                         {else}
                             <span style="margin-right:3px; float: right">
-                                <img class="imgunlocked"  width="16" height="16" data-hpid="{$value.hpid_n}" src="images/unlock.png" alt="" title="{$not_recv_notify}" onclick="" />
+                                <img class="imgunlocked" width="16" height="16" data-hpid="{$value.hpid_n}" src="images/unlock.png" alt="" title="{$not_recv_notify}" onclick="" />
                             </span>
                         {/if}
                     {/if}

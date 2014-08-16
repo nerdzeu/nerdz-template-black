@@ -315,9 +315,9 @@ html, #body
 
 .news
 {
-    background-color: #FFF;
-    color: #000;
     clear: left;
+    color: #fff;
+    border: 1px solid #FB3;
 }
 
 .nerdz_comments, .quote, .spoiler
