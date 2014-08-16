@@ -695,7 +695,9 @@ $(document).ready(function() {
                                       N.html[plist.data('type')][getF](getObj, function(o) {
                                             refto.html(o);
                                             refto.slideToggle("slow");
-                                            $(refto.find("div.small")[0]).prepend('<a class="hide" style="float:right; margin-left:3px" data-postid="post'+id+'">'+N.getLangData().HIDE+'</a>');
+                                            if(typeof N.getLangData().HIDE != "undefined") {
+                                                $(refto.find("div.small")[0]).prepend('<a class="hide" style="float:right; margin-left:3px" data-postid="post'+id+'">'+N.getLangData().HIDE+'</a>');
+                                            }
                                             
                                       });
                                  }
