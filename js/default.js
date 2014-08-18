@@ -374,12 +374,14 @@ $(document).ready(function() {
             N.json[plist.data('type')][func](obj, function(r) {
                 var tagTime = me.parent().parent(), timeVal = null;
                 if(id === 'hcid') {
-                    tagTime = tagTime.find('a');
-                    timeVal = tagTime.text();
+                    tagTime = tagTime.find('a[id^="ndc"]');
+                    console.log(tagTime);
                 } else {
+                    console.log(me.parent().parent());
                     tagTime = tagTime.find('time');
-                    timeVal = tagTime.html();
+                    console.log(tagTime);
                 }
+                timeVal = tagTime.html();
 
                 tagTime.html(r.datetime);
                 if(!me.parent().find(".newrev").length) {
@@ -387,7 +389,7 @@ $(document).ready(function() {
                     s.attr("class", "newrev" + (id === 'hcid' ? ' comment' : ''));
                     s.attr('data-refto', refto);
                     s.attr('data-'+id, me.data(id));
-                    s.html("&#9654;");
+                    s.html("&#9654;&nbsp;");
                     me.parent().append(s);
                 }
 
@@ -460,7 +462,7 @@ $(document).ready(function() {
         if(me.hasClass("comment")) {
             func = "getCommentRevision";
             id = 'hcid';
-            tagTime = me.parent().parent().find('a');
+            tagTime = me.parent().parent().children('a[id^="ndc"]');
         }
         var storeName = plist.data('type') + "store" + func;
 
