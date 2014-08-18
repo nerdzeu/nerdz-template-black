@@ -14,7 +14,9 @@
         </a>
         <span class="nerdz_date">
           {if="$value.caneditcomment_b"}
+          &nbsp;
             <a class="edit comment" data-hcid="{$value.hcid_n}" data-refto="{$value.uid_n}">{$edit}</a>
+          &nbsp;|&nbsp;
           {/if}
           <span class="revisions">
                 {if="$value.revisions_n > 0"}

@@ -682,7 +682,6 @@ $(document).ready(function() {
                            '</form>';
                     };
 
-        console.log(N.json[plist.data('type')][getF]);
             N.json[plist.data('type')][getF](getObj,function(d) {
                  var fid = refto.attr('id') + 'editform';
                  refto.html(form(fid,id,d.message,editlang,$(".preview").html(), type));
