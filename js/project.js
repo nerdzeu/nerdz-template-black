@@ -4,17 +4,29 @@ $(document).ready(function() {
     $("#stdfrm").on('submit',function(event) {
         event.preventDefault();
          $("#pmessage").html(loading+'...');
-         var news = $("#sendnews");
-         if(news.length)
-         {
+         var news  = $("#sendnews");
+         var issue = $("#sendissue");
+
+         if(news.length) {
              news = news.is(':checked') ? '1' : '0';
          }
-         else
-         {
+         else {
              news = '0';
          }
 
-         N.json.project.newPost({message: $("#frmtxt").val(), to: $(this).data('to'), news: news },function(data) {
+         if(issue.length) {
+             issue = issue.is(':checked') ? '1' : '0';
+         }
+         else {
+             issue = '0';
+         }
+
+         N.json.project.newPost({
+             message: $("#frmtxt").val(),
+             to: $(this).data('to'),
+             news: news,
+             issue: issue },
+         function(data) {
             if(data.status == 'ok') {
                 $("#showpostlist").click();
                 $("#frmtxt").val('');
