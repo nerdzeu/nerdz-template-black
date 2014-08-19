@@ -91,6 +91,7 @@ $(document).ready(function() {
             plist.html(d);
             //variabile booleana messa come stringa data che nel dom posso salvare solo stringhe
             sessionStorage.setItem('searchLoad', "1"); //e' la variabile load di search, dato che queste azioni sono in questo file js ma sono condivise da tutte le pagine, la variabile di caricamento dev'essere nota a tutte
+            window.fixHeights(); 
         };
 
         if(plist.data('type') == 'project')
