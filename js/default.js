@@ -1,19 +1,6 @@
 $(document).ready(function() {
     var loading = N.getLangData().LOADING;
 
-    window.fixHeights = function() {
-        plist.find(".nerdz_message").each (function() {
-            var el = $(this).find('div:first');
-            if ((el.height() >= 200 || el.find ('.gistLoad').length > 0) && !el.data('parsed'))
-            {
-                el.data ('real-height', el.height()).addClass ("compressed");
-                var n = el.next();
-                n.prepend ('<a class="more">&gt;&gt; ' + N.getLangData().EXPAND + ' &lt;&lt;</a>'); // Spaces master race.
-            }
-            el.attr('data-parsed','1');
-        });
-    };
-
     $("iframe").attr('scrolling','no');
     $("body").append($('<br />'));
 
@@ -218,6 +205,19 @@ $(document).ready(function() {
 
     //begin plist into events (common to: homepage, projects, profiles)
     var plist = $("#postlist");
+
+    window.fixHeights = function() {
+        plist.find(".nerdz_message, .news").each (function() {
+            var el = $(this).find('div:first');
+            if ((el.height() >= 200 || el.find ('.gistLoad').length > 0) && !el.data('parsed'))
+            {
+                el.data ('real-height', el.height()).addClass ("compressed");
+                var n = el.next();
+                n.prepend ('<a class="more">&gt;&gt; ' + N.getLangData().EXPAND + ' &lt;&lt;</a>'); // Spaces master race.
+            }
+            el.attr('data-parsed','1');
+        });
+    };
 
     plist.on('click', ".yt_frame", function(e) {
         e.preventDefault();

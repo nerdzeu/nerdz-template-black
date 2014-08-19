@@ -90,7 +90,7 @@
     text-align: left;
 }
 
-.nerdz_message > div.compressed
+.nerdz_message > div.compressed, .news > div.compressed
 {
     max-height: 200px;
     overflow: hidden;
@@ -255,6 +255,7 @@ html, #body
     padding-bottom: 5px;
     text-align: center;
     box-shadow: 0 0 25px #000;
+    display: block;
 }
 
 .nitem
