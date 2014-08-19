@@ -8,7 +8,7 @@ $(document).ready(function() {
             {
                 el.data ('real-height', el.height()).addClass ("compressed");
                 var n = el.next();
-                n.prepend ('<p class="more">&gt;&gt; ' + N.getLangData().EXPAND + ' &lt;&lt;</p>'); // Spaces master race.
+                n.prepend ('<a class="more">&gt;&gt; ' + N.getLangData().EXPAND + ' &lt;&lt;</a>'); // Spaces master race.
             }
             el.attr('data-parsed','1');
         });
