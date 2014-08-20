@@ -651,6 +651,8 @@ $(document).ready(function() {
                   refto.on('click','#delPostNo'+hpid,function() {
                         refto.html(post);
                   });
+             } else {
+                alert(d.message);
              }
         });
     });
@@ -721,6 +723,8 @@ $(document).ready(function() {
                 me.attr('class','imgunlocked');
                 me.attr('src',newsrc.replace('/lock.png','/unlock.png'));
                 me.attr('title',d.message);
+            } else {
+                alert(d.message);
             }
         };
           
@@ -740,6 +744,8 @@ $(document).ready(function() {
                 me.attr('class','imglocked');
                 me.attr('src',newsrc.replace('/unlock.png','/lock.png'));
                 me.attr('title',d.message);
+            } else {
+                alert(d.message);
             }
         };
 
@@ -759,6 +765,8 @@ $(document).ready(function() {
                 me.attr('class','unlurk');
                 me.attr('src',newsrc.replace('/lurk.png','/unlurk.png'));
                 me.attr('title',d.message);
+            } else {
+                alert(d.message);
             }
         };
           
@@ -774,6 +782,8 @@ $(document).ready(function() {
                 me.attr('class','lurk');
                 me.attr('src',newsrc.replace('/unlurk.png','/lurk.png'));
                 me.attr('title',d.message);
+            } else {
+                alert(d.message);
             }
         };
           
@@ -788,6 +798,8 @@ $(document).ready(function() {
                 me.attr('class','unbookmark');
                 me.attr('src',newsrc.replace('/bookmark.png','/unbookmark.png'));
                 me.attr('title',d.message);
+            } else {
+                alert(d.message);
             }
         };
           
@@ -803,6 +815,8 @@ $(document).ready(function() {
                 me.attr('class','bookmark');
                 me.attr('src',newsrc.replace('/unbookmark.png','/bookmark.png'));
                 me.attr('title',d.message);
+            } else {
+                alert(d.message);
             }
         };
 
