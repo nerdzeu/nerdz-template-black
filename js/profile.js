@@ -19,7 +19,7 @@ $(document).ready(function() {
     });
 
     var oldPlist = "";
-    $("#follow").click(function() {
+    $("#follow, .follow").click(function() {
         var me = $(this);
         me.html('...');
         N.json.profile.follow({id: $(this).data('id')},function(d) {
@@ -28,7 +28,7 @@ $(document).ready(function() {
         });
     });
 
-    $("#unfollow").click(function() {
+    $("#unfollow, .unfollow").click(function() {
         var me = $(this);
         me.html('...');
         N.json.profile.unfollow({id: $(this).data('id')},function(d) {

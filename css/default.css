@@ -188,7 +188,7 @@ label, .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang
     cursor: pointer;
 }
 
-input, option, select, textarea, button, .page th, .title
+input, option, select, textarea, button, .page th, .title, .follow, .unfollow
 {
     border: 0.5px #000 solid;
     text-align: left;
@@ -197,7 +197,7 @@ input, option, select, textarea, button, .page th, .title
     border-radius: 2.5px;
 }
 
-button, input[type=submit], .page th, .title
+button, input[type=submit], .page th, .title, .follow, .unfollow
 {
     padding-left: 1%;
     padding-right: 1%;
@@ -253,7 +253,6 @@ html, #body
     top: -12px;
     margin-bottom: -10px;
     padding-bottom: 5px;
-    text-align: center;
     box-shadow: 0 0 25px #000;
     display: block;
 }
@@ -289,16 +288,19 @@ html, #body
     margin-bottom: 3%;
 }
 
+.follow, .unfollow, .title, .page th, .more, .center-text
+{
+    text-align: center;
+}
+
 .title
 {
     cursor: default;
-    text-align: center;
 }
 
 .page th
 {
     width: 10%;
-    text-align: center;
 }
 
 .nerdz_message, .nerdz_comments, .news
