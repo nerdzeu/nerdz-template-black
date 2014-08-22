@@ -1,34 +1,38 @@
-<div id="left_col">&nbsp;</div>
-<article id="center_col">
-    <table style="margin: auto" class="page">
-        <tr style="cursor: pointer">
-            <th style="width:5%" id="id">{$id}</th>
-            <th style="width:23%" id="username">{$username}</th>
-            <th style="width:23%" id="name">{$name}</th>
-            <th style="width:23%" id="surname">{$surname}</th>
-            <th style="width:23%" id="birthdate">{$birth_date}</th>
-        </tr>
-    {loop="list_a"}
-        <tr>
-            <td>{$value.id_n}</td>
-            <td><a href="/{$value.username4link_n}">{$value.username_n}</a></td>
-            <td>{$value.name_n}</td>
-            <td>{$value.surname_n}</td>
-            <td>{$value.birthdate_n}</td>
-        </tr>
-    {/loop}
-    </table>
-
-    {if="!empty($prev_url_n)"}
-        <div style="float:left; margin-left:5%">
-            <a href="{$prev_url_n}">&lt;&lt;&lt;</a>
-        </div>
-    {/if}
-    {if="!empty($next_url_n)"}
-        <div style="float:right; margin-right:5%">
-            <a href="{$next_url_n}">&gt;&gt;&gt;</a>
-        </div>
-    {/if}
-
-    <br /><br /><br />
-</article>
+{loop="list_a"}
+    <ol class="follow-list">
+        <li class="follow-list-item">
+            <a href="/{$value.username4link_n}">
+                <img alt="{$value.username_n}" class="gravatar" src="{$value.gravatarurl_n}&amp;s=192#" height="96" width="96">
+            </a>
+            <div class="follow-list-container">
+                <a href="/{$value.username4link_n}" class="follow-list-title">
+                    {$value.username_n}
+                </a>
+                <div class="light">
+                    {if="$type_n == 'friends'"}{$friends_since}
+                    {elseif="$type_n == 'following'"}{$following_since}
+                    {elseif="$type_n == 'followers'"}{$following_since}
+                    {elseif="$type_n == 'list'"}{$registered_since}
+                    {/if}: {$value.since_n}
+                </div>
+                {if="$value.canshowfollow_b"}
+                    {if="$value.canifollow_b"}
+                        <div class="follow" data-id="{$value.id_n}">{$follow}</div>
+                    {else}
+                        <div class="unfollow" data-id="{$value.id_n}">{$unfollow}</div>
+                    {/if}
+                {/if}
+            </div>
+        </li>
+    </ol>
+{/loop}
+{if="!empty($prev_url_n)"}
+<div style="float:left; margin-left:5%">
+    <a href="{$prev_url_n}">&lt;&lt;&lt;</a>
+</div>
+{/if}
+{if="!empty($next_url_n)"}
+<div style="float:right; margin-right:5%">
+    <a href="{$next_url_n}">&gt;&gt;&gt;</a>
+</div>
+{/if}

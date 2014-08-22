@@ -19,23 +19,6 @@ $(document).ready(function() {
     });
 
     var oldPlist = "";
-    $("#follow, .follow").click(function() {
-        var me = $(this);
-        me.html('...');
-        N.json.profile.follow({id: $(this).data('id')},function(d) {
-            me.html(d.message);
-            me.off('click');
-        });
-    });
-
-    $("#unfollow, .unfollow").click(function() {
-        var me = $(this);
-        me.html('...');
-        N.json.profile.unfollow({id: $(this).data('id')},function(d) {
-            me.html(d.message);
-            me.off('click');
-        });
-    });
 
     $("#blacklist").click(function() {
         var me = $(this);

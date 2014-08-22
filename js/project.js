@@ -39,22 +39,4 @@ $(document).ready(function() {
                         },5000);
         });
     });
-
-    $("#follow, .follow").click(function() {
-        var me = $(this);
-        me.html('...');
-        N.json.project.follow({id: $(this).data('id')},function(d) {
-            me.html(d.message);
-            me.off('click');
-        });
-    });
-
-    $("#unfollow, .unfollow").click(function() {
-        var me = $(this);
-        me.html('...');
-        N.json.project.unfollow({id: $(this).data('id')},function(d) {
-            me.html(d.message);
-            me.off('click');
-        });
-    });
 });

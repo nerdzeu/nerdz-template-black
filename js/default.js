@@ -204,6 +204,36 @@ $(document).ready(function() {
         }
     });
 
+    var handleFolUn = function(me, d, oldValue) {
+        me.html(d.message);
+        if(d.status == 'ok') {
+            me.off('click');
+        } else {
+            setTimeout(function() {
+                me.html(oldValue);
+            },1500);
+        }
+    };
+
+    $("#follow, .follow").click(function() {
+        var me = $(this), oldValue = me.html();
+        me.html('...');
+        var type = me.hasClass('project') ? 'project' : 'profile';
+        N.json[type].follow({id: $(this).data('id')},function(d) {
+            handleFolUn(me, d, oldValue);
+        });
+    });
+
+    $("#unfollow, .unfollow").click(function() {
+        var me = $(this), oldValue = me.html();
+        me.html('...');
+        var type = me.hasClass('project') ? 'project' : 'profile';
+        N.json[type].unfollow({id: $(this).data('id')},function(d) {
+            handleFolUn(me, d, oldValue);
+        });
+    });
+
+
     //begin plist into events (common to: homepage, projects, profiles)
     var plist = $("#postlist");
 
