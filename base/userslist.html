@@ -1,5 +1,6 @@
+<ol class="follow-list">
 {loop="list_a"}
-    <ol class="follow-list">
+
         <li class="follow-list-item">
             <a href="/{$value.username4link_n}">
                 <img alt="{$value.username_n}" class="gravatar" src="{$value.gravatarurl_n}&amp;s=192#" height="96" width="96">
@@ -24,8 +25,9 @@
                 {/if}
             </div>
         </li>
-    </ol>
 {/loop}
+    </ol>
+    <br />
 {if="!empty($prev_url_n)"}
 <div style="float:left; margin-left:5%">
     <a href="{$prev_url_n}">&lt;&lt;&lt;</a>
@@ -36,3 +38,4 @@
     <a href="{$next_url_n}">&gt;&gt;&gt;</a>
 </div>
 {/if}
+<br /><br />
