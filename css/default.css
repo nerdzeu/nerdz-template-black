@@ -532,10 +532,12 @@ pre
 {
     padding: 3px 3px 3px 3px;
 }
+
 .follow-list
 {
     list-style-type: none;
     margin:0px;
+    overflow:hidden;
 }
 
 .follow-list-item {

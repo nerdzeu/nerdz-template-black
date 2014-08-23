@@ -108,7 +108,7 @@
     {/if}
         <div id="postlist" data-type="project" data-projectid="{$id_n}" data-location="project" data-limit="0" data-mode="std">
             {ignore} Data type == project è un progetto, parte da limit 0 a fare le richieste{/ignore}
-            {if="$singlepost_b"}
+            {if="isset($post_n)"} {ignore} handle single post and followers{/ignore}
                 {$post_n}
             {/if}
         </div>
@@ -138,7 +138,7 @@
     <br /><br />
     </aside>
     <div id="showpostlist" style="display:none"></div>
-{if="!$singlepost_b"}
+{if="!isset($post_n)"}
     <script type="application/javascript">
         $(document).ready(function() {
             var plist = $("#postlist");

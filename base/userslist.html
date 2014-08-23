@@ -1,40 +1,38 @@
 <ol class="follow-list">
 {loop="list_a"}
-
-        <li class="follow-list-item">
-            <a href="/{$value.username4link_n}">
-                <img alt="{$value.username_n}" class="gravatar" src="{$value.gravatarurl_n}&amp;s=192#" height="96" width="96">
+    <li class="follow-list-item">
+        <a href="/{$value.username4link_n}">
+            <img alt="{$value.username_n}" class="gravatar" src="{$value.gravatarurl_n}&amp;s=192#" height="96" width="96">
+        </a>
+        <div class="follow-list-container">
+            <a href="/{$value.username4link_n}" class="follow-list-title">
+                {$value.username_n}
             </a>
-            <div class="follow-list-container">
-                <a href="/{$value.username4link_n}" class="follow-list-title">
-                    {$value.username_n}
-                </a>
-                <div class="light">
-                    {if="$type_n == 'friends'"}{$friends_since}
-                    {elseif="$type_n == 'following'"}{$following_since}
-                    {elseif="$type_n == 'followers'"}{$following_since}
-                    {elseif="$type_n == 'list'"}{$registered_since}
-                    {/if}: {$value.since_n}
-                </div>
-                {if="$value.canshowfollow_b"}
-                    {if="$value.canifollow_b"}
-                        <div class="follow" data-id="{$value.id_n}">{$follow}</div>
-                    {else}
-                        <div class="unfollow" data-id="{$value.id_n}">{$unfollow}</div>
-                    {/if}
-                {/if}
+            <div class="light">
+                {if="$type_n == 'friends'"}{$friends_since}
+                {elseif="$type_n == 'following'"}{$following_since}
+                {elseif="$type_n == 'followers'"}{$following_since}
+                {elseif="$type_n == 'list'"}{$registered_since}
+                {/if}: {$value.since_n}
             </div>
-        </li>
+            {if="$value.canshowfollow_b"}
+                {if="$value.canifollow_b"}
+                    <div class="follow" data-id="{$value.id_n}">{$follow}</div>
+                {else}
+                    <div class="unfollow" data-id="{$value.id_n}">{$unfollow}</div>
+                {/if}
+            {/if}
+        </div>
+    </li>
 {/loop}
-    </ol>
-    <br />
+</ol>
 {if="!empty($prev_url_n)"}
-<div style="float:left; margin-left:5%">
+<div style="float:left;margin: auto auto 5% 5%">
     <a href="{$prev_url_n}">&lt;&lt;&lt;</a>
 </div>
 {/if}
 {if="!empty($next_url_n)"}
-<div style="float:right; margin-right:5%">
+<div style="float:right;margin: auto 5% 5% auto">
     <a href="{$next_url_n}">&gt;&gt;&gt;</a>
 </div>
 {/if}
