@@ -1,3 +1,8 @@
+<h1 style="margin-top:0" class="userlisttitle">{if="$type_n == 'friends'"}{$friends}
+{elseif="$type_n == 'following'"}Following
+{elseif="$type_n == 'followers'"}Followers
+{elseif="$type_n == 'list'"}{$users_list}
+{/if} &nbsp;({$totalusers_n})</h1>
 <ol class="follow-list">
 {loop="list_a"}
     <li class="follow-list-item">
