@@ -48,36 +48,19 @@
             {/if}
             <br />
 
-            <span class="light">{$id}:<br /></span>
-            {$id_n}<br />
-            <span class="light">{$members}:<br /></span>
-            {$members_n}<br />
-            <span class="light">{$users}:<br /></span>
-            {$users_n}<br /><br />
+            <span class="light">{$id}: {$id_n}</span><br /><br />
+
+            <a href="/{$name4link_n}members">
+                <span class="light">{$members}:</span> {$members_n}
+            </a><br />
+
+            <a href="/{$name4link_n}followers">
+               <span class="light">Followers:</span> {$users_n}
+            </a><br /><br />
 
             <span class="light">{$owner}:<br /></span>
             <a href="/{$owner4link_n}">{$owner_n}</a><br />
-    
-            {if="!empty($users_a)"}
-                <span class="light"><br />
-                    {$users}    ({$users_n})
-                </span><br />
-                <div style="max-height:250px; overflow: auto">
-                {loop="users_a"}
-                    <a href="/{$value.username4link_n}">{$value.username_n}</a><br />
-                {/loop}
-                </div>
-            {/if}
-            {if="!empty($members_a)"}
-                <span class="light"><br />
-                    {$members}    ({$members_n})
-                </span><br />
-                <div style="max-height:250px; overflow: auto">
-                {loop="members_a"}
-                    <a href="/{$value.username4link_n}">{$value.username_n}</a><br />
-                {/loop}
-                </div>
-            {/if}
+
         </div>
         <br /><br />
     </aside>

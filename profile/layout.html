@@ -59,7 +59,18 @@
             <span class="light">{$birth_date}:<br /></span>
             {$birthdate_n}<br />
             <span class="light">{$gender}:<br /></span>
-            {$gender_n}<br /><br />
+            {$gender_n}<br />
+            <hr />
+            <a href="/{$username4link_n}following">
+                <span class="light">Following:</span> {$following_n}
+            </a><br />
+            <a href="/{$username4link_n}followers">
+                <span class="light">Followers:</span> {$followers_n}
+            </a><br />
+            <a href="/{$username4link_n}friends">
+                <span class="light">Friends:</span> {$friends_n}
+            </a><br />
+            <hr />
             <span class="light">{$registered_since}:<br /></span>
             {$registrationtime_n}<br />
             {if="!empty($website_n)"}
