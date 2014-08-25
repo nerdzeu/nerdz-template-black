@@ -2,7 +2,8 @@
 {elseif="$type_n == 'following'"}Following
 {elseif="$type_n == 'followers'"}Followers
 {elseif="$type_n == 'list'"}{$users_list}
-{/if} &nbsp;({$totalusers_n})</h1>
+{elseif="$type_n == 'members'"}{$members}
+{/if} &nbsp;({$displayedusers_n}/{$totalusers_n})</h1>
 <ol class="follow-list">
 {loop="list_a"}
     <li class="follow-list-item">
@@ -18,6 +19,7 @@
                 {elseif="$type_n == 'following'"}{$following_since}
                 {elseif="$type_n == 'followers'"}{$following_since}
                 {elseif="$type_n == 'list'"}{$registered_since}
+                {elseif="$type_n == 'members'"}{$member_since}
                 {/if}: {$value.since_n}
             </div>
             {if="$value.canshowfollow_b"}

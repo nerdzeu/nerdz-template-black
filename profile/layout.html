@@ -1,7 +1,7 @@
 <div id="main">
     <aside id="left_col">
         <div>
-            <div style="text-align: center; margin-bottom:17px">
+            <div style="text-align: center; margin-bottom:3px">
 {ignore} src="foto#" così facendo il parser di raintpl non sovrascrive l'url{/ignore}
                 <a href="/{$username4link_n}">
                     <img src="{$gravatarurl_n}?s=180#" alt="{$username}" style="max-width:100%; max-height:100%" onerror="this.src='{$onerrorimgurl_n}'" />
@@ -83,16 +83,6 @@
     
             <span class="light">Browser:</span><br />{$useragent_a.name} {$useragent_a.version}<br />
             <span class="light">Platform:</span><br />{$useragent_a.platform} {$useragent_a.platver}<br />
-            {if="!empty($friends_a)"}
-                <span class="light"><br />
-                    {$friends}    ({$totalfriends_n})
-                </span><br />
-                <div style="max-height:250px; overflow: auto">
-                {loop="friends_a"}
-                    <a href="/{$value.username4link_n}">{$value.username_n}</a><br />
-                {/loop}
-            </div>
-            {/if}
             <br /><br />
         </div>
     </aside>
