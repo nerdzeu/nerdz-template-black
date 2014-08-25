@@ -81,7 +81,7 @@ $(document).ready(function() {
     });
   }).on("submit","#delfrm",function(e){
     e.preventDefault();
-    N.json.post('/pages/preferences/delete.html.json.php', { captcha: $("#frmdelcpt").val() }, function(data) {
+    N.json.post('/pages/preferences/delete.html.json.php', { captcha: $("#frmdelcpt").val(), motivation: $("#motivation").val() }, function(data) {
       if(data.status == 'ok')
       {
         setTimeout(function() {
