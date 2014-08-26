@@ -45,10 +45,25 @@
                         </div>
                         <br /><br />
                     </li>
-                    <li><a href="/userslist.php">{$users_list}</a></li>
+                    <li><a href="/userslist.php">{$users_list}</a>
+                        <br />
+                        <ul style="margin-left:20px">
+                            <li><a href="/deleted.php" class="small">{$deleted}</a></li>
+                            <li><a href="/banned.php" class="small">{$banned}</a></li>
+                        </ul>
+                    </li>
                     <li><a href="/projectslist.php">{$projects_list}</a><br /><br /></li>
-                    <li><a href="/bookmarks.php">{$bookmarks} [{$users}]</a></li>
-                    <li><a href="/bookmarks.php?project=1">{$bookmarks} [{$projects}]</a><br /><br /></li>
+                    <li>{$bookmarks}<br />
+                        <ul style="margin-left:15px">
+                            <li>
+                                <a href="/bookmarks.php">{$users}</a>
+                            </li>
+                            <li>
+                                <a href="/bookmarks.php?project=1">{$projects}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <br />
                     <li><a href="/rank.php">Top 100</a></li>
                     <li><a href="/rank.php?top=thismonth">Monthly 100</a><br /><br /></li>
                     <li><a href="/last.php">{$last_user}</a></li>
