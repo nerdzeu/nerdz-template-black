@@ -162,6 +162,7 @@ $(document).ready(function() {
         plist.html('<h1>'+loading+'...</h1>');
         lang = $(this).data('lang');
         localStorage.setItem("autolang",lang);
+        localStorage.removeItem("autoorder");
         $(".selectlang").css('color','');
         $(this).css('color','#2370B6');
         load = false;
