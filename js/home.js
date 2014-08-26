@@ -3,6 +3,7 @@ $(document).ready(function() {
     var plist = $("#postlist");
     var loading = N.getLangData().LOADING;
     var lang = null; /* globale dato che la uso anche altrove */
+    var voteOrder = null; // ^
     var load = false; //gestisce i caricamenti ed evita sovrapposizioni. Dichiarata qui che è il foglio che viene incluso di default ovunque e per primo
     plist.html('<h1>'+loading+'...</h1>');
 
@@ -123,6 +124,7 @@ $(document).ready(function() {
         $("#nerdzlist").hide();
         $(".selectlang").css('color','');
         localStorage.removeItem("autolang");
+        localStorage.removeItem("autoorder");
         load = false;
         N.html.profile.getHomePostList(0,function(data) {
             plist.html(data);
@@ -174,6 +176,19 @@ $(document).ready(function() {
                 load = true;
             });
         }
+        else if(lang == 'vote')
+        {
+            $("#fast_nerdz").hide();
+            voteOrder = $(this).data('order');
+            localStorage.setItem("autoorder", voteOrder);
+            N.html.profile.getByVoteHomePostList(0, voteOrder, function(data) {
+                plist.html(data);
+                plist.data('type','profile');
+                plist.data('mode','vote');
+                hideHidden();
+                load = true;
+            });
+        }
         else
         {
             if(lang == '*') {
@@ -207,6 +222,18 @@ $(document).ready(function() {
                 plist.html(data);
                 plist.data('type','project');
                 plist.data('mode','followed');
+                hideHidden();
+                load = true;
+            });
+        }
+        else if(lang == 'vote')
+        {
+            $("#fast_nerdz").hide();
+            voteOrder = $(this).data('order');
+            N.html.project.getByVoteHomePostList(0, voteOrder, function(data) {
+                plist.html(data);
+                plist.data('type','project');
+                plist.data('mode','vote');
                 hideHidden();
                 load = true;
             });
@@ -264,8 +291,13 @@ $(document).ready(function() {
     //default profile posts
     if(localStorage.getItem("autolang"))
     {
-        $("#nerdzselect").click();
-        var el = $("#nerdzlist").find("ul").find("[data-lang='"+localStorage.getItem("autolang")+"']");
+        if(localStorage.getItem("autoorder")) {
+            var el = $("#nerdzvote").find("[data-order='"+localStorage.getItem("autoorder")+"']");
+            console.log(el);
+        } else {
+            $("#nerdzselect").click();
+            var el = $("#nerdzlist").find("ul").find("[data-lang='"+localStorage.getItem("autolang")+"']");
+        }
         el.click();
         el.css('color','#2370B6');
     }
@@ -332,6 +364,9 @@ $(document).ready(function() {
                 }
                 else if(mode == 'language') {
                     N.html[type].getByLangHomePostListBeforeHpid(num,lang,hpid, manageScrollResponse);
+                }
+                else if(mode == 'vote') {
+                    N.html[type].getByVoteHomePostListBeforeHpid(num,voteOrder,hpid, manageScrollResponse);
                 }
             }
             //a true ci va in default.js, dopo il primo search

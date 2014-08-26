@@ -24,6 +24,10 @@
                             </ul>
                             <br />
                         </div>
+                        <ul style="margin-left:15px" class="small" id="nerdzvote">
+                            <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
+                            <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
+                        </ul><br />
                     </li>
                     <li><a id="projectPostList" href="#">{$projects}</a>
                         <span style="float:right">
@@ -43,7 +47,11 @@
                             </ul>
                             <br />
                         </div>
-                        <br /><br />
+                        <ul style="margin-left:15px" class="small">
+                            <li class="projlang" data-lang="vote" data-order="+">{$top_rated}</li>
+                            <li class="projlang" data-lang="vote" data-order="-">{$less_rated}</li>
+                        </ul>
+                        <br />
                     </li>
                     <li><a href="/userslist.php">{$users_list}</a>
                         <br />
