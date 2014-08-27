@@ -4,11 +4,8 @@
             <div style="text-align: center; margin-bottom:3px">
 {ignore} src="foto#" così facendo il parser di raintpl non sovrascrive l'url{/ignore}
                 <a href="/{$name4link_n}">
-                {if="empty($photo_n)"}
-                    <img src="/images/noImage.jpg" alt="{$name}" style="max-width:100%; max-height:100%" width="180" height="180" />
-                {else}
-                    <img src="{$photo_n}#" alt="{$name}" style="max-width:100%; max-height:100%" onerror="this.src='{$onerrorimgurl_n}'" />
-                {/if}
+                    <img src="{$photo_n}?s=180#" alt="{$name}" style="max-width:100%; max-height:100%" onerror="this.src='{$onerrorimgurl_n}'" />
+
                 </a>
             </div>
             <div style="margin-top: -9px">
