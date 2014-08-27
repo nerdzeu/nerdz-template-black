@@ -294,7 +294,6 @@ $(document).ready(function() {
     {
         if(localStorage.getItem("autoorder")) {
             var el = $("#nerdzvote").find("[data-order='"+localStorage.getItem("autoorder")+"']");
-            console.log(el);
         } else {
             $("#nerdzselect").click();
             var el = $("#nerdzlist").find("ul").find("[data-lang='"+localStorage.getItem("autolang")+"']");
