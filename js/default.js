@@ -560,28 +560,36 @@ $(document).ready(function() {
           
         if(curr.hasClass("voted")) { 
             N.json[plist.data ('type')][func]($.extend(obj,{thumb: 0}), function(r) {
-                curr.removeClass("voted");
-                var votes = parseInt(r.message);
-                tnum.attr("class","thumbs-counter").text(votes);
-                if(votes !== 0) {
-                    tnum.addClass(votes>0?"nerdz_thumbsNumPos":"nerdz_thumbsNumNeg");
-                }
-                if(votes>0) {
-                    tnum.text("+"+tnum.text());
+                if(r.status === 'error') {
+                    alert(r.message);
+                } else {
+                    curr.removeClass("voted");
+                    var votes = parseInt(r.message);
+                    tnum.attr("class","thumbs-counter").text(votes);
+                    if(votes !== 0) {
+                        tnum.addClass(votes>0?"nerdz_thumbsNumPos":"nerdz_thumbsNumNeg");
+                    }
+                    if(votes>0) {
+                        tnum.text("+"+tnum.text());
+                    }
                 }
               });
         }
         else {
             N.json[plist.data ('type')][func]($.extend(obj,{ thumb: curr.hasClass("up") ? 1: -1 }), function(r) {
-                cont.children(".voted").removeClass("voted");
-                curr.addClass("voted");
-                var votes = parseInt(r.message);
-                tnum.attr("class","thumbs-counter").text(votes);
-                if(votes !== 0) {
-                    tnum.addClass(votes>0?"nerdz_thumbsNumPos":"nerdz_thumbsNumNeg");
-                }
-                if(votes>0) {
-                    tnum.text("+"+tnum.text());
+                if(r.status === 'error') {
+                    alert(r.message);
+                } else {
+                    cont.children(".voted").removeClass("voted");
+                    curr.addClass("voted");
+                    var votes = parseInt(r.message);
+                    tnum.attr("class","thumbs-counter").text(votes);
+                    if(votes !== 0) {
+                        tnum.addClass(votes>0?"nerdz_thumbsNumPos":"nerdz_thumbsNumNeg");
+                    }
+                    if(votes>0) {
+                        tnum.text("+"+tnum.text());
+                    }
                 }
              });
         }
