@@ -1,0 +1,17 @@
+<ol>
+{loop="list_a"}
+<li>
+    {if="$value.type_n == 'blacklist'}
+        {if="$value.fromid_n == $me_n"}
+            {$you_blacklisted_this_user}
+        {else}
+            {$you_have_been_blacklisted}
+        {/if}
+    {elseif="$value.type_n == 'comments'}
+        {if="$value.fromid_n == $me_n"}
+        {else}
+        {/if}
+    {/if}
+</li>
+{/loop}
+</ol>

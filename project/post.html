@@ -22,7 +22,7 @@
     </div>
     <div class="{if="$news_b"}news{else}nerdz_message{/if}">
         <div>
-            <span class="nerdz_date" style="font-size: 7pt">
+            <span class="nerdz_date"{if="$closed_b"} style="color:red" title="{$closed_post}"{else} style="font-size: 7pt"{/if}>
                 #{$pid_n}
             </span>
             {$message_n}
