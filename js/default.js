@@ -27,7 +27,7 @@ $(document).ready(function() {
         _h.append ('<style type="text/css">.nerdz-code-wrapper { background-color: #000; color: #FFF; }</style>');
     else
         _h.append ('<style type="text/css">.nerdz-code-wrapper { background-color: #FFF; color: #000; }</style>');
-    
+
     $("#notifycounter").on('click',function(e) {
         e.preventDefault();
         var list = $("#notify_list"), old = $(this).html();
@@ -42,7 +42,7 @@ $(document).ready(function() {
                 N.html.getNotifications(function(d) {
                     $("#pr_lo").remove();
                     list.prepend(d);
-                 });
+                });
             }
         }
         else {
@@ -53,7 +53,7 @@ $(document).ready(function() {
             N.html.getNotifications(function(d) {
                 l.html(d);
             });
-    
+
             $("#notify_list").on('click','.notref',function(e) {
                 if (e.ctrlKey) return;
                 e.preventDefault();
@@ -72,9 +72,9 @@ $(document).ready(function() {
 
     /* il footersearch si mostra solo in alcune pagine */
     var wrongPages = [ '/bbcode.php','/terms.php','/faq.php','/stats.php','/rank.php','/preferences.php', '/informations.php', '/preview.php' ];
-       if($.inArray(location.pathname,wrongPages) != -1) {
-           $("#footersearch").hide();
-       }
+    if($.inArray(location.pathname,wrongPages) != -1) {
+        $("#footersearch").hide();
+    }
 
     $("#footersearch").on('submit',function(e) {
         e.preventDefault();
@@ -135,7 +135,7 @@ $(document).ready(function() {
                 t.html(r.message);
                 setTimeout(function() {
                     document.location.href = "/";
-                    },1500);
+                },1500);
             }
             else
             {
@@ -148,24 +148,24 @@ $(document).ready(function() {
     });
 
     $("#gotopm").on('click',function(e) {
-            e.preventDefault();
+        e.preventDefault();
 
-            var href = $(this).attr('href');
+        var href = $(this).attr('href');
 
-            if($('#pmcounter').html() != '0') {
+        if($('#pmcounter').html() != '0') {
 
-                if(href == window.location.pathname ) {
-                    location.hash = "new";
-                    location.reload();
-                }
-                else {
-                    location.href='/pm.php#new';
-                }
+            if(href == window.location.pathname ) {
+                location.hash = "new";
+                location.reload();
             }
-            else
-            {
-                location.href = href;
+            else {
+                location.href='/pm.php#new';
             }
+        }
+        else
+        {
+            location.href = href;
+        }
     });
 
     //Questo evento deve essere qui e non in index.js (che ora viene eliminato), dato che un utente può registrarsi anche dal
@@ -173,7 +173,7 @@ $(document).ready(function() {
     $("#regfrm").on('submit',function(event) {
         event.preventDefault();
         N.json.register($("#regfrm").serialize(),function(obj) {
-            
+
             if(obj.status == 'error')
             {
                 $("#error").html(obj.message.replace(/\n/g,"<br />"));
@@ -197,7 +197,7 @@ $(document).ready(function() {
             window.open('/preview.php?message='+encodeURIComponent(txt+' ')); //The whitespace is a workaround used to make the preview works also when there is a dot at the end of the message
         }
     });
-    
+
     $("textarea").on('keydown', function(e) {
         if( e.ctrlKey && (e.keyCode == 10 || e.keyCode == 13) ) {
             $(this).parent().trigger('submit');
@@ -233,6 +233,19 @@ $(document).ready(function() {
         });
     });
 
+    // post menu
+    // http://www.noupe.com/tutorial/drop-down-menu-jquery-css.html
+    $("ul.topnav li a").click(function() { //When trigger is clicked...
+        //Following events are applied to the subnav itself (moving subnav up and down)
+        $(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+        $(this).parent().hover(function() {
+        }, function(){  
+            $(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+        });
+
+        //Following events are applied to the trigger (Hover events for the trigger)
+    });
 
     //begin plist into events (common to: homepage, projects, profiles)
     var plist = $("#postlist");
@@ -275,7 +288,7 @@ $(document).ready(function() {
         var refto = $('#' + $(this).data('refto'));
         refto.html(loading+'...');
 
-          N.json[plist.data('type')].delComment({ hcid: $(this).data('hcid') },function(d) {
+        N.json[plist.data('type')].delComment({ hcid: $(this).data('hcid') },function(d) {
             if(d.status == 'ok')
             {
                 refto.remove();
@@ -290,11 +303,11 @@ $(document).ready(function() {
     plist.on('submit','.frmcomment',function(e) {
         e.preventDefault();
         var last, hcid,
-            hpid     = $(this).data ('hpid'),
+        hpid     = $(this).data ('hpid'),
             refto    = $('#commentlist' + hpid),
             error    = $(this).find ('.error').eq (0),
-            pattern  = 'div[id^="c"]',
-            comments = refto.find (pattern);
+                pattern  = 'div[id^="c"]',
+                comments = refto.find (pattern);
         if(comments.length)
         {
             // Uses the second-last element instead of the last one (if available)
@@ -310,8 +323,8 @@ $(document).ready(function() {
                 {
                     N.html[plist.data('type')].getCommentsAfterHcid ({ hpid: hpid, hcid: hcid }, function(d) {
                         var form = refto.find ('form.frmcomment').eq (0),
-                            pushBefore = form.parent(),
-                            newComments = $('<div>' + d + '</div>').find (pattern),
+                        pushBefore = form.parent(),
+                        newComments = $('<div>' + d + '</div>').find (pattern),
                             internalLengthPointer = comments.length,
                             lastComment = comments.last();
                         // if available, delete the secondlast comment
@@ -527,13 +540,13 @@ $(document).ready(function() {
                 d.data('revisions', rev);
 
                 pidTag.html(pidTag.html().replace(/(#.+?):\s*(\d+)/, function($0, $1, $2) {
-                     return $1 +": " + (rev == 1 ? rev+1 : rev);
+                    return $1 +": " + (rev == 1 ? rev+1 : rev);
                 }));
 
                 if(id === 'hcid') {
                     pidTag.css('font-size', '0');
                 }
-                
+
                 div.prepend(pidTag);
                 if(rev >= parseInt(d.data('original-rev'))){
                     me.remove();
@@ -548,16 +561,16 @@ $(document).ready(function() {
 
     plist.on('click', ".vote", function() {
         var curr = $(this),
-          cont = curr.parent(),
-          tnum = cont.parent().children(".thumbs-counter"),
-          func = "thumbs",
-          obj = { hpid: cont.data("refto") };
+        cont = curr.parent(),
+        tnum = cont.parent().children(".thumbs-counter"),
+            func = "thumbs",
+            obj = { hpid: cont.data("refto") };
 
         if(cont.hasClass("comment"))  {
             obj = { hcid: cont.data("refto") };
             func = "cthumbs";
         }
-          
+
         if(curr.hasClass("voted")) { 
             N.json[plist.data ('type')][func]($.extend(obj,{thumb: 0}), function(r) {
                 if(r.status === 'error') {
@@ -573,7 +586,7 @@ $(document).ready(function() {
                         tnum.text("+"+tnum.text());
                     }
                 }
-              });
+            });
         }
         else {
             N.json[plist.data ('type')][func]($.extend(obj,{ thumb: curr.hasClass("up") ? 1: -1 }), function(r) {
@@ -591,15 +604,15 @@ $(document).ready(function() {
                         tnum.text("+"+tnum.text());
                     }
                 }
-             });
+            });
         }
     });
-    
+
 
     plist.on ('click', '.more_btn', function() {
         var moreBtn     = $(this),
-            commentList = moreBtn.parents ("div[id^=\"commentlist\"]"),
-            hpid        = /^post(\d+)$/.exec (commentList.parents ("div[id^=\"post\"]").attr ("id"))[1],
+        commentList = moreBtn.parents ("div[id^=\"commentlist\"]"),
+        hpid        = /^post(\d+)$/.exec (commentList.parents ("div[id^=\"post\"]").attr ("id"))[1],
             intCounter  = moreBtn.data ("morecount") || 0;
         if (moreBtn.data ("inprogress") === "1") return;
         moreBtn.data ("inprogress", "1").text (loading + "...");
@@ -633,10 +646,10 @@ $(document).ready(function() {
         // comment, but instead adapt the limited function to allow
         // specifying a start parameter without 'num'.
         var btn         = $(el),
-            btnDb       = btn.parent().parent(),
+        btnDb       = btn.parent().parent(),
             moreBtn     = btnDb.find (".more_btn"),
             commentList = btn.parents ("div[id^=\"commentlist\"]"),
-            hpid        = /^post(\d+)$/.exec (commentList.parents ("div[id^=\"post\"]").attr ("id"))[1];
+                hpid        = /^post(\d+)$/.exec (commentList.parents ("div[id^=\"post\"]").attr ("id"))[1];
         if (btn.data ("working") === "1" || moreBtn.data ("inprogress") === "1") return;
         btn.data ("working", "1").text (loading + "...");
         moreBtn.data ("inprogress", "1");
@@ -656,8 +669,8 @@ $(document).ready(function() {
 
     plist.on('click',".qu_ico",function() {
         var area = $("#"+$(this).data('refto')),
-            msg  = "[quote=" + $(this).data ('hcid') + "|" + $(this).data ('type') + "]",
-            cpos = area[0].selectionStart,
+        msg  = "[quote=" + $(this).data ('hcid') + "|" + $(this).data ('type') + "]",
+        cpos = area[0].selectionStart,
             val  = area.val(),
             intx = val.substring (0, cpos) + msg;
         area.focus();
@@ -672,26 +685,26 @@ $(document).ready(function() {
         var post = refto.html();
         var hpid = $(this).data('hpid');
 
-          N.json[plist.data('type')].delPostConfirm({ hpid: hpid },function(m) {
-              if(m.status == 'ok') {
-                  refto.html('<div style="text-align:center">' + m.message + '<br /><span id="delPostOk' + hpid +'" style="cursor:pointer">YES</span>|<span id="delPostNo'+hpid+'" style="cursor:pointer">NO</span></div>');
-                  refto.on('click','#delPostOk'+hpid,function() {
-                        N.json[plist.data('type')].delPost({ hpid: hpid    },function(j) {
-                             if(j.status == 'ok') {
-                                  refto.hide();
-                             }
-                             else {
-                                  refto.html(j.message);
-                             }
-                        });
-                  });
+        N.json[plist.data('type')].delPostConfirm({ hpid: hpid },function(m) {
+            if(m.status == 'ok') {
+                refto.html('<div style="text-align:center">' + m.message + '<br /><span id="delPostOk' + hpid +'" style="cursor:pointer">YES</span>|<span id="delPostNo'+hpid+'" style="cursor:pointer">NO</span></div>');
+                refto.on('click','#delPostOk'+hpid,function() {
+                    N.json[plist.data('type')].delPost({ hpid: hpid    },function(j) {
+                        if(j.status == 'ok') {
+                            refto.hide();
+                        }
+                        else {
+                            refto.html(j.message);
+                        }
+                    });
+                });
 
-                  refto.on('click','#delPostNo'+hpid,function() {
-                        refto.html(post);
-                  });
-             } else {
+                refto.on('click','#delPostNo'+hpid,function() {
+                    refto.html(post);
+                });
+            } else {
                 alert(d.message);
-             }
+            }
         });
     });
 
@@ -717,40 +730,40 @@ $(document).ready(function() {
         }
 
         var form = function(fid,id,message,edlang,prev, type) {
-                    return     '<form style="margin-bottom:40px" id="' +fid+ '" data-'+type+'="'+id+'">' +
-                               '<textarea id="'+fid+'abc" autofocus style="width:99%; height:125px">' +message+ '</textarea><br />' +
-                               '<input type="submit" value="' + edlang +'" style="float: right; margin-top:5px" />' +
-                                '<button type="button" style="float:right; margin-top: 5px" class="preview" data-refto="#'+fid+'abc">'+prev+'</button>'+
-                               '<button type="button" style="float:left; margin-top:5px" onclick="window.open(\'/bbcode.php\')">BBCode</button>' +
-                           '</form>';
-                    };
+            return     '<form style="margin-bottom:40px" id="' +fid+ '" data-'+type+'="'+id+'">' +
+                '<textarea id="'+fid+'abc" autofocus style="width:99%; height:125px">' +message+ '</textarea><br />' +
+                '<input type="submit" value="' + edlang +'" style="float: right; margin-top:5px" />' +
+                '<button type="button" style="float:right; margin-top: 5px" class="preview" data-refto="#'+fid+'abc">'+prev+'</button>'+
+                '<button type="button" style="float:left; margin-top:5px" onclick="window.open(\'/bbcode.php\')">BBCode</button>' +
+                '</form>';
+        };
 
-            N.json[plist.data('type')][getF](getObj,function(d) {
-                 var fid = refto.attr('id') + 'editform';
-                 refto.html(form(fid,id,d.message,editlang,$(".preview").html(), type));
+        N.json[plist.data('type')][getF](getObj,function(d) {
+            var fid = refto.attr('id') + 'editform';
+            refto.html(form(fid,id,d.message,editlang,$(".preview").html(), type));
 
-                 $('#'+fid).on('submit',function(e) {
-                      e.preventDefault();
-                      N.json[plist.data('type')][editF]($.extend(editObj, {message: $(this).children('textarea').val()}),
-                          function(d) {
-                                 if(d.status == 'ok')
-                                 {
-                                      refto.slideToggle("slow");
-                                      N.html[plist.data('type')][getF](getObj, function(o) {
-                                            refto.html(o);
-                                            refto.slideToggle("slow");
-                                            if(typeof N.getLangData().HIDE != "undefined") {
-                                                $(refto.find("div.small")[0]).prepend('<a class="hide" style="float:right; margin-left:3px" data-postid="post'+id+'">'+N.getLangData().HIDE+'</a>');
-                                            }
-                                            
-                                      });
-                                 }
-                                 else {
-                                      alert(d.message);
-                                 }
-                      });
-                 });
+            $('#'+fid).on('submit',function(e) {
+                e.preventDefault();
+                N.json[plist.data('type')][editF]($.extend(editObj, {message: $(this).children('textarea').val()}),
+                        function(d) {
+                            if(d.status == 'ok')
+                            {
+                                refto.slideToggle("slow");
+                                N.html[plist.data('type')][getF](getObj, function(o) {
+                                    refto.html(o);
+                                    refto.slideToggle("slow");
+                                    if(typeof N.getLangData().HIDE != "undefined") {
+                                        $(refto.find("div.small")[0]).prepend('<a class="hide" style="float:right; margin-left:3px" data-postid="post'+id+'">'+N.getLangData().HIDE+'</a>');
+                                    }
+
+                                });
+                            }
+                            else {
+                                alert(d.message);
+                            }
+                        });
             });
+        });
     });
 
     plist.on('click',".imglocked",function() {
@@ -765,13 +778,13 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-          
-          if($(this).data('silent')) { //nei commenti
-              N.json[plist.data('type')].reNotifyFromUserInPost({ hpid: $(this).data('hpid'), from: $(this).data('silent') },function(d) {tog(d);});
-          }
-          else {
-                 N.json[plist.data('type')].reNotifyForThisPost({hpid: $(this).data('hpid') },function(d) {tog(d);});
-          }
+
+        if($(this).data('silent')) { //nei commenti
+            N.json[plist.data('type')].reNotifyFromUserInPost({ hpid: $(this).data('hpid'), from: $(this).data('silent') },function(d) {tog(d);});
+        }
+        else {
+            N.json[plist.data('type')].reNotifyForThisPost({hpid: $(this).data('hpid') },function(d) {tog(d);});
+        }
     });
 
     plist.on('click',".imgunlocked",function() {
@@ -807,8 +820,8 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-          
-          N.json[plist.data('type')].lurkPost({hpid: $(this).data('hpid') },function(d) {tog(d);});
+
+        N.json[plist.data('type')].lurkPost({hpid: $(this).data('hpid') },function(d) {tog(d);});
 
     });
 
@@ -824,8 +837,8 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-          
-          N.json[plist.data('type')].unlurkPost({hpid: $(this).data('hpid') },function(d) {tog(d);});
+
+        N.json[plist.data('type')].unlurkPost({hpid: $(this).data('hpid') },function(d) {tog(d);});
     });
 
     plist.on('click',".bookmark",function() {
@@ -840,8 +853,8 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-          
-          N.json[plist.data('type')].bookmarkPost({hpid: $(this).data('hpid') },function(d) {tog(d);});
+
+        N.json[plist.data('type')].bookmarkPost({hpid: $(this).data('hpid') },function(d) {tog(d);});
 
     });
 
@@ -859,7 +872,7 @@ $(document).ready(function() {
         };
 
         N.json[plist.data('type')].unbookmarkPost({hpid: $(this).data('hpid') },function(d) {tog(d);});
-        
+
     });
 
     plist.on ('click', '.nerdz-code-title', function() {

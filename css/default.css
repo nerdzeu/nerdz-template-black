@@ -564,3 +564,52 @@ pre
 .follow-list-container {
     margin-left:90px;
 }
+
+/* menu */
+ul.topnav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+    display: inline;
+}
+ul.topnav li {
+    margin: 0;  
+    padding: 0;
+    display: inline;
+    float: right;
+}
+ul.topnav li a{
+    color: #fff;
+    display: block;
+    text-decoration: none;
+}
+
+ul.topnav li ul.subnav {
+    list-style: none;
+    background: #333;
+    margin: 0; padding: 0;
+    display: none;
+    width: 170px;
+    border: 1px solid #111;
+}
+ul.topnav li ul.subnav li{
+    margin: 0; padding: 0;
+    border-top: 1px solid #252525; /*--Create bevel effect--*/
+    border-bottom: 1px solid #444; /*--Create bevel effect--*/
+    clear: both;
+    width: 170px;
+}
+
+.arrow {
+    background: none repeat scroll 0 0 transparent;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    height: 6px;
+    width: 6px;
+    margin-left:10px;
+    transform: rotate(45deg);
+    transition-duration: 300ms, 300ms;
+    transition-property: border-width, top;
+}
