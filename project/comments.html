@@ -23,7 +23,7 @@
                 <span title="{$number_of_modifications}: {$value.revisions_n}" class="oldrev comment" data-refto="{$value.uid_n}" data-revisions="{$value.revisions_n}" data-hcid="{$value.hcid_n}">&#9664;</span>&nbsp;&nbsp;
                 {/if}
             </span>
-            <a href="#{$value.uid_n}" title="Permalink" style="color: #fff !important" data-refto="post{$value.hpid_n}" id="nd{$value.uid_n}{$value.hcid_n}">{$value.datetime_n}</a>
+            <a href="#{$value.uid_n}" title="Permalink" style="color: #fff" data-refto="post{$value.hpid_n}" id="nd{$value.uid_n}{$value.hcid_n}">{$value.datetime_n}</a>
             {if="$value.canshowlock_b"}
                 {if="$value.lock_b"}
                     <img class="imglocked" width="16" height="16" data-hpid="{$value.hpid_n}" data-silent="{$value.fromid_n}" src="images/lock.png" alt="" title="{$recv_notify}" onclick="" />
@@ -31,16 +31,16 @@
                     <img width="16" height="16" class="imgunlocked" data-hpid="{$value.hpid_n}" data-silent="{$value.fromid_n}" src="images/unlock.png" alt="" title="{$not_recv_notify}" onclick="" />
                 {/if}
             {/if}
-            <img width="16" height="16" src="images/quote.png" alt="quote" class="qu_ico" data-hcid="{$value.hcid_n}" data-type="p" data-refto="commentto{$value.hpid_n}" onclick="" />
             <span class="thumbs">
               &nbsp;|&nbsp;              
               <span class='thumbs-counter{if="$value.thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$value.thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$value.thumbs_n > 0"}+{/if}{$value.thumbs_n}</span>
               &nbsp;&nbsp;
               <div class="nerdz_thumbs comment" data-refto="{$value.hcid_n}">
-                <i class='vote up{if="$value.uthumb_n == 1"} voted{/if}'>&#9650;</i>&nbsp;&nbsp;
-                <i class='vote down{if="$value.uthumb_n ==-1"} voted{/if}'>&#9660;</i>&nbsp;&nbsp;
+                <a class='vote up{if="$value.uthumb_n == 1"} voted{/if}'>&#9650;</a>&nbsp;&nbsp;
+                <a class='vote down{if="$value.uthumb_n ==-1"} voted{/if}'>&#9660;</a>&nbsp;&nbsp;
               </div>
-            </span>
+            </span>&nbsp;|&nbsp;
+            <img width="16" height="16" src="images/quote.png" alt="quote" class="qu_ico" data-hcid="{$value.hcid_n}" data-type="p" data-refto="commentto{$value.hpid_n}" onclick="" />
         </span>
     </div>
     <div class="nerdz_comments" style="width:auto">

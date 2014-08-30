@@ -269,6 +269,11 @@ html, #body
     margin-left:4px;
 }
 
+.qu_ico
+{
+    margin:0;
+}
+
 .page
 {
     width: 99%;
@@ -614,6 +619,7 @@ ul.topnav li ul.subnav li{
     transform: rotate(45deg);
     transition-duration: 300ms, 300ms;
     transition-property: border-width, top;
+    outline:none;
 }
 
 .rightarrow {

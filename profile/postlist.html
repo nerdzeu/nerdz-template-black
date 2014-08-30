@@ -26,8 +26,43 @@
             </div>
         </div>
         <div class="{if="$value.news_b"}news{else}nerdz_message{/if}">
-            <div>
-                <span class="nerdz_date"{if="$value.closed_b"} style="color:red" title="{$closed_post}"{else} style="font-size: 7pt"{/if}>
+            <div style="position:relative">
+                {if="$value.canremovepost_b || $value.caneditpost_b || $value.canclosepost_b"}
+                <span class="nerdz_date">
+                    <ul class="topnav">
+                        <li>
+                            <a href="#" class="downarrow topright"></a>
+                            <ul class="subnav">
+                                {if="$value.canremovepost_b"}
+                                <li>
+                                    <a class="delpost" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
+                                        <span class="rightarrow"></span>
+                                        {$remove}
+                                    </a>
+                                </li>
+                                {/if}
+                                {if="$value.caneditpost_b"}
+                                <li>
+                                    <a class="edit" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
+                                        <span class="rightarrow"></span>
+                                        {$edit}
+                                    </a>
+                                </li>
+                                {/if}
+                                {if="$value.canclosepost_b"}
+                                <li>
+                                    <a class="{if="$value.closed_b"}open{else}close{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .nerdz_date.pid">
+                                        <span class="rightarrow"></span>
+                                        {if="$value.closed_b"}{$open}{else}{$close}{/if}
+                                    </a>
+                                </li>
+                                {/if}
+                            </ul>
+                        </li>
+                    </ul>
+                </span>
+                {/if}
+                <span class="nerdz_date{if="$value.canremovepost_b || $value.caneditpost_b || $value.canclosepost_b"} pid{/if}"{if="$value.closed_b"} style="color:red" title="{$closed_post}"{else} style="font-size: 7pt"{/if}>
                     #{$value.pid_n}
                 </span>
                 {$value.message_n}
@@ -37,53 +72,28 @@
                 <a class="showcomments" style="width:60%" data-hpid="{$value.hpid_n}" data-refto="commentlist{$value.hpid_n}">
                     {$comments} ({$value.postcomments_n})
                 </a>
-                {if="$value.canremovepost_b || $value.caneditpost_b"}
-                    <span style="float:right">
-                {/if}
-                {if="$value.canremovepost_b"}
-                    <a class="delpost" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">{$remove}</a>
-                {/if}
-                {if="$value.canremovepost_b && $value.caneditpost_b"} | {/if}
-                {if="$value.caneditpost_b"}
-                    <a class="edit" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">{$edit}</a>
-                {/if}
-                {if="$value.canremovepost_b || $value.caneditpost_b"}
-                </span>
-                {/if}
-                    {if="$value.canshowlock_b"}
-                        {if="$value.lock_b"}
-                            <span style="margin-right:3px; float: right">
-                                <img class="imglocked" width="16" height="16" data-hpid="{$value.hpid_n}" src="images/lock.png" alt="" title="{$recv_notify}" onclick="" />
-                            </span>
-                        {else}
-                            <span style="margin-right:3px; float: right">
-                                <img class="imgunlocked" width="16" height="16" data-hpid="{$value.hpid_n}" src="images/unlock.png" alt="" title="{$not_recv_notify}" onclick="" />
-                            </span>
-                        {/if}
+                {if="$value.canshowlock_b"}
+                    {if="$value.lock_b"}
+                        <img class="imglocked" width="16" height="16" data-hpid="{$value.hpid_n}" src="images/lock.png" alt="" title="{$recv_notify}" onclick="" />
+                    {else}
+                        <img class="imgunlocked" width="16" height="16" data-hpid="{$value.hpid_n}" src="images/unlock.png" alt="" title="{$not_recv_notify}" onclick="" />
                     {/if}
-                    {if="$value.canshowlurk_b"}
-                        {if="$value.lurk_b"}
-                            <span style="margin-right:3px; float: right">
-                                <img class="unlurk" data-hpid="{$value.hpid_n}" src="images/unlurk.png" alt="" width="16" height="16" title="Unlurk" style="float:right; margin-left:5px" onclick="" />
-                            </span>
-                        {else}
-                            <span style="margin-right:3px; float: right">
-                                <img class="lurk" data-hpid="{$value.hpid_n}" src="images/lurk.png" alt="" width="16" height="16" title="Lurk" style="float:right; margin-left:5px" onclick="" />
-                            </span>
-                        {/if}
+                {/if}
+                {if="$value.canshowlurk_b"}
+                    {if="$value.lurk_b"}
+                        <img class="unlurk" data-hpid="{$value.hpid_n}" src="images/unlurk.png" alt="" width="16" height="16" title="Unlurk" onclick="" />
+                    {else}
+                        <img class="lurk" data-hpid="{$value.hpid_n}" src="images/lurk.png" alt="" width="16" height="16" title="Lurk" onclick="" />
                     {/if}
-                    {if="$value.canshowbookmark_b"}
-                        {if="$value.bookmark_b"}
-                            <span style="margin-right:3px; float: right">
-                                <img class="unbookmark" data-hpid="{$value.hpid_n}" src="images/unbookmark.png" alt="" width="16" height="16" title="Unbookmark" style="float:right; margin-left:5px" onclick="" />
-                            </span>
-                        {else}
-                            <span style="margin-right:3px; float: right">
-                                <img class="bookmark" data-hpid="{$value.hpid_n}" src="images/bookmark.png" alt="" width="16" height="16" title="Bookmark" style="float:right; margin-left:5px" onclick="" />
-                            </span>
-                        {/if}
+                {/if}
+                {if="$value.canshowbookmark_b"}
+                    {if="$value.bookmark_b"}
+                        <img class="unbookmark" data-hpid="{$value.hpid_n}" src="images/unbookmark.png" alt="" width="16" height="16" title="Unbookmark" onclick="" />
+                    {else}
+                        <img class="bookmark" data-hpid="{$value.hpid_n}" src="images/bookmark.png" alt="" width="16" height="16" title="Bookmark" onclick="" />
                     {/if}
-                </div>
+                {/if}
+            </div>
         </div>
         <div>
             <script type="application/javascript">var lnk{$value.hpid_n} = "/{$value.to4link_n}{$value.pid_n}";</script>

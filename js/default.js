@@ -233,12 +233,6 @@ $(document).ready(function() {
         });
     });
 
-    // post menu
-    // http://www.noupe.com/tutorial/drop-down-menu-jquery-css.html
-    $("ul.topnav li a").click(function() {
-        $(this).parent().find("ul.subnav").toggle('fast'); //Drop down the subnav on click
-    });
-
     //begin plist into events (common to: homepage, projects, profiles)
     var plist = $("#postlist");
 
@@ -254,6 +248,11 @@ $(document).ready(function() {
             el.attr('data-parsed','1');
         });
     };
+
+    plist.on('click', "ul.topnav li a", function(e) {
+        e.preventDefault();
+        $(this).parent().find("ul.subnav").toggle('fast'); //Drop down the subnav on click
+    });
 
     plist.on('click', ".yt_frame", function(e) {
         e.preventDefault();
@@ -741,7 +740,6 @@ $(document).ready(function() {
     plist.on('click',".edit",function(e) {
         e.preventDefault();
         var refto = $('#' + $(this).data('refto')), hpid = $(this).data('hpid');
-        var editlang = $(this).html();
 
         var getF = "getPost", editF = "editPost";
         var getObj = {hpid: hpid};
@@ -759,10 +757,10 @@ $(document).ready(function() {
             id = hcid;
         }
 
-        var form = function(fid,id,message,edlang,prev, type) {
+        var form = function(fid,id,message,prev, type) {
             return     '<form style="margin-bottom:40px" id="' +fid+ '" data-'+type+'="'+id+'">' +
                 '<textarea id="'+fid+'abc" autofocus style="width:99%; height:125px">' +message+ '</textarea><br />' +
-                '<input type="submit" value="' + edlang +'" style="float: right; margin-top:5px" />' +
+                '<input type="submit" value="' + N.getLangData().EDIT +'" style="float: right; margin-top:5px" />' +
                 '<button type="button" style="float:right; margin-top: 5px" class="preview" data-refto="#'+fid+'abc">'+prev+'</button>'+
                 '<button type="button" style="float:left; margin-top:5px" onclick="window.open(\'/bbcode.php\')">BBCode</button>' +
                 '</form>';
@@ -770,7 +768,7 @@ $(document).ready(function() {
 
         N.json[plist.data('type')][getF](getObj,function(d) {
             var fid = refto.attr('id') + 'editform';
-            refto.html(form(fid,id,d.message,editlang,$(".preview").html(), type));
+            refto.html(form(fid,id,d.message,$(".preview").html(), type));
 
             $('#'+fid).on('submit',function(e) {
                 e.preventDefault();

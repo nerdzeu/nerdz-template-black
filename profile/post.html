@@ -44,14 +44,16 @@
                             <li>
                                 <a class="edit" data-hpid="{$hpid_n}" data-refto="post{$hpid_n}">
                                     <span class="rightarrow"></span>
-                                    {$edit}</a>
+                                    {$edit}
+                                </a>
                             </li>
                             {/if}
                             {if="$canclosepost_b"}
                             <li>
                                 <a class="{if="$closed_b"}open{else}close{/if}" data-hpid="{$hpid_n}" data-refto="post{$hpid_n} .nerdz_date.pid">
                                     <span class="rightarrow"></span>
-                                    {if="$closed_b"}{$open}{else}{$close}{/if}</a>
+                                    {if="$closed_b"}{$open}{else}{$close}{/if}
+                                </a>
                             </li>
                             {/if}
                         </ul>

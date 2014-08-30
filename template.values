@@ -12,7 +12,7 @@
     // JS section
     "js": {
         "default": [ "js/default.js", {
-            "lang": [ "LOADING", "EXPAND", "OPEN", "CLOSE" ]
+            "lang": [ "LOADING", "EXPAND", "OPEN", "CLOSE", "EDIT" ]
         } ],
         "home": [ "js/home.js", {
             "lang": [ "HIDDEN_POSTS", "EXPAND", "HIDE" ],
