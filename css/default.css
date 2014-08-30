@@ -1,5 +1,4 @@
-#site_title
-{
+#site_title {
     color: #000;
     margin: 0 auto 1.5% auto;
     width: 100%;
@@ -8,31 +7,27 @@
     overflow: hidden;
 }
 
-#site_title a:visited, #site_title a:active, #site_title a:link, .nerdz_comments a:hover, .nerdz_comments a:visited, .nerdz_comments a:active, .nerdz_comments a:link, #footer_main a:visited, #footer_main a:active, #footer_main a:link
-{
+#site_title a:visited, #site_title a:active, #site_title a:link, .nerdz_comments a:hover, .nerdz_comments a:visited, .nerdz_comments a:active, .nerdz_comments a:link, #footer_main a:visited, #footer_main a:active, #footer_main a:link {
     color: #000;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
 }
 
-#title_left
-{
+#title_left {
     display: inline;
     float: left;
     font-size: 200%;
     margin: 0.5%;
 }
 
-#title_right
-{
+#title_right {
     display: inline;
     float: right;
     margin: 0.5% 1% 0.1% 0.5%;
 }
 
-#left_col
-{
+#left_col {
     float: left;
     width: 12.5%;
     margin-right: 1%;
@@ -40,26 +35,23 @@
     overflow-x: hidden;
 }
 
-#center_col
-{
+#center_col {
     width: 71%;
-    float:left;
+    float: left;
     display: inline;
     padding-left: 0.5px;
     padding-right: 0.5px;
     font-size: 105%;
 }
 
-#right_col
-{
+#right_col {
     width: 12.5%;
     float: left;
     display: inline;
     margin-left: 1%;
 }
 
-#left_col ul, #right_col ul
-{
+#left_col ul, #right_col ul {
     list-style-type: square;
     list-style-position: inside;
     border: 0;
@@ -67,8 +59,7 @@
     margin: 0;
 }
 
-#footer_main
-{
+#footer_main {
     background-color: #AFAFAF;
     text-align: center;
     border-top: 1px #000 solid;
@@ -81,8 +72,7 @@
     position: fixed;
 }
 
-#footer_left
-{
+#footer_left {
     position: fixed;
     display: inline;
     bottom: 2px;
@@ -90,15 +80,13 @@
     text-align: left;
 }
 
-.nerdz_message > div.compressed, .news > div.compressed
-{
+.nerdz_message > div.compressed, .news > div.compressed {
     max-height: 200px;
     overflow: hidden;
     width: auto;
 }
 
-#notify_list
-{
+#notify_list {
     position: fixed;
     display: block;
     bottom: 24px;
@@ -107,10 +95,9 @@
     border: 1px solid #FFF;
 }
 
-#notifycounter,#share,#bug_bar
-{
+#notifycounter,#share,#bug_bar {
     position: fixed;
-    bottom:0px;
+    bottom: 0px;
     right: 0px;
     background-color: #FFF;
     padding-top: 4px;
@@ -120,85 +107,73 @@
     border-left: solid 1.5px #000;
     height: 19px;
     width: 60px;
-    text-align:center;
+    text-align: center;
 }
 
-#share
-{
+#share {
     right: 61px;
     font-size: 90%;
 }
 
-#bug_bar
-{
+#bug_bar {
     left: 0px;
     width: 30px;
     border: 0px;
 }
 
-#main
-{
+#main {
     margin: auto;
     width: 98%;
     margin-right: 0.2%;
     word-wrap: break-word;
 }
 
-#gotopm
-{
-    float:left;
+#gotopm {
+    float: left;
     margin-top: 5px;
     cursor: pointer;
     font-weight: bold;
     font-style: italic;
-    width:20px;
+    width: 20px;
 }
 
-#postlist
-{
+#postlist {
     margin-bottom: 4%;
 }
 
-#rightmenu
-{
+#rightmenu {
     overflow-y: auto;
     overflow-x: hidden;
-    height:310px;
+    height: 310px;
 }
 
-#leftmenu li, #rightmenu li
-{
+#leftmenu li, #rightmenu li {
     margin-top: 5%;
 }
 
-#fast_nerdz
-{
+#fast_nerdz {
     margin-bottom: 15px;
 }
 
-a:hover, a:visited, a:active, a:link, .qu_user a:visited, .qu_user a:active, .qu_user a:link, .atilda
-{
+a:hover, a:visited, a:active, a:link, .qu_user a:visited, .qu_user a:active, .qu_user a:link, .atilda {
     color: #2370B6;
     cursor: pointer;
     text-decoration: none;
 }
 
-label, .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang, .more, .bookmark, .unbookmark
-{
+label, .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang, .more, .bookmark, .unbookmark {
     cursor: pointer;
 }
 
-input, option, select, textarea, button, .page th, .title, .follow, .unfollow
-{
+input, option, select, textarea, button, .page th, .title, .follow, .unfollow {
     border: 0.5px #000 solid;
     text-align: left;
-    background-color: #FFF; 
+    background-color: #FFF;
     color: #000;
     border-radius: 2.5px;
 }
 
-button, input[type=submit], .page th, .title, .follow, .unfollow
-{
+button, input[type=submit], .page th, .title, .follow, .unfollow {
     padding-left: 1%;
     padding-right: 1%;
     border: 0.5px #000 solid;
@@ -210,8 +185,7 @@ button, input[type=submit], .page th, .title, .follow, .unfollow
     border-radius: 2px;
 }
 
-body
-{
+body {
     background-color: #1D1B1B;
     color: #FFF;
     font-size: 80%;
@@ -222,33 +196,28 @@ body
     Z-index: 0;
 }
 
-img
-{
+img {
     border: 0px none;
 }
 
-iframe
-{
+iframe {
     margin: auto;
     overflow: hidden;
 }
 
-html, #body
-{
+html, #body {
     width: 100%;
     height: 100%;
 }
 
-.box
-{
+.box {
     border: 1px solid #2370B6;
-    margin-top:3px;
+    margin-top: 3px;
     padding: 3px;
     border-radius: 5.5px;
 }
 
-.more
-{
+.more {
     position: relative;
     top: -12px;
     margin-bottom: -10px;
@@ -257,59 +226,49 @@ html, #body
     display: block;
 }
 
-.nitem
-{
+.nitem {
     border-bottom: 1px solid #FFFFFF;
 }
 
-.qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .bookmark, .unbookmark
-{
-    float:right;
+.qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .bookmark, .unbookmark {
+    float: right;
     margin-top: -5px;
-    margin-left:4px;
+    margin-left: 4px;
 }
 
-.qu_ico
-{
-    margin:0;
+.qu_ico {
+    margin: 0;
 }
 
-.page
-{
+.page {
     width: 99%;
     margin: auto;
 }
 
-.page table
-{
+.page table {
     margin: auto;
     width: 100%;
 }
 
-.page .intable
-{
+.page .intable {
     margin-top: 3%;
     width: 100%;
     margin-bottom: 3%;
 }
 
-.follow, .unfollow, .title, .page th, .more, .center-text
-{
+.follow, .unfollow, .title, .page th, .more, .center-text {
     text-align: center;
 }
 
-.title
-{
+.title {
     cursor: default;
 }
 
-.page th
-{
+.page th {
     width: 10%;
 }
 
-.nerdz_message, .nerdz_comments, .news
-{
+.nerdz_message, .nerdz_comments, .news {
     width: auto;
     background-color: #000;
     border-radius: 2.5px;
@@ -322,18 +281,16 @@ html, #body
 }
 
 .nerdz_comments {
-    overflow:hidden;
+    overflow: hidden;
 }
 
-.news
-{
+.news {
     clear: left;
     color: #fff;
     border: 1px solid #FB3;
 }
 
-.nerdz_comments, .quote, .spoiler
-{
+.nerdz_comments, .quote, .spoiler {
     border-color: #000;
     background-color: #BDBDBD;
     color: #000;
@@ -341,80 +298,68 @@ html, #body
     max-width: 98%;
 }
 
-.nerdz_comments br, .nerdz_message br
-{
+.nerdz_comments br, .nerdz_message br {
     clear: both;
 }
 
-.quote
-{
+.quote {
     background-color: #FFFDD0;
-    position:static;
-    overflow:hidden;
+    position: static;
+    overflow: hidden;
 }
 
-.nerdz_date
-{
+.nerdz_date {
     display: inline;
-    float:right;
+    float: right;
     margin-right: 2px;
     font-size: 85%;
 }
 
-.nerdz_thumbs, .revisions
-{
-    font-size: 80%; 
-    margin-bottom: 10px; 
+.nerdz_thumbs, .revisions {
+    font-size: 80%;
+    margin-bottom: 10px;
     display: inline;
     position: relative;
     bottom: 1px;
 }
 
-.nerdz_thumbsNumPos
-{
+.nerdz_thumbsNumPos {
     color: #86DC33;
 }
 
-.nerdz_thumbsNumNeg
-{
+.nerdz_thumbsNumNeg {
     color: #FF3300;
 }
 
-.vote:hover, .revisions:hover
-{
+.vote:hover, .revisions:hover {
     color: #FFFFA3;
     cursor: pointer;
 }
 
-.vote.up.voted
-{
+.vote.up.voted {
     color: #00E600;
     cursor: pointer;
 }
 
-.vote.down.voted
-{
+.vote.down.voted {
     color: #FF3300;
     cursor: pointer;
 }
 
-.nerdz_from
-{
+.nerdz_from {
     margin-bottom: 4px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-.nerdz_truncate
-{
+.nerdz_truncate {
     background-color: #FFF;
-    text-align:center;
-    width:132px;
-    color:#000;
+    text-align: center;
+    width: 132px;
+    color: #000;
     font-weight: bold;
 }
 
-.qu_main
-{
+.qu_main {
     margin-left: 3%;
     margin-right: 1%;
     width: 95%;
@@ -422,107 +367,96 @@ html, #body
     overflow: hidden;
 }
 
-.img_frame, .yt_frame
-{
-  clear:both;
-  text-align:center;
-  overflow:hidden;
-  display: block !important;
-  background-color: transparent;
-  margin-top:.2em; 
-  cursor: pointer; 
-  border: 1px solid #FFF;
-  width: 132px;
-  height: 132px;
+.img_frame, .yt_frame {
+    clear: both;
+    text-align: center;
+    overflow: hidden;
+    display: block !important;
+    background-color: transparent;
+    margin-top: .2em;
+    cursor: pointer;
+    border: 1px solid #FFF;
+    width: 132px;
+    height: 132px;
 }
 
-.img_frame span, .yt_frame span
-{
-  height: 17px;
-  display:block;
-  background-color: #FFF;
-  text-align:center;
-  width:132px;
-  color:#000;
-  font-weight: bold;
-}
-
-.img_frame img, .yt_frame img
-{
+.img_frame span, .yt_frame span {
+    height: 17px;
     display: block;
-    max-height:115px;
-    max-width:130px;
+    background-color: #FFF;
+    text-align: center;
+    width: 132px;
+    color: #000;
+    font-weight: bold;
+}
+
+.img_frame img, .yt_frame img {
+    display: block;
+    max-height: 115px;
+    max-width: 130px;
     margin: auto;
 }
 
-.img_frame-extended
-{
-  display: auto;
-  width: auto;
-  height: auto;
-  border: none;
-  overflow: visible;
-  max-width: 100%;
-  max-height: 100%;
-} 
+.img_frame-extended {
+    display: auto;
+    width: auto;
+    height: auto;
+    border: none;
+    overflow: visible;
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .img_frame.img_frame-extended img {
-  float: left;
-  width: auto;
-  height: auto;
-  max-height: 100%;
-  max-width:100%;
-  margin-top: 0px !important;
+    float: left;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    margin-top: 0px !important;
 }
-.img_frame-extended span
-{
-  display: none;
+
+.img_frame-extended span {
+    display: none;
 }
-.error
-{
+
+.error {
     color: #FF0000;
     font-size: 80%;
     font-weight: bold;
 }
 
-.small
-{
+.small {
     font-size: 75%;
 }
 
-.light
-{
+.light {
     color: #777;
     padding-bottom: 2px;
 }
 
-.bold
-{
-    font-weight:bold;
+.bold {
+    font-weight: bold;
 }
 
-.curtext
-{
+.curtext {
     font-style: italic;
 }
 
-.qu_user
-{
+.qu_user {
     background-color: #333;
 }
 
-pre
-{
+pre {
     font-size: 12px;
     margin-top: 0;
 }
 
-.nerdz-code-wrapper
-{
+.nerdz-code-wrapper {
     border: solid white 1px;
 }
 
-.nerdz-code-title
-{
+.nerdz-code-title {
     height: auto;
     padding-top: 1px;
     padding-left: 2px;
@@ -532,21 +466,18 @@ pre
     margin-bottom: 4px;
 }
 
-.nerdz-code-title:first-letter
-{
+.nerdz-code-title:first-letter {
     text-transform: uppercase;
 }
 
-.prettyprint
-{
+.prettyprint {
     padding: 3px 3px 3px 3px;
 }
 
-.follow-list
-{
+.follow-list {
     list-style-type: none;
-    margin:0px;
-    overflow:hidden;
+    margin: 0px;
+    overflow: hidden;
 }
 
 .follow-list-item {
@@ -560,7 +491,7 @@ pre
 
 .follow-list-title {
     margin-bottom: 10px;
-    font-size:13px;
+    font-size: 13px;
 }
 
 .gravatar {
@@ -571,7 +502,7 @@ pre
 }
 
 .follow-list-container {
-    margin-left:90px;
+    margin-left: 90px;
 }
 
 /* menu */
@@ -593,12 +524,12 @@ ul.topnav li ul.subnav {
 }
 
 ul.subnav {
-    position:absolute;
-    top:12px;
-    right:0px;
+    position: absolute;
+    top: 12px;
+    right: 0px;
 }
 
-ul.topnav li ul.subnav li{
+ul.topnav li ul.subnav li {
     margin: 0;
     padding: 0;
     background-color: #333;
@@ -615,29 +546,29 @@ ul.topnav li ul.subnav li{
     border-width: 0 2px 2px 0;
     height: 6px;
     width: 6px;
-    margin-left:10px;
+    margin-left: 10px;
     transform: rotate(45deg);
     transition-duration: 300ms, 300ms;
     transition-property: border-width, top;
-    outline:none;
+    outline: none;
 }
 
 .rightarrow {
     transform: rotate(315deg);
     margin: 3px 7px auto 0;
-    float:left;
+    float: left;
 }
 
-.topright
-{
-    float:right;
-    margin-right:1px;
-    margin-bottom:4px;
+.topright {
+    float: right;
+    margin-right: 1px;
+    margin-bottom: 4px;
 }
 
-.pid
-{
-    position:absolute; /* father with position relative*/
+.pid {
+    position: absolute;
+ /* father with position relative*/
     top: 0px;
-    right:15px;
+    right: 15px;
 }
+
