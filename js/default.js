@@ -235,16 +235,8 @@ $(document).ready(function() {
 
     // post menu
     // http://www.noupe.com/tutorial/drop-down-menu-jquery-css.html
-    $("ul.topnav li a").click(function() { //When trigger is clicked...
-        //Following events are applied to the subnav itself (moving subnav up and down)
-        $(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
-
-        $(this).parent().hover(function() {
-        }, function(){  
-            $(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
-        });
-
-        //Following events are applied to the trigger (Hover events for the trigger)
+    $("ul.topnav li a").click(function() {
+        $(this).parent().find("ul.subnav").toggle('fast'); //Drop down the subnav on click
     });
 
     //begin plist into events (common to: homepage, projects, profiles)
@@ -704,6 +696,44 @@ $(document).ready(function() {
                 });
             } else {
                 alert(d.message);
+            }
+        });
+    });
+
+    plist.on('click',".close", function(e) {
+        e.preventDefault();
+        var refto = $('#' + $(this).data('refto'));
+        var hpid = $(this).data('hpid');
+        var me = $(this), arrow = me.children();
+
+        me.html('...');
+        N.json[plist.data('type')].closePost({hpid: hpid},function(m) {
+            if(m.status != 'ok') {
+                alert(m.message);
+            } else {
+                refto.css('color','red');
+                me.html(N.getLangData().OPEN);
+                me.append(arrow);
+                me.attr('class',"open");
+            }
+        });
+    });
+
+    plist.on('click',".open", function(e) {
+        e.preventDefault();
+        var refto = $('#' + $(this).data('refto'));
+        var hpid = $(this).data('hpid');
+        var me = $(this), arrow = me.children();
+
+        me.html('...');
+        N.json[plist.data('type')].openPost({hpid: hpid},function(m) {
+            if(m.status != 'ok') {
+                alert(m.message);
+            } else {
+                refto.css('color','');
+                me.html(N.getLangData().CLOSE);
+                me.append(arrow);
+                me.attr('class',"close");
             }
         });
     });

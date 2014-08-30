@@ -21,8 +21,41 @@
         </div>
     </div>
     <div class="{if="$news_b"}news{else}nerdz_message{/if}">
-        <div>
-            <span class="nerdz_date"{if="$closed_b"} style="color:red" title="{$closed_post}"{else} style="font-size: 7pt"{/if}>
+        <div style="position:relative">
+            {if="$canremovepost_b || $caneditpost_b || $canclosepost_b"}
+            <span class="nerdz_date">
+                <ul class="topnav">
+                    <li>
+                        <a href="#" class="downarrow topright"></a>
+                        <ul class="subnav">
+                            {if="$canremovepost_b"}
+                            <li>
+                                <a class="delpost" data-hpid="{$hpid_n}" data-refto="post{$hpid_n}">
+                                    <span class="rightarrow"></span>
+                                    {$remove}
+                                </a>
+                            </li>
+                            {/if}
+                            {if="$caneditpost_b"}
+                            <li>
+                                <a class="edit" data-hpid="{$hpid_n}" data-refto="post{$hpid_n}">
+                                    <span class="rightarrow"></span>
+                                    {$edit}</a>
+                            </li>
+                            {/if}
+                            {if="$canclosepost_b"}
+                            <li>
+                                <a class="{if="$closed_b"}open{else}close{/if}" data-hpid="{$hpid_n}" data-refto="post{$hpid_n} .nerdz_date.pid">
+                                    <span class="rightarrow"></span>
+                                    {if="$closed_b"}{$open}{else}{$close}{/if}</a>
+                            </li>
+                            {/if}
+                        </ul>
+                    </li>
+                </ul>
+            </span>
+            {/if}
+            <span class="nerdz_date{if="$canremovepost_b || $caneditpost_b || $canclosepost_b"} pid{/if}"{if="$closed_b"} style="color:red" title="{$closed_post}"{else} style="font-size: 7pt"{/if}>
                 #{$pid_n}
             </span>
             {$message_n}

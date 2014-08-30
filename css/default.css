@@ -264,9 +264,9 @@ html, #body
 
 .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .bookmark, .unbookmark
 {
-    margin-bottom: -4px;
-    margin-top: -7px;
-    margin-left: 3px;
+    float:right;
+    margin-top: -5px;
+    margin-left:4px;
 }
 
 .page
@@ -309,11 +309,15 @@ html, #body
     background-color: #000;
     border-radius: 2.5px;
     font-size: 90%;
-    overflow: hidden;
+    overflow: visible;
     padding: 2px;
     border: 1px #FFFFFF solid;
     word-wrap: break-word;
     margin-bottom: 10px;
+}
+
+.nerdz_comments {
+    overflow:hidden;
 }
 
 .news
@@ -339,10 +343,9 @@ html, #body
 
 .quote
 {
-    margin: auto;
     background-color: #FFFDD0;
-    margin-top: 5px;
-    overflow: auto;
+    position:static;
+    overflow:hidden;
 }
 
 .nerdz_date
@@ -393,6 +396,7 @@ html, #body
 .nerdz_from
 {
     margin-bottom: 4px;
+    overflow:hidden;
 }
 
 .nerdz_truncate
@@ -572,36 +576,34 @@ ul.topnav {
     margin: 0;
     font-size: 1.2em;
     display: inline;
-}
-ul.topnav li {
-    margin: 0;  
-    padding: 0;
-    display: inline;
     float: right;
-}
-ul.topnav li a{
-    color: #fff;
-    display: block;
-    text-decoration: none;
 }
 
 ul.topnav li ul.subnav {
     list-style: none;
-    background: #333;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     display: none;
     width: 170px;
-    border: 1px solid #111;
 }
+
+ul.subnav {
+    position:absolute;
+    top:12px;
+    right:0px;
+}
+
 ul.topnav li ul.subnav li{
-    margin: 0; padding: 0;
-    border-top: 1px solid #252525; /*--Create bevel effect--*/
-    border-bottom: 1px solid #444; /*--Create bevel effect--*/
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    border-top: 1px solid #252525;
+    border-bottom: 1px solid #444;
     clear: both;
     width: 170px;
 }
 
-.arrow {
+.downarrow, .rightarrow {
     background: none repeat scroll 0 0 transparent;
     border-color: #fff;
     border-style: solid;
@@ -612,4 +614,24 @@ ul.topnav li ul.subnav li{
     transform: rotate(45deg);
     transition-duration: 300ms, 300ms;
     transition-property: border-width, top;
+}
+
+.rightarrow {
+    transform: rotate(315deg);
+    margin: 3px 7px auto 0;
+    float:left;
+}
+
+.topright
+{
+    float:right;
+    margin-right:1px;
+    margin-bottom:4px;
+}
+
+.pid
+{
+    position:absolute; /* father with position relative*/
+    top: 0px;
+    right:15px;
 }
