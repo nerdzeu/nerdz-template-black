@@ -80,6 +80,15 @@
     text-align: left;
 }
 
+#footersearch {
+    margin: 1px auto 1px auto;
+}
+
+#footersearch input[type=text] {
+    width: 40%;
+    height: 21px;
+}
+
 .nerdz_message > div.compressed, .news > div.compressed {
     max-height: 200px;
     overflow: hidden;
@@ -105,7 +114,7 @@
     color: #000;
     margin: 0%;
     border-left: solid 1.5px #000;
-    height: 19px;
+    height: 23px;
     width: 60px;
     text-align: center;
 }
@@ -311,7 +320,6 @@ html, #body {
 .nerdz_date {
     display: inline;
     float: right;
-    margin-right: 2px;
     font-size: 85%;
 }
 
@@ -570,5 +578,13 @@ ul.topnav li ul.subnav li {
  /* father with position relative*/
     top: 0px;
     right: 15px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
