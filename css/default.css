@@ -51,7 +51,7 @@
     margin-left: 1%;
 }
 
-#left_col ul, #right_col ul {
+#left_col ul, #right_col ul{
     list-style-type: square;
     list-style-position: inside;
     border: 0;
@@ -101,7 +101,6 @@
     bottom: 24px;
     right: 0px;
     background-color: #000;
-    border: 1px solid #FFF;
 }
 
 #notifycounter,#share,#bug_bar {
@@ -304,7 +303,6 @@ html, #body {
     background-color: #BDBDBD;
     color: #000;
     margin-bottom: 8px;
-    max-width: 98%;
 }
 
 .nerdz_comments br, .nerdz_message br {
