@@ -39,7 +39,6 @@
     </div>
     <div class="{if="$value.news_b"}news{else}nerdz_message{/if}">
         <div style="position:relative">
-            {if="$value.canremovepost_b || $value.caneditpost_b || $value.canclosepost_b"}
             <span class="nerdz_date">
                 <ul class="topnav">
                     <li>
@@ -69,11 +68,16 @@
                                 </a>
                             </li>
                             {/if}
+                            <li>
+                                <a class="hide" data-postid="post{$value.hpid_n}">
+                                    <span class="rightarrow"></span>
+                                    {$hide}
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
             </span>
-            {/if}
             <span class="nerdz_date{if="$value.canremovepost_b || $value.caneditpost_b || $value.canclosepost_b"} pid{/if}"{if="$value.closed_b"} style="color:red" title="{$closed_post}"{else} style="font-size: 7pt"{/if}>
                 #{$value.pid_n}
             </span>
