@@ -233,6 +233,13 @@ $(document).ready(function() {
         });
     });
 
+    window.toggleMenu = function(me, e) {
+        e.preventDefault();
+        $(me).parent().find("ul.subnav").toggle('fast'); //Drop down the subnav on click
+    };
+    
+    $("ul.topnav li a").on('click', function(e) { window.toggleMenu(this,e); });
+
     //begin plist into events (common to: homepage, projects, profiles)
     var plist = $("#postlist");
 
@@ -249,10 +256,7 @@ $(document).ready(function() {
         });
     };
 
-    plist.on('click', "ul.topnav li a", function(e) {
-        e.preventDefault();
-        $(this).parent().find("ul.subnav").toggle('fast'); //Drop down the subnav on click
-    });
+    plist.on('click', "ul.topnav li a", function(e) { window.toggleMenu(this,e); });
 
     plist.on('click', ".yt_frame", function(e) {
         e.preventDefault();

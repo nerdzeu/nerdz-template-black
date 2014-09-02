@@ -516,9 +516,8 @@ ul.topnav {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 1.2em;
+    font-size: 12px;
     display: inline;
-    float: right;
 }
 
 ul.topnav li ul.subnav {
@@ -557,6 +556,7 @@ ul.topnav li ul.subnav li {
     transition-duration: 300ms, 300ms;
     transition-property: border-width, top;
     outline: none;
+    display: block;
 }
 
 .rightarrow {
@@ -569,6 +569,13 @@ ul.topnav li ul.subnav li {
     float: right;
     margin-right: 1px;
     margin-bottom: 4px;
+}
+
+.bottomleft {
+    float: left;
+    margin-top: 3px;
+    width: 10px;
+    height: 10px;
 }
 
 .pid {
