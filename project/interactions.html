@@ -4,70 +4,20 @@
 <li class="nerdz_comments">
     <span class="nerdz_date" style="float:left">{$value.datetime_n}</span>&nbsp;
     <span class="rightarrow" style="margin-left:11px"></span>&nbsp;
-    {if="$value.type_n == 'blacklist' || $value.type_n == 'followers' || $value.type_n == 'whitelist'"}
-        {if="$value.type_n == 'blacklist'"}
-            {if="$value.fromid_n == $me_n"}
-                {$you_blacklisted_this_user}
-            {else}
-                {$you_have_been_blacklisted}
-            {/if}
-        {elseif="$value.type_n == 'followers'"}
-            {if="$value.fromid_n == $me_n"}
-                {$you_follow}
-            {else}
-                {$following_you}
-            {/if}
-        {elseif="$value.type_n == 'whitelist'"}
-            {if="$value.fromid_n == $me_n"}
-                {$you_whitelisted_this_user}
-            {else}
-                {$you_have_been_whitelisted}
-            {/if}
-        {/if}
+    {if="$value.type_n == 'groups_members'"}
+        {$you_are_now_member_of}&nbsp;
+        <a href="/to4link_n">{$to_n}</a>
     {else}
-        {if="$value.type_n == 'comments'"}
-            {if="$value.fromid_n == $me_n"}
-                {$you_commented_on}
-            {else}
-                <a href="/{$value.from4link_n}">{$value.from_n}</a>&nbsp;
-                {$commented_on}
-            {/if}
-        {elseif="$value.type_n == 'pms'"}
-            {if="$value.fromid_n == $me_n"}
-                {$you_sent_pm}
-            {else}
-                <a href="/{$value.from4link_n}">{$value.from_n}</a>&nbsp;
-                {$sent_pm}
-            {/if}
-        {elseif="$value.type_n == 'posts'"}
-            {if="$value.fromid_n == $me_n"}
-                {$you_posted_on_board}
-            {else}
-                <a href="/{$value.from4link_n}">{$value.from_n}</a>&nbsp;
-                {$posted_on_your_board}
-            {/if}
-            &nbsp;⇒&nbsp;
-        {elseif="$value.type_n == 'thumbs'"}
-            {if="$value.fromid_n == $me_n"}
-                {$you_rated_the_post}
-            {else}
-                <a href="/{$value.from4link_n}">{$value.from_n}</a>&nbsp;
-                {$rated_the_post}
-            {/if}
-        {elseif="$value.type_n == 'comment_thumbs'"}
-            {if="$value.fromid_n == $me_n"}
-                {$you_rated_comment_on}
-            {else}
-                <a href="/{$value.from4link_n}">{$value.from_n}</a>&nbsp;
-                {$rated_comment_on}
-            {/if}
-        {elseif="$value.type_n == 'lurkers'"}
-            {if="$value.fromid_n == $me_n"}
-                {$you_lurked_post}
-            {else}
-                <a href="/{$value.from4link_n}">{$value.from_n}</a>&nbsp;
-                {$lurked_post}
-            {/if}
+        {if="$value.type_n == 'groups_comments'"}
+            {$you_commented_on}
+        {elseif="$value.type_n == 'groups_posts'"}
+            {$you_posted_on_board}&nbsp;⇒&nbsp;
+        {elseif="$value.type_n == 'groups_thumbs'"}
+            {$you_rated_the_post}
+        {elseif="$value.type_n == 'groups_comment_thumbs'"}
+            {$you_rated_comment_on}
+        {elseif="$value.type_n == 'groups_lurkers'"}
+             {$you_lurked_post}
         {/if}
         &nbsp;<a href="/{$value.link_n}">{$value.postto_n} [{$value.pid_n}]</a>
     {/if}

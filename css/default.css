@@ -561,7 +561,7 @@ ul.topnav li ul.subnav li {
 
 .rightarrow {
     transform: rotate(315deg);
-    margin: 3px 7px auto 0;
+    margin: 4px 7px auto 0;
     float: left;
 }
 
