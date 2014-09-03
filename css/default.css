@@ -254,10 +254,6 @@ html, #body {
     margin-left: 4px;
 }
 
-.qu_ico {
-    margin: 0;
-}
-
 .page {
     width: 99%;
     margin: auto;
@@ -329,6 +325,10 @@ html, #body {
     display: inline;
     float: right;
     font-size: 85%;
+}
+
+.nerdz_date img {
+    margin-top: 0;
 }
 
 .nerdz_thumbs, .revisions {
@@ -465,10 +465,6 @@ html, #body {
 pre {
     font-size: 12px;
     margin-top: 0;
-}
-
-.nerdz-code-wrapper {
-    border: solid white 1px;
 }
 
 .nerdz-code-title {

@@ -93,35 +93,23 @@
             </a>
             {if="$value.canshowlock_b"}
                 {if="$value.lock_b"}
-                    <span style="margin-right:3px; float: right">
-                        <img class="imglocked" data-hpid="{$value.hpid_n}" src="images/lock.png" alt="" width="16" height="16" title="{$recv_notify}" onclick="" />
-                    </span>
+                    <img class="imglocked" data-hpid="{$value.hpid_n}" src="images/lock.png" alt="" width="16" height="16" title="{$recv_notify}" onclick="" />
                 {else}
-                    <span style="margin-right:3px; float: right">
-                        <img class="imgunlocked" data-hpid="{$value.hpid_n}" src="images/unlock.png" alt="" width="16" height="16" title="{$not_recv_notify}" onclick="" />
-                    </span>
+                    <img class="imgunlocked" data-hpid="{$value.hpid_n}" src="images/unlock.png" alt="" width="16" height="16" title="{$not_recv_notify}" onclick="" />
                 {/if}
             {/if}
             {if="$value.canshowlurk_b"}
                 {if="$value.lurk_b"}
-                    <span style="margin-right:3px; float: right">
-                        <img class="unlurk" data-hpid="{$value.hpid_n}" src="images/unlurk.png" alt="" width="16" height="16" title="Unlurk" style="float:right; margin-left:5px" onclick="" />
-                    </span>
+                    <img class="unlurk" data-hpid="{$value.hpid_n}" src="images/unlurk.png" alt="" width="16" height="16" title="Unlurk" style="float:right; margin-left:5px" onclick="" />
                 {else}
-                    <span style="margin-right:3px; float: right">
-                        <img class="lurk" data-hpid="{$value.hpid_n}" src="images/lurk.png" alt="" width="16" height="16" title="Lurk" style="float:right; margin-left:5px" onclick="" />
-                    </span>
+                    <img class="lurk" data-hpid="{$value.hpid_n}" src="images/lurk.png" alt="" width="16" height="16" title="Lurk" style="float:right; margin-left:5px" onclick="" />
                 {/if}
             {/if}
             {if="$value.canshowbookmark_b"}
                 {if="$value.bookmark_b"}
-                    <span style="margin-right:3px; float: right">
-                        <img class="unbookmark" data-hpid="{$value.hpid_n}" src="images/unbookmark.png" alt="" width="16" height="16" title="Unbookmark" style="float:right; margin-left:5px" onclick="" />
-                    </span>
+                    <img class="unbookmark" data-hpid="{$value.hpid_n}" src="images/unbookmark.png" alt="" width="16" height="16" title="Unbookmark" style="float:right; margin-left:5px" onclick="" />
                 {else}
-                    <span style="margin-right:3px; float: right">
-                        <img class="bookmark" data-hpid="{$value.hpid_n}" src="images/bookmark.png" alt="" width="16" height="16" title="Bookmark" style="float:right; margin-left:5px" onclick="" />
-                    </span>
+                    <img class="bookmark" data-hpid="{$value.hpid_n}" src="images/bookmark.png" alt="" width="16" height="16" title="Bookmark" style="float:right; margin-left:5px" onclick="" />
                 {/if}
             {/if}
         </div>
