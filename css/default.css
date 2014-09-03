@@ -542,6 +542,8 @@ ul.topnav li ul.subnav li {
     border-bottom: 1px solid #444;
     clear: both;
     width: 170px;
+    height: 16px;
+    vertical-align: middle;
 }
 
 .downarrow, .rightarrow {
