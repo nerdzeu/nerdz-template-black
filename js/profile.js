@@ -3,18 +3,22 @@ $(document).ready(function() {
 
     $("#stdfrm").on('submit',function(event) {
         event.preventDefault();
-         $("#pmessage").html(loading+'...');
-        N.json.profile.newPost({message: $("#frmtxt").val(), to: $(this).data('to') },function(data) {
+        $("#pmessage").html(loading+'...');
+        var news  = $("#sendnews");
+
+        N.json.profile.newPost({
+            message: $("#frmtxt").val(),
+            to: $(this).data('to'),
+            news: news.length && news.is(':checked') ? '1' : '0',
+            language: $(this).find('[name="lang"]').val()
+        },function(data) {
             if(data.status == 'ok') {
                 $("#showpostlist").click();
                 $("#frmtxt").val('');
             }
-            
-            $("#pmessage").html(data.message);
 
-            setTimeout(function() {
-                        $("#pmessage").html('');
-                        },5000);
+            $("#pmessage").html(data.message);
+            setTimeout(function() { $("#pmessage").html(''); },5000);
         });
     });
 
@@ -29,12 +33,12 @@ $(document).ready(function() {
             event.preventDefault();
             me.html('...');
             N.json.profile.blacklist({
-                    id: me.data('id'),
-                    motivation: $("#blmot").val()
-                },function(d) {
-                    me.html(d.message);
-                    plist.html(oldPlist);
-                    me.off('click');
+                id: me.data('id'),
+                motivation: $("#blmot").val()
+            },function(d) {
+                me.html(d.message);
+                plist.html(oldPlist);
+                me.off('click');
             });
         });
     });
@@ -75,14 +79,14 @@ $(document).ready(function() {
             tok: $(this).data('tok'),
             to: $("#to").val(),
             message: $("#message").val(),
-            },function(d) {
-                $('#res').html(d.message);
-                if(d.status == 'ok') {
-                    setTimeout(function() {
-                        $("#fast_nerdz").show();
-                        $("#postlist").html(oldPlist);
-                    },500);
-                }
+        },function(d) {
+            $('#res').html(d.message);
+            if(d.status == 'ok') {
+                setTimeout(function() {
+                    $("#fast_nerdz").show();
+                    $("#postlist").html(oldPlist);
+                },500);
+            }
         });
     });
 });

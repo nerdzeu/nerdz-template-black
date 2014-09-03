@@ -161,6 +161,7 @@
 
 #fast_nerdz {
     margin-bottom: 15px;
+    overflow: hidden;
 }
 
 a:hover, a:visited, a:active, a:link, .qu_user a:visited, .qu_user a:active, .qu_user a:link, .atilda {
@@ -171,6 +172,15 @@ a:hover, a:visited, a:active, a:link, .qu_user a:visited, .qu_user a:active, .qu
 
 label, .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang, .more, .bookmark, .unbookmark {
     cursor: pointer;
+}
+
+input[type=checkbox] {
+    transform: scale(0.8);
+    padding: 0;
+    margin:0;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
 }
 
 input, option, select, textarea, button, .page th, .title, .follow, .unfollow {
@@ -323,7 +333,6 @@ html, #body {
 
 .nerdz_thumbs, .revisions {
     font-size: 80%;
-    margin-bottom: 10px;
     display: inline;
     position: relative;
     bottom: 1px;
@@ -525,7 +534,8 @@ ul.topnav li ul.subnav {
     margin: 0;
     padding: 0;
     display: none;
-    width: 170px;
+    width: 150px;
+    float: right;
 }
 
 ul.subnav {
@@ -541,7 +551,7 @@ ul.topnav li ul.subnav li {
     border-top: 1px solid #252525;
     border-bottom: 1px solid #444;
     clear: both;
-    width: 170px;
+    width: 150px;
     height: 16px;
     vertical-align: middle;
 }

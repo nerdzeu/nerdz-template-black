@@ -17,7 +17,7 @@
                 {/if}
                 </td>
                 <td>
-                    <img src="/images/flags/{$lang_n}.png" alt="{$lang_n}" title="{$lang_n}" style="border: 1px solid #FFF; margin-left:10%" width="18" height="12" />
+                    <img src="{$flagdir_n}{$lang_n}.png#" alt="{$lang_n}" title="{$lang_n}" width="18" height="12" />
                 </td>
                 <td style="width:50%">
                     <div style="float:right;margin-right:-21%">
@@ -107,18 +107,7 @@
     </aside>
     <article id="center_col" class="page">
     {if="$canwrite_b"}
-        <div id="fast_nerdz">
-            <div>
-                <form id="stdfrm" data-to="{$id_n}">
-                    <textarea id="frmtxt" name="message" style="width: 100%; height: 60px"></textarea>
-                    <input type="submit" value="{$nerdz_it}" style="float: right;margin-top:5px" />
-                    <button type="button" style="float:right; margin-top: 5px" class="preview" data-refto="#frmtxt">{$preview}</button>
-                    <button type="button" style="float:left; margin-top:5px" onclick="window.open('/bbcode.php')">BBCode</button>
-                    <div id="pmessage" class="error"></div>
-                </form>
-            </div>
-            <br />
-        </div>
+        {include="common/form"}
     {/if}
         <div id="postlist" data-type="profile" data-profileid="{$id_n}" data-location="profile" data-mode="std">
             {if="isset($post_n)"} {ignore}handle single post, friends, follwers, ecc{/ignore}

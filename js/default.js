@@ -233,7 +233,7 @@ $(document).ready(function() {
         });
     });
 
-    $("ul.topnav li a").on('click', function(e) {
+    $("ul.topnav li a.rightarrow").on('click', function(e) {
         e.preventDefault();
         $(this).parent().find("ul.subnav").toggle('fast');
     });
@@ -254,7 +254,7 @@ $(document).ready(function() {
         });
     };
 
-    plist.on('click', "ul.topnav li a", function(e) {
+    plist.on('click', "ul.topnav li a.downarrow", function(e) {
         e.preventDefault();
         $(this).parent().find("ul.subnav").toggle('fast');
     });

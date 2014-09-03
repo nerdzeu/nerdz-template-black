@@ -264,9 +264,11 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).find('ul.subnav').hide();
         $("#pmessage").html(loading+'...');
+        var news  = $("#sendnews");
         N.json.profile.newPost({
             message: $("#frmtxt").val(),
             to: 0,
+            news: news.length && news.is(':checked') ? '1' : '0',
             language: $(this).find('[name="lang"]').val()
         },function(data) {
             if(data.status == 'ok') {

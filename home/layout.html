@@ -89,41 +89,7 @@
         <br /><br />
     </aside>
     <article id="center_col" class="page">
-        <div id="fast_nerdz">
-            <div>
-                <form id="stdfrm">
-                    <textarea id="frmtxt" name="message" style="width: 100%; height: 60px"></textarea>
-                    <div style="position:relative">
-                        <input type="submit" value="{$nerdz_it}" style="float: right" />
-                        <ul class="topnav">
-                            <li>
-                                <a href="#" class="rightarrow bottomleft"></a>
-                                <ul class="subnav" style="left:16px;top:1px;width:510px">
-                                    <li style="display:inline-block">
-                                        <span class="rightarrow"></span>
-                                        <a class="preview" data-refto="#frmtxt">{$preview}</a>
-                                    </li>
-                                    <li style="display:inline-block">
-                                        <span class="rightarrow"></span>
-                                        <a onclick="window.open('/bbcode.php')">BBCode</a>
-                                    </li>
-                                    <li style="display:inline-block">
-                                        <span class="rightarrow"></span>
-                                        {$language}:&nbsp;&nbsp;
-                                        <select name="lang" style="height:16px; vertical-align:middle;font-size:11px">
-                                        {loop="langs_a"}
-                                            <option value="{$value.shortlang_n}" {if="$value.shortlang_n == $mylang_n"} selected {/if}>{$value.longlang_n}</option>
-                                        {/loop}
-                                        </select>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div id="pmessage" class="error"></div>
-                    </div>
-                </form>
-            </div>
-            <br />
-        </div>
+        {include="common/form"}
         <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
         <br /><br /><br />
         {ignore} Data type == profile di default, ma cambia poi quando si aggiorna #postlist con i projetti

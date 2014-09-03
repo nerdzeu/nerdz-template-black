@@ -17,6 +17,9 @@
                   <a class='vote down{if="$uthumb_n ==-1"} voted{/if}'>&#9660;</a>&nbsp;&nbsp;
                 </span>
           </span>
+          {if="$language_n != $mylang_n"}
+            <img src="{$flagdir_n}{$language_n}.png#" alt="{$language_n}" title="{$language_n}" width="18" height="12" />
+          {/if}
         </div>
     </div>
     <div class="{if="$news_b"}news{else}nerdz_message{/if}">
