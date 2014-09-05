@@ -10,7 +10,7 @@
             <table style="border-spacing:1px" class="small">
             <tr>
                 <td style="width:50%">
-                    <span style="float:left; color:#00FF00">{if="$online_b"}{$online}{else}{$offline}{/if}</span>
+                    <span style="float:left; color:#{if="$online_b"}0f{else}f0{/if}0">{if="$online_b"}{$online}{else}{$offline}{/if}</span>
                 </td>
                 <td>
                     <img src="{$flagdir_n}{$lang_n}.png#" alt="{$lang_n}" title="{$lang_n}" width="18" height="12" />
