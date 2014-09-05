@@ -19,7 +19,9 @@
             "outputVersion": true // you should probably not change this
         } ],
         "preferences": "js/preferences.js",
-        "profile": "js/profile.js",
+        "profile": [ "js/profile.js", {
+            "lang": [ "MOTIVATION" ]
+        } ],
         "project": "js/project.js",
         "pm": "js/pm.js",
         "userslist": "js/userslist.js",
