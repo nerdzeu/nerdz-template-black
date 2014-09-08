@@ -9,12 +9,6 @@ $(document).ready(function() {
         window.fixHeights();
     });
 
-    $(".showcomments").click(function(e) {
-        alert(1);
-        console.log('www');
-        $(this).trigger(e);
-    });
-
     $(window).scroll(function() {
         if($(this).scrollTop()+200 >= ( $(document).height() - $(this).height() ))
         {

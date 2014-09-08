@@ -108,7 +108,7 @@ $(document).ready(function() {
                 }
             }
         }
-        else
+        else if(plist.data('type') == 'project')
         {
             if(plist.data('location') == 'home')
             {
@@ -121,7 +121,10 @@ $(document).ready(function() {
                     N.html.search.specificProfilePosts(num, qs, plist.data('profileid'),manageResponse);
                 }
             }
+        } else if(plist.data('type') == 'search') {
+            window.location.href='search.php?q=' + encodeURIComponent(qs);
         }
+
         plist.data('mode','search');
     });
 
