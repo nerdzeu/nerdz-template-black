@@ -931,6 +931,10 @@ $(document).ready(function() {
         document.location.reload();
     });
 
+    plist.on ('click', '.nerdz-code-title a', function(e) {
+        e.stopPropagation();
+    });
+
     // EASTER EGG! :O
     // NOTE: If you alreay tried/discovered this easter egg, then feel free
     // to read the code. Otherwise don't be a bad guy and try to find it by yourself.
