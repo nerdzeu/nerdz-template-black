@@ -20,6 +20,10 @@ $(document).ready(function() {
              );
     });
 
+    plist.on("mouseleave focusout", "div[id^='post']", function(e) {
+            plist.data('type','search');
+    });
+
     $(window).scroll(function() {
         if($(this).scrollTop()+200 >= ( $(document).height() - $(this).height() ))
         {

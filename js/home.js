@@ -132,20 +132,6 @@ $(document).ready(function() {
       $(this).data("parsed","1");
     });
     
-    plist.on('click','.more',function() {
-        var me = $(this), par = me.parent(), jenk = par.prev();
-        if (me.data ('busy') == 'godyes') return;
-        me.data ('busy', 'godyes');
-        // obtain the real height of the post and do some hardcore animations
-        //jenk.removeClass ("compressed"); var realHeight = jenk.height();
-        jenk.animate ({ maxHeight: jenk.data ('real-height') }, 500, function() {
-            jenk.removeClass ("compressed").css ("max-height", "none");
-            me.slideUp ('slow', function() {
-                me.remove();
-            });
-        });
-    });
-
     plist.on('click',".hide",function() {
         var pid = $(this).data('postid');
         var hidden = localStorage.getItem('hid');
