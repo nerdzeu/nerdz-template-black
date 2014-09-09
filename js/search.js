@@ -1,13 +1,17 @@
 $(document).ready(function() {
     var load = true;
     var tmpDivId = "scrtxt";
-    var qs = $("#qs").html();
+    var qs = $.trim($("#qs").html());
     var plist = $("#postlist");
 
-    N.html.search.globalPosts(10, qs, function(d) {
-        plist.html(d);
-        window.fixHeights();
-    });
+    if(qs !== '') {
+        N.html.search.globalPosts(10, qs, function(d) {
+            plist.html(d);
+            window.fixHeights();
+        });
+    } else {
+        plist.html(N.getLangData().ERROR);
+    }
 
     // since functions in default.js depends on plist.data('type')
     // but in the search page we got both projects and profiles posts

@@ -1,6 +1,17 @@
 <div id="main">
     <div id="left_col">
-        <div class="title">{$topics}</div>
+        <div class="title">{$newest_trends}</div>
+        <ol style="padding:0; list-style-type: none">
+        {loop="newest_a"}
+            <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+        {/loop}
+        </ol>
+        <div class="title">{$most_popular_trends}</div>
+        <ol style="padding:0; list-style-type: none">
+        {loop="popular_a"}
+            <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+        {/loop}
+        </ol>
     </div>
     <article id="center_col">
         <h1 style="margin-top:0;text-align:center;border-bottom:1px solid">{$results_for}: <span id="qs">{$querystring_n}</span></h1>
