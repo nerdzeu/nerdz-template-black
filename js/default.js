@@ -108,7 +108,7 @@ $(document).ready(function() {
                 }
             }
         }
-        else if(plist.data('type') == 'project')
+        else if(plist.data('type') == 'profile')
         {
             if(plist.data('location') == 'home')
             {

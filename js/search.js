@@ -9,6 +9,17 @@ $(document).ready(function() {
         window.fixHeights();
     });
 
+    // since functions in default.js depends on plist.data('type')
+    // but in the search page we got both projects and profiles posts
+    // thus we must change the type according to the selected post
+    // best hack btw
+    plist.on('mouseenter focus', "div[id^='post']", function(e) {
+        plist.data('type', /\.(\d+)$/i.test($(this).find('a.post_link').attr('href'))
+                ? 'profile'
+                : 'project'
+             );
+    });
+
     $(window).scroll(function() {
         if($(this).scrollTop()+200 >= ( $(document).height() - $(this).height() ))
         {
