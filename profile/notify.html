@@ -15,6 +15,8 @@
         <a href="/{$value.to4link_n}">{$news_on_project} - {$value.to_n} [{$value.pid_n}]</a>
     {elseif="$value.type_n == 'new_project_member'"}
         {$you_are_now_member_of}&nbsp;<a href="/{$value.to4link_n}">{$value.to_n}</a>
+    {elseif="$value.type_n == 'you_are_the_new_project_owner'}
+        {$you_are_the_new_owner_of}&nbsp;<a href="/{$value.to4link_n}">{$value.to_n}</a>
     {/if}
     </div>
 {/loop}
