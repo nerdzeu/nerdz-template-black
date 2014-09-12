@@ -804,7 +804,7 @@ $(document).ready(function() {
                                     refto.html(o);
                                     refto.slideToggle("slow");
                                     if(typeof N.getLangData().HIDE != "undefined") {
-                                        $(refto.find("div.small")[0]).prepend('<a class="hide" style="float:right; margin-left:3px" data-postid="post'+id+'">'+N.getLangData().HIDE+'</a>');
+                                        $(refto.find("ul.subnav")[0]).append('<li><a class="hide" data-postid="post'+ id + '"><span class="rightarrow"></span>' + N.getLangData().HIDE+'</a></li>');
                                     }
 
                                 });
