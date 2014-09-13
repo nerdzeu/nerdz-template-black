@@ -76,56 +76,40 @@ $(document).ready(function() {
         $("#footersearch").hide();
     }
 
+    //http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+    window.getParameterByName = function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    };
+
     $("#footersearch").on('submit',function(e) {
         e.preventDefault();
-        var plist = $("#postlist");
         var qs =  $.trim($("#footersearch input[name=q]").val());
-        var num = 10; //TODO: numero di posts, parametro?
-
         if(qs === '') {
             return false;
         }
+        qs = encodeURIComponent(qs);
+        var plist = $("#postlist");
 
-        var manageResponse = function(d)
-        {
-            plist.html(d);
-            //variabile booleana messa come stringa data che nel dom posso salvare solo stringhe
-            sessionStorage.setItem('searchLoad', "1"); //e' la variabile load di search, dato che queste azioni sono in questo file js ma sono condivise da tutte le pagine, la variabile di caricamento dev'essere nota a tutte
-            window.fixHeights(); 
-        };
-
-        if(plist.data('type') == 'project')
-        {
-            if(plist.data('location') == 'home')
-            {
-                N.html.search.globalProjectPosts(num, qs, manageResponse);
-            }
-            else
-            {
-                if(plist.data('location') == 'project')
-                {
-                    N.html.search.specificProjectPosts(num, qs, plist.data('projectid'),manageResponse);
-                }
-            }
+        var type = window.getParameterByName('type');
+        if(type === '') {
+            type = plist.data('type');
         }
-        else if(plist.data('type') == 'profile')
-        {
-            if(plist.data('location') == 'home')
-            {
-                N.html.search.globalProfilePosts(num, qs, manageResponse);
-            }
-            else
-            {
-                if(plist.data('location') == 'profile')
-                {
-                    N.html.search.specificProfilePosts(num, qs, plist.data('profileid'),manageResponse);
-                }
-            }
-        } else if(plist.data('type') == 'search') {
-            window.location.href='search.php?q=' + encodeURIComponent(qs);
+        type = encodeURIComponent(type);
+        var loc = window.getParameterByName('location');
+        if(loc === '') {
+            loc = plist.data('location');
         }
+        loc = encodeURIComponent(loc);
+        var id = window.getParameterByName('id');
+        if(id === '') {
+            id = plist.data('id');
+        }
+        id = encodeURIComponent(id);
 
-        plist.data('mode','search');
+        window.location.href='search.php?q=' + qs + '&type=' + type + '&location=' + loc + '&id=' + id;
+
     });
 
     $("#logout").on('click',function(event) {
@@ -433,11 +417,8 @@ $(document).ready(function() {
                 var tagTime = me.parent().parent(), timeVal = null;
                 if(id === 'hcid') {
                     tagTime = tagTime.find('a[id^="ndc"]');
-                    console.log(tagTime);
                 } else {
-                    console.log(me.parent().parent());
                     tagTime = tagTime.find('time');
-                    console.log(tagTime);
                 }
                 timeVal = tagTime.html();
 

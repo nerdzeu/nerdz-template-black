@@ -103,7 +103,7 @@ $(document).ready(function() {
         else
         {
             $("#fast_nerdz").show();
-            if(lang != '*') {
+            if(lang !== null && lang != '*') {
                 $("#stdfrm select[name=lang]").val(lang);
                 $("#stdfrm ul.subnav").show();
             } else {
@@ -295,9 +295,6 @@ $(document).ready(function() {
     }
 
     /* Autoload vecchi post allo scrolldown */
-        //questo serve per search, che avendo l'azione iniziale nel file default.js, non condivide la variabile load. Uso sessionStorage per ovviare
-    var sl = 'searchLoad'; /*search label */
-    sessionStorage.setItem(sl,"0");
     var tmpDivId = "scrtxt";
     var manageScrollResponse = function(data) {
         $("#"+tmpDivId).remove();
@@ -305,17 +302,6 @@ $(document).ready(function() {
             plist.append(data);
             hideHidden();
             load = true;
-            sessionStorage.setItem(sl, "0"); // se sono entrato qui, sicuramente non cerco
-        }
-    };
-
-    var manageScrollSearchResponse = function(data) {
-        $("#"+tmpDivId).remove();
-        if(data.length > 0) {
-            plist.append(data);
-            hideHidden();
-            sessionStorage.setItem(sl, "1");
-            load = false; // se sono entrato qui, sicuramente stavo cercando
         }
     };
 
@@ -347,19 +333,6 @@ $(document).ready(function() {
                 }
                 else if(mode == 'vote') {
                     N.html[type].getByVoteHomePostListBeforeHpid(num,voteOrder,hpid, manageScrollResponse);
-                }
-            }
-            //a true ci va in default.js, dopo il primo search
-            if(sessionStorage.getItem(sl) == "1")
-            {
-                sessionStorage.setItem(sl, "0");
-                if(type == 'project' && mode == 'search')
-                {
-                    N.html.search.globalProjectPostsBeforeHpid(num,$("#footersearch input[name=q]").val(), hpid, manageScrollSearchResponse);
-                }
-                else if(type == 'profile' && mode == 'search')
-                {
-                    N.html.search.globalProfilePostsBeforeHpid(num, $("#footersearch input[name=q]").val(), hpid, manageScrollSearchResponse);
                 }
             }
         }

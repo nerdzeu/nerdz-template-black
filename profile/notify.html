@@ -17,6 +17,8 @@
         {$you_are_now_member_of}&nbsp;<a href="/{$value.to4link_n}">{$value.to_n}</a>
     {elseif="$value.type_n == 'you_are_the_new_project_owner'"}
         {$you_are_the_new_owner_of}&nbsp;<a href="/{$value.to4link_n}">{$value.to_n}</a>
+    {elseif="$value.type_n == 'new_mention_on_profile_post' || $value.type_n == 'new_mention_on_project_post'"}
+        <a href="/{$value.from4link_n}">{$value.from_n}</a> {$mentioned_you_on} <a href="/{$value.to4link_n}">{$value.to_n} [{$value.pid_n}]</a>
     {/if}
     </div>
 {/loop}

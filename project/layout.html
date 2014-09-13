@@ -74,7 +74,7 @@
     {if="$canwrite_b"}
         {include="common/form"}
     {/if}
-        <div id="postlist" data-type="project" data-projectid="{$id_n}" data-location="project" data-limit="0" data-mode="std">
+        <div id="postlist" data-type="project" data-id="{$id_n}" data-location="project" data-limit="0" data-mode="std">
             {ignore} Data type == project è un progetto, parte da limit 0 a fare le richieste{/ignore}
             {if="isset($post_n)"} {ignore} handle single post and followers{/ignore}
                 {$post_n}
@@ -112,7 +112,6 @@
             var plist = $("#postlist");
             var num = 10; {ignore} TODO PARAM? {/ignore}
             var load = false;
-            var sl = 'searchLoad'; {ignore}search label {/ignore}
             var loading = N.getLangData().LOADING;
             var divId = 'scrtxt';
             var append = '<h3 id="'+divId+'">'+loading+'...</h3>';
@@ -120,10 +119,9 @@
             $("#showpostlist").on('click',function() {
                 plist.html(loading);
                 load = false;
-                N.html.project.getPostList(num, $("#postlist").data('projectid'),function(data) {
+                N.html.project.getPostList(num, $("#postlist").data('id'),function(data) {
                     plist.html(data);
                     load = true;
-                    sessionStorage.setItem(sl,"0");
                     window.fixHeights();
                 });
             });
@@ -135,11 +133,10 @@
             $(window).scroll(function() {
                 if($(this).scrollTop()+200 >= ( $(document).height() - $(this).height() ) )
                 {
-                    var hpid = null;
-                    if((load || ("1" == sessionStorage.getItem(sl)) && !$("#"+divId).length))
+                    var hpid = plist.find("div[id^='post']").last().data('hpid');
+                    if(load && !$("#"+divId).length)
                     {
                         plist.append(append);
-                        hpid = plist.find("div[id^='post']").last().data('hpid');
                     }
 
                     if(load)
@@ -147,30 +144,15 @@
                         load = false;
 
                         if(plist.data('mode') == 'std') {
-                            N.html.project.getPostListBeforeHpid(num, plist.data('projectid'), hpid,function(data) {
+                            N.html.project.getPostListBeforeHpid(num, plist.data('id'), hpid,function(data) {
                                 $("#"+divId).remove();
                                 if(data.length > 0) {
                                     plist.append(data);
                                     load = true;
-                                    sessionStorage.setItem(sl,"0");
                                     window.fixHeights();
                                 }
                             });
                         }
-                    }
-                    
-                    if(sessionStorage.getItem(sl) == "1")
-                    {
-                        sessionStorage.setItem(sl,"0");
-                        N.html.search.specificProfilePostsBeforeHpid(num, $("#footersearch input[name=q]").val(), plist.data('projectid'), hpid, function(data) {
-                            $("#"+divId).remove();
-                            if(data.length > 0) {
-                                plist.append(data);
-                                load = false;
-                                sessionStorage.setItem(sl,"1");
-                                window.fixHeights();
-                            }
-                        });
                     }
                 }
             });
