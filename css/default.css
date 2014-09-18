@@ -92,7 +92,7 @@
 .nerdz_message > div.compressed, .news > div.compressed {
     max-height: 200px;
     overflow: hidden;
-    width: auto;
+    width: 100%;
 }
 
 #notify_list {
