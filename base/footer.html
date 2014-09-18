@@ -20,5 +20,5 @@
         <input type="text" name="q" style="width: 55%" placeholder="{$search}" />
     </form>
 {/if}
-    <a id="notifycounter" accesskey="x">{$register}</a>
+<a id="notifycounter" accesskey="x">{if="!$logged_b"}{$register}{/if}</a>
 </footer>
