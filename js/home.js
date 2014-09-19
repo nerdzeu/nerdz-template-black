@@ -314,7 +314,7 @@ $(document).ready(function() {
             var type = plist.data('type');
             var append = '<h3 id="'+tmpDivId+'">'+loading+'...</h3>';
 
-            if((load || ("1" == sessionStorage.getItem(sl))) && !$("#"+tmpDivId).length)
+            if(load && !$("#"+tmpDivId).length)
             {
                 plist.append(append);
             }
