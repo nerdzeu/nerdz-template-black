@@ -1,0 +1,2 @@
+- Write the template wiki.
+- Remove the useless content of README.md and add a reference to the wiki.

@@ -33,14 +33,7 @@ The file specified will be included in every page listed above and always before
 Recently the possibility of including static variables and language strings directly from this file was added. Please see the example in the default template. You will need an updated core.
 
 The file also includes a `langs` section, which is used to specify *only* the default language. The syntax `%lang%` is mandatory so that you can create json language files organized by language.  
-  
-  
-  
-FILE: template.variables
-------------------------
-This file contains the list of every php variable availble in a specific page.  
-  
-  
+   
   
 FILE: NAME
 ----------
@@ -74,7 +67,4 @@ CSS
 The CSS classes `quote` and `spoiler` are mandatory, as they're the classes used for those BBCode tags.  
 Add them to the default css or just in the css file(s) used in pages that will be using those tags (home, profile, project).  
 
-The classes `.img_frame` and `.img_frame-extended` are also mandatory, as they're the classes used to show images.  
-  
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nerdzeu/nerdztemplateblack/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+The classes `.img_frame` and `.img_frame-extended` are also mandatory, as they're the classes used to show images.
