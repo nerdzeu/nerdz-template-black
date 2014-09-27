@@ -562,8 +562,8 @@ ul.topnav li ul.subnav li {
     border-color: #fff;
     border-style: solid;
     border-width: 0 2px 2px 0;
-    height: 6px;
-    width: 6px;
+    height: 8px;
+    width: 8px;
     margin-left: 10px;
     transform: rotate(45deg);
     transition-duration: 300ms, 300ms;
@@ -580,8 +580,9 @@ ul.topnav li ul.subnav li {
 
 .topright {
     float: right;
-    margin-right: 1px;
+    margin-right: 2px;
     margin-bottom: 4px;
+    maring-left: 4px;
 }
 
 .bottomleft {
