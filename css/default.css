@@ -174,6 +174,10 @@ label, .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang
     cursor: pointer;
 }
 
+.more {
+    background-color: #000;
+}
+
 input[type=checkbox] {
     transform: scale(0.8);
     padding: 0;
@@ -543,6 +547,7 @@ ul.subnav {
     position: absolute;
     top: 12px;
     right: 0px;
+    z-index: 1;
 }
 
 ul.topnav li ul.subnav li {
