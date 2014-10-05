@@ -14,6 +14,10 @@
         "default": [ "js/default.js", {
             "lang": [ "LOADING", "EXPAND", "OPEN", "CLOSE", "EDIT" ]
         } ],
+        "index": [
+            "https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js",
+            "js/index.js"
+        ],
         "home": [ "js/home.js", {
             "lang": [ "HIDDEN_POSTS", "EXPAND", "HIDE" ],
             "outputVersion": true // you should probably not change this
