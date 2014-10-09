@@ -142,17 +142,14 @@
                     if(load)
                     {
                         load = false;
-
-                        if(plist.data('mode') == 'std') {
-                            N.html.project.getPostListBeforeHpid(num, plist.data('id'), hpid,function(data) {
-                                $("#"+divId).remove();
-                                if(data.length > 0) {
-                                    plist.append(data);
-                                    load = true;
-                                    window.fixHeights();
-                                }
-                            });
-                        }
+                        N.html.project.getPostListBeforeHpid(num, plist.data('id'), hpid,function(data) {
+                            $("#"+divId).remove();
+                            if(data.length > 0) {
+                                plist.append(data);
+                                load = true;
+                                window.fixHeights();
+                            }
+                        });
                     }
                 }
             });

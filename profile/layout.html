@@ -261,18 +261,15 @@
                     if(load)
                     {
                         load = false;
+                        N.html.profile.getPostListBeforeHpid(num, plist.data('id'), hpid,function(data) {
+                            $("#"+divId).remove();
+                            if(data.length > 0) {
+                                plist.append(data);
+                                load = true;
+                                window.fixHeights();
+                            }
 
-                        if(plist.data('mode') == 'std') {
-                            N.html.profile.getPostListBeforeHpid(num, plist.data('id'), hpid,function(data) {
-                                $("#"+divId).remove();
-                                if(data.length > 0) {
-                                    plist.append(data);
-                                    load = true;
-                                    window.fixHeights();
-                                }
-
-                            });
-                        }
+                        });
                     }
                 }
             });
