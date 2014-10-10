@@ -5,7 +5,20 @@ $( document ).ready( function ( ) {
     var lang = null; /* globale dato che la uso anche altrove */
     var voteOrder = null; // ^
     var myLang = $( "#stdfrm select[name=lang]" ).val( );
-    var load = false; //gestisce i caricamenti ed evita sovrapposizioni. Dichiarata qui che è il foglio che viene incluso di default ovunque e per primo
+    var load = false;
+
+    $(".downarrow-home").click(function( e ) {
+        e.preventDefault();
+        if(!$(this).hasClass('toggled')) {
+            $(this).addClass('toggled');
+            $(this).css('transform', 'rotate(-45deg)');
+        } else {
+            $(this).removeClass('toggled');
+            $(this).css('transform','');
+        }
+        $(this).parent().next(".hidden").toggle();
+    });
+
     plist.html( '<h1>' + loading + '...</h1>' );
     var onRemoveHiddenPost = function ( ) {
         var me = $( this ),
@@ -126,7 +139,6 @@ $( document ).ready( function ( ) {
     $( "#profilePostList" ).on( 'click', function ( ) {
         plist.html( '<h1>' + loading + '...</h1>' );
         $( "#fast_nerdz" ).show( );
-        $( "#nerdzlist" ).hide( );
         $( ".selectlang" ).css( 'color', '' );
         localStorage.removeItem( "autolang" );
         localStorage.removeItem( "autoorder" );
@@ -142,7 +154,6 @@ $( document ).ready( function ( ) {
     $( "#projectPostList" ).on( 'click', function ( ) {
         plist.html( '<h1>' + loading + '...</h1>' );
         $( "#fast_nerdz" ).hide( );
-        $( "#projlist" ).hide( );
         $( ".projlang" ).css( 'color', '' );
         load = false;
         N.html.project.getHomePostList( 0, function ( data ) {
@@ -152,12 +163,6 @@ $( document ).ready( function ( ) {
             hideHidden( );
             load = true;
         } );
-    } );
-    $( "#nerdzselect" ).on( 'click', function ( ) {
-        $( "#nerdzlist" ).toggle( );
-    } );
-    $( "#projselect" ).on( 'click', function ( ) {
-        $( "#projlist" ).toggle( );
     } );
     $( ".selectlang" ).on( 'click', function ( ) {
         plist.html( '<h1>' + loading + '...</h1>' );

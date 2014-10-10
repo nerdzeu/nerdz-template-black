@@ -2,10 +2,11 @@ $( document ).ready( function ( ) {
     var loading = N.getLangData( ).LOADING;
     $( "iframe" ).attr( 'scrolling', 'no' );
     $( "body" ).append( $( '<br />' ) );
+
     // append version information
-    if ( $( "#left_col" ).length && window.location.pathname == "/home.php" && typeof Nversion !== 'undefined' && Nversion != 'null' )
-    // according to stackoverflow, using 'target' in HTML5 is alright so let's do it
-        $( "#left_col .title" ).eq( 0 ).append( " <span class='small' style='font-weight: normal; vertical-align: middle'><a href='https://github.com/nerdzeu/nerdz.eu/commit/" + Nversion + "' target='wowsoversion' style='color: #000 !important'>[" + Nversion + "]</a></span>" ).find( 'a' ).css( 'vertical-align', 'middle' );
+    if ( $( "#left_col" ).length && window.location.pathname == "/home.php" && typeof Nversion !== 'undefined' && Nversion != 'null' ) {
+        $( "#left_col .title" ).eq( 0 ).append( " <span class='small' style='font-weight: normal'><a href='https://github.com/nerdzeu/nerdz.eu/commit/" + Nversion + "' target='wowsoversion' style='color: #000 !important'>[" + Nversion + "]</a></span>" );
+    }
     // load the prettyprinter
     var append_theme = "",
         _h = $( "head" );
