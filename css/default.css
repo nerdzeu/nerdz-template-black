@@ -208,7 +208,6 @@ button, input[type=submit], .page th, .title, .follow, .unfollow {
     padding-right: 1%;
     border: 0.5px #000 solid;
     font-weight: bold;
-    white-space: nowrap;
     word-wrap: normal;
     vertical-align: middle;
     cursor: pointer;
