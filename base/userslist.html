@@ -15,6 +15,7 @@
                 {$value.username_n}
             </a>
             <div class="light">
+                {$value.name_n} {$value.surname_n}<br />
                 {if="$type_n == 'friends'"}{$friends_since}
                 {elseif="$type_n == 'following'"}{$following_since}
                 {elseif="$type_n == 'followers'"}{$following_since}
