@@ -524,6 +524,10 @@ $( document ).ready( function ( ) {
                 } else {
                     curr.removeClass( "voted" );
                     var votes = parseInt( r.message );
+                    if(isNaN(votes)) {
+                        alert(r.message);
+                        return;
+                    }
                     tnum.attr( "class", "thumbs-counter" ).text( votes );
                     if ( votes !== 0 ) {
                         tnum.addClass( votes > 0 ? "nerdz_thumbsNumPos" : "nerdz_thumbsNumNeg" );
@@ -543,6 +547,10 @@ $( document ).ready( function ( ) {
                     cont.children( ".voted" ).removeClass( "voted" );
                     curr.addClass( "voted" );
                     var votes = parseInt( r.message );
+                    if(isNaN(votes)) {
+                        alert(r.message);
+                        return;
+                    }
                     tnum.attr( "class", "thumbs-counter" ).text( votes );
                     if ( votes !== 0 ) {
                         tnum.addClass( votes > 0 ? "nerdz_thumbsNumPos" : "nerdz_thumbsNumNeg" );
