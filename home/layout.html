@@ -15,14 +15,14 @@
                     </span>
                 </div>
                 <div class="hidden" id="nerdzlist">
-                    <span class="small" style="margin: 5px auto 5px 15px">{$from}:</span>
+                    <div class="small" style="margin: 5px auto 5px 15px">{$from}:</div>
                     <div style="margin-left:20px">
                         <ul>
                             <li class="selectlang" data-lang="*">{$everybody}</li>
                             <li class="selectlang" data-lang="usersifollow">{$users_i_follow}</li>
                         </ul>
                     </div>
-                    <span class="small" style="margin: 5px auto 5px 15px">{$language}:</span>
+                    <div class="small" style="margin: 6px auto 5px 15px">{$language}:</div>
                     <div style="margin-left:20px">
                         <ul>
                             {loop="langs_a"}
@@ -31,7 +31,7 @@
                         </ul>
                         <br />
                     </div>
-                    <ul style="margin-left:15px" class="small" id="nerdzvote">
+                    <ul style="margin-left:15px; margin-bottom:10px" class="small" id="nerdzvote">
                         <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
                         <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
                     </ul>
@@ -46,14 +46,14 @@
                     </span>
                 </div>
                 <div class="hidden" id="projlist">
-                    <span class="small" style="margin: 5px auto 5px 15px">{$from}:</span>
+                    <div class="small" style="margin: 5px auto 5px 15px">{$from}:</div>
                     <div style="margin-left:20px">
                         <ul>
                             <li class="projlang" data-lang="*">{$everybody}</li>
                             <li class="projlang" data-lang="usersifollow">{$users_i_follow}</li>
                         </ul>
                     </div>
-                    <span class="small" style="margin: 5px auto 5px 15px">{$language}:</span>
+                    <div class="small" style="margin: 6px auto 5px 15px">{$language}:</div>
                     <div style="margin-left:20px">
                         <ul>
                             {loop="langs_a"}
@@ -62,7 +62,7 @@
                         </ul>
                         <br />
                     </div>
-                    <ul style="margin-left:15px" class="small">
+                    <ul style="margin-left:15px; margin-bottom:10px" class="small">
                         <li class="projlang" data-lang="vote" data-order="+">{$top_rated}</li>
                         <li class="projlang" data-lang="vote" data-order="-">{$less_rated}</li>
                     </ul>
@@ -72,7 +72,7 @@
                     <a href="/userslist.php">{$users_list}</a>
                 </div>
                 <div class="hidden">
-                    <ul style="margin-left:20px">
+                    <ul style="margin-left:20px; margin-bottom:10px">
                         <li><a href="/deleted.php" class="small">{$deleted}</a></li>
                         <li><a href="/banned.php" class="small">{$banned}</a></li>
                     </ul>
@@ -86,7 +86,7 @@
                     {$bookmarks}
                 </div>
                 <div class="hidden">
-                    <ul style="margin-left:15px">
+                    <ul style="margin-left:15px; margin-bottom:10px">
                         <li><a href="/bookmarks.php">{$users}</a></li>
                         <li><a href="/bookmarks.php?project=1">{$projects}</a></li>
                     </ul>
@@ -96,7 +96,7 @@
                     <a href="/informations.php">{$informations}</a>
                 </div>
                 <div class="hidden">
-                    <ul style="margin-left:20px">
+                    <ul style="margin-left:20px; margin-bottom:10px">
                         <li><a href="/rank.php">Top 100</a></li>
                         <li><a href="/rank.php?top=thismonth">Monthly 100</a></li>
                         <li><a href="/last.php">{$last_user}</a></li>
