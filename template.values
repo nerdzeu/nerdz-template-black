@@ -31,7 +31,9 @@
         "userslist": "js/userslist.js",
         "projectslist": "js/projectslist.js",
         "bookmarks": "js/bookmarks.js",
-        "reset": "js/reset.js",
+        "reset": [ "js/reset.js", {
+            "lang": [ "PASSWORDS_DO_NOT_MATCH" ]
+        } ],
         "share": "js/share.js",
         "search": [ "js/search.js", {
             "lang": [ "ERROR" ]

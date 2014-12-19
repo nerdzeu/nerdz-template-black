@@ -10,4 +10,19 @@ $( document ).ready( function ( ) {
             }
         } );
     } );
+
+    $( "#restokfrm" ).submit( function ( e ) {
+        e.preventDefault( );
+        if ( $("#password").val() != $("#password-check").val() ) {
+            alert(N.getLangData( ).PASSWORDS_DO_NOT_MATCH);
+            return;
+        } else {
+            N.json.resetPassword( $( this ).serialize( ), function ( d ) {
+                $( "#error" ).html( d.message );
+                if( d.status == 'ok' ) {
+                    document.location.reload( );
+                }
+            } );
+        }
+    } );
 } );

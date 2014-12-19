@@ -1,0 +1,30 @@
+<div id="main">
+<br /><br />
+<aside id="left_col">&nbsp;</aside>
+<div id="center_col">
+    <h1>{$welcome} {$username_n}</h1><br />
+    {$reset_your_password}
+    <form id="restokfrm">
+        <table style="margin: auto; width: 60%">
+            <tr>
+                <td>{$password}:</td><td><input type="password" name="password" id="password" /><br /></td>
+            </tr>
+            <tr>
+                <td>{$verify_password}:</td><td><input type="password" name="password-check" id="password-check" /><br /></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="hidden" name="token" value="{$resettoken_n}" />
+                    <input type="hidden" name="key" value="{$resetkey_n}" />
+                    <input type="submit" value="{$send}" />
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div id="left_col">
+    <div id="error"></div>
+</div>
+</div>
