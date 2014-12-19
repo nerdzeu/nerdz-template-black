@@ -18,8 +18,8 @@
             {$list_of_bots}:<br />
             <div class="light">
             {loop="bots_a"}
-                {if="counter % 10 == 0"} <br /> {/if}
-                {$value.name_n}
+                {if="$counter % 10 == 0"} <br /> {/if}
+                {$value.name_n}&nbsp;
             {/loop}
             </div>
         {/if}
