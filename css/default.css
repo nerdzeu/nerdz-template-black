@@ -618,7 +618,7 @@ ul.topnav li ul.subnav li {
     float: right;
     margin-right: 2px;
     margin-bottom: 4px;
-    maring-left: 4px;
+    margin-left: 4px;
 }
 
 .bottomleft {
@@ -626,13 +626,6 @@ ul.topnav li ul.subnav li {
     margin-top: 3px;
     width: 10px;
     height: 10px;
-}
-
-.pid {
-    position: absolute;
- /* father with position relative*/
-    top: 0px;
-    right: 15px;
 }
 
 html {
