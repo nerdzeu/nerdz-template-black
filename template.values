@@ -11,9 +11,13 @@
     },
     // JS section
     "js": {
-        "default": [ "js/default.js", {
-            "lang": [ "LOADING", "EXPAND", "OPEN", "CLOSE", "EDIT" ]
-        } ],
+        "default": [
+            "js/default.js",
+            "js/jquery.caret.js",
+            "js/jquery.atwho.js", {
+                "lang": [ "LOADING", "EXPAND", "OPEN", "CLOSE", "EDIT" ]
+            }
+        ],
         "index": [
             "https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js",
             "js/index.js"
