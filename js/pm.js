@@ -133,11 +133,6 @@ $( document ).ready( function ( ) {
             window.open( '/preview.php?message=' + encodeURIComponent( txt ) );
         }
     } );
-    c.on( 'keydown', "textarea", function ( e ) {
-        if ( e.ctrlKey && ( e.keyCode == 10 || e.keyCode == 13 ) ) {
-            $( this ).parent( ).trigger( 'submit' );
-        }
-    } );
     c.on( 'click', '.more_btn', function ( ) {
         var thisBtn = $( this ),
             internalPointer = thisBtn.data( 'counter' ) || 0;
