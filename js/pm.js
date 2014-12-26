@@ -66,6 +66,19 @@ $( document ).ready( function ( ) {
         } );
     } );
     var c = $( "#content" );
+    c.on ( 'focus', '#to', function() {
+        $(this).atwho({
+            at: "",
+            data: N.following,
+            start_with_space: false,
+            limit: 10, 
+            callbacks: {
+                inserting_wrapper: function($inputor, content, suffix) {
+                    return content;
+                }
+            }
+        });
+    });
     var newpm = false;
     $( "#form" ).click( function ( ) {
         c.html( loadtxt );
