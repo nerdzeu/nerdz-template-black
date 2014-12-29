@@ -34,6 +34,18 @@ $( document ).ready( function ( ) {
             return ret;
         }
     };
+    
+    $(window).on('beforeunload', function() {
+        if (!$("#postlist").length) return;
+        var areas = $('textarea');
+        for (var ta in areas) {
+            var val = $.trim(areas[ta].value) || '';
+            if (val !== '') {
+                areas[ta].focus();
+                return N.getLangData().MESSAGE_NOT_SENT;
+            }
+        }
+    });
 
     $( "iframe" ).attr( 'scrolling', 'no' );
     $( "body" ).append( $( '<br />' ) );
@@ -206,18 +218,21 @@ $( document ).ready( function ( ) {
                 before_insert: function (val, $li) {
                     var bbcode = bbCodes
                         .byName ($li.data ("value")), what, indch;
-                    if (typeof bbcode !== 'object')
-                        what  = "[" + bbcode + "][/" + bbcode + "]",
+                    if (typeof bbcode !== 'object') {
+                        what  = "[" + bbcode + "][/" + bbcode + "]";
                         indch = "]";
+                    }
                     else
                     {
                         var name = bbcode.name.replace (/=$/, "");
                         what = "[" + name;
-                        if (bbcode.hasParam)
-                            what += "=" +(bbcode.useQuotes ? '""': ""),
+                        if (bbcode.hasParam) {
+                            what += "=" +(bbcode.useQuotes ? '""': "");
                             indch = bbcode.useQuotes ? '"' : "=";
-                        else
+                        }
+                        else {
                             indch = "]";
+                        }
                         what += "]";
                         if (!bbcode.isEmpty)
                             what += "[/" + name + "]";
@@ -226,18 +241,18 @@ $( document ).ready( function ( ) {
                     return what;
                 },
                 tpl_eval: function (tpl, map) {
-                    var base = "<li data-value='" + map["name"] + "'>",
-                        bbcode = bbCodes.byName (map["name"]),
+                    var base = "<li data-value='" + map.name + "'>",
+                        bbcode = bbCodes.byName (map.name),
                         isObj  = typeof bbcode === 'object';
-                    map["name"] = map["name"].replace (/=$/, "");
-                    base += "[" + map["name"];
+                    map.name = map.name.replace (/=$/, "");
+                    base += "[" + map.name;
                     if (isObj && bbcode.hasParam)
                         base += "=" +
                             (bbcode.paramDesc ?
                              bbcode.paramDesc : "...");
                     base += "]";
                     if (!isObj || !bbcode.isEmpty)
-                        base += "...[/" + map["name"] + "]";
+                        base += "...[/" + map.name + "]";
                     return base + "</li>";
                 },
                 highlighter: function (li, query) {
@@ -272,7 +287,7 @@ $( document ).ready( function ( ) {
                 pos = $me.caret ("pos"), v = $me.val(), index;
             // remove the trailing space from the textbox
             $me.val (v.substr (0, pos - 1) + v.substr (pos));
-            index = str.indexOf ($li.data ("index")),
+            index = str.indexOf ($li.data ("index"));
             next_offset = pos - str.length;
             if ($li.data ("index") !== "]")
                 next_offset += str.indexOf ("]");
@@ -301,11 +316,49 @@ $( document ).ready( function ( ) {
                     delta = curr - old_len;
                 old_len = curr;
                 next_offset += delta;
-                if ($me.caret ("pos") >= next_offset)
-                    next_offset = -1, old_len = 0;
+                if ($me.caret ("pos") >= next_offset) {
+                    next_offset = -1;
+                    old_len = 0;
+                }
             }
         });
     });
+
+    $("#mediacrush-file").on('change', function(e) {
+        e.preventDefault();
+        var $me = $(this), progress = $("#" + $me.data('progref'));
+        MediaCrush.upload(document.getElementById("mediacrush-file").files[0], function(media) {
+            var file = document.getElementById("mediacrush-file").files[0];
+            var ext = file.name.split('.').pop();
+            var tag = file.type.indexOf("image") > -1 ? "img" : file.type.indexOf("audio") > -1 ? "music" : "video";
+            // Upload complete
+            var $area = $("#"+$me.data('refto'));
+            // Finished processing
+            $("#" + $me.data('progref')).css('width', '0%');
+            var msg = "["+tag+"]https://cdn.mediacru.sh/" + media.hash + "." + ext +"[/"+tag+"]";
+            var cpos = $area[0].selectionStart, val = $area.val( ), intx = val.substring( 0, cpos ) + msg;
+            $area.focus( );
+            $area.val( intx + val.substring( cpos ) );
+            $area[ 0 ].setSelectionRange( intx.length, intx.length );
+            $me.val('');
+        }, function(e) {
+            // XHR progress handler
+            if (e.lengthComputable) {
+                progress.css('width',(e.loaded / e.total) * 100 + '%');
+            }
+        });
+    });
+
+    var handleUpload = function(me, e) {
+        e.preventDefault();
+        var progref = 'ref' + Math.round(Math.random() * 100)+ 'pro';
+        var refto = me.parent().parent().find('textarea').attr('id');
+
+        me.append("<div id='" + progref  + "' style='background-color:blue; height: 3px; width:0%'></div>");
+        $("#mediacrush-file").data('progref', progref).data('refto',refto).click();
+    };
+
+    $(".mediacrush-upload").on('click', function(e) { handleUpload($(this),e); });
 
     var handleFolUn = function ( me, d, oldValue ) {
         me.html( d.message );
@@ -356,6 +409,10 @@ $( document ).ready( function ( ) {
             el.attr( 'data-parsed', '1' );
         } );
     };
+
+
+    plist.on('click', ".mediacrush-upload", function(e) { handleUpload($(this),e); });
+
     plist.on( 'click', '.more', function ( ) {
         var me = $( this ),
             par = me.parent( ),

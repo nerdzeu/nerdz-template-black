@@ -14,8 +14,9 @@
         "default": [
             "js/default.js",
             "js/jquery.caret.js",
-            "js/jquery.atwho.js", {
-                "lang": [ "LOADING", "EXPAND", "OPEN", "CLOSE", "EDIT" ]
+            "js/jquery.atwho.js",
+            "js/mediacrush.js", {
+                "lang": [ "LOADING", "EXPAND", "OPEN", "CLOSE", "EDIT", "MESSAGE_NOT_SENT" ]
             }
         ],
         "index": [
