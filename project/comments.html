@@ -40,13 +40,13 @@
                 <a class='vote down{if="$value.uthumb_n ==-1"} voted{/if}'>&#9660;</a>&nbsp;&nbsp;
               </div>
             </span>&nbsp;|&nbsp;
+            {if="$value.canremove_b"}
+                <a class="delcomment" data-hcid="{$value.hcid_n}" data-refto="{$value.uid_n}">✗</a>
+            {/if}
             <img width="16" height="16" src="images/quote.png" alt="quote" class="qu_ico" data-hcid="{$value.hcid_n}" data-type="p" data-refto="commentto{$value.hpid_n}" onclick="" />
         </span>
     </div>
     <div class="nerdz_comments" style="width:auto">
-        {if="$value.canremove_b"}
-            <img alt="" src="images/remove-comment.png" width="8" height="9" class="delcomment" data-hcid="{$value.hcid_n}" data-refto="{$value.uid_n}" style="float: right; cursor: pointer; margin-top: 3px;">
-        {/if}
         {$value.message_n}
     </div>
     <script type="application/javascript">$("#nd{$value.uid_n}{$value.hcid_n}").attr("href",(typeof(lnk{$hpid_n})=="undefined"?document.location.pathname:lnk{$hpid_n})+"#{$value.uid_n}");</script>

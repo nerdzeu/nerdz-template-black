@@ -178,7 +178,7 @@ a:hover, a:visited, a:active, a:link, .qu_user a:visited, .qu_user a:active, .qu
     text-decoration: none;
 }
 
-label, .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang, .more, .bookmark, .unbookmark {
+label, .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang, .more, .bookmark, .unbookmark, *[class^="delcomment"] {
     cursor: pointer;
 }
 
@@ -256,10 +256,14 @@ html, #body {
     border-bottom: 1px solid #FFFFFF;
 }
 
-.qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .bookmark, .unbookmark {
+.qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .bookmark, .unbookmark, .delcomment {
     float: right;
     margin-top: -5px;
     margin-left: 4px;
+}
+
+.delcomment {
+    margin-top: auto;
 }
 
 .page {

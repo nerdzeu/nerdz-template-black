@@ -449,16 +449,23 @@ $( document ).ready( function ( ) {
     } );
     plist.on( 'click', ".delcomment", function ( ) {
         var refto = $( '#' + $( this ).data( 'refto' ) );
-        refto.html( loading + '...' );
-        N.json[ plist.data( 'type' ) ].delComment( {
-            hcid: $( this ).data( 'hcid' )
-        }, function ( d ) {
-            if ( d.status == 'ok' ) {
-                refto.remove( );
-            } else {
-                refto.html( d.message );
-            }
-        } );
+        var text = refto.html();
+        refto.html( '<div style="text-align:center">' + N.getLangData( ).ARE_YOU_SURE + '<br /><span class="delcommentyes">YES</span>&nbsp;|&nbsp;<span class="delcommentno">NO</span></div>' );
+        var hcid = $( this ).data( 'hcid' );
+        refto.on('click', '.delcommentyes', function() {
+            N.json[ plist.data( 'type' ) ].delComment( {
+                hcid: hcid
+            }, function ( d ) {
+                if ( d.status == 'ok' ) {
+                    refto.remove( );
+                } else {
+                    refto.html( d.message );
+                }
+            } );
+        });
+        refto.on('click', '.delcommentno', function() {
+            refto.html(text);
+        });
     } );
     plist.on( 'submit', '.frmcomment', function ( e ) {
         e.preventDefault( );

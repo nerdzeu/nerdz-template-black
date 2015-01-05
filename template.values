@@ -15,7 +15,7 @@
             "js/default.js",
             "js/jquery.caret.js",
             "js/jquery.atwho.js", {
-                "lang": [ "LOADING", "EXPAND", "OPEN", "CLOSE", "EDIT", "MESSAGE_NOT_SENT" ]
+                "lang": [ "LOADING", "EXPAND", "OPEN", "CLOSE", "EDIT", "MESSAGE_NOT_SENT", "ARE_YOU_SURE" ]
             }
         ],
         "index": [
