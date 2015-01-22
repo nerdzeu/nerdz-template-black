@@ -146,6 +146,7 @@
 
 #postlist {
     margin-bottom: 4%;
+    overflow: hidden;
 }
 
 #rightmenu {
