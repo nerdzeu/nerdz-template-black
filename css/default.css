@@ -676,6 +676,7 @@ ul.topnav li ul.subnav li {
     border-bottom: 1px solid #DDD;
     cursor: pointer;
     /* border-top: 1px solid #C8C8C8; */
+    overflow: auto;
 }
 .atwho-view small {
     font-size: smaller;

@@ -26,8 +26,8 @@ $( document ).ready( function ( ) {
                         pmid: pmid
                     }, function ( d ) {
                         var newPms = $( '<div>' + d + '</div>' ).find( pattern ),
-                            internalCounter = mess.length,
-                            lastPm = mess.last( );
+                        internalCounter = mess.length,
+                        lastPm = mess.last( );
                         // This implementation is almost the same as the one in tpl/x/js/default.js.
                         // For explanations see that file.
                         // NOTE: it appears that mess.eq (mess.length - 1) isn't properly selecting
@@ -69,16 +69,15 @@ $( document ).ready( function ( ) {
     c.on ( 'focus', '#to', function() {
         $(this).atwho({
             at: "",
-            data: N.following,
-            start_with_space: false,
-            limit: 10, 
+            displayTpl: N.userTagDisplayTpl,
+            insertTpl: "${username_n}",
             callbacks: {
-                inserting_wrapper: function($inputor, content, suffix) {
-                    return content;
-                }
+                sorter: window.interactiveSorter,
+                remoteFilter: window.interactiveRemoteFilter('users')
             }
         });
     });
+
     var newpm = false;
     $( "#form" ).click( function ( ) {
         c.html( loadtxt );
@@ -148,7 +147,7 @@ $( document ).ready( function ( ) {
     } );
     c.on( 'click', '.more_btn', function ( ) {
         var thisBtn = $( this ),
-            internalPointer = thisBtn.data( 'counter' ) || 0;
+        internalPointer = thisBtn.data( 'counter' ) || 0;
         if ( thisBtn.data( 'in-progress' ) === '1' ) return;
         thisBtn.data( 'in-progress', '1' ).text( loadtxt + '...' );
         N.html.pm.getConversation( {
@@ -177,8 +176,8 @@ $( document ).ready( function ( ) {
     } );
     c.on( 'click', '.all_msgs_btn', function ( ) {
         var btn = $( this ),
-            btnDb = btn.parent( ).parent( ),
-            moreBtn = btnDb.find( ".more_btn" );
+        btnDb = btn.parent( ).parent( ),
+        moreBtn = btnDb.find( ".more_btn" );
         if ( btn.data( "working" ) === "1" || moreBtn.data( "in-progress" ) === "1" ) return;
         btn.data( "working", "1" ).text( loadtxt + "..." );
         moreBtn.data( "in-progress", "1" );
@@ -190,7 +189,7 @@ $( document ).ready( function ( ) {
             btn.data( "working", "0" ).text( btn.data( "localization" ) ).parent( ).hide( );
             btnDb.find( ".scroll_bottom_hidden" ).show( ).find( ".scroll_bottom_separator" ).hide( );
             var parsedData = $( "<div>" + data + "</div>" ),
-                push = $( "#conversation" );
+            push = $( "#conversation" );
             moreBtn.hide( ).data( "counter", Math.ceil( parsedData.find( ".nerdz_from" ).length / 10 ) );
             push.find( "div[id^=\"pm\"]" ).remove( );
             $( "#convfrm" ).before( data );
