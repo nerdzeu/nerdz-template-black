@@ -7,11 +7,11 @@ $( document ).ready( function ( ) {
     var myLang = $( "#stdfrm select[name=lang]" ).val( );
     var load = false;
 
-    $(".downarrow-home").click(function( e ) {
+    $(".rightarrow-home").click(function( e ) {
         e.preventDefault();
         if(!$(this).hasClass('toggled')) {
             $(this).addClass('toggled');
-            $(this).css('transform', 'rotate(-45deg)');
+            $(this).css('transform', 'rotate(45deg)');
         } else {
             $(this).removeClass('toggled');
             $(this).css('transform','');

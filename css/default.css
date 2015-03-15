@@ -593,7 +593,7 @@ ul.topnav li ul.subnav li {
     vertical-align: middle;
 }
 
-.downarrow, .rightarrow, .downarrow-home {
+.downarrow, .rightarrow, .rightarrow-home {
     background: none repeat scroll 0 0 transparent;
     border-color: #fff;
     border-style: solid;
@@ -601,17 +601,17 @@ ul.topnav li ul.subnav li {
     height: 8px;
     width: 8px;
     margin-left: 10px;
-    transform: rotate(45deg);
+    transform: rotate(-45deg);
     outline: none;
     display: block;
 }
 
-.downarrow-home, .rightarrow {
+.rightarrow-home, .rightarrow {
     margin: 4px 7px auto 0;
     float: left;
 }
 
-.downarrow-home {
+.rightarrow-home {
     margin: 2px 7px auto 2px;
 }
 
