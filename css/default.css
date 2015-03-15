@@ -615,8 +615,8 @@ ul.topnav li ul.subnav li {
     margin: 2px 7px auto 2px;
 }
 
-.rightarrow {
-    transform: rotate(315deg);
+.downarrow {
+    transform: rotate(45deg);
 }
 
 .topright {
