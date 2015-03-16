@@ -57,8 +57,8 @@
             <span class="light">{$gender}:<br /></span>
             {$gender_n}<br /><br />
             <span class="light">Karma:<br /></span>
-            {$comments}: <span style="color:#{if="$karmacomments_n > 0"}0f{else}f0{/if}0">{$karmacomments_n}</span><br />
-            Post: <span style="color:#{if="$karmaposts_n > 0"}0f{else}f0{/if}0">{$karmaposts_n}</span><br />
+            {$comments}: <span style="color:#{if="$karmacomments_n > 0"}0f0{else}{if="$karmacomments_n == 0"}fff{else}f00{/if}{/if}">{$karmacomments_n}</span><br />
+            Post: <span style="color:#{if="$karmaposts_n > 0"}0f0{else}{if="$karmaposts_n == 0"}fff{else}f00{/if}{/if}">{$karmaposts_n}</span><br />
             <hr />
             <span class="rightarrow"></span>
             <a href="/{$username4link_n}interactions">{$interactions}</a><br />
