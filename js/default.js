@@ -392,7 +392,7 @@ $( document ).ready( function ( ) {
             var $area = $("#"+$me.data('refto'));
             // Finished processing
             $("#" + $me.data('progref')).css('width', '0%');
-            var msg = "["+tag+"]https://cdn.mediacru.sh/" + media.hash + "." + ext +"[/"+tag+"]";
+            var msg = "["+tag+"]https://media.nerdz.eu/" + media.hash + "." + ext +"[/"+tag+"]";
             var cpos = $area[0].selectionStart, val = $area.val( ), intx = val.substring( 0, cpos ) + msg;
             $area.focus( );
             $area.val( intx + val.substring( cpos ) );
