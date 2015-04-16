@@ -396,7 +396,6 @@ $(document).ready(function() {
         e.preventDefault();
         var $me = $(this), progress = $("#" + $me.data("progref"));
         MediaCrush.upload(document.getElementById("mediacrush-file").files[0], function(media) {
-            console.log(media);
             var file = document.getElementById("mediacrush-file").files[0];
             var ext = file.name.split(".").pop();
             var tag = "video";
