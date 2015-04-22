@@ -392,11 +392,11 @@ $(document).ready(function() {
             }
         });
     });
-    $("#mediacrush-file").on("change", function(e) {
+    $("#nerdzcrush-file").on("change", function(e) {
         e.preventDefault();
         var $me = $(this), progress = $("#" + $me.data("progref"));
-        MediaCrush.upload(document.getElementById("mediacrush-file").files[0], function(media) {
-            var file = document.getElementById("mediacrush-file").files[0];
+        NERDZCrush.upload(document.getElementById("nerdzcrush-file").files[0], function(media) {
+            var file = document.getElementById("nerdzcrush-file").files[0];
             var ext = file.name.split(".").pop();
             var tag = "video";
             if (file.type.indexOf("image") > -1 && ext != "gif") {
@@ -425,9 +425,9 @@ $(document).ready(function() {
         var progref = "ref" + Math.round(Math.random() * 100) + "pro";
         var refto = me.parent().parent().find("textarea").attr("id");
         me.append("<div id='" + progref + "' style='background-color:blue; height: 3px; width:0%'></div>");
-        $("#mediacrush-file").data("progref", progref).data("refto", refto).click();
+        $("#nerdzcrush-file").data("progref", progref).data("refto", refto).click();
     };
-    $(".mediacrush-upload").on("click", function(e) {
+    $(".nerdzcrush-upload").on("click", function(e) {
         handleUpload($(this), e);
     });
     var handleFolUn = function(me, d, oldValue) {
@@ -476,7 +476,7 @@ $(document).ready(function() {
             el.attr("data-parsed", "1");
         });
     };
-    plist.on("click", ".mediacrush-upload", function(e) {
+    plist.on("click", ".nerdzcrush-upload", function(e) {
         handleUpload($(this), e);
     });
     plist.on("click", ".more", function() {
