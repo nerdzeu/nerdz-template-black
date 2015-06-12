@@ -395,19 +395,25 @@ $(document).ready(function() {
     $("#nerdzcrush-file").on("change", function(e) {
         e.preventDefault();
         var $me = $(this), progress = $("#" + $me.data("progref"));
+        progress.show();
         NERDZCrush.upload(document.getElementById("nerdzcrush-file").files[0], function(media) {
             var file = document.getElementById("nerdzcrush-file").files[0];
-            var ext = file.name.split(".").pop();
-            var tag = "video";
-            if (file.type.indexOf("image") > -1 && ext != "gif") {
-                tag = "img";
-            } else {
-                if (file.type.indexOf("audio") > -1) {
-                    tag = "music";
-                }
+            if(!file) {
+                progress.hide();
+                return;
             }
+            var ext = file.name.split(".").pop();
+            var tag = "url";
+            if (file.type.indexOf("image") > -1) {
+                tag = ext != "gif" ? "img" : "video";
+            } else if (file.type.indexOf("audio") > -1) {
+                tag = "music";
+            } else if (file.type.indexOf("video") > -1) {
+                tag = "video";
+            }
+
             var $area = $("#" + $me.data("refto"));
-            $("#" + $me.data("progref")).css("width", "0%");
+            progress.hide();
             var msg = "[" + tag + "]https://media.nerdz.eu/" + media.hash + "." + ext + "[/" + tag + "]";
             var cpos = $area[0].selectionStart, val = $area.val(), intx = val.substring(0, cpos) + msg;
             $area.focus();
@@ -416,7 +422,7 @@ $(document).ready(function() {
             $me.val("");
         }, function(e) {
             if (e.lengthComputable) {
-                progress.css("width", e.loaded / e.total * 100 + "%");
+                progress.val((e.loaded / e.total) * 100);
             }
         });
     });
@@ -424,7 +430,8 @@ $(document).ready(function() {
         e.preventDefault();
         var progref = "ref" + Math.round(Math.random() * 100) + "pro";
         var refto = me.parent().parent().find("textarea").attr("id");
-        me.append("<div id='" + progref + "' style='background-color:blue; height: 3px; width:0%'></div>");
+        me.find("progress").remove();
+        me.append("<progress id='" + progref + "' style='height: 3px; width:100%; display:none' max='100' value='0'></progress>");
         $("#nerdzcrush-file").data("progref", progref).data("refto", refto).click();
     };
     $(".nerdzcrush-upload").on("click", function(e) {
