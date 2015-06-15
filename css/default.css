@@ -483,6 +483,7 @@ pre {
 .nerdz-code-wrapper {
     border-bottom: 1px solid;
     font-size: 110%;
+    overflow: hidden;
 }
 
 .nerdz-code-title {
