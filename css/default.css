@@ -395,6 +395,10 @@ html, #body {
     overflow: hidden;
 }
 
+.qu_main-collapse {
+    max-height: 16px;
+}
+
 .img_frame, .yt_frame {
     clear: both;
     text-align: center;
@@ -473,6 +477,7 @@ html, #body {
 
 .qu_user {
     background-color: #333;
+    cursor: pointer;
 }
 
 pre {

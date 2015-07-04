@@ -472,6 +472,12 @@ $(document).ready(function() {
         $(this).parent().find("ul.subnav").toggle("fast");
     });
     var plist = $("#postlist");
+    plist.on("click", ".qu_user", function(e) {
+        if(e.target.tagName.toLowerCase() !== 'a') {
+            e.preventDefault();
+            $(this).parent().toggleClass("qu_main-collapse");
+        }
+    });
     window.fixHeights = function() {
         plist.find(".nerdz_message, .news").each(function() {
             var el = $(this).find("div:first");
