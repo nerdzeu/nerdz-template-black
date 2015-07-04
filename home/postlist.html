@@ -39,7 +39,7 @@
             <img src="{$flagdir_n}{$value.language_n}.png#" alt="{$value.language_n}" title="{$value.language_n}" width="18" height="12" />&nbsp;
             {/if}
             <span class="small{if="$value.canremovepost_b || $value.caneditpost_b || $value.canclosepost_b"} pid{/if}"{if="$value.closed_b"} style="color:red" title="{$closed_post}"{/if}>
-                #{$value.pid_n}
+                <a href="/{$value.to4link_n}{$value.pid_n}" class="post_link">#{$value.pid_n}</a>
             </span>
         </div>
     </div>
@@ -87,7 +87,6 @@
             {$value.message_n}
         </div>
         <div style="clear:both; padding-top: 5px" class="small">
-            <a href="/{$value.to4link_n}{$value.pid_n}" class="post_link">Link</a>&nbsp;&nbsp;
             <a class="showcomments" style="width:60%" data-hpid="{$value.hpid_n}" data-refto="commentlist{$value.hpid_n}">
                 {$comments} ({$value.postcomments_n})
             </a>

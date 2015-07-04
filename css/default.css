@@ -173,7 +173,7 @@
     overflow: hidden;
 }
 
-a:hover, a:visited, a:active, a:link, .qu_user a:visited, .qu_user a:active, .qu_user a:link, .atilda {
+a:hover, a:visited, a:active, a:link, .qu_user a:visited, .qu_user a:active, .qu_user a:link, .atilda, .showcomments {
     color: #2370B6;
     cursor: pointer;
     text-decoration: none;
