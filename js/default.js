@@ -402,7 +402,7 @@ $(document).ready(function() {
                 progress.hide();
                 return;
             }
-            var ext = file.name.split(".").pop();
+            var ext = file.name.split(".").pop().toLowerCase();
             var tag = "url";
             if (file.type.indexOf("image") > -1) {
                 tag = ext != "gif" ? "img" : "video";
