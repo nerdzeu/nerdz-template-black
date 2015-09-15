@@ -267,6 +267,10 @@ $(document).ready(function() {
             load = true;
         }
     };
+
+    // Lazy load avatars
+    $("img.gravatar-home").unveil();
+
     $(window).scroll(function() {
         if ($(this).scrollTop() + 200 >= $(document).height() - $(this).height()) {
             var num = 10;
