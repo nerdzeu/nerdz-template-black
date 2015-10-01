@@ -79,9 +79,9 @@ $(document).ready(function() {
     prettify.src = "https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.js" + append_theme;
     _h.append(prettify);
     if (append_theme !== "") {
-        _h.append('<style type="text/css">.nerdz-code-wrapper { background-color: #000; color: #eee; }</style>');
+        _h.append('<style type="text/css">.nerdz-code-wrapper { background-color: #000; color: #FFF; }</style>');
     } else {
-        _h.append('<style type="text/css">.nerdz-code-wrapper { background-color: #FFF; color: #000; }</style>');
+        _h.append('<style type="text/css">.nerdz-code-wrapper { background-color: #eee; color: #000; }</style>');
     }
     $("#notifycounter").on("click", function(e) {
         e.preventDefault();
