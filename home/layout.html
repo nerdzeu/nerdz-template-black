@@ -19,7 +19,6 @@
                     <div style="margin-left:20px">
                         <ul>
                             <li class="selectlang" data-lang="*">{$everybody}</li>
-                            <li class="selectlang" data-lang="usersifollow">{$users_i_follow}</li>
                         </ul>
                     </div>
                     <div class="small" style="margin: 6px auto 5px 15px">{$language}:</div>
@@ -50,7 +49,6 @@
                     <div style="margin-left:20px">
                         <ul>
                             <li class="projlang" data-lang="*">{$everybody}</li>
-                            <li class="projlang" data-lang="usersifollow">{$users_i_follow}</li>
                         </ul>
                     </div>
                     <div class="small" style="margin: 6px auto 5px 15px">{$language}:</div>
@@ -141,7 +139,7 @@
     <aside id="right_col" class="page">
     {if="!empty($followed_a)"}
         <div class="title" style="overflow:hidden">
-            <span style="vertical-align:middle">{$you_follow}</span><br />
+            <span style="vertical-align:middle"><a href="/{$myusername4link_n}following" style="color:#000">{$you_follow}</a></span><br />
             <span style="font-style: italic;vertical-align:middle" class="small">[{$followedonlinetot_n}/{$followedtot_n}]</span>
         </div>
         <br />
