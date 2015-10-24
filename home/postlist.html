@@ -1,5 +1,5 @@
 {loop="list_a"}
-<div id="post{$value.hpid_n}" data-hpid="{$value.hpid_n}">
+<div id="post{$value.hpid_n}" data-hpid="{$value.hpid_n}" data-type="{$value.type_n}">
     <script>var lnk{$value.hpid_n} = "/{$value.to4link_n}{$value.pid_n}";</script>
     <div class="nerdz_from">
         {if="!$value.news_b"}
@@ -38,8 +38,8 @@
             {if="$value.language_n != $mylang_n"}
             <img src="{$flagdir_n}{$value.language_n}.png#" alt="{$value.language_n}" title="{$value.language_n}" width="18" height="12" />&nbsp;
             {/if}
-            <span class="small{if="$value.canremovepost_b || $value.caneditpost_b || $value.canclosepost_b"} pid{/if}"{if="$value.closed_b"} style="color:red" title="{$closed_post}"{/if}>
-                <a href="/{$value.to4link_n}{$value.pid_n}" class="post_link">#{$value.pid_n}</a>
+            <span class="small{if="$value.canremovepost_b || $value.caneditpost_b || $value.canclosepost_b"} pid{/if}">
+                <a href="/{$value.to4link_n}{$value.pid_n}" class="post_link"{if="$value.closed_b"} style="color:red" title="{$closed_post}"{/if}>#{$value.pid_n}</a>
             </span>
         </div>
     </div>

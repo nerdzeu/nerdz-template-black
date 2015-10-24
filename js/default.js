@@ -52,6 +52,7 @@ $(document).ready(function() {
             return ret;
         }
     };
+
     $(window).on("beforeunload", function() {
         if (!$("#postlist").length) {
             return;
@@ -138,7 +139,6 @@ $(document).ready(function() {
             return false;
         }
         qs = encodeURIComponent(qs);
-        var plist = $("#postlist");
         var type = window.getParameterByName("type");
         if (type === "") {
             type = plist.data("type");
@@ -471,7 +471,12 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).parent().find("ul.subnav").toggle("fast");
     });
+
+    /*Postlist events */
     var plist = $("#postlist");
+    function getParentPostType($me) {
+        return $me.parentsUntil(plist, 'div[id^="post"]').eq(0).data("type");
+    };
     plist.on("click", ".qu_user", function(e) {
         if(e.target.tagName.toLowerCase() !== 'a') {
             e.preventDefault();
@@ -546,19 +551,22 @@ $(document).ready(function() {
     });
     plist.on("submit", ".frmcomment", function(e) {
         e.preventDefault();
-        var last, hcid, hpid = $(this).data("hpid"), refto = $("#commentlist" + hpid), error = $(this).find(".error").eq(0), pattern = 'div[id^="c"]', comments = refto.find(pattern);
+        var last, hcid, hpid = $(this).data("hpid"),
+        refto = $("#commentlist" + hpid), error = $(this).find(".error").eq(0),
+        pattern = 'div[id^="c"]', comments = refto.find(pattern),
+        me = $(this);
         if (comments.length) {
             last = comments.length > 1 ? comments.eq(comments.length - 2) : null;
             hcid = last ? last.data("hcid") : 0;
         }
         error.html(loading);
-        N.json[plist.data("type")].addComment({
+        N.json[getParentPostType($(this))].addComment({
             hpid: hpid,
             message: $(this).find("textarea").eq(0).val()
         }, function(d) {
             if (d.status == "ok") {
                 if (hcid && last) {
-                    N.html[plist.data("type")].getCommentsAfterHcid({
+                    N.html[getParentPostType(me)].getCommentsAfterHcid({
                         hpid: hpid,
                         hcid: hcid
                     }, function(d) {
@@ -581,7 +589,7 @@ $(document).ready(function() {
                         error.html("");
                     });
                 } else {
-                    N.html[plist.data("type")].getComments({
+                    N.html[getParentPostType(me)].getComments({
                         hpid: hpid,
                         start: 0,
                         num: 10
@@ -599,7 +607,8 @@ $(document).ready(function() {
         var refto = $("#" + $(this).data("refto"));
         if (refto.html() === "") {
             refto.html(loading + "...");
-            N.html[plist.data("type")].getComments({
+
+            N.html[getParentPostType($(this))].getComments({
                 hpid: $(this).data("hpid"),
                 start: 0,
                 num: 10
@@ -644,7 +653,7 @@ $(document).ready(function() {
             $(this).data("original-rev", revno);
         }
         if (revno > 0) {
-            N.json[plist.data("type")][func](obj, function(r) {
+            N.json[getParentPostType($(this))][func](obj, function(r) {
                 var tagTime = me.parent().parent(), timeVal = null;
                 if (id === "hcid") {
                     tagTime = tagTime.find('a[id^="ndc"]');
@@ -677,7 +686,7 @@ $(document).ready(function() {
                     }
                     pidTag.remove();
                 }
-                var storeName = plist.data("type") + "store" + func;
+                var storeName = getParentPostType($(this)) + "store" + func;
                 var elms = {};
                 if (!sessionStorage[storeName]) {
                     elms[me.data(id)] = [];
@@ -724,7 +733,7 @@ $(document).ready(function() {
             id = "hcid";
             tagTime = me.parent().parent().children('a[id^="ndc"]');
         }
-        var storeName = plist.data("type") + "store" + func;
+        var storeName = getParentPostType($(this)) + "store" + func;
         if (sessionStorage[storeName]) {
             var elms = JSON.parse(sessionStorage[storeName]);
             if (elms[me.data(id)]) {
@@ -782,7 +791,7 @@ $(document).ready(function() {
             func = "cthumbs";
         }
         if (curr.hasClass("voted")) {
-            N.json[plist.data("type")][func]($.extend(obj, {
+            N.json[getParentPostType($(this))][func]($.extend(obj, {
                 thumb: 0
             }), function(r) {
                 if (r.status === "error") {
@@ -804,7 +813,7 @@ $(document).ready(function() {
                 }
             });
         } else {
-            N.json[plist.data("type")][func]($.extend(obj, {
+            N.json[getParentPostType($(this))][func]($.extend(obj, {
                 thumb: curr.hasClass("up") ? 1 : -1
             }), function(r) {
                 if (r.status === "error") {
@@ -829,12 +838,16 @@ $(document).ready(function() {
         }
     });
     plist.on("click", ".more_btn", function() {
-        var moreBtn = $(this), commentList = moreBtn.parents('div[id^="commentlist"]'), hpid = /^post(\d+)$/.exec(commentList.parents('div[id^="post"]').attr("id"))[1], intCounter = moreBtn.data("morecount") || 0;
+        var moreBtn = $(this),
+        commentList = moreBtn.parents('div[id^="commentlist"]');
+        console.log(commentList.parentsUntil(plist, 'div[id^="post"]'));
+        hpid = $(commentList.parentsUntil(plist, 'div[id^="post"]')[0]).data("hpid"),
+        intCounter = moreBtn.data("morecount") || 0;
         if (moreBtn.data("inprogress") === "1") {
             return;
         }
         moreBtn.data("inprogress", "1").text(loading + "...");
-        N.html[plist.data("type")].getComments({
+        N.html[getParentPostType($(this))].getComments({
             hpid: hpid,
             start: intCounter + 1,
             num: 10
@@ -861,13 +874,13 @@ $(document).ready(function() {
         });
     });
     var showAllComments = function(el, callback) {
-        var btn = $(el), btnDb = btn.parent().parent(), moreBtn = btnDb.find(".more_btn"), commentList = btn.parents('div[id^="commentlist"]'), hpid = /^post(\d+)$/.exec(commentList.parents('div[id^="post"]').attr("id"))[1];
+        var btn = $(el), btnDb = btn.parent().parent(), moreBtn = btnDb.find(".more_btn"), commentList = btn.parents('div[id^="commentlist"]'), hpid = /^post(\d+)$/.exec(commentList.$(parentsUntil(plist, 'div[id^="post"]')[0]).data("id"))[1];
         if (btn.data("working") === "1" || moreBtn.data("inprogress") === "1") {
             return;
         }
         btn.data("working", "1").text(loading + "...");
         moreBtn.data("inprogress", "1");
-        N.html[plist.data("type")].getComments({
+        N.html[getParentPostType($(this))].getComments({
             hpid: hpid,
             forceNoForm: true
         }, function(res) {
@@ -893,16 +906,15 @@ $(document).ready(function() {
     });
     plist.on("click", ".delpost", function(e) {
         e.preventDefault();
-        var refto = $("#" + $(this).data("refto"));
-        var post = refto.html();
-        var hpid = $(this).data("hpid");
-        N.json[plist.data("type")].delPostConfirm({
+        var me = $(this), refto = $("#" + me.data("refto")), post = refto.html(), hpid = me.data("hpid");
+        var parentPostType = getParentPostType($(this));
+        N.json[parentPostType].delPostConfirm({
             hpid: hpid
         }, function(m) {
             if (m.status == "ok") {
                 refto.html('<div style="text-align:center">' + m.message + '<br /><span id="delPostOk' + hpid + '" style="cursor:pointer">YES</span>|<span id="delPostNo' + hpid + '" style="cursor:pointer">NO</span></div>');
                 refto.on("click", "#delPostOk" + hpid, function() {
-                    N.json[plist.data("type")].delPost({
+                    N.json[parentPostType].delPost({
                         hpid: hpid
                     }, function(j) {
                         if (j.status == "ok") {
@@ -926,13 +938,13 @@ $(document).ready(function() {
         var hpid = $(this).data("hpid");
         var me = $(this), arrow = me.children();
         me.html("...");
-        N.json[plist.data("type")].closePost({
+        N.json[getParentPostType(refto)].closePost({
             hpid: hpid
         }, function(m) {
             if (m.status != "ok") {
                 alert(m.message);
             } else {
-                refto.css("color", "red");
+                refto.find("a").css("color", "red");
                 me.html(N.getLangData().OPEN);
                 me.append(arrow);
                 me.attr("class", "open");
@@ -945,13 +957,13 @@ $(document).ready(function() {
         var hpid = $(this).data("hpid");
         var me = $(this), arrow = me.children();
         me.html("...");
-        N.json[plist.data("type")].openPost({
+        N.json[getParentPostType(refto)].openPost({
             hpid: hpid
         }, function(m) {
             if (m.status != "ok") {
                 alert(m.message);
             } else {
-                refto.css("color", "");
+                refto.find("a").css("color", "");
                 me.html(N.getLangData().CLOSE);
                 me.append(arrow);
                 me.attr("class", "close");
@@ -986,17 +998,20 @@ $(document).ready(function() {
         var form = function(fid, id, message, prev, type) {
             return '<form style="margin-bottom:40px" id="' + fid + '" data-' + type + '="' + id + '">' + '<textarea id="' + fid + 'abc" autofocus style="width:99%; height:125px">' + message + "</textarea><br />" + '<input type="submit" value="' + N.getLangData().EDIT + '" style="float: right; margin-top:5px" />' + '<button type="button" style="float:right; margin-top: 5px" class="preview" data-refto="#' + fid + 'abc">' + prev + "</button>" + '<button type="button" style="float:left; margin-top:5px" onclick="window.open(\'/bbcode.php\')">BBCode</button>' + "</form>";
         };
-        N.json[plist.data("type")][getF](getObj, function(d) {
-            var fid = refto.attr("id") + "editform";
+
+        N.json[getParentPostType($(this))][getF](getObj, function(d) {
+            var fid = refto.data("id") + "editform";
             refto.html(form(fid, id, d.message, $(".preview").html(), type));
+            var me = $(this);
             $("#" + fid).on("submit", function(e) {
                 e.preventDefault();
-                N.json[plist.data("type")][editF]($.extend(editObj, {
+                var me = $(this);
+                N.json[getParentPostType(me)][editF]($.extend(editObj, {
                     message: $(this).children("textarea").val()
                 }), function(d) {
                     if (d.status == "ok") {
                         refto.slideToggle("slow");
-                        N.html[plist.data("type")][getF](getObj, function(o) {
+                        N.html[getParentPostType(me)][getF](getObj, function(o) {
                             refto.html(o);
                             refto.slideToggle("slow");
                             if (typeof N.getLangData().HIDE != "undefined") {
@@ -1022,16 +1037,16 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-        if ($(this).data("silent")) {
-            N.json[plist.data("type")].reNotifyFromUserInPost({
-                hpid: $(this).data("hpid"),
-                from: $(this).data("silent")
+        if (me.data("silent")) {
+            N.json[getParentPostType(me)].reNotifyFromUserInPost({
+                hpid: me.data("hpid"),
+                from: me.data("silent")
             }, function(d) {
                 tog(d);
             });
         } else {
-            N.json[plist.data("type")].reNotifyForThisPost({
-                hpid: $(this).data("hpid")
+            N.json[getParentPostType(me)].reNotifyForThisPost({
+                hpid: me.data("hpid")
             }, function(d) {
                 tog(d);
             });
@@ -1049,16 +1064,16 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-        if ($(this).data("silent")) {
-            N.json[plist.data("type")].noNotifyFromUserInPost({
-                hpid: $(this).data("hpid"),
-                from: $(this).data("silent")
+        if (me.data("silent")) {
+            N.json[getParentPostType(me)].noNotifyFromUserInPost({
+                hpid: me.data("hpid"),
+                from: me.data("silent")
             }, function(d) {
                 tog(d);
             });
         } else {
-            N.json[plist.data("type")].noNotifyForThisPost({
-                hpid: $(this).data("hpid")
+            N.json[getParentPostType(me)].noNotifyForThisPost({
+                hpid: me.data("hpid")
             }, function(d) {
                 tog(d);
             });
@@ -1076,8 +1091,8 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-        N.json[plist.data("type")].lurkPost({
-            hpid: $(this).data("hpid")
+        N.json[getParentPostType(me)].lurkPost({
+            hpid: me.data("hpid")
         }, function(d) {
             tog(d);
         });
@@ -1094,8 +1109,8 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-        N.json[plist.data("type")].unlurkPost({
-            hpid: $(this).data("hpid")
+        N.json[getParentPostType(me)].unlurkPost({
+            hpid: me.data("hpid")
         }, function(d) {
             tog(d);
         });
@@ -1112,8 +1127,8 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-        N.json[plist.data("type")].bookmarkPost({
-            hpid: $(this).data("hpid")
+        N.json[getParentPostType(me)].bookmarkPost({
+            hpid: me.data("hpid")
         }, function(d) {
             tog(d);
         });
@@ -1130,8 +1145,8 @@ $(document).ready(function() {
                 alert(d.message);
             }
         };
-        N.json[plist.data("type")].unbookmarkPost({
-            hpid: $(this).data("hpid")
+        N.json[getParentPostType(me)].unbookmarkPost({
+            hpid: me.data("hpid")
         }, function(d) {
             tog(d);
         });
