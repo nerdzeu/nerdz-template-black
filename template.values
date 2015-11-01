@@ -15,7 +15,6 @@
     "js": {
         "default": [
         		"js/bootstrap.min.js",
-        		"js/jquery.min.js",
             "js/default.js",
             "js/jquery.caret.js",
             "js/jquery.atwho.js",
