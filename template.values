@@ -5,10 +5,12 @@
      */
     // CSS section
     "css": {
-    	  "base": "css/base.css",
-        "default": "css/default.css",
+        "default": [
+            "css/bootstrap.css",
+            "css/base.css",
+            "css/default.css"
+        ],
         "faq": "css/faq.css",
-    	  "bootstrap": "css/bootstrap.css",
         "userslist": "css/userslist.css"
     },
     // JS section
