@@ -1,5 +1,6 @@
 div.nopadding{padding: 0;}
 div.forminput{
+   background-color: #ffffff;
    border: 1px solid #ccc;
    padding: 1px 10px 0 10px; 
    color: #A5A5A5;
@@ -10,3 +11,4 @@ div.forminput{
 div.nobordertop{ border-top: 0; }
 div.forminput select{color: #676767;}
 input.noborderbottom{ border-bottom: 0; }
+
