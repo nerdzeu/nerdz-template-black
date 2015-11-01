@@ -74,15 +74,6 @@
     text-align: left;
 }
 
-#footersearch {
-    margin: 1px auto 1px auto;
-}
-
-#footersearch input[type=text] {
-    width: 40%;
-    height: 21px;
-}
-
 .nerdz_message > div.compressed, .news > div.compressed {
     max-height: 200px;
     overflow: hidden;
@@ -97,7 +88,7 @@
     background-color: #000;
 }
 
-#notifycounter,#share,#bug_bar {
+#share,#bug_bar {
     position: fixed;
     bottom: 0px;
     right: 0px;
@@ -110,6 +101,10 @@
     height: 23px;
     width: 60px;
     text-align: center;
+}
+
+
+#notifycounter{
 }
 
 #share {

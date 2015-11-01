@@ -11,4 +11,4 @@ div.forminput{
 div.nobordertop{ border-top: 0; }
 div.forminput select{color: #676767;}
 input.noborderbottom{ border-bottom: 0; }
-
+body{margin-top: 60px; }
