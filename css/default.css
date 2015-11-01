@@ -134,16 +134,6 @@
     width: 98%;
     word-wrap: break-word;
 }
-
-#gotopm {
-    float: left;
-    margin-top: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-style: italic;
-    width: 20px;
-}
-
 #postlist {
     margin-bottom: 4%;
     overflow: hidden;

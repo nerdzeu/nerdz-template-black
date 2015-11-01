@@ -1186,9 +1186,9 @@ $(document).ready(function() {
     }
     setInterval(function() {
         var nc = $("#notifycounter"), val = parseInt(nc.html());
-        nc.css("background-color", val === 0 || isNaN(val) ? "#FFF" : "#FF0000");
+        nc.css("background-color", val === 0 || isNaN(val) ? "#FFF" : "#E6E6E6");
         var pc = $("#pmcounter");
         val = parseInt(pc.html());
-        pc.css("background-color", val === 0 || isNaN(val) ? "#AFAFAF" : "#FF0000");
+        pc.css("background-color", val === 0 || isNaN(val) ? "transparent" : "#E6E6E6");
     }, 200);
 });

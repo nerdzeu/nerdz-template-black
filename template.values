@@ -7,8 +7,8 @@
     "css": {
         "default": [
             "css/bootstrap.css",
-            "css/base.css",
-            "css/default.css"
+            "css/default.css",
+            "css/base.css"
         ],
         "faq": "css/faq.css",
         "userslist": "css/userslist.css"
@@ -16,7 +16,7 @@
     // JS section
     "js": {
         "default": [
-        		"js/bootstrap.min.js",
+            "js/bootstrap.min.js",
             "js/default.js",
             "js/jquery.caret.js",
             "js/jquery.atwho.js",
