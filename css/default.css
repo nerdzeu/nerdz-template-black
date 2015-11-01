@@ -88,7 +88,7 @@
     background-color: #000;
 }
 
-#share,#bug_bar {
+#notifycounter,#share,#bug_bar {
     position: fixed;
     bottom: 0px;
     right: 0px;
@@ -101,10 +101,6 @@
     height: 23px;
     width: 60px;
     text-align: center;
-}
-
-
-#notifycounter{
 }
 
 #share {
