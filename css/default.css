@@ -21,12 +21,6 @@
     margin: 0.5%;
 }
 
-#title_right {
-    display: inline;
-    float: right;
-    margin: 0.5% 1% 0.1% 0.5%;
-}
-
 #left_col {
     float: left;
     width: 14%;
