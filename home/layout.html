@@ -1,190 +1,106 @@
-<div id="main">
-    <aside id="left_col">
-        <div>
-            <div class="title">
-                NERDZ
-            </div><br />
-            <div id="leftmenu">
-                <div class="item">
-                    <a class="rightarrow-home"></a>
-                    <a id="profilePostList" href="#">NERDZ</a>
-                    <span style="float:right">
-                        <a href="/feed.php">
-                            <img src="images/rss.gif" width="16" height="17" alt="Users RSS" />
-                        </a>
-                    </span>
+<div id="main" class="container-fluid">
+   <div id="left_col" class="col-xs-2">
+      <!-- PANEL NERDZ-->
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h5 class="title panel-title" style="display: inline;">
+              NERDZ
+            </h5>
                 </div>
-                <div class="hidden" id="nerdzlist">
-                    <div class="small" style="margin: 5px auto 5px 15px">{$from}:</div>
-                    <div style="margin-left:20px">
-                        <ul>
-                            <li class="selectlang" data-lang="*">{$everybody}</li>
-                            <li class="selectlang" data-lang="usersifollow">{$users_i_follow}</li>
-                        </ul>
-                    </div>
-                    <div class="small" style="margin: 6px auto 5px 15px">{$language}:</div>
-                    <div style="margin-left:20px">
-                        <ul>
-                            {loop="langs_a"}
-                            <li class="selectlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>
-                            {/loop}
-                        </ul>
-                        <br />
-                    </div>
-                    <ul style="margin-left:15px; margin-bottom:10px" class="small" id="nerdzvote">
-                        <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                        <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <a class="rightarrow-home"></a>
-                    <a id="projectPostList" href="#">{$projects}</a>
-                    <span style="float:right">
-                        <a href="/feed.php?project=1">
-                            <img src="images/rss.gif" width="16" height="17" alt="Project RSS" />
-                        </a>
-                    </span>
-                </div>
-                <div class="hidden" id="projlist">
-                    <div class="small" style="margin: 5px auto 5px 15px">{$from}:</div>
-                    <div style="margin-left:20px">
-                        <ul>
-                            <li class="projlang" data-lang="*">{$everybody}</li>
-                            <li class="projlang" data-lang="usersifollow">{$users_i_follow}</li>
-                        </ul>
-                    </div>
-                    <div class="small" style="margin: 6px auto 5px 15px">{$language}:</div>
-                    <div style="margin-left:20px">
-                        <ul>
-                            {loop="langs_a"}
-                            <li class="projlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>
-                            {/loop}
-                        </ul>
-                        <br />
-                    </div>
-                    <ul style="margin-left:15px; margin-bottom:10px" class="small">
-                        <li class="projlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                        <li class="projlang" data-lang="vote" data-order="-">{$less_rated}</li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <a class="rightarrow-home"></a>
-                    <a href="/userslist.php">{$users_list}</a>
-                </div>
-                <div class="hidden">
-                    <ul style="margin-left:20px; margin-bottom:10px">
-                        <li><a href="/deleted.php" class="small">{$deleted}</a></li>
-                        <li><a href="/banned.php" class="small">{$banned}</a></li>
-                    </ul>
-                </div>          
-                <div class="item">
-                    <div class="rightarrow-home"></div>
-                    <a href="/projectslist.php">{$projects_list}</a>
-                </div>
-                <div class="item">
-                    <a class="rightarrow-home"></a>
-                    {$bookmarks}
-                </div>
-                <div class="hidden">
-                    <ul style="margin-left:15px; margin-bottom:10px">
-                        <li><a href="/bookmarks.php">{$users}</a></li>
-                        <li><a href="/bookmarks.php?project=1">{$projects}</a></li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <a class="rightarrow-home"></a>
-                    <a href="/informations.php">{$informations}</a>
-                </div>
-                <div class="hidden">
-                    <ul style="margin-left:20px; margin-bottom:10px">
-                        <li><a href="/rank.php">Top 100</a></li>
-                        <li><a href="/rank.php?top=thismonth">Monthly 100</a></li>
-                        <li><a href="/last.php">{$last_user}</a></li>
-                        <li><a href="/stats.php">{$stats}</a></li>
-                        <li><a href="/faq.php">F.A.Q.</a></li>
-                        <li><a href="/terms.php">{$terms}</a></li>
-                    </ul>
+                <div class="panel-body">
+                  <ul class="nostyletype nopaddingleft">
+                     <li><!-- >NERDZ collapsable menu -->
+                        <a href="#nerdzlist" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                        <a id="profilePostList" href="#">NERDZ</a>
+                        <span style="float:right">
+                           <a href="/feed.php">
+                              <img src="images/rss.gif" width="16" height="17" alt="Users RSS" />
+                           </a>
+                        </span>
+                     </li>
+                     <li>
+                        <div id="nerdzlist" class="collapse">
+                           <div class="container"><small>{$from}:</small></div>
+                           <ul>
+                              <li class="selectlang" data-lang="*">{$everybody}</li>
+                              <li class="selectlang" data-lang="usersifollow">{$users_i_follow}</li>
+                           </ul>
+                            <div class="container"><small>{$language}:</small></div>
+                            <ul>
+                              {loop="langs_a"}
+                              <li class="selectlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>
+                              {/loop}
+                           </ul>
+                           <ul id="nerdzvote" style="margin-top: 10px;">
+                              <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
+                              <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li><!-- >PROJECTS collapsable menu -->
+                        <a href="#projlist" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                        <a id="projectPostList" href="#">{$projects}</a> 
+                        <span style="float:right">
+                           <a href="/feed.php?project=1">
+                              <img src="images/rss.gif" width="16" height="17" alt="Project RSS" />
+                           </a>
+                        </span>
+                     </li>
+                     <li>
+                        <div id="projlist" class="collapse">
+                           <div class="container"><small>{$from}:</small></div>
+                           <ul>
+                              <li class="projlang" data-lang="*">{$everybody}</li>
+                              <li class="projlang" data-lang="usersifollow">{$users_i_follow}</li>
+                           </ul>
+                           <div class="container"><small>{$language}:</small></div>
+                           <ul>
+                              {loop="langs_a"}
+                              <li class="projlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>
+                              {/loop}
+                           </ul>
+                           <ul style="margin-top: 10px">
+                              <li class="projlang" data-lang="vote" data-order="+">{$top_rated}</li>
+                              <li class="projlang" data-lang="vote" data-order="-">{$less_rated}</li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li><!-- USER LIST collapsable menu -->
+                        <a href="#userslist" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                        <a href="/userslist.php">{$users_list}</a> 
+                     </li>
+                     <li>
+                        <div id="userslist" class="collapse">
+                           <ul>
+                              <li><a href="/deleted.php" class="small">{$deleted}</a></li>
+                              <li><a href="/banned.php" class="small">{$banned}</a></li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ul>
+                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Lista progetti<br />
+                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Segnalibri<br />
+                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Informazioni<br />
                 </div>
             </div>
-        </div>
-        <div class="title">{$newest_trends}</div>
+   <!-- PANEL -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h5 class="panel-title">
+                        {$newest_trends}
+                    </h5>
+                </div>
+                <div class="panel-body">
         <ol style="padding:0; list-style-type: none">
         {loop="newest_a"}
             <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
         {/loop}
         </ol>
-        <div class="title">{$most_popular_trends}</div>
-        <ol style="padding:0; list-style-type: none">
-        {loop="popular_a"}
-            <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
-        {/loop}
-        </ol>
-        <div class="title">
-            {$advertisement}
-        </div>
-        <div class="box">
-            {$banners_a.120x60}
-        </div>
-        <br /><br />
-    </aside>
-    <article id="center_col" class="page">
-        {include="common/form"}
-        <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
-        <br /><br /><br />
-        {ignore} Data type == profile di default, ma cambia poi quando si aggiorna #postlist con i projetti
-                 location sta a indicare dove ci troviamo (che lo utilizzo e modifico nel footersearch)
-                mode è li per indicare al gestore dello scrolldown se deve caricare normalemente (std) oppure scrollare la pagina di ricerca (search)
-        {/ignore}
-    </article>
-    <aside id="right_col" class="page">
-    {if="!empty($followed_a)"}
-        <div class="title" style="overflow:hidden">
-            <span style="vertical-align:middle">{$you_follow}</span><br />
-            <span style="font-style: italic;vertical-align:middle" class="small">[{$followedonlinetot_n}/{$followedtot_n}]</span>
-        </div>
-        <br />
-        <div id="rightmenu">
-            <ol class="follow-list-home">
-            {loop="followed_a"}
-                <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>
-                    <a href="/{$value.username4link_n}">
-                        <img alt="{$value.username_n}" class="gravatar-home" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#" height="32" width="32">
-                    </a>
-                    <div class="follow-list-container-home">
-                        <a href="/{$value.username4link_n}" class="follow-list-title-home"{if="!$value.online_b"} style="color: #AFAFAF"{/if}>
-                            {$value.username_n}
-                        </a>
-                        {if="$value.birthday_b"}
-                            <img src="images/gift.gif" alt="gift" style="float: right" width="12" height="12" />
-                        {/if}
-                    </div>
-                </li>
-            {/loop}
-            </ol>
-        </div>
-        <br />
-    {/if}
-    {if="!empty($ownerof_a)"}
-        <div class="title">{$your_projects}</div>
-        <div class="box">
-            <ul>
-            {loop="ownerof_a"}
-                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-            {/loop}
-            </ul>
-        </div>
-        <br />
-    {/if}
-    {if="!empty($memberof_a)"}
-        <div class="title">{$member_of}</div>
-        <div class="box">
-            <ul>
-            {loop="memberof_a"}
-                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-            {/loop}
-            </ul>
-        </div>
-        <br />
-    {/if}
-    </aside>
+                </div>
+            </div>
+   </div>
+   <div id="center_col" class="col-xs-8"><!--CENTER-->
+   {include="common/form"}
+        <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div></div>
+   <div class="col-xs-2">right</div>
 </div>

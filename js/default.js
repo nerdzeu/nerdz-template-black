@@ -68,7 +68,7 @@ $(document).ready(function() {
     $("iframe").attr("scrolling", "no");
     $("body").append($("<br />"));
     if ($("#left_col").length && window.location.pathname == "/home.php" && typeof Nversion !== "undefined" && Nversion != "null") {
-        $("#left_col .title").eq(0).append(" <span class='small' style='font-weight: normal'><a href='https://github.com/nerdzeu/nerdz.eu/commit/" + Nversion + "' target='wowsoversion' style='color: #000 !important'>[" + Nversion + "]</a></span>");
+        $("#left_col .title").eq(0).append("<small><a href='https://github.com/nerdzeu/nerdz.eu/commit/" + Nversion + "' target='wowsoversion'>[" + Nversion + "]</a></small>");
     }
     var append_theme = "", _h = $("head");
     if (localStorage.getItem("has-dark-theme") == "yep") {
