@@ -7,7 +7,7 @@
     overflow: hidden;
 }
 
-#site_title a:visited, #site_title a:active, #site_title a:link, .nerdz_comments a:hover, .nerdz_comments a:visited, .nerdz_comments a:active, .nerdz_comments a:link, #footer_main a:visited, #footer_main a:active, #footer_main a:link {
+#site_title a:visited, #site_title a:active, #site_title a:link, .nerdz_comments a:hover, .nerdz_comments a:visited, .nerdz_comments a:active, .nerdz_comments a:link{
     color: #000;
     font-weight: bold;
     text-decoration: none;
@@ -21,27 +21,6 @@
     margin: 0.5%;
 }
 
-#footer_main {
-    background-color: #AFAFAF;
-    text-align: center;
-    border-top: 1px #000 solid;
-    bottom: 0px;
-    clear: both;
-    display: block;
-    height: 24px;
-    overflow: hidden;
-    width: 100%;
-    position: fixed;
-}
-
-#footer_left {
-    position: fixed;
-    display: inline;
-    bottom: 2px;
-    left: 2px;
-    text-align: left;
-}
-
 .nerdz_message > div.compressed, .news > div.compressed {
     max-height: 200px;
     overflow: hidden;
@@ -51,12 +30,12 @@
 #notify_list {
     position: fixed;
     display: block;
-    bottom: 24px;
+    top: 60px;
     right: 0px;
-    background-color: #000;
+    background-color: #3E444C;
 }
 
-#notifycounter,#share,#bug_bar {
+#share,#bug_bar {
     position: fixed;
     bottom: 0px;
     right: 0px;

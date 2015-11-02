@@ -13,6 +13,9 @@ div.forminput{
 .nobordertop{ border-top: 0; }
 .nopaddingleft{padding-left: 0;}
 .noborderbottom{ border-bottom: 0; }
-div.forminput select{color: #676767;}
 .nostyletype{list-style-type: none; }
 .valign-middle{vertical-align:middle;}
+
+div.forminput select{color: #676767;}
+
+img.avataricon{ width: 16px; height: 16px;}

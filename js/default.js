@@ -83,7 +83,7 @@ $(document).ready(function() {
     } else {
         _h.append('<style type="text/css">.nerdz-code-wrapper { background-color: #eee; color: #000; }</style>');
     }
-    $("#notifycounter").on("click", function(e) {
+    $("#notifications").on("click", function(e) {
         e.preventDefault();
         var list = $("#notify_list"), old = $(this).html();
         var nold = parseInt(old);
@@ -1188,7 +1188,7 @@ $(document).ready(function() {
     */
     setInterval(function() {
         var nc = $("#notifycounter"), val = parseInt(nc.html());
-        nc.css("background-color", val === 0 || isNaN(val) ? "#FFF" : "#ff0000");
+        nc.css("background-color", val === 0 || isNaN(val) ? "transparent" : "#3E444C");
         var pc = $("#pmcounter");
         val = parseInt(pc.html());
         //pc.css("background-color", val === 0 || isNaN(val) ? "transparent" : "#E6E6E6");

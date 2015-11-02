@@ -12,19 +12,26 @@
       <div class="collapse navbar-collapse" id="menu">
          <ul class="nav navbar-nav">
             {if="$logged_b"}
-            <li class="active"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home <span class="sr-only">(current)</span></a></li>
-            <li><a href="/{$myusername4link_n}" accesskey="p"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {$myusername_n}</a></li>
-            <li><a href="/preferences.php" accesskey="z"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {$preferences}</a></li>
+            <li {if="$position_n == 'home'"}class="active"{/if}><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home <span class="sr-only">(current)</span></a></li>
+            <li {if="$position_n == 'preferences'"}class="active"{/if}><a href="/preferences.php" accesskey="z"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {$preferences}</a></li>
+            <li><!-- SEARCH FORM -->
+               <form id="footersearch" class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                     <input type="text" class="form-control" name="q" placeholder="{$search}...">
+                  </div>
+               </form>
+            </li>
          </ul>
          <ul id="title_right" class="nav navbar-nav navbar-right">
+            <li><a href="/{$myusername4link_n}" accesskey="p"><img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}</a></li>
             <li><a href="/pm.php" accesskey="m"><span id="pmcounter" accesskey="q"></span>&nbsp;<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
-            <li><a href="/{$myusername4link_n}">{$welcome}, {$myusername_n}</a></li>
+            <li id="notifications"><a href="#"><span id="notifycounter"></span> <span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a>
             <li><a href="/" id="logout" data-tok="{$tok_n}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {$logout}</a></li>
             </ul>
             {else}
-            <li><a href="/informations.php"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> {$informations}</a></li>
-            <li><a href="/stats.php"><span class="glyphicon glyphicon-stats" aria-hidden="true"> {$stats}</a></li>
-            <li><a href="/terms.php"><span class="glyphicon glyphicon-list" aria-hidden="true"> {$terms}</a></li>
+            <li {if="$position_n == 'informations'"}class="active"{/if}><a href="/informations.php"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> {$informations}</a></li>
+            <li {if="$position_n == 'stats'"}class="active"{/if}><a href="/stats.php"><span class="glyphicon glyphicon-stats" aria-hidden="true"> {$stats}</a></li>
+            <li {if="$position_n == 'terms'"}class="active"{/if}><a href="/terms.php"><span class="glyphicon glyphicon-list" aria-hidden="true"> {$terms}</a></li>
             </ul>
             {/if}
         </div>
