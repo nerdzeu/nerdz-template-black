@@ -157,17 +157,29 @@
          {include="common/form"}
         <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
    </div>
-   <div class="col-xs-2">
+   <div id="right-col" class="col-xs-2">
       <!-- PANEL -->
       {if="!empty($followed_a)"}
       <div class="panel panel-default">
          <div class="panel-heading">
-            <h5 class="panel-title">{$most_popular_trends}</h5>
+            <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></h5>
          </div>
-         <div class="panel-body">
-            <ol class="nomarginbottom nopadding nostyletype">
-            {loop="popular_a"}
-               <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+         <div id="rightmenu" class="panel-body">
+            <ol class="follow-list-home">
+            {loop="followed_a"}
+                <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>
+                    <a href="/{$value.username4link_n}">
+                        <img alt="{$value.username_n}" class="gravatar-home" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#" height="32" width="32">
+                    </a>
+                    <div class="follow-list-container-home">
+                        <a href="/{$value.username4link_n}" class="follow-list-title-home"{if="!$value.online_b"} style="color: #AFAFAF"{/if}>
+                            {$value.username_n}
+                        </a>
+                        {if="$value.birthday_b"}
+                            <img src="images/gift.gif" alt="gift" style="float: right" width="12" height="12" />
+                        {/if}
+                    </div>
+                </li>
             {/loop}
             </ol>
           </div>
