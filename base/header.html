@@ -1,28 +1,27 @@
 <nav class="navbar navbar-default navbar-fixed-top">
    <div class="container-fluid">
       <div class="navbar-header">
-         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navmenu" aria-expanded="false">
             <span class="sr-only">Mostra menu</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="/">NERDZ balcony edition</a>
+         <a class="navbar-brand" href="/">NERDZ</a>
       </div>
-      <div class="collapse navbar-collapse" id="menu">
+      <div class="collapse navbar-collapse" id="navmenu">
          <ul class="nav navbar-nav">
             {if="$logged_b"}
             <li {if="$position_n == 'home'"}class="active"{/if}><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home <span class="sr-only">(current)</span></a></li>
             <li {if="$position_n == 'preferences'"}class="active"{/if}><a href="/preferences.php" accesskey="z"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {$preferences}</a></li>
-            <li><!-- SEARCH FORM -->
-               <form id="footersearch" class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                     <input type="text" class="form-control" name="q" placeholder="{$search}...">
-                  </div>
-               </form>
-            </li>
          </ul>
+         <form id="footersearch" class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+               <input type="text" style="max-width: 100px;"class="form-control" name="q" placeholder="{$search}...">
+             </div>
+         </form>
          <ul id="title_right" class="nav navbar-nav navbar-right">
+            <li></li>
             <li><a href="/{$myusername4link_n}" accesskey="p"><img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}</a></li>
             <li><a href="/pm.php" accesskey="m"><span id="pmcounter" accesskey="q"></span>&nbsp;<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
             <li id="notifications"><a href="#"><span id="notifycounter"></span> <span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a>
@@ -30,8 +29,8 @@
             </ul>
             {else}
             <li {if="$position_n == 'informations'"}class="active"{/if}><a href="/informations.php"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> {$informations}</a></li>
-            <li {if="$position_n == 'stats'"}class="active"{/if}><a href="/stats.php"><span class="glyphicon glyphicon-stats" aria-hidden="true"> {$stats}</a></li>
-            <li {if="$position_n == 'terms'"}class="active"{/if}><a href="/terms.php"><span class="glyphicon glyphicon-list" aria-hidden="true"> {$terms}</a></li>
+            <li {if="$position_n == 'stats'"}class="active"{/if}><a href="/stats.php"><span class="glyphicon glyphicon-stats" aria-hidden="true"> </span>{$stats}</a></li>
+            <li {if="$position_n == 'terms'"}class="active"{/if}><a href="/terms.php"><span class="glyphicon glyphicon-list" aria-hidden="true"> </span>{$terms}</a></li>
             </ul>
             {/if}
         </div>

@@ -85,7 +85,7 @@ $(document).ready(function() {
     }
     $("#notifications").on("click", function(e) {
         e.preventDefault();
-        var list = $("#notify_list"), old = $(this).html();
+        var list = $("#notify_list"), $counter = $("#notifycounter"), old = $counter.html();
         var nold = parseInt(old);
         if (list.length) {
             if (isNaN(nold) || nold === 0) {
@@ -120,7 +120,7 @@ $(document).ready(function() {
                 }
             });
         }
-        $(this).html(isNaN(nold) ? old : "0");
+        $counter.html(isNaN(nold) ? old : "0");
     });
     var wrongPages = [ "/bbcode.php", "/terms.php", "/faq.php", "/stats.php", "/rank.php", "/preferences.php", "/informations.php", "/preview.php" ];
     if ($.inArray(location.pathname, wrongPages) != -1) {
