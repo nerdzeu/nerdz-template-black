@@ -1143,6 +1143,7 @@ $(document).ready(function() {
     plist.on("click", ".nerdz-code-title a", function(e) {
         e.stopPropagation();
     });
+    /*
     if ($("nav div").length) {
         var code = [ 38, 38, 40, 40, 37, 39, 37, 39, 66, 65 ], pressed = [];
         window._NERDZ_NICK = $.trim(/,(.+)/.exec($("nav div").text())[1]);
@@ -1184,6 +1185,7 @@ $(document).ready(function() {
             }
         });
     }
+    */
     setInterval(function() {
         var nc = $("#notifycounter"), val = parseInt(nc.html());
         nc.css("background-color", val === 0 || isNaN(val) ? "#FFF" : "#ff0000");

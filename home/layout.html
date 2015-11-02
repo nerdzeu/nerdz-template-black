@@ -8,7 +8,7 @@
             </h5>
                 </div>
                 <div class="panel-body">
-                  <ul class="nostyletype nopaddingleft">
+                  <ul class="nostyletype nopaddingleft nomarginbottom">
                      <li><!-- >NERDZ collapsable menu -->
                         <a href="#nerdzlist" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
                         <a id="profilePostList" href="#">NERDZ</a>
@@ -77,30 +77,101 @@
                            </ul>
                         </div>
                      </li>
+                     <li><!-- PROJECT LIST collapsable menu -->
+                        <a href="/projectslist.php"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> {$projects_list}</a> 
+                     </li>
+                     <li><!-- BOOKMARKS collapsable menu -->
+                        <a href="#bookmarkslist" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> {$bookmarks}</a>
+                      </li>
+                      <li>
+                        <div id="bookmarkslist" class="collapse">
+                           <ul>
+                              <li><a href="/bookmarks.php">{$users}</a></li>
+                              <li><a href="/bookmarks.php?project=1">{$projects}</a></li>
+                           </ul>
+                        </div>
+                      </li>
+                      <li><!-- INFORMATION collapsable menu -->
+                        <a href="#informationlist" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                        <a href="/informations.php">{$informations}</a>
+                      </li>
+                      <li>
+                        <div id="informationlist" class="collapse">
+                           <ul>
+                              <li><a href="/rank.php">Top 100</a></li>
+                              <li><a href="/rank.php?top=thismonth">Monthly 100</a></li>
+                              <li><a href="/last.php">{$last_user}</a></li>
+                              <li><a href="/stats.php">{$stats}</a></li>
+                              <li><a href="/faq.php">F.A.Q.</a></li>
+                              <li><a href="/terms.php">{$terms}</a></li>
+                           </ul>
+                        </div>
+                      </li>
                   </ul>
-                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Lista progetti<br />
-                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Segnalibri<br />
-                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Informazioni<br />
                 </div>
             </div>
    <!-- PANEL -->
             <div class="panel panel-default">
-                <div class="panel-heading">
+               <div class="panel-heading">
                     <h5 class="panel-title">
                         {$newest_trends}
                     </h5>
-                </div>
-                <div class="panel-body">
-        <ol style="padding:0; list-style-type: none">
-        {loop="newest_a"}
-            <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
-        {/loop}
-        </ol>
-                </div>
+               </div>
+               <div class="panel-body">
+                  <ol class="nomarginbottom nopadding nostyletype">
+                     {loop="newest_a"}
+                     <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+                     {/loop}
+                  </ol>
+               </div>
             </div>
+   <!-- PANEL -->
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                    <h5 class="panel-title">
+                        {$most_popular_trends}
+                    </h5>
+               </div>
+               <div class="panel-body">
+                  <ol class="nomarginbottom nopadding nostyletype">
+                     {loop="popular_a"}
+                     <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+                     {/loop}
+                  </ol>
+               </div>
+            </div>
+   <!-- PANEL -->
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                    <h5 class="panel-title">
+                        {$advertisement}
+                    </h5>
+               </div>
+               <div class="panel-body">
+                  {$banners_a.120x60}
+               </div>
+            </div>
+            
    </div>
    <div id="center_col" class="col-xs-8"><!--CENTER-->
-   {include="common/form"}
-        <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div></div>
-   <div class="col-xs-2">right</div>
+         {include="common/form"}
+        <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
+   </div>
+   <div class="col-xs-2">
+      <!-- PANEL -->
+      {if="!empty($followed_a)"}
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h5 class="panel-title">{$most_popular_trends}</h5>
+         </div>
+         <div class="panel-body">
+            <ol class="nomarginbottom nopadding nostyletype">
+            {loop="popular_a"}
+               <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+            {/loop}
+            </ol>
+          </div>
+      </div>
+   </div>
+    {/if}
 </div>
