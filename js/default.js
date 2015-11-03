@@ -920,7 +920,7 @@ $(document).ready(function() {
             }
         });
     });
-    plist.on("click", ".close", function(e) {
+    plist.on("click", ".closepls", function(e) {
         e.preventDefault();
         var refto = $("#" + $(this).data("refto"));
         var hpid = $(this).data("hpid");
@@ -1010,13 +1010,11 @@ $(document).ready(function() {
             });
         });
     });
-    plist.on("click", ".imglocked", function() {
+    plist.on("click", ".islocked", function() {
         var me = $(this);
         var tog = function(d) {
             if (d.status == "ok") {
-                var newsrc = me.attr("src");
-                me.attr("class", "imgunlocked");
-                me.attr("src", newsrc.replace("/lock.png", "/unlock.png"));
+                me.attr("class", "isnotlocked");
                 me.attr("title", d.message);
             } else {
                 alert(d.message);
@@ -1037,13 +1035,11 @@ $(document).ready(function() {
             });
         }
     });
-    plist.on("click", ".imgunlocked", function() {
+    plist.on("click", ".isnotlocked", function() {
         var me = $(this);
         var tog = function(d) {
             if (d.status == "ok") {
-                var newsrc = me.attr("src");
-                me.attr("class", "imglocked");
-                me.attr("src", newsrc.replace("/unlock.png", "/lock.png"));
+                me.attr("class", "islocked");
                 me.attr("title", d.message);
             } else {
                 alert(d.message);

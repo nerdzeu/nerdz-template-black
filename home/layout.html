@@ -1,5 +1,5 @@
 <div id="main" class="container-fluid">
-   <div id="left_col" class="col-xs-5 col-md-2">
+   <div id="left_col" class="col-xs-5 col-sm-3 col-md-2">
       <!-- PANEL NERDZ-->
       <div class="panel panel-default">
          <div class="panel-heading">
@@ -9,7 +9,7 @@
          </div>
          <div class="panel-body">
             <ul class="nostyletype nopaddingleft nomarginbottom">
-               <li><!-- >NERDZ collapsable menu -->
+               <li><!-- >NERDZ collapsable menu -->   
                   <a href="#nerdzlist" data-toggle="collapse"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
                   <a id="profilePostList" href="#">NERDZ</a>
                   <span style="float:right">
@@ -20,7 +20,7 @@
                </li>
                <li>
                   <div id="nerdzlist" class="collapse">
-                     <div class="container"><small>{$from}:</small></div>
+                     <div class="container-fluid"><small>{$from}:</small></div>
                         <ul>
                            <li class="selectlang" data-lang="*">{$everybody}</li>
                            <li class="selectlang" data-lang="usersifollow">{$users_i_follow}</li>
@@ -144,64 +144,125 @@
             <div class="panel-body">{$banners_a.120x60}</div>
          </div>
     <!-- only for small windows -->
-      <!-- PANEL -->
-         <div class="panel panel-default hidden-md hidden-lg">
+      <!-- PANEL div class="panel panel-default hidden-md hidden-lg"> -->
       {if="!empty($followed_a)"}
-            <div class="panel-heading">
-               <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></h5>
-            </div>
-            <div id="rightmenu" class="panel-body">
-               <ol class="follow-list-home">
-                  {loop="followed_a"}
-                  <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>
-                     <a href="/{$value.username4link_n}">
-                        <img alt="{$value.username_n}" class="gravatar-home" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#" height="32" width="32">
-                     </a>
-                     <div class="follow-list-container-home">
-                        <a href="/{$value.username4link_n}" class="follow-list-title-home"{if="!$value.online_b"} style="color: #AFAFAF"{/if}>
-                           <small>{$value.username_n}</small>
-                        </a>
-                        {if="$value.birthday_b"}<img src="images/gift.gif" alt="gift" style="float: right" width="12" height="12" />{/if}
-                     </div>
-                  </li>
-                  {/loop}
-               </ol>
-            </div>
-         {/if}
-         </div>
-      <!-- end small windows -->
-</div>
-   <div id="center_col" class="col-xs-7 col-md-8"><!--CENTER-->
-         {include="common/form"}
-        <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
-   </div>
-   <div id="right-col" class="hidden-xs hidden-sm visible-md visible-lg col-md-2">
-      <!-- PANEL -->
-      {if="!empty($followed_a)"}
-      <div class="panel panel-default">
+      <div class="panel panel-default hidden-md hidden-lg">
          <div class="panel-heading">
             <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></h5>
          </div>
          <div id="rightmenu" class="panel-body">
             <ol class="follow-list-home">
             {loop="followed_a"}
-                <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>
+                <li class="follow-list-item-home valignmiddle" {if="!$counter1"}style="margin-top:0"{/if}>
                     <a href="/{$value.username4link_n}">
-                        <img alt="{$value.username_n}" class="gravatar-home" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#" height="32" width="32">
+                        <img alt="{$value.username_n}" class="avataricon valignmiddle" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=16#" height="16" width="16">
                     </a>
-                    <div class="follow-list-container-home">
-                        <a href="/{$value.username4link_n}" class="follow-list-title-home"{if="!$value.online_b"} style="color: #AFAFAF"{/if}>
-                            <small>{$value.username_n}</small>
-                        </a>
+                    <a href="/{$value.username4link_n}" {if="!$value.online_b"} style="color: #AFAFAF"{/if}>
+                        <small>{$value.username_n}</small>
+                    </a>
                         {if="$value.birthday_b"}
-                            <img src="images/gift.gif" alt="gift" style="float: right" width="12" height="12" />
+                    <span style="float:right">
+                        <a href="/feed.php">
+                           <img src="images/gift.gif" width="16" height="16" alt="gift" />
+                        </a>
+                    </span>
                         {/if}
-                    </div>
                 </li>
             {/loop}
             </ol>
           </div>
-      </div>
+      </div>{/if}
+      <!-- PANEL -->
+      {if="!empty($ownerof_a)"}
+      <div class="panel panel-default hidden-md hidden-lg">
+         <div class="panel-heading">
+            <h5 class="panel-title">{$your_projects}</h5>
+         </div>
+         <div id="rightmenu" class="panel-body">
+            <ol class="follow-list-home">
+            {loop="ownerof_a"}
+                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+            {/loop}
+            </ol>
+         </div>
+      </div>{/if}
+      <!-- PANEL -->
+      {if="!empty($memberof_a)"}
+      <div class="panel panel-default hidden-md hidden-lg">
+         <div class="panel-heading">
+            <h5 class="panel-title">{$member_of}</h5>
+         </div>
+         <div id="rightmenu" class="panel-body">
+            <ul class="follow-list-home">
+            {loop="memberof_a"}
+                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+            {/loop}
+            </ul>
+         </div>
+      </div>{/if}
+      <!-- end small windows -->
+</div>
+      <div id="center_col" class="col-xs-7 col-sm-9 col-md-8"><!--CENTER--> 
+         {include="common/form"}
+        <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
    </div>
-    {/if}
+   <div id="right-col" class="hidden-xs hidden-sm visible-md visible-lg col-md-2">
+      <!-- PANEL -->
+      {if="!empty($followed_a)"}
+      <div class="panel panel-default ">
+         <div class="panel-heading">
+            <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></h5>
+         </div>
+         <div id="rightmenu" class="panel-body">
+            <ol class="follow-list-home">
+            {loop="followed_a"}
+                <li class="follow-list-item-home valignmiddle" {if="!$counter1"}style="margin-top:0"{/if}>
+                    <a href="/{$value.username4link_n}">
+                        <img alt="{$value.username_n}" class="avataricon valignmiddle" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=16#" height="16" width="16">
+                    </a>
+                    <a href="/{$value.username4link_n}" {if="!$value.online_b"} style="color: #AFAFAF"{/if}>
+                        <small>{$value.username_n}</small>
+                    </a>
+                        {if="$value.birthday_b"}
+                    <span style="float:right">
+                        <a href="/feed.php">
+                           <img src="images/gift.gif" width="16" height="16" alt="gift" />
+                        </a>
+                    </span>
+                        {/if}
+                </li>
+            {/loop}
+            </ol>
+          </div>
+      </div>{/if}
+      <!-- PANEL -->
+      {if="!empty($ownerof_a)"}
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h5 class="panel-title">{$your_projects}</h5>
+         </div>
+         <div id="rightmenu" class="panel-body">
+            <ol class="follow-list-home">
+            {loop="ownerof_a"}
+                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+            {/loop}
+            </ol>
+         </div>
+      </div>{/if}
+      <!-- PANEL -->
+      {if="!empty($memberof_a)"}
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h5 class="panel-title">{$member_of}</h5>
+         </div>
+         <div id="rightmenu" class="panel-body">
+            <ul class="follow-list-home">
+            {loop="memberof_a"}
+                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+            {/loop}
+            </ul>
+         </div>
+      </div>{/if}
+   </div>
+      
 </div>

@@ -19,3 +19,6 @@ div.forminput{
 div.forminput select{color: #676767;}
 
 img.avataricon{ width: 16px; height: 16px;}
+
+span.islocked{ color: red; }
+span.isnotlocked{ color: green; }
