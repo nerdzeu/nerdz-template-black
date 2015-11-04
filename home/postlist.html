@@ -72,8 +72,8 @@
                </a>
                {/if}
                {if="$value.canclosepost_b"}
-               <a title="{if="$value.closed_b"}{$open}{else}{$close}{/if}" class="{if="$value.closed_b"}open{else}closepls{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .pid">
-                  <span class="glyphicon glyphicon-folder-{if="$value.closed_b"}open{else}close{/if}"" aria-hidden="true"></span>
+               <a title="{if="$value.closed_b"}{$close}{else}{$open}{/if}" class="{if="$value.closed_b"}closepls{else}open{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .pid">
+                  <span class="glyphicon glyphicon-folder-{if="$value.closed_b"}close{else}open{/if}"" aria-hidden="true"></span>
                </a>
                {/if}
                {if="$value.canshowlock_b"}

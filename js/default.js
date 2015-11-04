@@ -920,22 +920,22 @@ $(document).ready(function() {
             }
         });
     });
-    plist.on("click", ".closepls", function(e) {
+   plist.on("click", ".closepls", function(e) {
         e.preventDefault();
         var refto = $("#" + $(this).data("refto"));
         var hpid = $(this).data("hpid");
         var me = $(this), arrow = me.children();
-        me.html("...");
-        N.json[plist.data("type")].closePost({
+        //me.html("...");
+        
+        N.json[plist.data("type")].openPost({
             hpid: hpid
         }, function(m) {
             if (m.status != "ok") {
                 alert(m.message);
             } else {
                 refto.css("color", "red");
-                me.html(N.getLangData().OPEN);
-                me.append(arrow);
-                me.attr("class", "open");
+                me.attr("class","open");
+                arrow.attr("class", "glyphicon glyphicon-folder-open");
             }
         });
     });
@@ -944,17 +944,16 @@ $(document).ready(function() {
         var refto = $("#" + $(this).data("refto"));
         var hpid = $(this).data("hpid");
         var me = $(this), arrow = me.children();
-        me.html("...");
-        N.json[plist.data("type")].openPost({
+        //me.html("...");
+        N.json[plist.data("type")].closePost({
             hpid: hpid
         }, function(m) {
             if (m.status != "ok") {
                 alert(m.message);
             } else {
                 refto.css("color", "");
-                me.html(N.getLangData().CLOSE);
-                me.append(arrow);
-                me.attr("class", "close");
+                me.attr("class","closepls");
+                arrow.attr("class", "glyphicon glyphicon-folder-close");
             }
         });
     });
