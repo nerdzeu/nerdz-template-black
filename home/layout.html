@@ -22,8 +22,7 @@
                   <div id="nerdzlist" class="collapse">
                      <div class="container-fluid"><small>{$from}:</small></div>
                         <ul>
-                           <li class="selectlang" data-lang="*">{$everybody}</li>
-                           <li class="selectlang" data-lang="usersifollow">{$users_i_follow}</li>
+                            <li class="selectlang" data-lang="*">{$everybody}</li>
                         </ul>
                      <div class="container"><small>{$language}:</small></div>
                          <ul>
@@ -216,20 +215,18 @@
          <div id="rightmenu" class="panel-body">
             <ol class="follow-list-home">
             {loop="followed_a"}
-                <li class="follow-list-item-home valignmiddle" {if="!$counter1"}style="margin-top:0"{/if}>
+                <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>
                     <a href="/{$value.username4link_n}">
-                        <img alt="{$value.username_n}" class="avataricon valignmiddle" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=16#" height="16" width="16">
+                        <img alt="{$value.username_n}" class="gravatar-home" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#" height="32" width="32">
                     </a>
-                    <a href="/{$value.username4link_n}" {if="!$value.online_b"} style="color: #AFAFAF"{/if}>
-                        <small>{$value.username_n}</small>
-                    </a>
-                        {if="$value.birthday_b"}
-                    <span style="float:right">
-                        <a href="/feed.php">
-                           <img src="images/gift.gif" width="16" height="16" alt="gift" />
+                    <div class="follow-list-container-home">
+                        <a href="/{$value.username4link_n}" class="follow-list-title-home"{if="!$value.online_b"} style="color: #AFAFAF"{/if}>
+                            {$value.username_n}
                         </a>
-                    </span>
+                        {if="$value.birthday_b"}
+                            <img src="images/gift.gif" alt="gift" style="float: right" width="12" height="12" />
                         {/if}
+                    </div>
                 </li>
             {/loop}
             </ol>

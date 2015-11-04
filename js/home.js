@@ -72,12 +72,11 @@ $(document).ready(function() {
     };
     var handleRefresh = function() {
         load = false;
-        if (lang == "usersifollow") {
+        if (!lang) {
             $("#stdfrm select[name=lang]").val(myLang);
             $("#fast_nerdz").show();
             N.html.profile.getFollowedHomePostList(0, function(data) {
                 plist.html(data);
-                plist.data("type", "profile");
                 plist.data("mode", "followed");
                 hideHidden();
                 load = true;
@@ -88,7 +87,6 @@ $(document).ready(function() {
                 localStorage.setItem("autoorder", voteOrder);
                 N.html.profile.getByVoteHomePostList(0, voteOrder, function(data) {
                     plist.html(data);
-                    plist.data("type", "profile");
                     plist.data("mode", "vote");
                     hideHidden();
                     load = true;
@@ -105,7 +103,6 @@ $(document).ready(function() {
                 N.html.profile.getByLangHomePostList(0, lang, function(data) {
                     plist.html(data);
                     plist.data("mode", "language");
-                    plist.data("type", "profile");
                     hideHidden();
                     load = true;
                 });
@@ -146,9 +143,8 @@ $(document).ready(function() {
         localStorage.removeItem("autolang");
         localStorage.removeItem("autoorder");
         load = false;
-        N.html.profile.getHomePostList(0, function(data) {
+        N.html.home.getFollowedPostList(0, function(data) {
             plist.html(data);
-            plist.data("type", "profile");
             plist.data("mode", "std");
             hideHidden();
             load = true;
@@ -159,9 +155,8 @@ $(document).ready(function() {
         $("#fast_nerdz").hide();
         $(".projlang").css("color", "");
         load = false;
-        N.html.project.getHomePostList(0, function(data) {
+        N.html.home.getFollowedPostList(0, function(data) {
             plist.html(data);
-            plist.data("type", "project");
             plist.data("mode", "std");
             hideHidden();
             load = true;
@@ -186,10 +181,9 @@ $(document).ready(function() {
         $(".projlang").css("color", "");
         $(this).css("color", "#2370B6");
         load = false;
-        if (lang == "usersifollow") {
+        if (!lang) {
             N.html.project.getFollowedHomePostList(0, function(data) {
                 plist.html(data);
-                plist.data("type", "project");
                 plist.data("mode", "followed");
                 hideHidden();
                 load = true;
@@ -200,7 +194,6 @@ $(document).ready(function() {
                 voteOrder = $(this).data("order");
                 N.html.project.getByVoteHomePostList(0, voteOrder, function(data) {
                     plist.html(data);
-                    plist.data("type", "project");
                     plist.data("mode", "vote");
                     hideHidden();
                     load = true;
@@ -208,7 +201,6 @@ $(document).ready(function() {
             } else {
                 N.html.project.getByLangHomePostList(0, lang, function(data) {
                     plist.html(data);
-                    plist.data("type", "project");
                     plist.data("mode", "language");
                     hideHidden();
                     load = true;
@@ -250,10 +242,9 @@ $(document).ready(function() {
     } else {
         plist.data("location", "home");
         load = false;
-        N.html.profile.getHomePostList(0, function(data) {
+        N.html.home.getFollowedPostList(0, function(data) {
             plist.html(data);
             hideHidden();
-            plist.data("type", "profile");
             plist.data("mode", "std");
             load = true;
         });
@@ -274,27 +265,25 @@ $(document).ready(function() {
     $(window).scroll(function() {
         if ($(this).scrollTop() + 200 >= $(document).height() - $(this).height()) {
             var num = 10;
-            var hpid = plist.find("div[id^='post']").last().data("hpid");
-            var mode = plist.data("mode");
-            var type = plist.data("type");
-            var append = '<h3 id="' + tmpDivId + '">' + loading + "...</h3>";
+            var $post = plist.find("div[id^='post']").last();
+            var hpid = $post.data("hpid"),
+                mode = plist.data("mode"),
+                type = $post.data('type'),
+                append = '<h3 id="' + tmpDivId + '">' + loading + "...</h3>";
+
             if (load && !$("#" + tmpDivId).length) {
                 plist.append(append);
             }
             if (load) {
                 load = false;
                 if (mode == "std") {
-                    N.html[type].getHomePostListBeforeHpid(num, hpid, manageScrollResponse);
+                    N.html.home.getFollowedPostListBeforeHpid(num, hpid, type, manageScrollResponse);
                 } else {
-                    if (mode == "followed") {
-                        N.html[type].getFollowedHomePostListBeforeHpid(num, hpid, manageScrollResponse);
+                    if (mode == "language") {
+                        N.html[type].getByLangHomePostListBeforeHpid(num, lang, hpid, manageScrollResponse);
                     } else {
-                        if (mode == "language") {
-                            N.html[type].getByLangHomePostListBeforeHpid(num, lang, hpid, manageScrollResponse);
-                        } else {
-                            if (mode == "vote") {
-                                N.html[type].getByVoteHomePostListBeforeHpid(num, voteOrder, hpid, manageScrollResponse);
-                            }
+                        if (mode == "vote") {
+                            N.html[type].getByVoteHomePostListBeforeHpid(num, voteOrder, hpid, manageScrollResponse);
                         }
                     }
                 }
