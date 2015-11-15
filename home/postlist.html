@@ -1,102 +1,109 @@
-<div class="container-fluid">
-   <div class="col-xs-12 well well-sm nomarginbottom">
-         <img class="media-object" style="max-width: 10%; border-radius: 5px; float: left; margin-right: 10px;" src="https://eenanderverhaal.files.wordpress.com/2014/01/banana.jpg" alt="Banana" />
-   <a href="/{$value.from4link_n}">admin:</a>
-         <div class="postdettagli">
-            details
-          </div>
-          <div class="postmessaggio">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </div>
-   </div>
-   <div class="well well-sm">
-   Come faccio a caricare l'avatar di chi ha scritto un post?
-   </div>
-</div>
-
 {loop="list_a"}
-   <div id="post{$value.hpid_n}" class="container-fluid" data-hpid="{$value.hpid_n}" data-type="{$value.type_n}">
-      <script>var lnk{$value.hpid_n} = "/{$value.to4link_n}{$value.pid_n}";</script>
-      <div class="well well-sm">
+<div id="post{$value.hpid_n}" class="container-fluid nopadding {if="$value.news_b"}news{else}nerdz_message{/if}" data-hpid="{$value.hpid_n}" data-type="{$value.type_n}">
+   <div class="panel panel-default nomarginbottom noborderbottom noborderleft noborderradius noborderright">
+      <div class="panel-body">
+         <!-- POST-->
+         <script>var lnk{$value.hpid_n} = "/{$value.to4link_n}{$value.pid_n}";</script>
+         <!-- IMAGE COLUMN -->
+         <div class="col-lg-1 visible-lg nopaddingleft">
+            <img class="media-object homeavatar" src="{$value.fromgravatarurl_n}#" alt="Avatar" />
+         </div>
+         <!-- POST CONTENT -->
+         <div class="col-xs-12 col-lg-11 nopaddingleft nopaddingright">
+         <!-- AUTHOR -->
+         {if="!$value.news_b"}
+         <a href="/{$value.from4link_n}">{$value.from_n}:</a>
+         {if="$value.fromid_n != $value.toid_n"}&nbsp;⇒ <a href="/{$value.to4link_n}">{$value.to_n}</a>{else}{/if}
+         {/if}
          <!--MESSAGE DETAILS-->
-         <div class="row" style="padding-bottom: 0;">
-            <!-- MESSAGE FROM -->
-            <div class="col-xs-4">
-               {if="!$value.news_b"}
-               <a href="/{$value.from4link_n}">{$value.from_n}:</a>
-               {if="$value.fromid_n != $value.toid_n"}
-               &nbsp;⇒ <a href="/{$value.to4link_n}">{$value.to_n}</a>
-               {else}
-               
+         <div class="postdettagli">
+            <!-- REVISIONS NUMBER -->
+            <span class="revisions">
+               {if="$value.revisions_n > 0"}
+               <span title="{$number_of_modifications}: {$value.revisions_n}" class="oldrev" data-refto="post{$value.hpid_n}" data-revisions="{$value.revisions_n}" data-hpid="{$value.hpid_n}">&#9664;</span>&nbsp;&nbsp;
                {/if}
-               {/if}
-            </div>
-            <!-- MESSAGE DETAILS RIGHT -->
-            <div class="col-xs-8 text-right">
-                {if="$value.news_b"}<time>{$value.datetime_n}</time>{/if}
-               <!-- REVISIONS NUMBER -->
-               <span class="revisions">
-                  {if="$value.revisions_n > 0"}
-                  <span title="{$number_of_modifications}: {$value.revisions_n}" class="oldrev" data-refto="post{$value.hpid_n}" data-revisions="{$value.revisions_n}" data-hpid="{$value.hpid_n}">&#9664;</span>&nbsp;&nbsp;
-                  {/if}
+            </span>
+            <!-- DATE -->
+            {if="!$value.news_b"}<time>{$value.datetime_n}</time>{/if}
+            <!-- THUMBS -->
+            <span class="thumbs">{if="!$value.news_b"}&nbsp;|&nbsp;{/if}
+               <!-- THUMBS NUMBER -->
+               <span class='thumbs-counter{if="$value.thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$value.thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$value.thumbs_n > 0"}+{/if}{$value.thumbs_n}</span>&nbsp;&nbsp;
+               <span class="nerdz_thumbs" data-refto="{$value.hpid_n}">
+                  <!-- THUMB UP -->
+                  <a class="vote up{if="$value.uthumb_n == 1"} voted{/if}">
+                     ▲
+                     <!-- thumbs icon <span class="glyphicon glyphicon-thumbs-up" data-refto="{$value.hpid_n} aria-hidden="true"></span>-->
+                  </a>
+                  <!-- THUMB DOWN -->
+                  <a class="vote down{if="$value.uthumb_n ==-1"} voted{/if}">
+                     <!-- thumbs icon <span class="glyphicon glyphicon-thumbs-down" data-refto="{$value.hpid_n} aria-hidden="true"></span> -->
+                     ▼
+                  </a>
                </span>
-                <!-- DATE -->
-                {if="!$value.news_b"}<time>{$value.datetime_n}</time>{/if}
-                <!-- THUMBS -->
-                <span class="thumbs">{if="!$value.news_b"}&nbsp;|&nbsp;{/if}
-                <!-- THUMBS NUMBER -->
-                <span class='thumbs-counter{if="$value.thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$value.thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$value.thumbs_n > 0"}+{/if}{$value.thumbs_n}</span>&nbsp;&nbsp;
-                <!-- THUMB UP -->
-                  <span class="nerdz_thumbs" data-refto="{$value.hpid_n}">
-                     <a class="vote up{if="$value.uthumb_n == 1"} voted{/if}"><span class="glyphicon glyphicon-thumbs-up" data-refto="{$value.hpid_n} aria-hidden="true"></span></a>&nbsp;
-                     <a class="vote down{if="$value.uthumb_n ==-1"} voted{/if}"><span class="glyphicon glyphicon-thumbs-down" data-refto="{$value.hpid_n} aria-hidden="true"></span></a>
-                  </span>
-                </span>
-                </span>
-                <!-- LANG img -->
-                {if="$value.language_n != $mylang_n"}
-                <img src="{$flagdir_n}{$value.language_n}.png#" alt="{$value.language_n}" title="{$value.language_n}" width="18" height="12" />&nbsp;
-                {else}&nbsp;
-                {/if}
-                <!-- PERMALINK -->
-                <span {if="$value.canremovepost_b || $value.caneditpost_b || $value.canclosepost_b"}class=" pid{/if}"{if="$value.closed_b"} style="color:red" title="{$closed_post}"{/if}>
-                  <a href="/{$value.to4link_n}{$value.pid_n}" class="post_link">#{$value.pid_n}</a>
-                </span>
-            </div>
-            <hr style="margin-bottom: 5px;"/>
+            </span> <!-- END THUMBS -->
+            <!-- LANG img -->
+            {if="$value.language_n != $mylang_n"}
+            <img src="{$flagdir_n}{$value.language_n}.png#" alt="{$value.language_n}" title="{$value.language_n}" width="18" height="12" />&nbsp;
+            {else}&nbsp;{/if}
+            <!-- PERMALINK -->
+            <span {if="$value.canremovepost_b || $value.caneditpost_b || $value.canclosepost_b"}class=" pid{/if}"{if="$value.closed_b"} style="color:red" title="{$closed_post}"{/if}>
+               <a href="/{$value.to4link_n}{$value.pid_n}" class="post_link">#{$value.pid_n}</a>
+            </span>
          </div>
          <!-- MESSAGE -->
+         <div class="postmessaggio">
          {$value.message_n}
-         <hr style="margin: 5px auto; border: 1px solid rgba(192,192,192,0.2);"/>
-         <!-- INTERACTIONS -->
-         <div class="row">
-            <div class="col-xs-4">
-               <a class="showcomments" data-hpid="{$value.hpid_n}" data-refto="commentlist{$value.hpid_n}">
-                  <span class="visible-xs glyphicon glyphicon-comment" title="{$comments} ({$value.postcomments_n})" aria-hidden="true">({$value.postcomments_n})</span>
-                  <span class="hidden-xs label label-default">{$comments} ({$value.postcomments_n})</span>
-               </a>
-            </div>
-            <div class="col-xs-8 text-right">
-               {if="$value.canremovepost_b"}
-               <a title="{$remove}" class="delpost" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
-                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-               </a>
-               {/if}
-               {if="$value.caneditpost_b"}
-               <a title="{$edit}" class="edit" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
-                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-               </a>
-               {/if}
-               {if="$value.canclosepost_b"}
-               <a title="{if="$value.closed_b"}{$close}{else}{$open}{/if}" class="{if="$value.closed_b"}closepls{else}open{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .pid">
-                  <span class="glyphicon glyphicon-folder-{if="$value.closed_b"}close{else}open{/if}"" aria-hidden="true"></span>
-               </a>
-               {/if}
-               {if="$value.canshowlock_b"}
-                  <span class="glyphicon glyphicon-lock {if="$value.lock_b"}islocked{else}isnotlocked{/if}" data-hpid="{$value.hpid_n}" aria-hidden="true" title="{if="$value.lock_b"}{$recv_notify}{else}{$not_recv_notify}{/if}" onclick=""></span>
-               {/if}
-            </div>
          </div>
-      </div>
+         <!-- ROW to force new line instead of clear:both -->
+         <div class="row"> </div> <hr style="margin: 5px auto; border: 1px solid rgba(192,192,192,0.1);"/>
+         <!-- COMMENTS -->
+         <div class="col-xs-12 col-md-6 nopaddingleft">
+            <span class="label label-default">{$comments} ({$value.postcomments_n})</span>
+         </div>
+         <!-- POST OPTIONS -->
+         <div class="col-xs-12 col-md-6 nopaddingleft nopaddingright text-right">
+            <!-- REMOVE POST -->
+            {if="$value.canremovepost_b"}
+            <a title="{$remove}" class="delpost" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
+               <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </a>
+            {/if}
+            <!-- EDIT POST -->
+            {if="$value.caneditpost_b"}
+            <a title="{$edit}" class="edit" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
+               <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </a> 
+            {/if}
+            <!-- CLOSE POST -->
+            {if="$value.canclosepost_b"}
+            <a title="{if="$value.closed_b"}open{else}close{/if}" class="{if="$value.closed_b"}closepls{else}open{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .pid">
+               <span class="glyphicon glyphicon-folder-{if="$value.closed_b"}close{else}open{/if}" aria-hidden="true"></span>
+            </a>
+            {/if} 
+            <!-- SHOW LOCK -->
+            {if="$value.canshowlock_b"}
+            <span class="glyphicon glyphicon-lock {if="$value.lock_b"}islocked{else}isnotlocked{/if}" data-hpid="{$value.hpid_n}" aria-hidden="true" title="{if="$value.lock_b"}{$recv_notify}{else}{$not_recv_notify}{/if}" style="margin-left: 5px;" onclick=""> </span>
+            {/if}
+            <!-- SHOW LURK -->
+            {if="$value.canshowlurk_b"}
+            {if="$value.lurk_b"}
+            <span class="glyphicon glyphicon-eye-close unlurk" data-hpid="{$value.hpid_n}" title="Unlurk" onclick="" /></span>
+            {else}
+            <span class="glyphicon glyphicon-eye-open lurk" data-hpid="{$value.hpid_n}" title="Lurk" onclick="" /></span>
+            {/if}
+            {/if}
+            <!-- SHOW BOOKMARK -->
+            {if="$value.canshowbookmark_b"}
+            {if="$value.bookmark_b"}
+            <span class="glyphicon glyphicon glyphicon-bookmark unbookmark" data-hpid="{$value.hpid_n}" title="Unbookmark" onclick="" /></span>
+            {else}
+            <span class="glyphicon glyphicon glyphicon-bookmark bookmark" data-hpid="{$value.hpid_n}" title="Bookmark" onclick="" /></span>
+            {/if}
+            {/if}
+            </div><!-- END POST OPTIONS -->
+         </div><!-- END POST CONTENT -->
+      </div> <!-- END PANEL BODY -->
+      </div> <!-- END PANEL -->
    </div>
 {/loop}

@@ -485,11 +485,11 @@ $(document).ready(function() {
     });
     window.fixHeights = function() {
         plist.find(".nerdz_message, .news").each(function() {
-            var el = $(this).find("div:first");
+            var el = $(this).find("div:first").find(".postmessaggio");
             if ((el.height() >= 200 || el.find(".gistLoad").length > 0) && !el.data("parsed")) {
                 el.data("real-height", el.height()).addClass("compressed");
                 var n = el.next();
-                n.prepend('<a class="more">&gt;&gt; ' + N.getLangData().EXPAND + " &lt;&lt;</a>");
+                n.prepend('<a class="more"><span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span> ' + N.getLangData().EXPAND + " </a>");
             }
             el.attr("data-parsed", "1");
         });
@@ -912,7 +912,7 @@ $(document).ready(function() {
             hpid: hpid
         }, function(m) {
             if (m.status == "ok") {
-                refto.html('<div style="text-align:center">' + m.message + '<br /><span id="delPostOk' + hpid + '" style="cursor:pointer">YES</span>|<span id="delPostNo' + hpid + '" style="cursor:pointer">NO</span></div>');
+                refto.html('<div style="text-align:center">' + m.message + '<br /><span id="delPostOk' + hpid + '" style="cursor:pointer">YES</span> | <span id="delPostNo' + hpid + '" style="cursor:pointer">NO</span></div>');
                 refto.on("click", "#delPostOk" + hpid, function() {
                     N.json[parentPostType].delPost({
                         hpid: hpid
@@ -932,31 +932,11 @@ $(document).ready(function() {
             }
         });
     });
-    plist.on("click", ".close", function(e) {
+    plist.on("click", ".closepls", function(e) {
         e.preventDefault();
         var refto = $("#" + $(this).data("refto"));
         var hpid = $(this).data("hpid");
-        var me = $(this), arrow = me.children();
-        me.html("...");
-        N.json[getParentPostType(refto)].closePost({
-            hpid: hpid
-        }, function(m) {
-            if (m.status != "ok") {
-                alert(m.message);
-            } else {
-                refto.find("a").css("color", "red");
-                me.html(N.getLangData().OPEN);
-                me.append(arrow);
-                me.attr("class", "open");
-            }
-        });
-    });
-    plist.on("click", ".open", function(e) {
-        e.preventDefault();
-        var refto = $("#" + $(this).data("refto"));
-        var hpid = $(this).data("hpid");
-        var me = $(this), arrow = me.children();
-        me.html("...");
+        var me = $(this), span = $(this).find(".glyphicon-folder-close");
         N.json[getParentPostType(refto)].openPost({
             hpid: hpid
         }, function(m) {
@@ -964,9 +944,25 @@ $(document).ready(function() {
                 alert(m.message);
             } else {
                 refto.find("a").css("color", "");
-                me.html(N.getLangData().CLOSE);
-                me.append(arrow);
-                me.attr("class", "close");
+                span.attr("class", "glyphicon glyphicon-folder-open");
+                me.attr("class","open");
+            }
+        });
+    });
+    plist.on("click", ".open", function(e) {
+        e.preventDefault();
+        var refto = $("#" + $(this).data("refto"));
+        var hpid = $(this).data("hpid");
+        var me = $(this), span = $(this).find(".glyphicon-folder-open");
+        N.json[getParentPostType(refto)].closePost({
+            hpid: hpid
+        }, function(m) {
+            if (m.status != "ok") {
+                alert(m.message);
+            } else {
+                refto.find("a").css("color", "red");
+                span.attr("class", "glyphicon glyphicon-folder-close");
+                me.attr("class","closepls");
             }
         });
     });
@@ -996,7 +992,7 @@ $(document).ready(function() {
             id = hcid;
         }
         var form = function(fid, id, message, prev, type) {
-            return '<form style="margin-bottom:40px" id="' + fid + '" data-' + type + '="' + id + '">' + '<textarea id="' + fid + 'abc" autofocus style="width:99%; height:125px">' + message + "</textarea><br />" + '<input type="submit" value="' + N.getLangData().EDIT + '" style="float: right; margin-top:5px" />' + '<button type="button" style="float:right; margin-top: 5px" class="preview" data-refto="#' + fid + 'abc">' + prev + "</button>" + '<button type="button" style="float:left; margin-top:5px" onclick="window.open(\'/bbcode.php\')">BBCode</button>' + "</form>";
+            return '<form style="margin-bottom:40px" id="' + fid + '" data-' + type + '="' + id + '">' + '<textarea id="' + fid + 'abc" autofocus style="width:99%; height:125px">' + message + "</textarea><br />" + '<input type="submit" class="btn btn-sm btn-default" value="' + N.getLangData().EDIT + '" style="float: right; margin-top:5px; margin-right: 5px;" />' + '<button type="button" class="btn btn-sm btn-default" style="float:right; margin-right: 5px; margin-top: 5px" class="preview" data-refto="#' + fid + 'abc">' + prev + "</button>" + '<button type="button" class="btn btn-sm btn-default" style="margin-left: 5px; float:left; margin-top:5px" onclick="window.open(\'/bbcode.php\')">BBCode</button>' + "</form>";
         };
 
         N.json[getParentPostType($(this))][getF](getObj, function(d) {
@@ -1025,13 +1021,12 @@ $(document).ready(function() {
             });
         });
     });
-    plist.on("click", ".imglocked", function() {
+    plist.on("click", ".islocked", function() {
         var me = $(this);
         var tog = function(d) {
             if (d.status == "ok") {
                 var newsrc = me.attr("src");
-                me.attr("class", "imgunlocked");
-                me.attr("src", newsrc.replace("/lock.png", "/unlock.png"));
+                me.attr("class", "glyphicon glyphicon-lock isnotlocked");
                 me.attr("title", d.message);
             } else {
                 alert(d.message);
@@ -1052,13 +1047,12 @@ $(document).ready(function() {
             });
         }
     });
-    plist.on("click", ".imgunlocked", function() {
+    plist.on("click", ".isnotlocked", function() {
         var me = $(this);
         var tog = function(d) {
             if (d.status == "ok") {
                 var newsrc = me.attr("src");
-                me.attr("class", "imglocked");
-                me.attr("src", newsrc.replace("/unlock.png", "/lock.png"));
+                me.attr("class", "glyphicon glyphicon-lock islocked");
                 me.attr("title", d.message);
             } else {
                 alert(d.message);
@@ -1083,10 +1077,8 @@ $(document).ready(function() {
         var me = $(this);
         var tog = function(d) {
             if (d.status == "ok") {
-                var newsrc = me.attr("src");
-                me.attr("class", "unlurk");
-                me.attr("src", newsrc.replace("/lurk.png", "/unlurk.png"));
-                me.attr("title", d.message);
+                me.attr("class", "glyphicon glyphicon-eye-close unlurk");
+                me.attr("title", "Lurk");
             } else {
                 alert(d.message);
             }
@@ -1101,10 +1093,8 @@ $(document).ready(function() {
         var me = $(this);
         var tog = function(d) {
             if (d.status == "ok") {
-                var newsrc = me.attr("src");
-                me.attr("class", "lurk");
-                me.attr("src", newsrc.replace("/unlurk.png", "/lurk.png"));
-                me.attr("title", d.message);
+                me.attr("class", "glyphicon glyphicon-eye-open lurk");
+                me.attr("title", "Unlurk");
             } else {
                 alert(d.message);
             }
@@ -1119,9 +1109,7 @@ $(document).ready(function() {
         var me = $(this);
         var tog = function(d) {
             if (d.status == "ok") {
-                var newsrc = me.attr("src");
-                me.attr("class", "unbookmark");
-                me.attr("src", newsrc.replace("/bookmark.png", "/unbookmark.png"));
+                me.attr("class", "glyphicon glyphicon-bookmark unbookmark");
                 me.attr("title", d.message);
             } else {
                 alert(d.message);
@@ -1137,9 +1125,8 @@ $(document).ready(function() {
         var me = $(this);
         var tog = function(d) {
             if (d.status == "ok") {
-                var newsrc = me.attr("src");
-                me.attr("class", "bookmark");
-                me.attr("src", newsrc.replace("/unbookmark.png", "/bookmark.png"));
+                me.attr("class", "glyphicon glyphicon-bookmark bookmark");
+                me.attr("title", d.message);
                 me.attr("title", d.message);
             } else {
                 alert(d.message);

@@ -27,6 +27,12 @@
     width: 100%;
 }
 
+.compressed{
+    max-height: 200px;
+    overflow: hidden;
+    width: auto;
+}
+
 #notify_list {
     position: fixed;
     display: block;
@@ -80,7 +86,7 @@
     margin-bottom: 10px;
 }
 
-#leftmenu li, #rightmenu li {
+#leftmenu li{
     margin-top: 3%;
 }
 
@@ -104,7 +110,6 @@ label, .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang
 }
 
 .more {
-    background-color: #000;
 }
 
 input[type=checkbox] {
@@ -163,10 +168,6 @@ html, #body {
 
 .more {
     position: relative;
-    top: -12px;
-    margin-bottom: -10px;
-    padding-bottom: 5px;
-    box-shadow: 0 0 25px #000;
     display: block;
 }
 
@@ -174,7 +175,7 @@ html, #body {
     border-bottom: 1px solid #FFFFFF;
 }
 
-.qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .bookmark, .unbookmark, .delcomment {
+.qu_ico, .delcomment {
     float: right;
     margin-top: -5px;
     margin-left: 4px;
@@ -214,14 +215,14 @@ html, #body {
 
 .nerdz_message, .nerdz_comments, .news {
     width: auto;
-    background-color: #000;
+    /*background-color: #000;
     border-radius: 2.5px;
-    font-size: 90%;
     overflow: visible;
     padding: 3px;
     border: 1px #FFFFFF solid;
-    word-wrap: break-word;
     margin-bottom: 10px;
+    font-size: 90%;*/
+    word-wrap: break-word;
 }
 
 .nerdz_comments {
@@ -277,7 +278,7 @@ html, #body {
 }
 
 .vote:hover, .revisions:hover {
-    color: #FFFFA3;
+    color: #5A94C8;
     cursor: pointer;
 }
 

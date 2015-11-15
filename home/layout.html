@@ -1,128 +1,13 @@
-<div id="main" class="container-fluid">
+<div id="main" class="container-fluid nopaddingleft nopaddingright">
    <!-- LEFT BAR -->
-   <div class="col-md-2 hidden-xs hidden-sm nopaddingright">
-      <ul class="list-group noborderright">
-         <!--NERDZ -->
-         <li class="list-group-item">
-            <a href="#nerdzlist" data-toggle="collapse">Nerdz</a>
-            <span style="float:right">
-                     <a href="/feed.php">
-                        <img src="images/rss.gif" width="16" height="17" alt="Users RSS" />
-                     </a>
-            </span>
-         </li>
-         <li class="list-group-item nopadding nobordertop noborderbottom">
-            <div id="nerdzlist" class="collapse">
-               <div class="container-fluid"><small>{$from}:</small></div>
-               <ul>
-                  <li class="selectlang" data-lang="*">{$everybody}</li>
-               </ul>
-               <div class="container"><small>{$language}:</small></div>
-               <ul>
-                  {loop="langs_a"}<li class="selectlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>{/loop}
-               </ul>
-               <ul id="nerdzvote" style="margin-top: 10px;">
-                  <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                  <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
-               </ul>
+   <div class="col-md-2 hidden-xs hidden-sm nomarginleft nopaddingleft nopaddingright">
+      <div class="panel panel-default noborderradius noborderright">
+         <div class="panel-body nopadding">
+            <div class="well well-sm nomarginbottom nomargintop nopaddingtop">
+               {include="home/meta"}
             </div>
-         </li>
-         <!-- END NERDZ-->
-         <!--PROJECTS -->
-         <li class="list-group-item">
-            <a href="#projlist" data-toggle="collapse">{$projects}</a>
-            <span style="float:right">
-                     <a href="/feed.php?project=1">
-                        <img src="images/rss.gif" width="16" height="17" alt="Users RSS" />
-                     </a>
-            </span>
-         </li>
-         <li class="list-group-item nopadding nobordertop noborderbottom">
-            <div id="projlist" class="collapse">
-               <div class="container"><small>{$from}:</small></div>
-               <ul>
-                  <li class="projlang" data-lang="*">{$everybody}</li>
-                  <li class="projlang" data-lang="usersifollow">{$users_i_follow}</li>
-               </ul>
-                  <div class="container"><small>{$language}:</small></div>
-                  <ul>
-                     {loop="langs_a"}<li class="projlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>{/loop}
-                  </ul>
-                  <ul style="margin-top: 10px">
-                     <li class="projlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                     <li class="projlang" data-lang="vote" data-order="-">{$less_rated}</li>
-                  </ul>
-            </div>
-         </li>
-         <!-- END PROJECTS-->
-         <!-- NERDZilla -->
-         <li class="list-group-item">
-            <a href="/NERDZilla:">
-               NERDZilla
-               <span style="float:right">
-                  <img alt="bug_report" src="../base/images/online/ladyicon.png" title="{$bug_title}" width="16" height="15" />
-               </span>
-            </a>
-         </li>
-         <!-- END NERDZilla -->
-         <!-- USERS LIST -->
-         <li class="list-group-item">
-            <a href="#userslist" data-toggle="collapse">{$users_list}</a>
-         </li>
-         <li class="list-group-item nopadding nobordertop noborderbottom">
-            <div id="userslist" class="collapse">
-               <ul>
-                  <li><a href="/userslist.php" class="small">{$users_list}</a></li>
-                  <li><a href="/deleted.php" class="small">{$deleted}</a></li>
-                  <li><a href="/banned.php" class="small">{$banned}</a></li>
-               </ul>
-            </div>
-         </li>
-         <!-- END USERS LIST-->
-         <!-- PROJECTS LIST -->
-         <li class="list-group-item">
-            <a href="/projectslist.php">{$projects_list}</a> 
-         </li>
-         <!-- END PROJECTS LIST-->
-         <!-- BOOKMARKS LIST -->
-         <li class="list-group-item">
-            <a href="#bookmarkslist" data-toggle="collapse">{$bookmarks}</a>
-         </li>
-         <li class="list-group-item nopadding nobordertop noborderbottom">
-            <div id="bookmarkslist" class="collapse">
-               <ul>
-                  <li><a href="/bookmarks.php">{$users}</a></li>
-                  <li><a href="/bookmarks.php?project=1">{$projects}</a></li>
-               </ul>
-            </div>
-         </li>
-         <!-- END BOOKMARKS LIST-->
-         <!-- INFORMATIONS LIST -->
-         <li class="list-group-item">
-            <a href="#informationlist" data-toggle="collapse">{$informations}</a>
-         </li>
-         <li class="list-group-item nopadding nobordertop noborderbottom">
-            <div id="informationlist" class="collapse">
-               <ul>
-                  <li><a href="/informations.php">{$informations}</a></li>
-                  <li><a href="/rank.php">Top 100</a></li>
-                  <li><a href="/rank.php?top=thismonth">Monthly 100</a></li>
-                  <li><a href="/last.php">{$last_user}</a></li>
-                  <li><a href="/stats.php">{$stats}</a></li>
-                  <li><a href="/faq.php">F.A.Q.</a></li>
-                  <li><a href="/terms.php">{$terms}</a></li>
-               </ul>
-            </div>
-         </li>
-         <!-- END INFORMATIONS LIST-->
-      </ul>
-      <!-- BANNER -->
-      <ul class="list-group noborderright">
-         <li class="list-group-item">
-            <h5>{$advertisement}</h5>
-            {$banners_a.120x60}
-         </li>
-      </ul><!-- END BANNER -->
+         </div><!-- END PANEL BODY -->
+      </div><!-- END PANEL -->
    </div><!-- END LEFT BAR -->
    <!-- CENTER -->
    <div class="col-xs-8 col-md-6 nopaddingleft nopaddingright">
@@ -136,9 +21,14 @@
    <!-- END CENTER-->
    <!-- RIGHT BAR -->
    <div class="col-xs-4 col-md-4 nopaddingleft nopaddingright">
-      <!-- TENDENZE -->
-      <div class="container-fluid well well-sm hidden-xs nomarginbottom">
-        <div class="col-sm-12 col-md-6">
+      <div class="panel panel-default nomargin noborderleft">
+         <div class="panel-body nopadding">
+         <div class="well well-sm nomarginbottom nomargintop nopaddingtop visible-xs visible-sm">
+            {include="home/meta-mobile"}
+         </div>
+         <!-- TENDENZE -->
+            <div class="container-fluid well well-sm hidden-xs nomarginbottom">
+               <div class="col-sm-12 col-md-6">
                   <h5 class="tendenze">{$newest_trends}</h5>
                   <ol class="nomarginbottom nopadding nostyletype ">
                      {loop="newest_a"}<li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>{/loop}
@@ -151,61 +41,62 @@
                   </ol>
                </div>
             </div>
-      <!-- FOLLOWING -->
-      {if="!empty($followed_a)"}
-      <div class="panel panel-default noborderleft noborderright noborderbottom nomarginbottom">
-         <div class="panel-heading">
-            <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></h5>
-         </div>
-         <div id="rightmenu" class="panel-body" style="max-height: 200px;">
-            <ol class="follow-list-home">
-            {loop="followed_a"}
-                <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>
-                    <a href="/{$value.username4link_n}">
+         <!-- FOLLOWING -->
+         {if="!empty($followed_a)"}
+         <div class="panel panel-default noborderleft noborderright noborderbottom nomarginbottom noborderradius">
+            <div class="panel-heading">
+               <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></h5>
+            </div>
+            <div id="rightmenu" class="panel-body" style="max-height: 200px;">
+               <ol class="follow-list-home">
+                  {loop="followed_a"}
+                  <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>
+                     <a href="/{$value.username4link_n}">
                         <img alt="{$value.username_n}" class="gravatar-home" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#" height="32" width="32">
-                    </a>
-                    <div class="follow-list-container-home">
+                     </a>
+                     <div class="follow-list-container-home">
                         <a href="/{$value.username4link_n}" class="follow-list-title-home"{if="!$value.online_b"} style="color: #AFAFAF"{/if}>
-                            {$value.username_n}
+                           {$value.username_n}
                         </a>
                         {if="$value.birthday_b"}
-                            <img src="images/gift.gif" alt="gift" style="float: right" width="12" height="12" />
+                        <img src="images/gift.gif" alt="gift" style="float: right" width="12" height="12" />
                         {/if}
-                    </div>
-                </li>
-            {/loop}
-            </ol>
-          </div>
-      </div>{/if}
-      <!-- END FOLLOWING -->
-      <!-- OWNER OF -->
-      {if="!empty($ownerof_a)"}
-      <div class="panel panel-default noborderleft noborderbottom nomarginbottom">
-         <div class="panel-heading">
-            <h5 class="panel-title">{$your_projects}</h5>
-         </div>
-         <div id="rightmenu" class="panel-body">
-            <ol class="follow-list-home">
-            {loop="ownerof_a"}
-                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-            {/loop}
-            </ol>
-         </div>
-      </div>{/if}
-      <!-- MEMBER OF -->
-      {if="!empty($memberof_a)"}
-      <div class="panel panel-default noborderleft">
-         <div class="panel-heading">
-            <h5 class="panel-title">{$member_of}</h5>
-         </div>
-         <div id="rightmenu" class="panel-body">
-            <ul class="follow-list-home">
-            {loop="memberof_a"}
-                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-            {/loop}
-            </ul>
-         </div>
-      </div>{/if}
-   </div>
-   <!-- END RIGHT BAR-->
-</div>
+                     </div>
+                  </li>
+                  {/loop}
+               </ol>
+            </div>
+         </div>{/if}
+         <!-- END FOLLOWING -->
+         <!-- OWNER OF -->
+         {if="!empty($ownerof_a)"}
+         <div class="panel panel-default noborderleft noborderright noborderbottom nomarginbottom noborderradius">
+            <div class="panel-heading">
+               <h5 class="panel-title">{$your_projects}</h5>
+            </div>
+            <div id="rightmenu" class="panel-body">
+               <ol class="follow-list-home">
+               {loop="ownerof_a"}
+                  <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+               {/loop}
+               </ol>
+            </div>
+         </div>{/if}
+         <!-- MEMBER OF -->
+         {if="!empty($memberof_a)"}
+         <div class="panel panel-default noborderleft noborderright noborderbottom nomarginbottom noborderradius">
+            <div class="panel-heading">
+               <h5 class="panel-title">{$member_of}</h5>
+            </div>
+            <div id="rightmenu" class="panel-body">
+               <ul class="follow-list-home">
+               {loop="memberof_a"}
+                  <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+               {/loop}
+               </ul>
+            </div>
+         </div>{/if}
+         </div> <!-- END PANEL BODY -->
+      </div> <!-- END PANEL -->
+   </div><!-- END RIGHT BAR-->
+</div><!-- END LAYOUT -->

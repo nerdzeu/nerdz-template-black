@@ -1,0 +1,115 @@
+               <ul class="list-group">
+                  <!--NERDZ -->
+                  <li class="list-group-item">
+                     <a href="#nerdzlist" data-toggle="collapse">Nerdz</a>
+                     <span style="float:right">
+                        <a href="/feed.php">
+                           <img src="images/rss.gif" width="16" height="17" alt="Users RSS" />
+                        </a>
+                     </span>
+                  </li>
+                  <li class="list-group-item nopadding nobordertop noborderbottom">
+                     <div id="nerdzlist" class="collapse">
+                        <div class="container-fluid"><small>{$from}:</small></div>
+                        <ul>
+                           <li class="selectlang" data-lang="*">{$everybody}</li>
+                        </ul>
+                        <div class="container"><small>{$language}:</small></div>
+                        <ul>
+                           {loop="langs_a"}<li class="selectlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>{/loop}
+                        </ul>
+                        <ul id="nerdzvote" style="margin-top: 10px;">
+                           <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
+                           <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
+                        </ul>
+                     </div>
+                  </li>
+                  <!--PROJECTS -->
+                  <li class="list-group-item">
+                     <a href="#projlist" data-toggle="collapse">{$projects}</a>
+                     <span style="float:right">
+                        <a href="/feed.php?project=1">
+                           <img src="images/rss.gif" width="16" height="17" alt="Users RSS" />
+                        </a>
+                     </span>
+                  </li>
+                  <li class="list-group-item nopadding nobordertop noborderbottom">
+                     <div id="projlist" class="collapse">
+                        <div class="container"><small>{$from}:</small></div>
+                           <ul>
+                              <li class="projlang" data-lang="*">{$everybody}</li>
+                              <li class="projlang" data-lang="usersifollow">{$users_i_follow}</li>
+                           </ul>
+                        <div class="container"><small>{$language}:</small></div>
+                        <ul>
+                           {loop="langs_a"}<li class="projlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>{/loop}
+                        </ul>
+                        <ul style="margin-top: 10px">
+                           <li class="projlang" data-lang="vote" data-order="+">{$top_rated}</li>
+                           <li class="projlang" data-lang="vote" data-order="-">{$less_rated}</li>
+                        </ul>
+                     </div>
+                  </li>
+                  <!-- NERDZilla -->
+                  <li class="list-group-item">
+                     <a href="/NERDZilla:">
+                        NERDZilla
+                        <span style="float:right">
+                           <img alt="bug_report" src="../base/images/online/ladyicon.png" title="{$bug_title}" width="16" height="15" />
+                        </span>
+                     </a>
+                  </li>
+                  <!-- USERS LIST -->
+                  <li class="list-group-item">
+                     <a href="#userslist" data-toggle="collapse">{$users_list}</a>
+                  </li>
+                  <li class="list-group-item nopadding nobordertop noborderbottom">
+                     <div id="userslist" class="collapse">
+                        <ul>
+                           <li><a href="/userslist.php" class="small">{$users_list}</a></li>
+                           <li><a href="/deleted.php" class="small">{$deleted}</a></li>
+                           <li><a href="/banned.php" class="small">{$banned}</a></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <!-- PROJECTS LIST -->
+                  <li class="list-group-item">
+                     <a href="/projectslist.php">{$projects_list}</a> 
+                  </li>
+                  <!-- BOOKMARKS LIST -->
+                  <li class="list-group-item">
+                     <a href="#bookmarkslist" data-toggle="collapse">{$bookmarks}</a>
+                  </li>
+                  <li class="list-group-item nopadding nobordertop noborderbottom">
+                     <div id="bookmarkslist" class="collapse">
+                        <ul>
+                           <li><a href="/bookmarks.php">{$users}</a></li>
+                           <li><a href="/bookmarks.php?project=1">{$projects}</a></li>
+                        </ul>
+                     </div>
+                  </li>
+                  <!-- INFORMATIONS LIST -->
+                  <li class="list-group-item">
+                     <a href="#informationlist" data-toggle="collapse">{$informations}</a>
+                  </li>
+                  <li class="list-group-item nopadding nobordertop noborderbottom">
+                     <div id="informationlist" class="collapse">
+                        <ul>
+                           <li><a href="/informations.php">{$informations}</a></li>
+                           <li><a href="/rank.php">Top 100</a></li>
+                           <li><a href="/rank.php?top=thismonth">Monthly 100</a></li>
+                           <li><a href="/last.php">{$last_user}</a></li>
+                           <li><a href="/stats.php">{$stats}</a></li>
+                           <li><a href="/faq.php">F.A.Q.</a></li>
+                           <li><a href="/terms.php">{$terms}</a></li>
+                        </ul>
+                     </div>
+                  </li>
+               </ul>
+               <!-- BANNER -->
+               <ul class="list-group nomarginbottom">
+                  <li class="list-group-item">
+                     <h5>{$advertisement}</h5>
+                     {$banners_a.120x60}
+                  </li>
+               </ul><!-- END BANNER -->
