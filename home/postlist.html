@@ -5,11 +5,11 @@
          <!-- POST-->
          <script>var lnk{$value.hpid_n} = "/{$value.to4link_n}{$value.pid_n}";</script>
          <!-- IMAGE COLUMN -->
-         <div class="col-lg-1 visible-lg nopaddingleft">
+         {if="!$value.news_b"}<div class="col-lg-1 visible-lg nopaddingleft">
             <img class="media-object homeavatar" src="{$value.fromgravatarurl_n}#" alt="Avatar" />
-         </div>
+         </div>{/if}
          <!-- POST CONTENT -->
-         <div class="col-xs-12 col-lg-11 nopaddingleft nopaddingright">
+         <div class="col-xs-12 {if="!$value.news_b"}col-lg-11{/if} nopaddingleft nopaddingright">
          <!-- AUTHOR -->
          {if="!$value.news_b"}
          <a href="/{$value.from4link_n}">{$value.from_n}:</a>
