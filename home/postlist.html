@@ -59,7 +59,9 @@
          <div class="row"> </div> <hr style="margin: 5px auto; border: 1px solid rgba(192,192,192,0.1);"/>
          <!-- COMMENTS -->
          <div class="col-xs-12 col-md-6 nopaddingleft">
-            <span class="label label-default">{$comments} ({$value.postcomments_n})</span>
+            <a class="showcomments" style="width:60%" data-hpid="{$value.hpid_n}" data-refto="commentlist{$value.hpid_n}">
+               <span class="label label-default">{$comments} ({$value.postcomments_n})</span>
+            </a>
          </div>
          <!-- POST OPTIONS -->
          <div class="col-xs-12 col-md-6 nopaddingleft nopaddingright text-right">
@@ -102,8 +104,10 @@
             {/if}
             {/if}
             </div><!-- END POST OPTIONS -->
+            
          </div><!-- END POST CONTENT -->
       </div> <!-- END PANEL BODY -->
+      <div id="commentlist{$value.hpid_n}" class="panel-body nopaddingtop nopaddingbottom nomarginbottom commlist"></div>
       </div> <!-- END PANEL -->
    </div>
 {/loop}

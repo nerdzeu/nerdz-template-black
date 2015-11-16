@@ -1,17 +1,20 @@
-<div>
-    <div style="width:33px; float:left; ">
+<div class="container-fluid nopadding nomargin">
+    <div class="col-xs-1 nopaddingleft">
         <a href="/{$currentuserprofile_n}" style="vertical-align:top">
-            <img src="{$currentusergravatar_n}&amp;s=30#" alt="{$currentusername_n}" height="30" width="30" onerror="this.src = '{$onerrorimgurl_n}'" style="float:left; padding-right:2px" />
+            <img src="{$currentusergravatar_n}&amp;s=48#" alt="{$currentusername_n}" style="max-width: 100%;" onerror="this.src = '{$onerrorimgurl_n}'" style="float:left; padding-right:2px" />
         </a>
     </div>
+    <div class="col-xs-11 nopaddingleft nopaddingright">
     <form style="overflow:hidden; width:auto" class="frmcomment" data-hpid="{$hpid_n}">
-        <textarea id="commentto{$hpid_n}" name="message" style="width: 99.5%; height: 60px"></textarea>
-        <input type="submit" value="{$nerdz_it}" style="float: right;margin-top:5px" />
-        <button type="button" style="float:right; margin-top: 5px" class="preview" data-refto="#commentto{$hpid_n}">{$preview}</button>
-        <button type="button" style="float:left; margin-top:5px" onclick="window.open('/bbcode.php')">BBCode</button>
+        <textarea id="commentto{$hpid_n}" name="message" style="width: 100%; height: 60px; border: 1px solid #DFD7CA;"></textarea>
+        <input type="submit" value="{$nerdz_it}" style="float: right;margin-top:5px; margin-left: 5px;" class="btn btn-sm btn-default" />
+        <button type="button" style="float:right; margin-top: 5px" class="preview btn btn-sm btn-default" data-refto="#commentto{$hpid_n}">{$preview}</button>
+        <button type="button" style="float:left; margin-top:5px" class="btn btn-sm btn-default" onclick="window.open('/bbcode.php')">BBCode</button>
         <a href="#" class="nerdzcrush-upload">
-            <img width="18" height="16" src="nerdzcrush-logo.svg" alt="Upload File" title="Upload File" style="margin-left:5px;margin-top:5px">
+            <!--<img width="18" height="16" src="nerdzcrush-logo.svg" alt="Upload File" title="Upload File" style="margin-left:5px;margin-top:5px">-->
+            <button class="btn btn-sm btn-default" style="margin-left: 5px; margin-top: 5px;" ><span class="hidden-xs">NerdzCrush</span> <span class="glyphicon glyphicon-paperclip" title="Upload file" aria-hidden="true"></span></button>
         </a>
     <div class="error"></div>
     </form>
+    </div>
 </div>
