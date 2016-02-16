@@ -4,7 +4,7 @@
 <span style="display: none" class="commentcount">{$commentcount_n}</span>
 {/if}
 {loop="list_a"}
-<div id="{$value.uid_n}" data-hcid="{$value.hcid_n}" class="singlecomment container-fluid well well-sm nomargin" style="border-top: 1px solid #ccc;">
+<div id="{$value.uid_n}" data-hcid="{$value.hcid_n}" class="singlecomment container-fluid well well-sm nomargin" style="border-top: 1px solid #ccc; background-color: #F7F7F7 !important;">
    <div class="col-xs-1 col-xs-offset-1 nopaddingleft" style="padding-top: 5px;">
       <a href="/{$value.from4link_n}" style="vertical-align:top">
          <img src="{$value.gravatarurl_n}&amp;s=48#" alt="{$value.from_n}" onerror="this.src = '{$onerrorimgurl_n}'" style="max-width: 100%; float:left; padding-right:2px; padding-top: 3px" />

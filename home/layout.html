@@ -1,8 +1,8 @@
 <div id="main" class="container-fluid nopaddingleft nopaddingright">
    <!-- LEFT BAR -->
    <div class="col-md-2 hidden-xs hidden-sm nomarginleft nopaddingleft nopaddingright">
-      <div class="panel panel-default noborderradius noborderright">
-         <div class="panel-body nopadding">
+      <div class="panel panel-default noborderradius noborder littleboxshadow">
+         <div class="panel-body nopadding darkbackground ">
             <div class="well well-sm nomarginbottom">
                {include="home/meta"}
             </div>
@@ -11,8 +11,8 @@
    </div><!-- END LEFT BAR -->
    <!-- CENTER -->
    <div class="col-xs-8 col-md-6 nopaddingleft nopaddingright">
-      <div class="panel panel-default">
-         <div class="panel-body nopaddingleft nopaddingright" style="min-height: 300px;">
+      <div class="panel noborder panel-default ">
+         <div class="panel-body nopadding" style="min-height: 300px;">
             {include="common/form"}
             <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
          </div>
@@ -21,8 +21,8 @@
    <!-- END CENTER-->
    <!-- RIGHT BAR -->
    <div class="col-xs-4 col-md-4 nopaddingleft nopaddingright">
-      <div class="panel panel-default nomargin noborderleft">
-         <div class="panel-body nopadding">
+      <div class="panel panel-default noborder nomargin noborderleft littleboxshadow">
+         <div class="panel-body nopadding noborder darkbackground">
          <div class="well well-sm nomarginbottom nomargintop nopaddingtop visible-xs visible-sm">
             {include="home/meta-mobile"}
          </div>
@@ -43,11 +43,11 @@
             </div>
          <!-- FOLLOWING -->
          {if="!empty($followed_a)"}
-         <div class="panel panel-default noborderleft noborderright noborderbottom nomarginbottom noborderradius">
-            <div class="panel-heading">
+         <div class="panel panel-default noborder nomarginbottom noborderradius darkbackground">
+            <div class="panel-heading noborder">
                <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></h5>
             </div>
-            <div id="rightmenu" class="panel-body" style="max-height: 200px;">
+            <div id="rightmenu" class="panel-body " style="max-height: 200px; background-color: rgba(0, 0, 0, 0.2) !important;">
                <ol class="follow-list-home">
                   {loop="followed_a"}
                   <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>

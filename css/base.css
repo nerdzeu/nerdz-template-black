@@ -1,4 +1,4 @@
-body{margin-top: 60px;} /*saving space for navbar */
+body{margin-top: 60px; background-color: #3E3F3A;} /*saving space for navbar */
 div.forminput{
    background-color: #ffffff;
    border: 1px solid #ccc;
@@ -17,12 +17,12 @@ div.forminput{
 .nopaddingleft{padding-left: 0;}
 .nopaddingright{padding-right: 0;}
 .nopaddingtop{padding-top: 0;}
-
+.noborder{ border: 0; }
 .nobordertop{ border-top: 0; }
 .noborderbottom{ border-bottom: 0; }
 .noborderleft{ border-left: 0; }
 .noborderright{ border-right: 0; }
-.noborderradius{ border-radius: 0; }
+.noborderradius{ border-radius: 0 !important;}
 .nostyletype{list-style-type: none; }
 .valign-middle{vertical-align:middle;}
 
@@ -45,7 +45,8 @@ ol.tendenze{
 
 #frmtxt{ width: 96%; margin-left: 2%; height: 60px; resize: vertical; border: 1px solid #ccc; }
 
-h5.tendenze, .uppercase{
+h5.tendenze, h5.panel-title, .uppercase{
+color: #FFFFFF !important;
 font-size: 11px;
 line-height: 22px;
 font-weight: 500;
@@ -60,3 +61,31 @@ a.delpost, a.vote, a.edit, a.open, a.closepls, a.optiontoggler, span.isnotlocked
 span.islocked{ color: red; }
 span.unbookmark{ color: green; }
 .frmcomment textarea{ resize: vertical; }
+
+.littleboxshadow, div.postshadow{
+    box-shadow: 0px 1px 1px #1E1F1C;
+}
+
+div.postshadow{
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 2px;
+}
+
+div.darkbackground{
+    background-color: #3E3F3A;
+}
+
+div.whitebackground{
+    background-color: #FFFFFF;
+}
+
+div.well{
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.panel-default > .panel-heading{ background-color: transparent; }
+
+.btn-default{
+    background-color: #32322E !important;
+}
