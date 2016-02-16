@@ -16,6 +16,7 @@ div.forminput{
 .nopadding{padding: 0;}
 .nopaddingleft{padding-left: 0;}
 .nopaddingright{padding-right: 0;}
+.nopaddingbottom{padding-bottom: 0;}
 .nopaddingtop{padding-top: 0;}
 .noborder{ border: 0; }
 .nobordertop{ border-top: 0; }
@@ -58,12 +59,16 @@ margin-bottom: 0;
 a.delpost, a.vote, a.edit, a.open, a.closepls, a.optiontoggler, span.isnotlocked{
    color: #636363;
 }
+
+a{
+    color: #848484 !important;
+}
 span.islocked{ color: red; }
 span.unbookmark{ color: green; }
 .frmcomment textarea{ resize: vertical; }
 
 .littleboxshadow, div.postshadow{
-    box-shadow: 0px 1px 1px #1E1F1C;
+    box-shadow: 0 4px 2px -2px #1E1F1C;
 }
 
 div.postshadow{
@@ -80,12 +85,17 @@ div.whitebackground{
     background-color: #FFFFFF;
 }
 
+div.transparentbackground{
+    background-color: transparent; !important;
+}
+
 div.well{
-    background-color: rgba(0, 0, 0, 0.2) !important;
+    /**background-color: rgba(0, 0, 0, 0.2) !important;*/
+    background-color: transparent !important;
 }
 
 .panel-default > .panel-heading{ background-color: transparent; }
 
 .btn-default{
-    background-color: #32322E !important;
+    background-color: #3E3F3A !important;
 }

@@ -1,9 +1,9 @@
 <div id="main" class="container-fluid nopaddingleft nopaddingright">
    <!-- LEFT BAR -->
    <div class="col-md-2 hidden-xs hidden-sm nomarginleft nopaddingleft nopaddingright">
-      <div class="panel panel-default noborderradius noborder littleboxshadow">
+      <div class="panel panel-default noborderradius noborder">
          <div class="panel-body nopadding darkbackground ">
-            <div class="well well-sm nomarginbottom">
+            <div class="well well-sm nomarginbottomnb">
                {include="home/meta"}
             </div>
          </div><!-- END PANEL BODY -->
@@ -11,8 +11,8 @@
    </div><!-- END LEFT BAR -->
    <!-- CENTER -->
    <div class="col-xs-8 col-md-6 nopaddingleft nopaddingright">
-      <div class="panel noborder panel-default ">
-         <div class="panel-body nopadding" style="min-height: 300px;">
+      <div class="panel noborder panel-default darkbackground">
+         <div class="panel-body darkbackground nopadding" style="min-height: 300px;">
             {include="common/form"}
             <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
          </div>
@@ -21,7 +21,7 @@
    <!-- END CENTER-->
    <!-- RIGHT BAR -->
    <div class="col-xs-4 col-md-4 nopaddingleft nopaddingright">
-      <div class="panel panel-default noborder nomargin noborderleft littleboxshadow">
+      <div class="panel panel-default noborder nomargin noborderleft">
          <div class="panel-body nopadding noborder darkbackground">
          <div class="well well-sm nomarginbottom nomargintop nopaddingtop visible-xs visible-sm">
             {include="home/meta-mobile"}
@@ -43,12 +43,12 @@
             </div>
          <!-- FOLLOWING -->
          {if="!empty($followed_a)"}
-         <div class="panel panel-default noborder nomarginbottom noborderradius darkbackground">
-            <div class="panel-heading noborder">
+         <div class="panel panel-default noborder noborderradius transparentbackground" >
+            <div class="panel-heading nopaddingbottom noborder">
                <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></h5>
             </div>
-            <div id="rightmenu" class="panel-body " style="max-height: 200px; background-color: rgba(0, 0, 0, 0.2) !important;">
-               <ol class="follow-list-home">
+            <div id="rightmenu" class="panel-body nopaddingtop" style="max-height: 200px;">
+                <ol class="follow-list-home">
                   {loop="followed_a"}
                   <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>
                      <a href="/{$value.username4link_n}">
@@ -70,11 +70,11 @@
          <!-- END FOLLOWING -->
          <!-- OWNER OF -->
          {if="!empty($ownerof_a)"}
-         <div class="panel panel-default noborderleft noborderright noborderbottom nomarginbottom noborderradius">
-            <div class="panel-heading">
+         <div class="panel panel-default noborder darkbackground nomarginbottom noborderradius">
+            <div class="panel-heading nopaddingtop nopaddingbottom noborder">
                <h5 class="panel-title">{$your_projects}</h5>
             </div>
-            <div id="rightmenu" class="panel-body">
+            <div class="panel-body noborder nopaddingtop">
                <ol class="follow-list-home">
                {loop="ownerof_a"}
                   <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
@@ -84,11 +84,11 @@
          </div>{/if}
          <!-- MEMBER OF -->
          {if="!empty($memberof_a)"}
-         <div class="panel panel-default noborderleft noborderright noborderbottom nomarginbottom noborderradius">
-            <div class="panel-heading">
+             <div class="panel panel-default noborder darkbackground nomarginbottom noborderradius">
+                 <div class="panel-heading nopaddingtop nopaddingbottom noborder">
                <h5 class="panel-title">{$member_of}</h5>
             </div>
-            <div id="rightmenu" class="panel-body">
+                 <div class="panel-body noborder nopaddingtop">
                <ul class="follow-list-home">
                {loop="memberof_a"}
                   <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
