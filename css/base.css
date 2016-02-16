@@ -63,6 +63,11 @@ a.delpost, a.vote, a.edit, a.open, a.closepls, a.optiontoggler, span.isnotlocked
 a{
     color: #848484 !important;
 }
+
+.nerdz_from a{
+    color: #FFFFFF !important;
+}
+
 span.islocked{ color: red; }
 span.unbookmark{ color: green; }
 .frmcomment textarea{ resize: vertical; }
@@ -98,4 +103,9 @@ div.well{
 
 .btn-default{
     background-color: #3E3F3A !important;
+}
+
+.navbar-default{
+    background-color: #1E1F1C !important;
+    border: 0 !important;
 }
