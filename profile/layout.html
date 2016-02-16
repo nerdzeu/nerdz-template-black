@@ -1,232 +1,234 @@
 <div id="main">
-    <aside id="left_col">
-        <div>
-            <div style="text-align: center; margin-bottom:3px">
-{ignore} src="foto#" così facendo il parser di raintpl non sovrascrive l'url{/ignore}
-                <a href="/{$username4link_n}">
-                    <img src="{$gravatarurl_n}&amp;s=180#" alt="{$username}" style="max-width:100%; max-height:100%" onerror="this.src='{$onerrorimgurl_n}'" />
-                </a>
-            </div>
-            <table style="border-spacing:1px" class="small">
-            <tr>
-                <td style="width:50%">
-                    <span style="float:left; color:#{if="$online_b"}0f{else}f0{/if}0">{if="$online_b"}{$online}{else}{$offline}{/if}</span>
-                </td>
-                <td>
-                    <img src="{$flagdir_n}{$lang_n}.png#" alt="{$lang_n}" title="{$lang_n}" width="18" height="12" />
-                </td>
-                <td style="width:50%">
-                    <div style="float:right;margin-right:-21%">
-                        <div class="g-plusone" data-size="small" data-count="1" data-href="http://www.nerdz.eu/{$username4link_n}"></div>
-                    </div>
-                </td>
-            </tr>
-            </table>
-            <div style="margin-top: -9px">
-                <hr />
-            </div>
-        {if="$canshowmenu_b"}
-            <table class="page">
-            <tr class="small">
-                <th id="profilepm">
-                    {$pm}
-                </th>
-                {if="$canifollow_b"}
-                    <th id="follow" data-id="{$id_n}">{$follow}</th>
-                {else}
-                    <th id="unfollow" data-id="{$id_n}">{$unfollow}</th>
-                {/if}
-                    {if="$caniblacklist_b"}
-                    <th id="blacklist" data-id="{$id_n}">Blacklist</th>
-                {else}
-                    <th id="unblacklist" data-id="{$id_n}">Unblacklist</th>
-                {/if}
-            </tr>
-            </table>
-            <hr />
-        {/if}
-            <div class="title">{$about_me}</div><br />
-            <span class="light">{$username}:<br /></span>
-            <span id="username">{$username_n}</span><br /><br />
-            <span class="light">{$name}:<br /></span>
-            {$name_n}<br />
-            <span class="light">{$surname}:<br /></span>
-            {$surname_n}<br />
-            <span class="light">{$birth_date}:<br /></span>
-            {$birthdate_n}<br />
-            <span class="light">{$gender}:<br /></span>
-            {$gender_n}<br /><br />
-            <span class="light">Karma:<br /></span>
-            {$comments}: <span style="color:#{if="$karmacomments_n > 0"}0f0{else}{if="$karmacomments_n == 0"}fff{else}f00{/if}{/if}">{$karmacomments_n}</span><br />
-            Post: <span style="color:#{if="$karmaposts_n > 0"}0f0{else}{if="$karmaposts_n == 0"}fff{else}f00{/if}{/if}">{$karmaposts_n}</span><br />
-            <hr />
-            <span class="rightarrow"></span>
+    <aside id="left_col" class="col-lg-3 nopaddingleft nopaddingright">
+      <div class="panel panel-default noborderradius noborderright">
+         <div class="panel-body nopadding">
+            <div class="well well-sm nopadding nomarginbottom noborderleft noborderright">
+               <a href="/{$username4link_n}">
+                  <img src="{$gravatarurl_n}&amp;s=180#" alt="{$username}" style="width: 100%; max-width:100%; max-height:100%" onerror="this.src='{$onerrorimgurl_n}'" />
+               </a>
+               {if="$canshowmenu_b"}
+               <table class="page">
+                  <tr class="small">
+                     <th id="profilepm">
+                        {$pm}
+                     </th>
+                  {if="$canifollow_b"}
+                     <th id="follow" data-id="{$id_n}">{$follow}</th>
+                  {else}
+                     <th id="unfollow" data-id="{$id_n}">{$unfollow}</th>
+                  {/if}
+                  {if="$caniblacklist_b"}
+                     <th id="blacklist" data-id="{$id_n}">Blacklist</th>
+                  {else}
+                     <th id="unblacklist" data-id="{$id_n}">Unblacklist</th>
+                  {/if}
+                  </tr>
+               </table>
+               {/if}
+               <table style="border-spacing:1px" class="small">
+                  <tr>
+                     <td style="width:50%">
+                        <span class="uppercase" style="float:left; color:#{if="$online_b"}0f{else}f0{/if}0">{if="$online_b"}{$online}{else}{$offline}{/if}</span>
+                     </td>
+                     <td>
+                        <img src="{$flagdir_n}{$lang_n}.png#" alt="{$lang_n}" title="{$lang_n}" width="18" height="12" />
+                     </td>
+                     <td style="width:50%">
+                        <div style="float:right;margin-right:-15%">
+                           <div class="g-plusone" data-size="small" data-count="1" data-href="http://www.nerdz.eu/{$username4link_n}"></div>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+               <div class="container-fluid nopadding">
+                  <div class="col-xs-12 col-lg-6">
+                     <ul class="userinfo nostyletype nopadding">
+                        <li><span class="light uppercase">{$username}:</span></li>
+                        <li><span class="username">{$username_n}</span></li>
+                        <li><span class="light uppercase">{$name}:</span></li>
+                        <li>{$name_n}</li>
+                        <li><span class="light uppercase">{$surname}:</span></li>
+                        <li>{$surname_n}</li>
+                        <li><span class="light uppercase">{$gender}:</span></li>
+                        <li>{$gender_n}</li>
+                        <li><span class="light uppercase">{$birth_date}:</span></li>
+                        <li>{$birthdate_n}</li>
+                     </ul>
+                  </div>
+                  <div class="col-xs-12 col-lg-6">
+                     <ul class="userinfo nostyletype nopadding">
+                        <li><span class="light uppercase">{$id}:</span></li>
+                        <li>{$id_n}</li>
+                        <li><span class="light uppercase">{$comments}:</span></li>
+                        <li>{$totalcomments_n}</li>
+                        <li><span class="light uppercase">{$last_visit}:</span></li>
+                        <li>{$lastvisit_n}</li>
+                        <li><span class="light uppercase">Browser:</span></li>
+                        <li>{$useragent_a.name} {$useragent_a.version}</li>
+                        <li><span class="light uppercase">Platform:</span></li>
+                        <li>{$useragent_a.platform} {$useragent_a.platver}</li>
+                     </ul>
+                  </div>
+               </div>
+               <br /><br/>da qui sotto in poi devo sistemarlo appena ho tempo <br />
             <a href="/{$username4link_n}interactions">{$interactions}</a><br />
-
-            <span class="rightarrow"></span>
-            <a href="/{$username4link_n}following">
-                <span class="light">Following:</span> {$following_n}
-            </a><br />
-            
-            <span class="rightarrow"></span>
-            <a href="/{$username4link_n}followers">
-                <span class="light">Followers:</span> {$followers_n}
-            </a><br />
-
-            <span class="rightarrow"></span>
-            <a href="/{$username4link_n}friends">
-                <span class="light">Friends:</span> {$friends_n}
-            </a><br />
-            <hr />
-            <span class="light">{$registered_since}:<br /></span>
-            {$registrationtime_n}<br />
-            {if="!empty($website_n)"}
-                <br />
-                <span class="light">{$website}:<br /></span>
-                <span style="font-size: 8pt;">
-                    <a href="{$website4link_n}#" onclick="window.open(this.href); return false">{$website_n}</a>
-                <br />
-                </span>
-            {/if}
-            <br />
             <span class="light">5tUp1d stUfF!1:<br /></span>
             <span>{$stupidstuffnow_n} - {$stupidstuffless_n} ⇒ {$stupidstuffnext_n}</span><br />
             <span class="light">Template:<br /></span>
             <span>{$template_n}</span>
             <br /><br />
 
-            <span class="light">{$id}:<br /></span>
-            {$id_n}<br />
-            <span class="light">{$comments}:<br /></span>
-            {$totalcomments_n}<br />
-            <span class="light">{$last_visit}:<br /></span>
-            {$lastvisit_n}<br /><br />
+            
     
-            <span class="light">Browser:</span><br />{$useragent_a.name} {$useragent_a.version}<br />
-            <span class="light">Platform:</span><br />{$useragent_a.platform} {$useragent_a.platver}<br />
+            
             <br /><br />
-        </div>
+                  <ul class="userinfo nostyletype nopadding">
+                     <li><span class="light">{$registered_since}:</span></li>
+                     <li>{$registrationtime_n}</li>
+                        <li><span class="light uppercase">Karma:</span><li>
+                        <li>{$comments}: <span style="color:#{if="$karmacomments_n > 0"}0f0{else}{if="$karmacomments_n == 0"}fff{else}f00{/if}{/if}">{$karmacomments_n}</span></li>
+                        <li>Post: <span style="color:#{if="$karmaposts_n > 0"}0f0{else}{if="$karmaposts_n == 0"}fff{else}f00{/if}{/if}">{$karmaposts_n}</span></li>
+                  </ul>
+            </div>
+         </div>
+      </div>
     </aside>
-    <article id="center_col" class="page">
-    {if="$canwrite_b"}
-        {include="common/form"}
-    {/if}
-        <div id="postlist" data-type="profile" data-id="{$id_n}" data-location="profile" data-mode="std">
-            {if="isset($post_n)"} {ignore}handle single post, friends, follwers, ecc{/ignore}
-                {$post_n}
+    <article id="center_col" class="col-lg-6 nopaddingleft nopaddingright">
+      <div class="panel panel-default noborderradius noborderbottom nomarginbottom">
+         <div class="panel-body">
+            {if="$canwrite_b"}
+               {include="common/form"}
             {/if}
-        </div>
-        <br /><br />
+            <div id="postlist" data-type="profile" data-id="{$id_n}" data-location="profile" data-mode="std">
+               {if="isset($post_n)"} {ignore}handle single post, friends, follwers, ecc{/ignore}
+                  {$post_n}
+               {/if}
+            </div>
+         </div>
+      </div>
     </article>
-    <aside id="right_col" class="page">
-{ignore}
-        <div class="title">{$about_me}</div>
-{/ignore}
-    {if="!empty($biography_n)"}
-        <div class="title">{$biography}</div>
-        <div class="box" style="overflow:hidden">
-            {$biography_n}
-        </div>
-        <br />
-    {/if}
-
-    {if="!empty($quotes_a)"}
-        <div class="title">{$quotes}</div>
-        <div class="box">
-            <ul>
-            {loop="quotes_a"}
-                <li>{$value}</li>
-            {/loop}
-            </ul>
-        </div>
-        <br />
-    {/if}
-
-    {if="!empty($interests_a)"}
-        <div class="title">{$interests}</div>
-        <div class="box">
-            <ul>
-            {loop="interests_a"}
-                <li>{$value}</li>
-            {/loop}
-            </ul>
-        </div>
-        <br />
-    {/if}
-
-    {if="!empty($ownerof_a)"}
-        <div class="title">{$owner_of}</div>
-        <div class="box">
-            <ul>
-            {loop="ownerof_a"}
-                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-            {/loop}
-            </ul>
-        </div>
-        <br />
-    {/if}
-    {if="!empty($memberof_a)"}
-        <div class="title">{$member_of}</div>
-        <div class="box">
-            <ul>
-            {loop="memberof_a"}
-                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-            {/loop}
-            </ul>
-        </div>
-        <br />
-    {/if}
-    {if="!empty($userof_a)"}
-        <div class="title">{$user_of}</div>
-        <div class="box">
-            <ul>
-            {loop="userof_a"}
-                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-            {/loop}
-            </ul>
-        </div>
-        <br />
-    {/if}
-    {if="!empty($jabber_n) || !empty($yahoo_n) || !empty($skype_n) || !empty($steam_n) || !empty($facebook_n) || !empty($twitter_n) || !empty($github_n)"}
-        <div class="title">{$contact_info}</div>
-        <div class="box">
-        {if="!empty($github_n)"}
-            <span class="light">{$github}:<br /></span>
-                <a href="{$github_n}">{$github_n}</a><br /><br />
-        {/if}
-        {if="!empty($jabber_n)"}
-            <span class="light">{$jabber}:<br /></span>
-                {$jabber_n}<br /><br />
-        {/if}
-        {if="!empty($yahoo_n)"}
-            <span class="light">{$yahoo}:<br /></span>
-                {$yahoo_n}<br /><br />
-        {/if}
-        {if="!empty($skype_n)"}
-            <span class="light">{$skype}:<br /></span>
-                {$skype_n}<br /><br />
-        {/if}
-        {if="!empty($facebook_n)"}
-            <span class="light">{$facebook}:<br /></span>
-                <a href="{$facebook_n}">{$facebook_n}</a><br /><br />
-        {/if}
-        {if="!empty($twitter_n)"}
-            <span class="light">{$twitter}:<br /></span>
-                <a href="{$twitter_n}">{$twitter_n}</a><br /><br />
-        {/if}
-        {if="!empty($steam_n)"}
-            <span class="light">{$steam}:<br /></span>
-                {$steam_n}<br /><br />
-        {/if}
-        </div>
-        <br />
-    {/if}
-        <div class="title">{$advertisement}</div>
-        <div class="box">
+    <aside id="right_col" class="col-lg-3 nopaddingleft nopaddingright">
+      <div class="panel panel-default noborderradius noborderleft noborderright noborderbottom nomarginbottom">
+         <div class="panel-body nopadding">
+            <div class="well well-sm nomarginbottom noborderleft noborderright">
+               <div class="container-fluid nopaddingleft nopaddingright ">
+                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                     <a class="btn btn-default noborderradius" href="#">{$followers_n} Followers</a>
+                     <a class="btn btn-default noborderradius active" href="#">{$friends_n} Friends</a>
+                     <a class="btn btn-default noborderradius" href="#">{$following_n} Following</a>
+                  </div>
+               </div>
+               <ul class="userinfo nostyletype nopadding">
+                  {if="!empty($biography_n)"}
+                  <li><span class="light uppercase"><b>{$biography}</b></span></li>
+                  <li style="padding-left: 10px;">{$biography_n}</li>
+                  {/if}
+                  {if="!empty($quotes_a)"}
+                  <li><span class="light uppercase"><b>{$quotes}</b></span></li>
+                  <li>
+                     <ul class="userinfo nostyletype" style="padding-left: 10px;">
+                     {loop="quotes_a"}
+                        <li>{$value}</li>
+                     {/loop}
+                     </ul>
+                  </li>
+                  {/if}
+                  {if="!empty($interests_a)"}
+                  <li><span class="light uppercase"><b>{$interests}</b></span></li>
+                  <li>
+                     <ul class="userinfo nostyletype" style="padding-left: 10px;">
+                     {loop="interests_a"}
+                        <li>{$value}</li>
+                     {/loop}
+                     </ul>
+                  </li>
+                  {/if}
+                  {if="!empty($ownerof_a)"}
+                  <li><span class="light uppercase"><b>{$owner_of}</b></span></li>
+                  <li>
+                     <ul class="userinfo nostyletype" style="padding-left: 10px;">
+                     {loop="ownerof_a"}
+                        <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                     {/loop}
+                     </ul>
+                  </li>
+                  {/if}
+                  {if="!empty($memberof_a)"}
+                  <li><span class="light uppercase"><b>{$member_of}</b></span></li>
+                  <li>
+                     <ul class="userinfo nostyletype" style="padding-left: 10px;">
+                     {loop="memberof_a"}
+                        <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                     {/loop}
+                     </ul>
+                  </li>
+                  {/if}
+                  {if="!empty($userrof_a)"}
+                  <li><span class="light uppercase"><b>{$user_of}</b></span></li>
+                  <li>
+                     <ul class="userinfo nostyletype" style="padding-left: 10px;">
+                     {loop="userof_a"}
+                        <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                     {/loop}
+                     </ul>
+                  </li>
+                  {/if}
+               </ul>
+            </div>
+         </div>
+      </div>
+      {if="!empty($jabber_n) || !empty($website_n) || !empty($yahoo_n) || !empty($skype_n) || !empty($steam_n) || !empty($facebook_n) || !empty($twitter_n) || !empty($github_n)"}
+      <div class="panel panel-default noborderradius noborderleft noborderright noborderbottom nomarginbottom">
+         <div class="panel-heading">
+            <h5 class="panel-title">{$contact_info}</h5>
+         </div>
+         <div class="panel-body">
+               <ul class="userinfo nostyletype nopadding">
+               {if="!empty($website_n)"}
+                  <li><span class="light uppercase"><b>{$website}</b></span></li>
+                  <li><a href="{$github_n}">{$website_n}</a></li>
+               {/if}
+               {if="!empty($github_n)"}
+                  <li><span class="light uppercase"><b>{$github}</b></span></li>
+                  <li><a href="{$github_n}">{$github_n}</a></li>
+               {/if}
+               {if="!empty($jabber_n)"}
+                  <li><span class="light uppercase"><b>{$jabber}</b></span></li>
+                  <li>{$jabber_n}</li>
+               {/if}
+               {if="!empty($yahoo_n)"}
+                  <li><span class="light uppercase"><b>{$yahoo}</b></span></li>
+                  <li>{$yahoo_n}</li>
+               {/if}
+               {if="!empty($skype_n)"}
+                  <li><span class="light uppercase"><b>{$skype}</b></span></li>
+                  <li>{$skype_n}</li>
+               {/if}
+               {if="!empty($facebook_n)"}
+                  <li><span class="light uppercase"><b>{$facebook}</b></span></li>
+                  <li><a href="{$facebook_n}">{$facebook_n}</a></li>
+               {/if}
+               {if="!empty($twitter_n)"}
+                  <li><span class="light uppercase"><b>{$twitter}</b></span></li>
+                  <li><a href="{$twitter_n}">{$twitter_n}</a></li>
+               {/if}
+               {if="!empty($steam_n)"}
+                  <li><span class="light uppercase"><b>{$steam}</b></span></li>
+                  <li>{$steam_n}</li>
+               {/if}
+               </ul>
+         </div>
+      </div>
+      {/if}
+      <div class="panel panel-default noborderradius noborderleft noborderright noborderbottom nomarginbottom">
+         <div class="panel-heading">
+            <h5 class="panel-title">{$advertisement}</h5>
+         </div>
+         <div class="panel-body nopaddingtop nopaddingleft nopaddingright ">
             {$banners_a.120x600}
-        </div>
-    <br /><br />
-    </aside>
+         </div>
+      </div>
+   </aside>
     <div id="showpostlist" style="display:none"></div>
 {if="!isset($post_n)"}
     <script>

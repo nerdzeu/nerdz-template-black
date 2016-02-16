@@ -1,10 +1,10 @@
-<div class="container-fluid nopadding nomargin">
-    <div class="col-xs-1 nopaddingleft">
+<div class="container-fluid nomargin" style="padding-top: 10px; padding-bottom: 10px; border-top: 1px solid #ccc">
+    <div class="col-xs-1 nopaddingright">
         <a href="/{$currentuserprofile_n}" style="vertical-align:top">
-            <img src="{$currentusergravatar_n}&amp;s=48#" alt="{$currentusername_n}" style="max-width: 100%;" onerror="this.src = '{$onerrorimgurl_n}'" style="float:left; padding-right:2px" />
+            <img src="{$currentusergravatar_n}&amp;s=48#" alt="{$currentusername_n}" onerror="this.src = '{$onerrorimgurl_n}'" style="max-width: 100%; float:left; padding-right:2px" />
         </a>
     </div>
-    <div class="col-xs-11 nopaddingleft nopaddingright">
+    <div class="col-xs-11">
     <form style="overflow:hidden; width:auto" class="frmcomment" data-hpid="{$hpid_n}">
         <textarea id="commentto{$hpid_n}" name="message" style="width: 100%; height: 60px; border: 1px solid #DFD7CA;"></textarea>
         <input type="submit" value="{$nerdz_it}" style="float: right;margin-top:5px; margin-left: 5px;" class="btn btn-sm btn-default" />

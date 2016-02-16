@@ -24,7 +24,7 @@
                {/if}
             </span>
             <!-- DATE -->
-            {if="!$value.news_b"}<time>{$value.datetime_n}</time>{/if}
+            {if="!$value.news_b"}<small><time>{$value.datetime_n}</time></small>{/if}
             <!-- THUMBS -->
             <span class="thumbs">{if="!$value.news_b"}&nbsp;|&nbsp;{/if}
                <!-- THUMBS NUMBER -->
@@ -107,7 +107,7 @@
             
          </div><!-- END POST CONTENT -->
       </div> <!-- END PANEL BODY -->
-      <div id="commentlist{$value.hpid_n}" class="panel-body nopaddingtop nopaddingbottom nomarginbottom commlist"></div>
+      <div id="commentlist{$value.hpid_n}" class="panel-body nopadding nomarginbottom "></div>
       </div> <!-- END PANEL -->
    </div>
 {/loop}

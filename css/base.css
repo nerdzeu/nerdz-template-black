@@ -45,7 +45,7 @@ ol.tendenze{
 
 #frmtxt{ width: 96%; margin-left: 2%; height: 60px; resize: vertical; border: 1px solid #ccc; }
 
-h5.tendenze{
+h5.tendenze, .uppercase{
 font-size: 11px;
 line-height: 22px;
 font-weight: 500;
@@ -59,3 +59,4 @@ a.delpost, a.vote, a.edit, a.open, a.closepls, a.optiontoggler, span.isnotlocked
 }
 span.islocked{ color: red; }
 span.unbookmark{ color: green; }
+.frmcomment textarea{ resize: vertical; }
