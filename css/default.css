@@ -78,7 +78,7 @@
 #rightmenu {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 310px;
+    max-height: 300px;
 }
 
 #leftmenu {
@@ -586,7 +586,7 @@ ul.topnav li ul.subnav li {
 }
 .atwho-view .cur strong {
     color: white;
-    font:bold;
+    font-weight:bold;
 }
 .atwho-view ul {
     /* width: 100px; */
