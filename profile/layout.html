@@ -1,12 +1,14 @@
 <div id="main">
     <aside id="left_col" class="col-lg-3 nopaddingleft nopaddingright">
-      <div class="panel panel-default noborderradius noborderright">
+      <div class="col-xs-4 col-lg-12 littleboxshadow noborder">
          <div class="panel-body nopadding">
             <div class="well well-sm nopadding nomarginbottom noborderleft noborderright">
                <a href="/{$username4link_n}">
                   <img src="{$gravatarurl_n}&amp;s=180#" alt="{$username}" style="width: 100%; max-width:100%; max-height:100%" onerror="this.src='{$onerrorimgurl_n}'" />
                </a>
                {if="$canshowmenu_b"}
+
+
                <table class="page">
                   <tr class="small">
                      <th id="profilepm">
@@ -94,8 +96,8 @@
       </div>
     </aside>
     <article id="center_col" class="col-lg-6 nopaddingleft nopaddingright">
-      <div class="panel panel-default noborderradius noborderbottom nomarginbottom">
-         <div class="panel-body">
+      <div class="panel panel-default noborderradius noborder nomarginbottom">
+         <div class="panel-body darkbackground">
             {if="$canwrite_b"}
                {include="common/form"}
             {/if}
