@@ -1,5 +1,5 @@
                <ul class="list-group">
-                  <!--NERDZ -->
+                  <!--NERDZ  -->
                   <li class="list-group-item">
                      <a href="#nerdzlistmobile" data-toggle="collapse">Nerdz</a>
                      <span style="float:right">
@@ -21,32 +21,6 @@
                         <ul id="nerdzvote" style="margin-top: 10px;">
                            <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
                            <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
-                        </ul>
-                     </div>
-                  </li>
-                  <!--PROJECTS -->
-                  <li class="list-group-item">
-                     <a href="#projlistmobile" data-toggle="collapse">{$projects}</a>
-                     <span style="float:right">
-                        <a href="/feed.php?project=1">
-                           <img src="images/rss.gif" width="16" height="17" alt="Users RSS" />
-                        </a>
-                     </span>
-                  </li>
-                  <li class="list-group-item nopadding nobordertop noborderbottom">
-                     <div id="projlistmobile" class="collapse">
-                        <div class="container"><small>{$from}:</small></div>
-                           <ul>
-                              <li class="projlang" data-lang="*">{$everybody}</li>
-                              <li class="projlang" data-lang="usersifollow">{$users_i_follow}</li>
-                           </ul>
-                        <div class="container"><small>{$language}:</small></div>
-                        <ul>
-                           {loop="langs_a"}<li class="projlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>{/loop}
-                        </ul>
-                        <ul style="margin-top: 10px">
-                           <li class="projlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                           <li class="projlang" data-lang="vote" data-order="-">{$less_rated}</li>
                         </ul>
                      </div>
                   </li>
@@ -108,7 +82,7 @@
                </ul>
                <!-- BANNER -->
                <ul class="list-group nomarginbottom">
-                  <li class="list-group-item">
+                  <li class="list-group-item noborderradius">
                      <h5>{$advertisement}</h5>
                      {$banners_a.120x60}
                   </li>

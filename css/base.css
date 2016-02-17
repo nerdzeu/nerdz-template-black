@@ -116,18 +116,13 @@ li.listaseguiti{
     width: 34px !important;
 }
 
-.utente-offline, .utente-compleanno{
+.utente-offline{
     border: 1px solid transparent;
 }
 
 
 .utente-online {
     border: 1px solid green;
-}
-
-.utente-compleanno:before{
-    content: url("../home/images/gift.gif");
-    position: absolute;
 }
 
 
@@ -154,4 +149,16 @@ li.listaseguiti{
     color: #1E1F1C !important;
     background-color: white !important;
     border: 1px solid white !important;
+}
+
+.mostra{
+    display: block;
+}
+
+.nascondi{
+    display: none;
+}
+
+.badge{
+    background-color: #C9302C !important;
 }
