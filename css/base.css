@@ -109,3 +109,49 @@ div.well{
     background-color: #1E1F1C !important;
     border: 0 !important;
 }
+
+li.listaseguiti{
+    display: inline;
+    margin-right: 4px;
+    width: 34px !important;
+}
+
+.utente-offline, .utente-compleanno{
+    border: 1px solid transparent;
+}
+
+
+.utente-online {
+    border: 1px solid green;
+}
+
+.utente-compleanno:before{
+    content: url("../home/images/gift.gif");
+    position: absolute;
+}
+
+
+
+.singlecomment{
+    background-color: #909090 !important;
+}
+.singlecomment:nth-child(even){
+    background-color: #616161 !important;
+}
+
+.nav-tabs.nav-justified > li > a{
+    border-radius: 0 !important;
+}
+.nav-tabs > li > a{
+    color: white !important;
+    background-color: #1E1F1C !important;
+    border: 1px solid #1E1F1C !important;
+
+}
+
+
+.nav-tabs > li.active a{
+    color: #1E1F1C !important;
+    background-color: white !important;
+    border: 1px solid white !important;
+}

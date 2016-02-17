@@ -1,98 +1,105 @@
 <div id="main" class="container-fluid nopaddingleft nopaddingright">
-   <!-- LEFT BAR -->
-   <div class="col-md-2 hidden-xs hidden-sm nomarginleft nopaddingleft nopaddingright">
-      <div class="panel panel-default noborderradius noborder">
-         <div class="panel-body nopadding darkbackground ">
-            <div class="well well-sm nomarginbottomnb">
-               {include="home/meta"}
+    <!-- LEFT BAR -->
+    <div class="col-md-2 hidden-xs hidden-sm nomarginleft nopaddingleft nopaddingright">
+        <div class="panel panel-default noborderradius noborder">
+            <div class="panel-body nopadding darkbackground ">
+                <div class="well well-sm nomarginbottom">
+                    {include="home/meta"}
+                </div>
+            </div><!-- END PANEL BODY -->
+        </div><!-- END PANEL -->
+    </div><!-- END LEFT BAR -->
+    <!-- CENTER -->
+    <div class="col-xs-2 col-md-8 nopaddingleft nopaddingright">
+        <div class="panel noborder panel-default darkbackground">
+            <div class="panel-body darkbackground nopadding" style="min-height: 300px;">
+                {include="common/form"}
+                <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
             </div>
-         </div><!-- END PANEL BODY -->
-      </div><!-- END PANEL -->
-   </div><!-- END LEFT BAR -->
-   <!-- CENTER -->
-   <div class="col-xs-8 col-md-6 nopaddingleft nopaddingright">
-      <div class="panel noborder panel-default darkbackground">
-         <div class="panel-body darkbackground nopadding" style="min-height: 300px;">
-            {include="common/form"}
-            <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
-         </div>
-      </div>
-   </div>
-   <!-- END CENTER-->
-   <!-- RIGHT BAR -->
-   <div class="col-xs-4 col-md-4 nopaddingleft nopaddingright">
-      <div class="panel panel-default noborder nomargin noborderleft">
-         <div class="panel-body nopadding noborder darkbackground">
-         <div class="well well-sm nomarginbottom nomargintop nopaddingtop visible-xs visible-sm">
-            {include="home/meta-mobile"}
-         </div>
-         <!-- TENDENZE -->
-            <div class="container-fluid well well-sm hidden-xs nomarginbottom">
-               <div class="col-sm-12 col-md-6">
-                  <h5 class="tendenze">{$newest_trends}</h5>
-                  <ol class="nomarginbottom nopadding nostyletype ">
-                     {loop="newest_a"}<li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>{/loop}
-                  </ol>
-               </div>
-               <div class="col-sm-12 col-md-6">
-                  <h5 class="tendenze">{$most_popular_trends}</h5>
-                  <ol class="nomarginbottom nopadding nostyletype">
-                     {loop="popular_a"}<li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>{/loop}
-                  </ol>
-               </div>
-            </div>
-             <div class="container-fluid well well-sm hidden-xs nopaddingtop nomargintop nomarginbottom">
-                 <!-- OWNER OF -->
-                 {if="!empty($ownerof_a)"}
-                 <div class="col-sm-12 col-md-6">
-                     <h5 class="tendenze">{$your_projects}</h5>
-                     <ol class="follow-list-home">
-                         {loop="ownerof_a"}
-                         <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-                         {/loop}
-                     </ol>
-                 </div>
-                 {/if}
-                 <!-- MEMBER OF -->
-                 {if="!empty($memberof_a)"}
-                 <div class="col-sm-12 col-md-6">
-                     <h5 class="tendenze">{$member_of}</h5>
-                     <ol class="follow-list-home">
-                         {loop="memberof_a"}
-                         <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-                         {/loop}
-                     </ol>
-                 </div>
-                 {/if}
-             </div>
-             <!-- FOLLOWING-->
-             {if="!empty($followed_a)"}
-             <div class="container-fluid well well-sm nomarginbottom">
-                 <div class="col-sm-12">
-                     <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></h5>
-                     <div id="rightmenu" class="panel-body nopadding nomargin">
-                         <ol class="follow-list-home">
-                             {loop="followed_a"}
-                             <li class="follow-list-item-home" {if="!$counter1"}style="margin-top:0"{/if}>
-                             <a href="/{$value.username4link_n}">
-                                 <img alt="{$value.username_n}" class="gravatar-home" src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#" height="32" width="32">
-                             </a>
-                             <div class="follow-list-container-home">
-                                 <a href="/{$value.username4link_n}" class="follow-list-title-home"{if="!$value.online_b"} style="color: #AFAFAF"{/if}>
-                                 {$value.username_n}
-                                 </a>
-                                 {if="$value.birthday_b"}
-                                 <img src="images/gift.gif" alt="gift" style="float: right" width="12" height="12" />
-                                 {/if}
-                             </div>
-                             </li>
-                             {/loop}
-                         </ol>
-                     </div>
-                 </div>
-             </div>{/if}
-             <!-- END FOLLOWING -->
-         </div> <!-- END PANEL BODY -->
-      </div> <!-- END PANEL -->
-   </div><!-- END RIGHT BAR-->
+        </div>
+    </div>
+    <!-- END CENTER-->
+    <!-- RIGHT BAR -->
+    <div class="col-xs-4 col-md-2 nopaddingleft nopaddingright">
+        <div class="panel panel-default noborderradius noborder">
+            <div class="panel-body nopadding darkbackground">
+                <div class="well well-sm nomarginbottom nomargintop nopaddingtop visible-xs visible-sm">
+                    {include="home/meta-mobile"}
+                </div>
+                <!-- NEW TENDENZE -->
+                <div class="container-fluid hidden-xs nomarginbottom">
+                    <div class="well well-sm nopaddingleft nopaddingright nomarginbottom">
+                        <ul class="nav nav-tabs nav-justified">
+                            <li role="presentation" class="active"><a href="#newest-trends" data-toggle="tab">{$newest_trends}</a></li>
+                            <li role="presentation"><a href="#popular-trends" data-toggle="tab">TENDENZE POPOLARI</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active whitebackground littleboxshadow" id="newest-trends">
+                                <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
+                                    {loop="newest_a"}
+                                    <li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+                                    {/loop}
+                                </ol>
+                            </div>
+                            <div role="tabpanel" class="tab-pane whitebackground littleboxshadow" id="popular-trends">
+                                <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
+                                    {loop="popular_a"}
+                                    <li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+                                    {/loop}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- OWNER OF -->
+                <div class="container-fluid well well-sm hidden-xs nopaddingtop nomargintop nomarginbottom">
+                    {if="!empty($ownerof_a)"}
+                    <div class="col-sm-12 col-md-6">
+                        <h5 class="tendenze">{$your_projects}</h5>
+                        <ol class="follow-list-home">
+                            {loop="ownerof_a"}
+                            <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                            {/loop}
+                        </ol>
+                    </div>
+                    {/if}
+                    <!-- MEMBER OF -->
+                    {if="!empty($memberof_a)"}
+                    <div class="col-sm-12 col-md-6">
+                        <h5 class="tendenze">{$member_of}</h5>
+                        <ol class="follow-list-home">
+                            {loop="memberof_a"}
+                            <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                            {/loop}
+                        </ol>
+                    </div>
+                    {/if}
+                </div>
+                <!-- FOLLOWING NEW-->
+                {if="!empty($followed_a)"}
+                <div class="container-fluid well well-sm nomarginbottom">
+                    <div class="col-sm-12">
+                        <h5 class="panel-title">{$you_follow} <span class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span>
+                        </h5>
+                        <div id="rightmenu" class="panel-body nopadding nomargin">
+                            <ol class="follow-list-home">
+                                {loop="followed_a"}
+                                <li class="follow-list-item-home listaseguiti {if=" $value.online_b
+                                "}utente-online{else}utente-offline{/if}
+                                {if="$value.birthday_b"}utente-compleanno{/if}">
+                                <a href="/{$value.username4link_n}" title="{$value.username_n}">
+                                    <img alt="{$value.username_n}" class="gravatar-home" src="images/default-avatar.png"
+                                         data-src="{$value.gravatarurl_n}&amp;s=32#" height="32" width="32">
+                                </a>
+                                </li>
+                                {/loop}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                {/if}
+                <!-- END FOLLOWING -->
+            </div> <!-- END PANEL BODY -->
+        </div> <!-- END PANEL -->
+    </div><!-- END RIGHT BAR-->
 </div><!-- END LAYOUT -->
