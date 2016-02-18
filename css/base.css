@@ -18,7 +18,7 @@ div.forminput{
 .nopaddingright{padding-right: 0;}
 .nopaddingbottom{padding-bottom: 0;}
 .nopaddingtop{padding-top: 0;}
-.noborder{ border: 0; }
+.noborder{ border: 0 !important;}
 .nobordertop{ border-top: 0; }
 .noborderbottom{ border-bottom: 0; }
 .noborderleft{ border-left: 0; }
@@ -47,7 +47,6 @@ ol.tendenze{
 #frmtxt{ width: 96%; margin-left: 2%; height: 60px; resize: vertical; border: 1px solid #ccc; }
 
 h5.tendenze, h5.panel-title, .uppercase{
-color: #FFFFFF !important;
 font-size: 11px;
 line-height: 22px;
 font-weight: 500;
@@ -161,4 +160,40 @@ li.listaseguiti{
 
 .badge{
     background-color: #C9302C !important;
+}
+
+div.boxtitle{
+    background-color: #1E1F1C;
+    padding: 10px 15px;
+    color: #FFFFFF;
+}
+
+div.boxtitle a{
+    color: #FFFFFF !important;
+}
+
+ul.userinfo{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0px;
+}
+
+ul.userinfo li.value{
+    margin-bottom: 4px;
+}
+
+.grey{
+    color: #868686;
+}
+
+table.table-userinfo td, table.table-userinfo th, table.table-userinfo tr{
+    border: 0 !important;
+    padding: 0 !important;
+}
+
+table.table-userinfo tr:nth-child(odd){
+    color: #868686;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.7em;
 }
