@@ -127,10 +127,10 @@ li.listaseguiti{
 
 
 .singlecomment{
-    background-color: #909090 !important;
+    background-color: #AFAFAF !important;
 }
 .singlecomment:nth-child(even){
-    background-color: #616161 !important;
+    background-color: #BBBBBB !important;
 }
 
 .nav-tabs.nav-justified > li > a{
@@ -216,4 +216,8 @@ div.follow-stats a{
     border: 0 !important;
     margin-bottom:  0 !important;
     padding: 2% !important;
+}
+
+.btn-info{
+    background-color: #232323 !important;
 }
