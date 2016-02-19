@@ -210,3 +210,8 @@ div.follow-stats{
 div.follow-stats a{
     color: #3e3f3a !important;
 }
+
+.table-responsive{
+    border: 0 !important;
+    margin-bottom:  0 !important;
+}

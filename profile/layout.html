@@ -67,28 +67,28 @@
 
                                 </tr>
                                 <tr>
-                                    <td>{$username}</td>
                                     <td>{$id}</td>
-                                </tr>
-                                <tr>
-                                    <td>{$username_n}</td>
-                                    <td>{$id_n}</td>
-                                </tr>
-                                <tr>
                                     <td>{$name}</td>
-                                    <td>{$surname}</td>
                                 </tr>
                                 <tr>
+                                    <td>{$id_n}</td>
                                     <td>{$name_n}</td>
-                                    <td>{$surname_n}</td>
                                 </tr>
                                 <tr>
                                     <td>{$gender}</td>
-                                    <td>{$birth_date}</td>
+                                    <td>{$surname}</td>
                                 </tr>
                                 <tr>
                                     <td>{$gender_n}</td>
+                                    <td>{$surname_n}</td>
+                                </tr>
+                                <tr>
+                                    <td>{$birth_date}</td>
+                                    <td>{$registered_since}</td>
+                                </tr>
+                                <tr>
                                     <td>{$birthdate_n}</td>
+                                    <td>{$registrationtime_n}</td>
                                 </tr>
                             </table>
                         </div>
@@ -145,12 +145,6 @@
                                     <td title="- {$stupidstuffless_n} ⇒ {$stupidstuffnext_n}">{$stupidstuffnow_n}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>{$registered_since}:</td>
-                                </tr>
-                                <tr>
-                                    <td>{$registrationtime_n}</td>
-                                </tr>
                             </table>
                         </div>
                     </div>
@@ -170,8 +164,6 @@
                             </table>
                         </div>
                     </div>
-                    {if="!empty($biography_n) || !empty($quotes_a) || !empty($interests_a) || !empty($ownerof_a) ||
-                    !empty($userrof_a) || !empty($memberof_a)"}
                     <div class="col-xs-12">
                         <div class="table-responsive" style="padding: 5px 0;">
                             <table class="table nomarginbottom table-userinfo">
@@ -256,7 +248,6 @@
                             </table>
                         </div>
                     </div>
-                    {/if}
                 </div>
             </div>
         </div>
