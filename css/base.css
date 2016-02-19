@@ -197,3 +197,16 @@ table.table-userinfo tr:nth-child(odd){
     text-transform: uppercase;
     font-size: 0.7em;
 }
+
+table.table-userinfo tr:nth-child(even) a{
+    color: #3e3f3a !important;
+}
+
+div.follow-stats{
+    background-color: #ECECEC;
+    color: #3e3f3a;
+}
+
+div.follow-stats a{
+    color: #3e3f3a !important;
+}

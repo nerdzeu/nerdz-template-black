@@ -2,7 +2,7 @@
     <aside id="left_col" class="col-xs-12 col-md-4 col-lg-3 nopaddingleft nopaddingright">
         <div class="col-xs-12 noborder">
             <div class="container-fluid nav boxtitle" style="margin-top: 10px;">
-                {$username_n}
+                {$username_n} <span class="uppercase" style="color:#{if=" $online_b"}93c54b{else}d9534f{/if}">[{if="$online_b"}{$online}{else}{$offline}{/if}]</span>
                 <img src="{$flagdir_n}{$lang_n}.png#" alt="{$lang_n}" title="{$lang_n}" width="18"
                      height="12" style="float: right;"/>
             </div>
@@ -15,9 +15,9 @@
             </div>
 
             <div class="panel-body nopadding">
-                <!--<div class="well well-sm nopadding nomarginbottom noborderleft noborderright">-->
                 <div class="container-fluid nopadding whitebackground littleboxshadow">
                     <div class="col-xs-12">
+
                         {if="$canshowmenu_b"}
                         <div class="btn-group btn-group-justified" role="group" aria-label="..."
                              style="margin-top: 5px;">
@@ -28,12 +28,12 @@
                             <div class="btn-group" role="group">
                                 {if="$canifollow_b"}
                                 <button id="follow" data-id="{$id_n}" type="button"
-                                        class="btn btn-danger noborderradius">
+                                        class="btn btn-success noborderradius">
                                     {$follow}
                                 </button>
                                 {else}
                                 <button id="unfollow" data-id="{$id_n}" type="button"
-                                        class="btn btn-success noborderradius">
+                                        class="btn btn-danger noborderradius">
                                     {$unfollow}
                                 </button>
                                 {/if}
@@ -54,11 +54,10 @@
                         </div>
 
                         {/if}
+
                         <div class="table-responsive" style="padding: 5px 0;">
                             <table class="table nomarginbottom table-userinfo">
                                 <tr>
-                                    <td><span class="uppercase" style="float:left; color:#{if=" $online_b"}93c54b{else}d9534f{/if}">{if="$online_b"}{$online}{else}{$offline}{/if}</span>
-                                    </td>
                                     <td>
                                         <div class="g-plusone" data-size="small" data-count="1"
                                              data-href="http://www.nerdz.eu/{$username4link_n}"></div>
@@ -156,11 +155,113 @@
                         </div>
                     </div>
                 </div>
-                <!--</div>-->
+                <div class="container-fluid nav boxtitle" style="margin-top: 10px;">
+                    INFORMAZIONI SU {$username_n}
+                </div>
+                <div class="container-fluid nopadding whitebackground littleboxshadow">
+                    <div class="col-xs-12 follow-stats">
+                        <div class="table-responsive" style="padding: 5px 0;">
+                            <table class="table nomarginbottom table-userinfo">
+                                <tr style="text-align: center;">
+                                    <td><a href="/{$username4link_n}following">{$followers_n} Followers</a></td>
+                                    <td><a href="/{$username4link_n}friends">{$friends_n} Friends</a></td>
+                                    <td><a href="/{$username4link_n}followers">{$following_n} Following</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    {if="!empty($biography_n) || !empty($quotes_a) || !empty($interests_a) || !empty($ownerof_a) ||
+                    !empty($userrof_a) || !empty($memberof_a)"}
+                    <div class="col-xs-12">
+                        <div class="table-responsive" style="padding: 5px 0;">
+                            <table class="table nomarginbottom table-userinfo">
+                                {if="!empty($biography_n)"}
+                                <tr>
+                                    <td>{$biography}</td>
+                                </tr>
+                                <tr>
+                                    <td>{$biography_n}</td>
+                                </tr>
+                                {/if}
+                                {if="!empty($quotes_a)"}
+                                <tr>
+                                    <td>{$quotes}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="userinfo nostyletype">
+                                            {loop="quotes_a"}
+                                            <li>{$value}</li>
+                                            {/loop}
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {/if}
+                                {if="!empty($interests_a)"}
+                                <tr>
+                                    <td>{$interests}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="userinfo nostyletype">
+                                            {loop="$interests_a"}
+                                            <li>{$value}</li>
+                                            {/loop}
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {/if}
+                                {if="!empty($ownerof_a)"}
+                                <tr>
+                                    <td>{$owner_of}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="userinfo nostyletype">
+                                            {loop="$ownerof_a"}
+                                            <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                                            {/loop}
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {/if}
+                                {if="!empty($memberof_a)"}
+                                <tr>
+                                    <td>{$member_of}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="userinfo nostyletype">
+                                            {loop="$memberof_a"}
+                                            <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                                            {/loop}
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {/if}
+                                {if="!empty($user_of)"}
+                                <tr>
+                                    <td>{$userof}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="userinfo nostyletype">
+                                            {loop="$userof_a"}
+                                            <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                                            {/loop}
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {/if}
+                            </table>
+                        </div>
+                    </div>
+                    {/if}
+                </div>
             </div>
         </div>
     </aside>
-    <article id="center_col" class="col-xs-12 col-md-8 col-lg-6 nopaddingleft nopaddingright">
+    <article id="center_col" class="col-xs-12 col-md-8 col-lg-9 nopaddingleft nopaddingright">
         <div class="panel panel-default noborderradius noborder nomarginbottom">
             <div class="panel-body darkbackground">
                 {if="$canwrite_b"}
@@ -172,79 +273,6 @@
             </div>
         </div>
     </article>
-    <aside id="right_col" class="col-lg-3 hidden-xs hidden-md hidden-sm nopaddingleft nopaddingright">
-        <div class="panel panel-default noborderradius noborder">
-            <div class="panel-body nopadding">
-                <div class="well well-sm nomarginbottom noborderleft noborderright">
-                    <div class="container-fluid nopaddingleft nopaddingright ">
-                        <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                            <a class="btn btn-default noborderradius" href="#">{$followers_n} Followers</a>
-                            <a class="btn btn-default noborderradius active" href="#">{$friends_n} Friends</a>
-                            <a class="btn btn-default noborderradius" href="#">{$following_n} Following</a>
-                        </div>
-                    </div>
-                    <ul class="userinfo nostyletype nopadding">
-                        {if="!empty($biography_n)"}
-                        <li><span class="light uppercase"><b>{$biography}</b></span></li>
-                        <li style="padding-left: 10px;">{$biography_n}</li>
-                        {/if}
-                        {if="!empty($quotes_a)"}
-                        <li><span class="light uppercase"><b>{$quotes}</b></span></li>
-                        <li>
-                            <ul class="userinfo nostyletype" style="padding-left: 10px;">
-                                {loop="quotes_a"}
-                                <li>{$value}</li>
-                                {/loop}
-                            </ul>
-                        </li>
-                        {/if}
-                        {if="!empty($interests_a)"}
-                        <li><span class="light uppercase"><b>{$interests}</b></span></li>
-                        <li>
-                            <ul class="userinfo nostyletype" style="padding-left: 10px;">
-                                {loop="interests_a"}
-                                <li>{$value}</li>
-                                {/loop}
-                            </ul>
-                        </li>
-                        {/if}
-                        {if="!empty($ownerof_a)"}
-                        <li><span class="light uppercase"><b>{$owner_of}</b></span></li>
-                        <li>
-                            <ul class="userinfo nostyletype" style="padding-left: 10px;">
-                                {loop="ownerof_a"}
-                                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-                                {/loop}
-                            </ul>
-                        </li>
-                        {/if}
-                        {if="!empty($memberof_a)"}
-                        <li><span class="light uppercase"><b>{$member_of}</b></span></li>
-                        <li>
-                            <ul class="userinfo nostyletype" style="padding-left: 10px;">
-                                {loop="memberof_a"}
-                                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-                                {/loop}
-                            </ul>
-                        </li>
-                        {/if}
-                        {if="!empty($userrof_a)"}
-                        <li><span class="light uppercase"><b>{$user_of}</b></span></li>
-                        <li>
-                            <ul class="userinfo nostyletype" style="padding-left: 10px;">
-                                {loop="userof_a"}
-                                <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-                                {/loop}
-                            </ul>
-                        </li>
-                        {/if}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </aside>
-
-
     <div id="showpostlist" style="display:none"></div>
     {if="!isset($post_n)"}
     <script>
