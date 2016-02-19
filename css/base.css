@@ -163,6 +163,7 @@ li.listaseguiti{
 }
 
 div.boxtitle{
+    margin-top: 10px;
     background-color: #1E1F1C;
     padding: 10px 15px;
     color: #FFFFFF;
@@ -214,4 +215,5 @@ div.follow-stats a{
 .table-responsive{
     border: 0 !important;
     margin-bottom:  0 !important;
+    padding: 2% !important;
 }
