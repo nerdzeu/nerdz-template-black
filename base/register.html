@@ -1,109 +1,134 @@
-<div class="content">
-   <div class="col-xs-12 col-md-4">
-      <div class="panel panel-default">
-         <div class="panel-heading">
-            <h3 class="panel-title">{$welcome}!</h3>
-         </div>
-         <div class="panel-body">
+<div class="container-fluid" style="padding-top: 10px;">
+    <!-- LEFT COLUMN -->
+    <div class="col-xs-12 col-md-4">
+        <!-- WELCOME ROW -->
+        <div class="container-fluid whitebackground">
+            <h1>{$welcome}!</h1>
             <p>{$presentation_n}</p>
-         </div>
-      </div>
-   </div>
-   <div class="col-xs-12 col-md-4">
-     <h3 class="nomargintop">Registrazione</h3>
-     <form id="regfrm">
-         <div class="input-group input-group-sm">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-            <input type="text" class="form-control noborderbottom" name="username" placeholder="{$username}" required />
-            <input type="text" class="form-control noborderbottom" name="name" placeholder="{$name}:" required/>
-            <input type="text" class="form-control noborderbottom" name="surname" placeholder="{$surname}:" required />
-            <input type="text" class="form-control noborderbottom" name="email" placeholder="{$email}" required />
-            <input type="password" class="form-control" name="password" placeholder="{$password}" required />
-            <div class="forminput">{$gender}: 
-               <select name="gender">
-                  <option value="1">{$male}</option>
-                  <option value="2">{$female}</option>
-               </select>
-            </div>
-            <div class="forminput nobordertop">{$birth_date}:
-               <select name="birth_day">
-                   <option value="-1">{$day}</option>
-                     {loop="days_a"}
-                     <option value="{$value}">{$value}</option>
-                     {/loop}
-               </select>
-               <select name="birth_month">
-                  <option value="-1">{$month}</option>
-                    {loop="months_a"}
-                  <option value="{$value}">{$value}</option>
-                    {/loop}
-                  </select>
-                <select name="birth_year">
-                   <option value="-1">{$year}</option>
-                     {loop="years_a"}
-                   <option value="{$value}">{$value}</option>
-                   {/loop}
-               </select>
-            </div>
-         </div>
-         <div class="input-group input-group-sm" style="margin-top: 5px;">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-cog"></span></span>
-            <div class="forminput">{$timezone}:
-               <select name="timezone">
-                  {loop="timezones_a"}
-                  <option value="{$value}">{$value}</option>
-                  {/loop}
-               </select>
-            </div>
-            <div class="forminput nobordertop">
-               <input type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required />
-               <img src="{$captchaurl_n}#" alt="" id="captcha" title="captcha" style="width: 90px; height:30px;"/>
-               <span onclick="N.reloadCaptcha()" style="cursor: pointer"> {$reload_captcha}</span>
-            </div>
-         <button type="submit" class="btn btn-success">{$register}</button>
-         </div>
-     </form>
-   <div class="error row nopadding" id="error"></div>
-   <div id="done" class="error row nopadding" style="color: #00FF00"></div>
-   </div>
-   <div id="title_right" class="col-xs-12 col-md-4">
-      <h3 class="nomargintop">Login</h3>
-      <form id="loginfrm">
-         <div class="input-group input-group-md"  style="margin-bottom: 10px;">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-            <input type="text" class="form-control noborderbottom" name="username" placeholder="{$username} | ID | {$email}" required autofocus/>
-            <input type="password" class="form-control" name="password" placeholder="{$password}" required />
-            <input type="hidden" value="{$tok_n}" name="tok" />
-         </div>
-         
-            <input type="checkbox" name="setcookie" id="remember" style="margin: 0" checked="checked"><label for="remember">{$remember_me}</label>
-            <input type="checkbox" name="offline" id="markoffline" style="margin: 0 0 0 10px;"><label for="markoffline">{$hide_status}</label><br />
-         <button type="submit" class="btn btn-success">{$login}</button>&nbsp;
-         <a style="color: #fff;" href="/reset.php"  class="btn btn-danger">{$forgot_password}</a>
-      </form>
-<div id="loadtxt"></div>
-     <script>
-            $("#loginfrm").on('submit',function(event) {
-                event.preventDefault();
-                var t = $("#title_right");
-                N.json.login($("#loginfrm").serialize(), function(r) {
-                    var tmp = t.html();
-                    if(r.status == 'ok')
-                    {
-                        t.html(r.message);
-                        setTimeout(function() {
-                            document.location.reload();
-                        },1500);
-                    }
-                    else
-                    {
-                        t.html('<h2 class="error">'+ r.message + '</h2>');
-                        setTimeout(function() {
-                            t.html(tmp);
-                        },1500);
-                    }
-                });
+        </div>
+        <!-- LOGIN ROW -->
+        <div id="title_right" class="container-fluid login littleboxshadow">
+            <h2 class="nomargintop whitetext">{$login}</h2>
+            <form id="loginfrm">
+                <div class="input-group input-group-md whitebackground littleboxshadow nopadding"
+                     style="margin-bottom: 10px;">
+                    <span class="input-group-addon noborderradius"><span class="glyphicon glyphicon-user"></span></span>
+                    <input type="text" class="form-control noborder" name="username"
+                           placeholder="{$username} | ID | {$email}" required/>
+                </div>
+                <div class="input-group input-group-md whitebackground littleboxshadow nopadding"
+                     style="margin-bottom: 10px;">
+                    <span class="input-group-addon noborderradius"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input type="password" class="form-control noborder" name="password" placeholder="{$password}"
+                           required/>
+                    <input type="hidden" value="{$tok_n}" name="tok"/>
+                </div>
+
+                <input type="checkbox" name="setcookie" id="remember" checked><label
+                    for="remember" class="whitetext">{$remember_me}</label><br/>
+                <input type="checkbox" name="offline" id="markoffline"><label for="markoffline" class="whitetext">{$hide_status}</label><br/>
+                <button type="submit" class="btn btn-success noborderradius littleboxshadow">{$login}</button>
+                &nbsp;
+                <a style="color: white !important;" href="/reset.php"
+                   class="btn btn-danger noborderradius littleboxshadow">{$forgot_password}</a>
+            </form>
+            <div id="loadtxt"></div>
+        </div>
+    </div>
+    <!-- RIGHT COLUMN -->
+    <div class="col-xs-12 col-md-8">
+        <!-- SIGN UP ROW -->
+        <div class="container-fluid whitebackground littleboxshadow">
+            <h2>{$register}</h2>
+            <form id="regfrm">
+                <div class="col-xs-12 col-md-6 nopaddingleft">
+                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="username" placeholder="{$username}" required/>
+                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="name" placeholder="{$name}" required/>
+                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="surname" placeholder="{$surname}" required/>
+                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="email" placeholder="{$email}" required/>
+                    <input type="password" class="form-control noborderradius" style="margin-bottom: 4px;" name="password" placeholder="{$password}" required/>
+
+                </div>
+            </form>
+            <br/><br/><br/>
+        </div>
+    </div>
+    <script>
+        $("#loginfrm").on('submit', function (event) {
+            event.preventDefault();
+            var t = $("#title_right");
+            N.json.login($("#loginfrm").serialize(), function (r) {
+                var tmp = t.html();
+                if (r.status == 'ok') {
+                    t.html(r.message);
+                    setTimeout(function () {
+                        document.location.reload();
+                    }, 1500);
+                }
+                else {
+                    t.html('<h2 class="error">' + r.message + '</h2>');
+                    setTimeout(function () {
+                        t.html(tmp);
+                    }, 1500);
+                }
             });
-        </script>
-   </div>
+        });
+    </script>
+</div>
+<br/><br/><br/><br/><br/>
+<!-- OLD CODE -->
+<div class="container-fluid whitetext">
+    <h1>OLD SHIT</h1>
+    <div class="col-xs-12 col-md-4">
+        <h3 class="nomargintop">Registrazione</h3>
+        <form id="regfrms">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <div class="forminput">{$gender}:
+                    <select name="gender">
+                        <option value="1">{$male}</option>
+                        <option value="2">{$female}</option>
+                    </select>
+                </div>
+                <div class="forminput nobordertop">{$birth_date}:
+                    <select name="birth_day">
+                        <option value="-1">{$day}</option>
+                        {loop="days_a"}
+                        <option value="{$value}">{$value}</option>
+                        {/loop}
+                    </select>
+                    <select name="birth_month">
+                        <option value="-1">{$month}</option>
+                        {loop="months_a"}
+                        <option value="{$value}">{$value}</option>
+                        {/loop}
+                    </select>
+                    <select name="birth_year">
+                        <option value="-1">{$year}</option>
+                        {loop="years_a"}
+                        <option value="{$value}">{$value}</option>
+                        {/loop}
+                    </select>
+                </div>
+            </div>
+            <div class="input-group input-group-sm" style="margin-top: 5px;">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-cog"></span></span>
+                <div class="forminput">{$timezone}:
+                    <select name="timezone">
+                        {loop="timezones_a"}
+                        <option value="{$value}">{$value}</option>
+                        {/loop}
+                    </select>
+                </div>
+                <div class="forminput nobordertop">
+                    <input type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required/>
+                    <img src="{$captchaurl_n}#" alt="" id="captcha" title="captcha" style="width: 90px; height:30px;"/>
+                    <span onclick="N.reloadCaptcha()" style="cursor: pointer"> {$reload_captcha}</span>
+                </div>
+                <button type="submit" class="btn btn-success">{$register}</button>
+            </div>
+        </form>
+        <div class="error row nopadding" id="error"></div>
+        <div id="done" class="error row nopadding" style="color: #00FF00"></div>
+    </div>
 </div>

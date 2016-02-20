@@ -94,7 +94,6 @@ div.transparentbackground{
 }
 
 div.well{
-    /**background-color: rgba(0, 0, 0, 0.2) !important;*/
     background-color: transparent !important;
 }
 
@@ -220,4 +219,13 @@ div.follow-stats a{
 
 .btn-info{
     background-color: #232323 !important;
+}
+
+.whitetext{
+    color: #FFFFFF;
+}
+
+div.login{
+    background-color: #313131;
+    padding: 5%;
 }
