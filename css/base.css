@@ -125,10 +125,10 @@ li.listaseguiti{
 
 
 .singlecomment{
-    background-color: #AFAFAF !important;
+    background-color: #9E9E9E !important;
 }
 .singlecomment:nth-child(even){
-    background-color: #BBBBBB !important;
+    background-color: #BDBDBD !important;
 }
 
 .nav-tabs.nav-justified > li > a{
