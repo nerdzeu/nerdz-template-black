@@ -1,6 +1,6 @@
 <div class="container-fluid" style="padding-top: 10px;">
     <!-- LEFT COLUMN -->
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-lg-4">
         <!-- WELCOME ROW -->
         <div class="container-fluid whitebackground">
             <h1>{$welcome}!</h1>
@@ -36,21 +36,69 @@
         </div>
     </div>
     <!-- RIGHT COLUMN -->
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-12 col-lg-8">
         <!-- SIGN UP ROW -->
         <div class="container-fluid whitebackground littleboxshadow">
-            <h2>{$register}</h2>
             <form id="regfrm">
-                <div class="col-xs-12 col-md-6 nopaddingleft">
-                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="username" placeholder="{$username}" required/>
-                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="name" placeholder="{$name}" required/>
-                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="surname" placeholder="{$surname}" required/>
-                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="email" placeholder="{$email}" required/>
-                    <input type="password" class="form-control noborderradius" style="margin-bottom: 4px;" name="password" placeholder="{$password}" required/>
+                <div class="col-xs-12">
+                    <h2>{$register}</h2>
+                </div>
+                <div class="col-xs-12 col-lg-6 ">
+                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="name"
+                           placeholder="{$name}" required/>
+                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="surname"
+                           placeholder="{$surname}" required/>
+
+                    <div class="input-group" style="margin-bottom: 4px;">
+                            <span class="input-group-addon noborderradius noborder" id="basic-addon1"
+                                  style="padding: 0 5px; background-color: black;"><img src="{$captchaurl_n}#" id="captcha"
+                                                                                        title="captcha"> <span class="glyphicon glyphicon-refresh" aria-hidden="true"
+                                                                                                               onclick="N.reloadCaptcha()"
+                                                                                                               style="cursor: pointer; vertical-align: middle; color: white;"></span></span>
+                        <input type="text" id="cptxt" class="form-control noborderradius" name="captcha"
+                               placeholder="{$captcha}:" required aria-describedby="basic-addon1"/>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6 nopadding" style="text-align: center;">
+                        <select id="gender" class="selectpicker" name="gender" data-width="100%" data-style="btn-info">
+                            <option value="1">{$male}</option>
+                            <option value="2">{$female}</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6 nopadding" style="text-align: center; margin-bottom: 5px;">
+                        <select id="timezone" class="selectpicker" name="timezone" data-width="100%" >
+                            {loop="timezones_a"}
+                            <option value="{$value}">{$value}</option>
+                            {/loop}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-6">
+                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="username"
+                           placeholder="{$username}" required/>
+                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="email"
+                           placeholder="{$email}" required/>
+                    <input type="password" class="form-control noborderradius" style="margin-bottom: 4px;"
+                           name="password" placeholder="{$password}" required/>
+                    <input class="form-control noborderradius" style="margin-bottom: 4px;" id="datepicker" name="date"
+                           placeholder="{$birth_date}" type="text"/>
 
                 </div>
+                <div class="col-xs-12" style="margin: 10px 0; text-align: right">
+                    <button type="reset" class="btn btn-danger noborderradius" style="color: white; !important;">reset</button>
+                    <button type="submit" class="btn btn-success noborderradius">{$register}</button>
+                </div>
+                <select name="birth_day" hidden>
+                    <option value="-1" selected></option>
+                </select>
+                <select name="birth_month" hidden>
+                    <option value="-1" selected></option>
+                </select>
+                <select name="birth_year" hidden>
+                    <option value="-1" selected></option>
+                </select>
             </form>
-            <br/><br/><br/>
         </div>
     </div>
     <script>
@@ -73,62 +121,26 @@
                 }
             });
         });
+
+        $(function () {
+            var date_input = $('#datepicker');
+            var container = $('#datepicker').parent();
+            var options = {
+                format: 'dd/mm/yyyy',
+                container: container,
+                todayHighlight: true,
+                orientation: "bottom auto",
+                autoclose: true,
+            };
+            date_input.datepicker(options);
+        });
+
+        $("#datepicker").on("change", function() {
+            var data = this.value;
+            var valori = data.split("/");
+            $("select[name=birth_day] option:selected").val(valori[0]);
+            $("select[name=birth_month] option:selected").val(valori[1]);
+            $("select[name=birth_year] option:selected").val(valori[2]);
+        });
     </script>
-</div>
-<br/><br/><br/><br/><br/>
-<!-- OLD CODE -->
-<div class="container-fluid whitetext">
-    <h1>OLD SHIT</h1>
-    <div class="col-xs-12 col-md-4">
-        <h3 class="nomargintop">Registrazione</h3>
-        <form id="regfrms">
-            <div class="input-group input-group-sm">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                <div class="forminput">{$gender}:
-                    <select name="gender">
-                        <option value="1">{$male}</option>
-                        <option value="2">{$female}</option>
-                    </select>
-                </div>
-                <div class="forminput nobordertop">{$birth_date}:
-                    <select name="birth_day">
-                        <option value="-1">{$day}</option>
-                        {loop="days_a"}
-                        <option value="{$value}">{$value}</option>
-                        {/loop}
-                    </select>
-                    <select name="birth_month">
-                        <option value="-1">{$month}</option>
-                        {loop="months_a"}
-                        <option value="{$value}">{$value}</option>
-                        {/loop}
-                    </select>
-                    <select name="birth_year">
-                        <option value="-1">{$year}</option>
-                        {loop="years_a"}
-                        <option value="{$value}">{$value}</option>
-                        {/loop}
-                    </select>
-                </div>
-            </div>
-            <div class="input-group input-group-sm" style="margin-top: 5px;">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-cog"></span></span>
-                <div class="forminput">{$timezone}:
-                    <select name="timezone">
-                        {loop="timezones_a"}
-                        <option value="{$value}">{$value}</option>
-                        {/loop}
-                    </select>
-                </div>
-                <div class="forminput nobordertop">
-                    <input type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required/>
-                    <img src="{$captchaurl_n}#" alt="" id="captcha" title="captcha" style="width: 90px; height:30px;"/>
-                    <span onclick="N.reloadCaptcha()" style="cursor: pointer"> {$reload_captcha}</span>
-                </div>
-                <button type="submit" class="btn btn-success">{$register}</button>
-            </div>
-        </form>
-        <div class="error row nopadding" id="error"></div>
-        <div id="done" class="error row nopadding" style="color: #00FF00"></div>
-    </div>
 </div>

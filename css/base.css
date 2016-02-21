@@ -1,4 +1,4 @@
-body{margin-top: 60px; background-color: #3E3F3A;} /*saving space for navbar */
+body{margin-top: 60px; background-color: #424242;}
 div.forminput{
    background-color: #ffffff;
    border: 1px solid #ccc;
@@ -72,7 +72,7 @@ span.unbookmark{ color: green; }
 .frmcomment textarea{ resize: vertical; }
 
 .littleboxshadow, div.postshadow{
-    box-shadow: 0 4px 2px -2px #1E1F1C;
+    box-shadow: 0 4px 2px -2px #212121;
 }
 
 div.postshadow{
@@ -84,7 +84,6 @@ div.postshadow{
 div.darkbackground{
     background-color: #3E3F3A;
 }
-
 div.whitebackground{
     background-color: #FFFFFF;
 }
@@ -104,7 +103,7 @@ div.well{
 }
 
 .navbar-default{
-    background-color: #1E1F1C !important;
+    background-color: #212121 !important;
     border: 0 !important;
 }
 
@@ -137,14 +136,14 @@ li.listaseguiti{
 }
 .nav-tabs > li > a{
     color: white !important;
-    background-color: #1E1F1C !important;
-    border: 1px solid #1E1F1C !important;
+    background-color: #212121 !important;
+    border: 1px solid #212121 !important;
 
 }
 
 
 .nav-tabs > li.active a{
-    color: #1E1F1C !important;
+    color: #212121 !important;
     background-color: white !important;
     border: 1px solid white !important;
 }
@@ -163,7 +162,7 @@ li.listaseguiti{
 
 div.boxtitle{
     margin-top: 10px;
-    background-color: #1E1F1C;
+    background-color: #212121;
     padding: 10px 15px;
     color: #FFFFFF;
 }
@@ -226,6 +225,37 @@ div.follow-stats a{
 }
 
 div.login{
-    background-color: #313131;
+    background-color: #212121;
     padding: 5%;
+}
+
+div.inputboxgrey{
+    color: #FFFFFF;
+    background-color: #565656;
+    padding: 0;
+}
+
+div.inputboxblack{
+    color: #FFFFFF;
+    background-color: #313131;
+    padding: 0;
+}
+
+div.inputboxgreylight{
+    color: #FFFFFF;
+    background-color: #7f7f7f;
+    padding: 0;
+}
+
+*::-webkit-input-placeholder {
+    color: #696a64 !important;
+}
+*:-moz-placeholder {
+    color: #696a64 !important;
+}
+*::-moz-placeholder {
+    color: #696a64 !important;
+}
+*:-ms-input-placeholder {
+    color: #696a64 !important;
 }

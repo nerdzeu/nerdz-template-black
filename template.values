@@ -10,10 +10,14 @@
             "css/default.css",
             "css/base.css"
         ],
+        "index": [
+            "css/bootstrap-select.css",
+            "css/bootstrap-datepicker3.css"
+        ],
         "faq": "css/faq.css",
         "userslist": "css/userslist.css"
     },
-    // JS section
+    // JS sections
     "js": {
         "default": [
             "js/bootstrap.min.js",
@@ -26,7 +30,10 @@
         ],
         "index": [
             "https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js",
-            "js/index.js"
+            "js/index.js",
+            "js/bootstrap-select.min.js",
+            "js/bootstrap-datepicker.js",
+            "js/moment.js"
         ],
         "home": [ "js/home.js", {
             "lang": [ "HIDDEN_POSTS", "EXPAND", "HIDE" ],
