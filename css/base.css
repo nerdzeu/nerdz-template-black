@@ -87,6 +87,9 @@ div.darkbackground{
 div.whitebackground{
     background-color: #FFFFFF;
 }
+div.blackbackground{
+    background-color: #232323;
+}
 
 div.transparentbackground{
     background-color: transparent; !important;

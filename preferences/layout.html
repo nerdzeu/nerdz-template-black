@@ -1,22 +1,32 @@
 <div id="left_col">&nbsp;</div>
-<div id="center_col">
-    <div class="page" style="cursor: pointer">
-        <table>
-            <tr id="prefbar">
-                <th id="account">{$account}</th>
-                <th id="profile">{$profile}</th>
-                <th id="guests">{$guests}</th>
-                <th id="projects">{$projects}</th>
-                <th id="language">{$language}</th>
-                <th id="themes">{$themes}</th>
-                <th id="delete">{$delete}</th>
-            </tr>
-        </table>
+<div id="center_col" class="col-xs-12">
+    <div class="container-fluid blackbackground" style="cursor: pointer">
+        <div id="prefbar" class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button id="account" type="button" class="btn btn-info">{$account}</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="profile" type="button" class="btn btn-info">{$profile}</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="guests" type="button" class="btn btn-info">{$guests}</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="projects" type="button" class="btn btn-info">{$projects}</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="language" type="button" class="btn btn-info">{$language}</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="themes" type="button" class="btn btn-info">{$themes}</button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="delete" type="button" class="btn btn-info">{$delete}</button>
+            </div>
+        </div>
     </div>
-    <br />
-    <div id="content" class="page">
-        <br />
-        <h3 style="text-align:center;margin:auto;width:60%">
+    <div id="content" class="container-fluid whitebackground littleboxshadow">
+        <h3 style="text-align:center;">
             {$description_n}
         </h3>
     </div>
