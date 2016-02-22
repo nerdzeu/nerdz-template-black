@@ -72,7 +72,7 @@ $(document).ready(function() {
     };
     var handleRefresh = function() {
         load = false;
-        if (!lang) {
+        if (lang == "usersifollow") {
             $("#stdfrm select[name=lang]").val(myLang);
             $("#fast_nerdz").show();
             N.html.profile.getFollowedHomePostList(0, function(data) {
@@ -229,26 +229,22 @@ $(document).ready(function() {
             }, 5e3);
         });
     });
+
+    var el;
     if (localStorage.getItem("autolang")) {
-        var el;
         if (localStorage.getItem("autoorder")) {
             el = $("#nerdzvote").find("[data-order='" + localStorage.getItem("autoorder") + "']");
         } else {
             $("#nerdzselect").click();
             el = $("#nerdzlist").find("ul").find("[data-lang='" + localStorage.getItem("autolang") + "']");
         }
-        el.click();
-        el.css("color", "#2370B6");
     } else {
-        plist.data("location", "home");
-        load = false;
-        N.html.home.getFollowedPostList(0, function(data) {
-            plist.html(data);
-            hideHidden();
-            plist.data("mode", "std");
-            load = true;
-        });
+        // Load posts from everyone on default
+        el = $("#nerdzlist").find("ul").find("[data-lang='*']");
     }
+    el.click();
+    el.css("color", "#2370B6");
+
     var tmpDivId = "scrtxt";
     var manageScrollResponse = function(data) {
         $("#" + tmpDivId).remove();
@@ -267,9 +263,9 @@ $(document).ready(function() {
             var num = 10;
             var $post = plist.find("div[id^='post']").last();
             var hpid = $post.data("hpid"),
-                mode = plist.data("mode"),
-                type = $post.data('type'),
-                append = '<h3 id="' + tmpDivId + '">' + loading + "...</h3>";
+            mode = plist.data("mode"),
+            type = $post.data('type'),
+            append = '<h3 id="' + tmpDivId + '">' + loading + "...</h3>";
 
             if (load && !$("#" + tmpDivId).length) {
                 plist.append(append);
