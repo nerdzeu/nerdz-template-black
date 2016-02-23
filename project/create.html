@@ -23,6 +23,8 @@
                 &nbsp;<span onclick="N.reloadCaptcha()" style="font-size:6pt; cursor: pointer">{$reload_captcha}</span>
             </td>
             <td><input type="text" name="captcha" /></td>
+
+
         </tr>
         <tr>
             <td></td>
@@ -34,15 +36,4 @@
 <div id="left_col"><div class="error" id="err" style="margin-top:80px"></div></div>
 <br /><br />
 <script>
-$(document).ready(function() {
-    $("#create").on('submit',function(e) {
-        e.preventDefault();
-        N.json.createProject($(this).serialize(),function(d) {
-            $("#err").html(d.message);
-            if(d.status == 'ok') {
-                location.href = '/'+encodeURIComponent($("#create").find("input[name=name]").val())+':';
-            }
-        });    
-    });
-});
 </script>

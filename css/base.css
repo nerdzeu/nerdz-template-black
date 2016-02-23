@@ -1,4 +1,4 @@
-body{margin-top: 60px; background-color: #424242;}
+body{margin-top: 60px; background-color: #3E3F3A;}
 div.forminput{
    background-color: #ffffff;
    border: 1px solid #ccc;
@@ -54,7 +54,7 @@ text-transform: uppercase;
 margin-bottom: 0;
 }
 
-/* POST ICONS */
+/* POST ICONS  */
 a.delpost, a.vote, a.edit, a.open, a.closepls, a.optiontoggler, span.isnotlocked{
    color: #636363;
 }
@@ -264,7 +264,7 @@ div.inputboxgreylight{
 }
 
 /* PREFERENCES */
-#edaccfrm .input-group-addon{
+#edaccfrm .input-group-addon, #create .input-group-addon{
     color: #FFFFFF;
     background-color: #424242;
 }

@@ -14,6 +14,10 @@
             "css/bootstrap-select.css",
             "css/bootstrap-datepicker3.css"
         ],
+        "preferences": [
+            "css/bootstrap-select.css",
+            "css/bootstrap-datepicker3.css"
+        ],
         "faq": "css/faq.css",
         "userslist": "css/userslist.css"
     },
@@ -39,7 +43,11 @@
             "lang": [ "HIDDEN_POSTS", "EXPAND", "HIDE" ],
             "outputVersion": true // you should probably not change this
         } ],
-        "preferences": "js/preferences.js",
+            "preferences": [
+                "js/preferences.js",
+                "js/bootstrap-select.min.js",
+                "js/bootstrap-datepicker.js"
+            ],
         "profile": [ "js/profile.js", {
             "lang": [ "MOTIVATION" ]
         } ],

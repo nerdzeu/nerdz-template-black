@@ -1,5 +1,28 @@
 <h4>{$profile_descr}</h4>
+<div id="res"></div>
 <form id="edprofrm">
+    <div class="col-xs-12 col-md-6 nopaddingleft ">
+        {$interests} <small>({$one_per_line})</small><br />
+        <textarea name="interests" rows="8" cols="26">
+            {loop="interests_a"}
+                {$value}&#13;
+            {/loop}
+        </textarea>
+    </div>
+    <div class="col-xs-12 col-md-6 nopaddingleft">
+            asd
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 <table class="intable">
     <tr>
         <td style="width: 50%; vertical-align: top">
@@ -189,10 +212,8 @@
             <input type="submit" value="{$edit}" />
             </td>
         <td>
-            <div id="res"></div>
         </td>
     </tr>
     </table>
     <input type="hidden" name="tok" value="{$tok_n}" />
 </form>
-<br /><br />

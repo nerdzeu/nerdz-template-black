@@ -1,21 +1,32 @@
-<hr />
-<div>{$guests_descr}</div>
-<hr />
+<h4>{$guests_descr}</h4>
+<div id="res"></div>
 <form id="gufrm" data-tok="{$tok_n}">
-    <table class="page">
-        <tr>
-            <td>
-                <input type="radio" name="check" value="public" {if="!$private_b"} checked {/if} />
-                {$public_profile}
-                <br />
-                <input type="radio" name="check" value="private" {if="$private_b"} checked {/if} />
-                {$private_profile}
-            </td>
-            <td>
-                <input type="submit" value="{$edit}" />
-                <div id="res"></div>
-            </td>
-        </tr>
-    </table>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <input type="radio" name="check" value="public" {if="!$private_b"}checked{/if} aria-label="...">
+      </span>
+        <a class="form-control" id="makepublic" href="#" aria-label="...">{$public_profile}</a>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <input type="radio" name="check" value="private" {if="$private_b"}checked{/if} aria-label="...">
+      </span>
+        <a class="form-control" id="makeprivate" href="#" aria-label="...">{$private_profile}</a>
+    </div>
+
+    <div class="col-xs-12 nopaddingleft" style="margin: 4px 0">
+        <button type="submit" class="btn btn-info noborderradius">{$edit}</button>
+    </div>
 </form>
-<br /><br />
+
+<script>
+    $("#makeprivate").on("click", function(){
+        $("input[value=private]").prop("checked",true);
+    });
+
+    $("#makepublic").on("click", function(){
+        $("input[value=public]").prop("checked",true);
+    });
+</script>

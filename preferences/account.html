@@ -31,7 +31,7 @@
         </div>
 
         <div class="col-xs-4 nopaddingleft"  style="margin-bottom: 4px">
-            <select class="bootstrap-select" name="gender">
+            <select class="selectpicker" name="gender" data-width="100%" data-style="btn-info">
                 {if="$ismale_b"}
                 <option value="1">{$male}</option>
                 <option value="2">{$female}</option>
@@ -42,7 +42,7 @@
             </select>
         </div>
         <div class="col-xs-8 nopaddingleft"  style="margin-bottom: 4px">
-            <select name="timezone">
+            <select class="selectpicker"  name="timezone">
                 {loop="timezones_a"}
                 {if="$value == $timezone_n"}
                 <option value="{$value}" selected="selected">{$value}</option>
