@@ -81,14 +81,19 @@ div.postshadow{
     margin-bottom: 2px;
 }
 
-div.darkbackground{
+.darkbackground{
     background-color: #3E3F3A;
 }
-div.whitebackground{
+.whitebackground{
     background-color: #FFFFFF;
 }
-div.blackbackground{
+.blackbackground{
     background-color: #232323;
+}
+
+
+.whitetext{
+    color: #FFFFFF;
 }
 
 div.transparentbackground{
@@ -223,9 +228,6 @@ div.follow-stats a{
     background-color: #232323 !important;
 }
 
-.whitetext{
-    color: #FFFFFF;
-}
 
 div.login{
     background-color: #212121;

@@ -1,8 +1,8 @@
-<h4>{$preferences_descr}</h4>
-<p id="res"></p>
+<div class="col-xs-12"><h4>{$preferences_descr}</h4></div>
+<p class="col-xs-12 darkbackground whitetext" id="res" style="min-height: 0;"></p>
 <form id="edaccfrm">
     <!-- LEFT -->
-    <div class="col-xs-12 col-md-6 nopaddingleft">
+    <div class="col-xs-12 col-md-6">
         <div class="input-group input-group-md" style="margin-bottom: 4px">
             <span class="input-group-addon" id="sizing-addon1">{$name}</span>
             <input type="text" class="form-control" value="{$name_n}" name="name" placeholder="{$name}" aria-describedby="sizing-addon1">
@@ -19,7 +19,7 @@
     </div>
 
     <!-- RIGHT -->
-    <div class="col-xs-12 col-md-6 nopaddingleft">
+    <div class="col-xs-12 col-md-6">
         <div class="input-group input-group-md" style="margin-bottom: 4px">
             <span class="input-group-addon" id="sizing-addon3">{$email}</span>
             <input type="text" class="form-control" value="{$email_n}" name="surname" placeholder="{$email}" aria-describedby="sizing-addon3">
@@ -53,7 +53,7 @@
             </select>
         </div>
     </div>
-    <div class="col-xs-12 nopaddingleft" style="margin-bottom: 4px">
+    <div class="col-xs-12" style="margin-bottom: 4px">
         <button type="submit" class="btn btn-info noborderradius">{$edit}</button>
     </div>
     <input type="hidden" name="tok" value="{$tok_n}" />
