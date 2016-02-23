@@ -5,6 +5,8 @@ $(document).ready(function() {
         c.html(loading);
         N.html.post("/pages/preferences/" + event.target.id + ".html.php", {}, function(data) {
             c.html(data);
+            $('.selectpicker').selectpicker('refresh');
+            console.log(data);
         });
     });
     c.on("submit", "#edaccfrm", function(e) {
