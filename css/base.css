@@ -63,9 +63,6 @@ a{
     color: #848484 !important;
 }
 
-.nerdz_from a{
-    color: #FFFFFF !important;
-}
 
 span.islocked{ color: red; }
 span.unbookmark{ color: green; }
@@ -133,12 +130,8 @@ li.listaseguiti{
 
 
 .singlecomment{
-    background-color: #9E9E9E !important;
+    border-top: 2px solid #212121 !important;
 }
-.singlecomment:nth-child(even){
-    background-color: #BDBDBD !important;
-}
-
 .nav-tabs.nav-justified > li > a{
     border-radius: 0 !important;
 }
