@@ -82,7 +82,7 @@ div.postshadow{
     background-color: #3E3F3A;
 }
 .whitebackground{
-    background-color: #FFFFFF;
+    background-color: #FFFFFF !important;
 }
 .blackbackground{
     background-color: #232323;

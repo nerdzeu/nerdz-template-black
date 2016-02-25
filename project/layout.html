@@ -1,150 +1,180 @@
-<div id="main">
-    <aside id="left_col">
-        <div>
-            <div style="text-align: center; margin-bottom:3px">
-{ignore} src="foto#" così facendo il parser di raintpl non sovrascrive l'url{/ignore}
-                <a href="/{$name4link_n}">
-                    <img src="{$photo_n}#" alt="{$name}" style="max-width:100%; max-height:100%" onerror="this.src='{$onerrorimgurl_n}'" />
+<div id="main" class="container-fluid">
+    <aside id="left_col" class="col-xs-12 col-md-4 col-lg-3 nopadding" style="margin-bottom: 10px;">
+        <div class="container-fluid nav boxtitle">
+            {$name_n}
+        </div>
 
-                </a>
-            </div>
-            <div style="margin-top: -9px">
-                <hr />
-            </div>
-        {if="$canshowmenu_b"}
-            <table class="page">
-                <tr class="small">
-                    <th>
-                        <div class="g-plusone" data-size="small" data-count="1" data-href="http://www.nerdz.eu/{$name4link_n}"></div>
-                    </th>
+        <div class="container-fluid nopadding whitebackground littleboxshadow">
+            <a href="/{$name4link_n}">
+                <img src="{$photo_n}#" alt="{$name}" style="max-width:100%; max-height:100%"
+                     onerror="this.src='{$onerrorimgurl_n}'"/>
+            </a>
+        </div>
+
+        <div class="container-fluid nopadding whitebackground littleboxshadow">
+            {if="!$canshowmenu_b"}
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                <div class="btn-group" role="group">
                     {if="$canifollow_b"}
-                        <th id="follow" class="project" data-id="{$id_n}">{$follow}</th>
+                    <button id="follow" data-id="{$id_n}" type="button"
+                            class="project btn btn-success noborderradius">
+                        {$follow}
+                    </button>
                     {else}
-                        <th id="unfollow" class="project" data-id="{$id_n}">{$unfollow}</th>
+                    <button id="unfollow" data-id="{$id_n}" type="button"
+                            class="project btn btn-danger noborderradius">
+                        {$unfollow}
+                    </button>
                     {/if}
-                </tr>
-            </table>
-        {else}
-            <div style="text-align:center;margin-right:-15%">
-                <div class="g-plusone" data-size="small" data-count="1" data-href="http://www.nerdz.eu/{$name4link_n}"></div>
+                </div>
             </div>
+            {/if}
+            <div class="table-responsive" style="padding: 2%;">
+                <table class="table nomarginbottom table-userinfo">
+                    <tr>
+                        <td>{$id}</td>
+                    </tr>
+                    <tr>
+                        <td>{$id_n}</td>
+                    </tr>
+                    <tr>
+                        <td>{$name}</td>
+                    </tr>
+                    <tr>
+                        <td>{$name_n}</td>
+                    </tr>
+                    <tr>
+                        <td>{$owner}</td>
+                    </tr>
+                    <tr>
+                        <td>{$owner_n}</td>
+                    </tr>
+                    <tr>
+                        <td>{$created}</td>
+                    </tr>
+                    <tr>
+                        <td>{$creationtime_n}</td>
+                    </tr>
+                    {if="!empty($website_n)"}
+                    <tr>
+                        <td>{$website}</td>
+                    </tr>
+                    <tr>
+                        <td><a href="{$website4link_n}#" onclick="window.open(this.href); return false">{$website_n}</a>
+                        </td>
+                    </tr>
+                    {/if}
+                </table>
+            </div>
+        </div>
+        <div class="container-fluid nav boxtitle">
+            <a href="/{$name4link_n}interactions">{$interactions}</a>
+        </div>
+        <div class="container-fluid nopadding whitebackground littleboxshadow" style="margin-bottom: 10px">
+            <div class="table-responsive">
+                <table class="table nomarginbottom table-userinfo" style="text-align: center">
+                    <tr>
+                        <td>
+                            <a href="/{$name4link_n}members">
+                                {$members}
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/{$name4link_n}followers">
+                                Followers
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {$members_n}
+                        </td>
+                        <td>
+                            {$users_n}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {if="!empty($description_n) || !empty($goal_n)"}
+        <div class="container-fluid nav boxtitle">
+            <a href="/{$name4link_n}interactions">{$informations}</a>
+        </div>
+        <div class="container-fluid nopadding whitebackground littleboxshadow" style="margin-bottom: 10px">
+            <div class="table-responsive">
+                <table class="table nomarginbottom table-userinfo">
+                    {if="!empty($description_n)"}
+                    <tr>
+                        <td>{$description}</td>
+                    </tr>
+                    <tr>
+                        <td>{$description_n}</td>
+                    </tr>
+                    {/if}
+                    {if="!empty($goal_n)"}
+                    <tr>
+                        <td>{$goal}</td>
+                    </tr>
+                    <tr>
+                        <td>{$goal_n}</td>
+                    </tr>
+                    {/if}
+                </table>
+            </div>
+        </div>
         {/if}
-            <hr />
-
-            <div class="title">{$informations}</div><br />
-
-            <span class="light">{$name}:<br /></span>
-            {$name_n}<br />
-            {if="!empty($website_n)"}
-                <br />
-                <span class="light">{$website}:<br /></span>
-                <span style="font-size: 8pt;">
-                    <a href="{$website4link_n}#" onclick="window.open(this.href); return false">{$website_n}</a>
-                <br />
-                </span>
-            {/if}
-            <br />
-
-            <span class="light">{$id}: {$id_n}</span><br /><br />
-            <hr />
-            <span class="rightarrow"></span>
-            <a href="/{$name4link_n}interactions">{$interactions}</a><br />
-
-            <span class="rightarrow"></span>
-            <a href="/{$name4link_n}members">
-                <span class="light">{$members}:</span> {$members_n}
-            </a><br />
-
-            <span class="rightarrow"></span>
-            <a href="/{$name4link_n}followers">
-               <span class="light">Followers:</span> {$users_n}
-            </a><br />
-            <hr />
-
-            <span class="light">{$created}:<br /></span>
-            {$creationtime_n}<br />
-
-            <span class="light">{$owner}:<br /></span>
-            <a href="/{$owner4link_n}">{$owner_n}</a><br />
-
+        <div class="container-fluid nav boxtitle">
+            <a href="/{$name4link_n}interactions">{$advertisement}</a>
         </div>
-        <br /><br />
-    </aside>
-    <article id="center_col" class="page">
-    {if="$canwrite_b"}
-        {include="common/form"}
-    {/if}
-        <div id="postlist" data-type="project" data-id="{$id_n}" data-location="project" data-limit="0" data-mode="std">
-            {ignore} Data type == project è un progetto, parte da limit 0 a fare le richieste{/ignore}
-            {if="isset($post_n)"} {ignore} handle single post and followers{/ignore}
-                {$post_n}
-            {/if}
-        </div>
-        <br /><br />
-    </article>
-    <aside id="right_col" class="page">
-
-    {if="!empty($description_n)"}
-        <div class="title">{$description}</div>
-        <div class="box">
-            {$description_n}
-        </div>
-        <br />
-    {/if}
-
-    {if="!empty($goal_n)"}
-        <div class="title">{$goal}</div>
-        <div class="box">
-            {$goal_n}
-        </div>
-        <br />
-    {/if}
-        <div class="title">{$advertisement}</div>
-        <div class="box">
+        <div class="container-fluid nopadding whitebackground littleboxshadow" style="margin-bottom: 10px">
             {$banners_a.120x600}
         </div>
-    <br /><br />
     </aside>
+    <article id="center_col" class="col-xs-12 col-md-8 col-lg-9 darkbackground">
+        {if="$canwrite_b"}
+        {include="common/form"}
+        {/if}
+        <div id="postlist" data-type="project" data-id="{$id_n}" data-location="project" data-limit="0" data-mode="std">
+            {if="isset($post_n)"}
+            {$post_n}
+            {/if}
+        </div>
+    </article>
     <div id="showpostlist" style="display:none"></div>
-{if="!isset($post_n)"}
+    {if="!isset($post_n)"}
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             var plist = $("#postlist");
-            var num = 10; {ignore} TODO PARAM? {/ignore}
+            var num = 10;
             var load = false;
             var loading = N.getLangData().LOADING;
             var divId = 'scrtxt';
-            var append = '<h3 id="'+divId+'">'+loading+'...</h3>';
+            var append = '<h3 id="' + divId + '">' + loading + '...</h3>';
 
-            $("#showpostlist").on('click',function() {
+            $("#showpostlist").on('click', function () {
                 plist.html(loading);
                 load = false;
-                N.html.project.getPostList(num, $("#postlist").data('id'),function(data) {
+                N.html.project.getPostList(num, $("#postlist").data('id'), function (data) {
                     plist.html(data);
                     load = true;
                     window.fixHeights();
                 });
             });
-            
-            $("#showpostlist").click();
-            
-            {ignore} Autoload vecchi post allo scrolldown {/ignore}
 
-            $(window).scroll(function() {
-                if($(this).scrollTop()+200 >= ( $(document).height() - $(this).height() ) )
-                {
+            $("#showpostlist").click();
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() + 200 >= ( $(document).height() - $(this).height() )) {
                     var hpid = plist.find("div[id^='post']").last().data('hpid');
-                    if(load && !$("#"+divId).length)
-                    {
+                    if (load && !$("#" + divId).length) {
                         plist.append(append);
                     }
 
-                    if(load)
-                    {
+                    if (load) {
                         load = false;
-                        N.html.project.getPostListBeforeHpid(num, plist.data('id'), hpid,function(data) {
-                            $("#"+divId).remove();
-                            if(data.length > 0) {
+                        N.html.project.getPostListBeforeHpid(num, plist.data('id'), hpid, function (data) {
+                            $("#" + divId).remove();
+                            if (data.length > 0) {
                                 plist.append(data);
                                 load = true;
                                 window.fixHeights();
@@ -155,12 +185,11 @@
             });
         });
     </script>
-{else}
+    {else}
     <script>
-    $(document).ready(function() {
+        $(document).ready(function () {
             $(".showcomments").click();
-    });
+        });
     </script>
-    {ignore} tanto se il post è singolo ne esiste solo uno di elemento con questa classe{/ignore}
-{/if}
+    {/if}
 </div>

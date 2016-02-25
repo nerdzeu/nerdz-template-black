@@ -1,19 +1,24 @@
-<div id="left_col">&nbsp;</div>
-<article id="center_col">
-    <table style="margin: auto" class="page">
-        <tr style="cursor: pointer">
-            <th style="width:5%" id="id">{$id}</th>
-            <th style="width:10%" id="name">{$name}</th>
-            <th style="width:85%" id="description">{$description}</th>
-        </tr>
-    {loop="list_a"}
-        <tr>
-            <td>{$value.id_n}</td>
-            <td><a href="/{$value.name4link_n}">{$value.name_n}</a></td>
-            <td>{$value.description_n}</td>
-        </tr>
-    {/loop}
-    </table>
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table littleboxshadow">
+            <thead class="blackbackground whitetext">
+                <tr style="cursor: pointer">
+                    <th id="id">{$id}</th>
+                    <th id="name">{$name}</th>
+                    <th id="description">{$description}</th>
+                </tr>
+           </thead>
+            <tbody class="whitebackground">
+            {loop="list_a"}
+                <tr>
+                    <td>{$value.id_n}</td>
+                    <td><a href="/{$value.name4link_n}">{$value.name_n}</a></td>
+                    <td>{$value.description_n}</td>
+                </tr>
+            {/loop}
+            </tbody>
+        </table>
+    </div>
 
     {if="!empty($prev_url_n)"}
         <div style="float:left; margin-left:5%">
@@ -28,3 +33,4 @@
 
     <br /><br /><br />
 </article>
+</div>
