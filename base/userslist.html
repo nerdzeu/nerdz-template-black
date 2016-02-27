@@ -4,44 +4,28 @@
         {elseif="$type_n == 'followers'"}Followers
         {elseif="$type_n == 'list'"}{$users_list}
         {elseif="$type_n == 'members'"}{$members}
-        {/if} <small>({$displayedusers_n}/{$totalusers_n})</small></h1>
+        {/if}
+        <small>({$displayedusers_n}/{$totalusers_n})</small>
+    </h1>
 
     {loop="list_a"}
-    <div class="col-xs-12 col-md-6 col-lg-3" style="margin-bottom: 10px;">
-        <div class="container-fluid whitebackground littleboxshadow nopadding">
-            <div class="col-xs-12 col-sm-4 col-md-4 nopadding">
-                <a href="/{$value.username4link_n}">
-                    <img alt="{$value.username_n}" class="gravatar" src="{$value.gravatarurl_n}#"
-                         style="height: 100%; width: 100%; max-width: 100%">
-                </a>
-                <div class="col-xs-12 nopadding">
-                    {if="$value.canshowfollow_b"}
-                    {if="$value.canifollow_b"}
-                    <button id="follow" data-id="{$value.id_n}" type="button"
-                            class="btn btn-success noborderradius" style="width: 100%;">
-                        {$follow}
-                    </button>
-                    {else}
-                    <button id="unfollow" data-id="{$value.id_n}" type="button"
-                            class="btn btn-danger noborderradius" style="width: 100%;">
-                        {$unfollow}
-                    </button>
-                    {/if}
-                    {else}
-                    <button class="btn btn-info noborderradius" style="width: 100%;">
-                        {$value.username_n}
-                    </button>
-                    {/if}
-                </div>
+    <div class="col-xs-12 col-sm-6 col-md-4" style="margin-bottom: 10px;">
+        <div class="container-fluid nopadding whitebackground">
+            <div class="col-xs-12 col-lg-3 nopadding">
+            <a href="/{$value.username4link_n}">
+                <img alt="{$value.username_n}" class="gravatar" src="{$value.gravatarurl_n}#"
+                     style="height: 100%; width: 100%; max-width: 100%">
+            </a>
             </div>
-            <div class="col-xs-12 col-sm-8 col-md-8">
+            <div class="col-xs-12 col-lg-9">
                 <ul class="nostyletype nopadding">
                     <li>
                         <a href="/{$value.username4link_n}" class="follow-list-title">
                             <b>{$value.username_n}</b>
                         </a>
                     </li>
-                    <li style="font-weight: bold">
+                    <li title="{$value.name_n} {$value.surname_n}"
+                        style="font-weight: bold; white-space: nowrap; text-overflow:ellipsis;">
                         {$value.name_n} {$value.surname_n}
                     </li>
                     <li>
@@ -50,22 +34,48 @@
                         {elseif="$type_n == 'followers'"}{$following_since}
                         {elseif="$type_n == 'list'"}{$registered_since}
                         {elseif="$type_n == 'members'"}{$member_since}
-                        {/if} <br />{$value.since_n}
+                        {/if} <br/>{$value.since_n}
                     </li>
                 </ul>
+            </div>
+            <div class="col-xs-12 nomargin nopadding">
+                {if="$value.canshowfollow_b"}
+                {if="$value.canifollow_b"}
+                <button id="follow" title="{$follow}" data-id="{$value.id_n}" type="button"
+                        class="btn btn-success noborderradius" style="width: 100%;">{$follow}
+                </button>
+                {else}
+                <button id="unfollow" title="{$unfollow}" data-id="{$value.id_n}" type="button"
+                        class="btn btn-danger noborderradius" style="width: 100%;">{$unfollow}
+                </button>
+                {/if}
+                {else}
+                <button class="btn btn-info noborderradius" style="width: 100%;">
+                    {$value.username_n}
+                </button>
+                {/if}
             </div>
         </div>
     </div>
     {/loop}
-
-    {if="!empty($prev_url_n)"}
-    <div style="float:left;margin: auto auto 5% 5%">
-        <a href="{$prev_url_n}">&lt;&lt;&lt;</a>
-    </div>
-    {/if}
-    {if="!empty($next_url_n)"}
-    <div style="float:right;margin: auto 5% 5% auto">
-        <a href="{$next_url_n}">&gt;&gt;&gt;</a>
-    </div>
-    {/if}
+</div>
+<div clas="container-fluid" style="text-align: center">
+    <nav>
+        <ul class="pagination">
+            {if="!empty($prev_url_n)"}
+            <li>
+                <a href="{$prev_url_n}" aria-label="Previous" class="noborderradius">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {/if}
+            {if="!empty($next_url_n)"}
+            <li>
+                <a href="{$next_url_n}" aria-label="Next" class="noborderradius">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {/if}
+        </ul>
+    </nav>
 </div>
