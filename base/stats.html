@@ -1,32 +1,28 @@
-<div id="main">
-    <div id="left_col">&nbsp;</div>
-    <article id="center_col">
-        {$total_users}: {$totusers_n}<br />
-        {$total_posts_profiles}: {$totpostsprofiles_n}<br />
-        {$total_comments_profiles}: {$totcommentsprofiles_n}<br /><br />
+<article id="center_col" class="col-xs-12 whitebackground littleboxshadow" style="padding-top: 10px; text-align: center">
+    {$total_users}: {$totusers_n}<br/>
+    {$total_posts_profiles}: {$totpostsprofiles_n}<br/>
+    {$total_comments_profiles}: {$totcommentsprofiles_n}<br/><br/>
 
-        {$total_projects}: {$totprojects_n}<br />
-        {$total_posts_projects}: {$totpostsprojects_n}<br />
-        {$total_comments_projects}: {$totcommentsprojects_n}<br /><br />
+    {$total_projects}: {$totprojects_n}<br/>
+    {$total_posts_projects}: {$totpostsprojects_n}<br/>
+    {$total_comments_projects}: {$totcommentsprojects_n}<br/><br/>
 
-        {$total_online_users}: {$totonlineusers_n}<br />
-        {$hidden_users}:  {$tothiddenusers_n}<br /><br />
+    {$total_online_users}: {$totonlineusers_n}<br/>
+    {$hidden_users}: {$tothiddenusers_n}<br/><br/>
 
-        {$total_online_guests}: {$totonlineguests_n}<br />
-        {$total_online_bots}: {$totonlinebots_n}<br /><br />
-        {if="!empty($bots_a)"}
-            {$list_of_bots}:<br />
-            <div class="light">
-            {loop="bots_a"}
-                {if="$counter % 10 == 0"} <br /> {/if}
-                {$value.name_n}&nbsp;
-            {/loop}
-            </div>
-        {/if}
-        <br />
+    {$total_online_guests}: {$totonlineguests_n}<br/>
+    {$total_online_bots}: {$totonlinebots_n}<br/><br/>
+    {if="!empty($bots_a)"}
+    {$list_of_bots}:<br/>
+    <div class="light">
+        {loop="bots_a"}
+        {if="$counter % 10 == 0"} <br/> {/if}
+        {$value.name_n}&nbsp;
+        {/loop}
+    </div>
+    {/if}
+    <br/>
         <span style="font-style:italic">
             {$last_update}: {$lastupdate_n}
         </span>
-        <br /><br /><br />
-    </article>
-</div>
+</article>

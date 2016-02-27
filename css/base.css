@@ -119,18 +119,21 @@ li.listaseguiti{
 }
 
 .utente-offline{
-    border: 1px solid transparent;
+    border-bottom: 2px solid transparent;
 }
 
 
 .utente-online {
-    border: 1px solid green;
+    border-bottom: 2px solid green;
+    margin-bottom: 2px;
 }
 
 
 
 .singlecomment{
     border-top: 2px solid #212121 !important;
+    background-color: #4E4E4E;
+    color: #FFFFFF;
 }
 .nav-tabs.nav-justified > li > a{
     border-radius: 0 !important;

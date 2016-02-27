@@ -1,23 +1,25 @@
-<div id="main">
-    <div id="left_col">&nbsp;</div>
-    <article id="center_col">
-        <table class="page">
+<div id="main" class="container-fluid">
+    <div class="table-responsive">
+        <table class="table whitebackground littleboxshadow">
+            <thead class="blackbackground whitetext">
             <tr>
                 <th>
-                {$position}
+                    {$position}
                 </th>
                 <th>
-                {$username}
+                    {$username}
                 </th>
                 <th>
-                {$comments}
+                    {$comments}
                 </th>
-{if="!$monthly_b"}
+                {if="!$monthly_b"}
                 <th>
-                {$stupid_stuff}
+                    {$stupid_stuff}
                 </th>
-{/if}
+                {/if}
             </tr>
+            </thead>
+            <tbody>
             {loop="list_a"}
             <tr>
                 <td>{$value.position_n}</td>
@@ -27,19 +29,17 @@
                 <td>
                     {$value.comments_n}
                 </td>
-{if="!$monthly_b"}
+                {if="!$monthly_b"}
                 <td>
                     {$value.stupidstuff_n}
                 </td>
-{/if}
+                {/if}
             </tr>
             {/loop}
+            </tbody>
         </table>
-        <br />
-        <span style="font-style:italic">
+        <span class="whitetext" style="font-style:italic">
             {$last_update}: {$lastupdate_n}
         </span>
-        <br /><br /><br />
-    </article>
-</div>
+    </div>
 

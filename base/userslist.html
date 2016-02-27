@@ -1,47 +1,71 @@
-<h1 style="margin-top:0" class="userlisttitle">{if="$type_n == 'friends'"}{$friends}
-{elseif="$type_n == 'following'"}Following
-{elseif="$type_n == 'followers'"}Followers
-{elseif="$type_n == 'list'"}{$users_list}
-{elseif="$type_n == 'members'"}{$members}
-{/if} &nbsp;({$displayedusers_n}/{$totalusers_n})</h1>
-<ol class="follow-list">
-{loop="list_a"}
-    <li class="follow-list-item">
-        <a href="/{$value.username4link_n}">
-            <img alt="{$value.username_n}" class="gravatar" src="{$value.gravatarurl_n}&amp;s=75#" height="75" width="75">
-        </a>
-        <div class="follow-list-container">
-            <a href="/{$value.username4link_n}" class="follow-list-title">
-                {$value.username_n}
-            </a>
-            <div class="light">
-                {$value.name_n} {$value.surname_n}<br />
-                {if="$type_n == 'friends'"}{$friends_since}
-                {elseif="$type_n == 'following'"}{$following_since}
-                {elseif="$type_n == 'followers'"}{$following_since}
-                {elseif="$type_n == 'list'"}{$registered_since}
-                {elseif="$type_n == 'members'"}{$member_since}
-                {/if}: {$value.since_n}
+<div class="container-fluid">
+    <h1 class="whitetext" style="padding-left: 15px;">{if="$type_n == 'friends'"}{$friends}
+        {elseif="$type_n == 'following'"}Following
+        {elseif="$type_n == 'followers'"}Followers
+        {elseif="$type_n == 'list'"}{$users_list}
+        {elseif="$type_n == 'members'"}{$members}
+        {/if} <small>({$displayedusers_n}/{$totalusers_n})</small></h1>
+
+    {loop="list_a"}
+    <div class="col-xs-12 col-md-6 col-lg-3" style="margin-bottom: 10px;">
+        <div class="container-fluid whitebackground littleboxshadow nopadding">
+            <div class="col-xs-12 col-sm-4 col-md-4 nopadding">
+                <a href="/{$value.username4link_n}">
+                    <img alt="{$value.username_n}" class="gravatar" src="{$value.gravatarurl_n}#"
+                         style="height: 100%; width: 100%; max-width: 100%">
+                </a>
+                <div class="col-xs-12 nopadding">
+                    {if="$value.canshowfollow_b"}
+                    {if="$value.canifollow_b"}
+                    <button id="follow" data-id="{$value.id_n}" type="button"
+                            class="btn btn-success noborderradius" style="width: 100%;">
+                        {$follow}
+                    </button>
+                    {else}
+                    <button id="unfollow" data-id="{$value.id_n}" type="button"
+                            class="btn btn-danger noborderradius" style="width: 100%;">
+                        {$unfollow}
+                    </button>
+                    {/if}
+                    {else}
+                    <button class="btn btn-info noborderradius" style="width: 100%;">
+                        {$value.username_n}
+                    </button>
+                    {/if}
+                </div>
             </div>
-            {if="$value.canshowfollow_b"}
-                {if="$value.canifollow_b"}
-                    <div class="follow" data-id="{$value.id_n}">{$follow}</div>
-                {else}
-                    <div class="unfollow" data-id="{$value.id_n}">{$unfollow}</div>
-                {/if}
-            {/if}
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <ul class="nostyletype nopadding">
+                    <li>
+                        <a href="/{$value.username4link_n}" class="follow-list-title">
+                            <b>{$value.username_n}</b>
+                        </a>
+                    </li>
+                    <li style="font-weight: bold">
+                        {$value.name_n} {$value.surname_n}
+                    </li>
+                    <li>
+                        {if="$type_n == 'friends'"}{$friends_since}
+                        {elseif="$type_n == 'following'"}{$following_since}
+                        {elseif="$type_n == 'followers'"}{$following_since}
+                        {elseif="$type_n == 'list'"}{$registered_since}
+                        {elseif="$type_n == 'members'"}{$member_since}
+                        {/if} <br />{$value.since_n}
+                    </li>
+                </ul>
+            </div>
         </div>
-    </li>
-{/loop}
-</ol>
-{if="!empty($prev_url_n)"}
-<div style="float:left;margin: auto auto 5% 5%">
-    <a href="{$prev_url_n}">&lt;&lt;&lt;</a>
+    </div>
+    {/loop}
+
+    {if="!empty($prev_url_n)"}
+    <div style="float:left;margin: auto auto 5% 5%">
+        <a href="{$prev_url_n}">&lt;&lt;&lt;</a>
+    </div>
+    {/if}
+    {if="!empty($next_url_n)"}
+    <div style="float:right;margin: auto 5% 5% auto">
+        <a href="{$next_url_n}">&gt;&gt;&gt;</a>
+    </div>
+    {/if}
 </div>
-{/if}
-{if="!empty($next_url_n)"}
-<div style="float:right;margin: auto 5% 5% auto">
-    <a href="{$next_url_n}">&gt;&gt;&gt;</a>
-</div>
-{/if}
-<br /><br />

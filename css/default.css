@@ -233,7 +233,7 @@ html, #body {
     clear: left;
 }
 
-.nerdz_comments, .quote, .spoiler {
+.quote, .spoiler {
     border-color: #000;
     background-color: #BDBDBD;
     color: #000;
@@ -293,6 +293,10 @@ html, #body {
 .nerdz_from {
     margin-bottom: 4px;
     overflow: hidden;
+}
+
+.nerdz_from a {
+    color: #C7C7C7 !important;
 }
 
 .nerdz_truncate {
