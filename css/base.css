@@ -132,8 +132,8 @@ li.listaseguiti{
 
 .singlecomment{
     border-top: 2px solid #212121 !important;
-    background-color: #4E4E4E;
-    color: #FFFFFF;
+    background-color: #dddddd;
+    color: #000000;
 }
 .nav-tabs.nav-justified > li > a{
     border-radius: 0 !important;
@@ -259,6 +259,10 @@ div.inputboxgreylight{
 }
 *:-ms-input-placeholder {
     color: #696a64 !important;
+}
+
+.vertical-align{
+    display: flex; align-items: center; justify-content: center; flex-direction: row;
 }
 
 /* PREFERENCES */

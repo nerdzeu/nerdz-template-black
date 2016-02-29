@@ -1,26 +1,34 @@
-<br />
-<table class="page" style="width: 85%" id="getto">
-    <tr>
-        <th style="width:20%;font-weight:bold">{$from}</th>
-        <th style="width:20%;font-weight:bold">{$when}</th>
-        <th style="width:5%;font-weight:bold">{$delete}</th>
-    </tr>
-    {loop="list_a"}
-        <tr style="margin-top: 5px" id="x{$counter}">
-            <td>
-                <a href="/{$value.from4link_n}" class="getconv" data-from="{$value.fromid_n}" data-to="{$value.toid_n}">{$value.from_n}</a>
-            </td>
-            <td><time data-timestamp="{$value.timestamp_n}">{$value.datetime_n}</time></td>
-            <td style="text-align:center">
-                <a class="delete" data-del="true" data-id="#x{$counter}" data-from="{$value.fromid_n}" data-to="{$value.toid_n}">X</a>
-            </td>
-        </tr>
-    {else}
-        </table>
-        <table>
-            <tr>
-                <td style="text-align:center;width:90%">{$no_pm}</td>
-            </tr>
-    {/loop}
-</table>
-<div id="conversation"></div><br />
+<div class="container nopadding">
+    <div class="col-xs-4 col-sm-3 nopadding">
+        {loop="list_a"}
+        <div id="x{$counter}" class="container-fluid whitebackground littleboxshadow vertical-align"
+             style="margin-bottom: 4px; display: flex; align-items: center; justify-content: center; flex-direction: row;">
+            <div class="hidden-xs hidden-sm col-md-4 nopaddingleft">
+                <img class="img-responsive img-circle" src="{$value.fromgravatarurl_n}#"/>
+            </div>
+            <div class="col-xs-11 col-md-7 nopadding">
+                <a href="/{$value.from4link_n}" class="getconv" data-from="{$value.fromid_n}" data-to="{$value.toid_n}">
+                    <b>{$value.from_n}</b><br/>
+                    <time data-timestamp="{$value.timestamp_n}">{function="date('d/m/y', $value.timestamp_n)"}</time>
+                </a>
+            </div>
+            <div class="col-xs-1">
+                <a class="delete" data-del="true" data-id="#x{$counter}" data-from="{$value.fromid_n}"
+                   data-to="{$value.toid_n}">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+        {else}
+        <div class="col-xs-12 nopaddingleft">
+            {$no_pm}
+        </div>
+        {/loop}
+    </div>
+    <div id="conversation" class="col-xs-8 col-sm-9">
+        <div class="col-xs-12 whitebackground littleboxshadow">
+            {$pm_descr}
+            {include="pm/form"}
+        </div>
+    </div>
+</div>
