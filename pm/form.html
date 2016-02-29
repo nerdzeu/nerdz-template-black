@@ -1,30 +1,28 @@
-<form id="convfrm">
-    <table class="page" style="width:80%" id="compose">
-    <tr>
-        <td style="width:50%">
-            {$to}
-        </td>
-        <td style="width:50%">
-            <input type="text" name="to" id="to" />
-        </td>
-    </tr>
-    </table>
-    <table class="page" style="width:80%">
-        <tr>
-            <td>
-                {$message}
-                <br />
-                <textarea style="width:100%;height:150px" name="message" id="message"></textarea>
-                <br />
-                <input type="submit" style="float:right; margin-top:5px" value="{$send}" />
-                <button type="button" style="float:right; margin-top: 5px" class="preview" data-refto="#message">{$preview}</button>
-                <button type="button" style="float:left; margin-top:5px" onclick="window.open('/bbcode.php')">BBCode</button>
-                <a href="#" class="nerdzcrush-upload">
-                    <img width="18" height="16" src="nerdzcrush-logo.svg" alt="Upload File" title="Upload File" style="margin-left:5px;margin-top:5px">
-                </a>
-                <span id="res"></span>
-            </td>
-        </tr>
-    </table>
-</form>
-<br /><br />
+<div class="col-xs-12" style="padding: 10px 0">
+    <form id="convfrm">
+        <div class="input-group" id="compose">
+            <span class="input-group-addon noborderradius btn-info whitetext" id="basic-addon1">{$to}</span>
+            <input type="text" class="form-control" name="to" id="to" aria-describedby="basic-addon1">
+        </div>
+        <textarea class="noborderradius"
+                  style="margin-top: 4px; width:100%; height:150px; border: 1px solid #DFD7CA; resize: vertical;"
+                  name="message" id="message" placeholder="{$message}"></textarea>
+        <div class="col-xs-6 nopadding" style="text-align: left;">
+            <button type="button" class="noborderradius preview btn btn-info" onclick="window.open('/bbcode.php')">
+                BBCode
+            </button>
+            <a href="#" class="nerdzcrush-upload">
+                <img width="18" height="16" src="nerdzcrush-logo.svg" alt="Upload File" title="Upload File">
+            </a>
+        </div>
+        <div class="col-xs-6 nopadding" style="text-align: right;">
+            <button type="button" class="noborderradius preview btn btn-info" data-refto="#message">
+                {$preview}
+            </button>
+            <button type="submit" class="noborderradius btn btn-info">{$send}</button>
+        </div>
+    </form>
+</div>
+<div class="col-xs-12 nopadding">
+    <span id="res" style="padding: 10px 0; font-weight: bold"></span>
+</div>

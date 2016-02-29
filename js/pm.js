@@ -55,6 +55,7 @@ $(document).ready(function() {
         });
     });
     var c = $("#content");
+    var conversation = $("#conversation");
     c.on("focus", "#to", function() {
         $(this).atwho({
             at: "",
@@ -68,26 +69,9 @@ $(document).ready(function() {
     });
     var newpm = false;
     $("#form").click(function() {
-        c.html(loadtxt);
+        conversation.html(loadtxt);
         N.html.pm.getForm(function(data) {
-            c.html(data);
-        });
-    });
-    $("#inbox").click(function() {
-        c.html(loadtxt);
-        N.html.pm.getInbox(function(data) {
-            c.html(data);
-            if (newpm) {
-                setTimeout(function() {
-                    c.find(".getconv:first").click();
-                }, 500);
-                newpm = false;
-                var count = $("#pmcounter");
-                var cval = parseInt(count.html());
-                if (!isNaN(cval) && cval !== 0) {
-                    count.html(cval - 1);
-                }
-            }
+            conversation.html(data);
         });
     });
     c.on("click", ".delete", function(e) {
@@ -120,7 +104,6 @@ $(document).ready(function() {
         }, function(data) {
             conv.html(data);
             window.location.hash = "message";
-            $("#message").focus();
         });
     });
     c.on("click", ".preview", function() {
