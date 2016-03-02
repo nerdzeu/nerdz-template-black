@@ -24,6 +24,9 @@
             {$value.message_n}
             <time data-timestamp="{$value.timestamp_n}" style="float: right; font-style: italic">
                 <small>
+                    {if="date('dmy',time()) != date('dmy',$value.timestamp_n)"}
+                    {$value.date_n}
+                    {/if}
                     {$value.time_n}
                 </small>
             </time>
