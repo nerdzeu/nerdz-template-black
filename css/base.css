@@ -295,12 +295,33 @@ div.inputboxgreylight{
     background: transparent;
 }
 
-.vertical-align{
-    display: flex; align-items: center; justify-content: center; flex-direction: row;
-}
-
 /* PREFERENCES */
 #edaccfrm .input-group-addon, #create .input-group-addon{
     color: #FFFFFF;
     background-color: #424242;
+}
+
+/* MP */
+div.balloon-left{
+    display: inline-block;
+    background-color: #212121 !important;
+    padding: 5px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    float: left;
+}
+div.balloon-right{
+    display: inline-block;
+    background-color: #3E3F3A !important;
+    padding: 5px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    float: right;
+}
+
+.vertical-align{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
