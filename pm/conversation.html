@@ -37,19 +37,19 @@
     <form id="convfrm">
         <input type="hidden" name="to" id="to" value="{$to_n}"/>
         <textarea class="noborderradius" style="margin-top: 4px; width:100%; height:150px; border: 1px solid #DFD7CA; resize: vertical;" name="message" id="message" placeholder="{$message}"></textarea>
-        <div class="col-xs-6 nopadding" style="text-align: left;">
-            <button type="button" class="noborderradius preview btn btn-info" onclick="window.open('/bbcode.php')">
+        <div class="col-xs-6 nopadding" style="padding-bottom: 10px; text-align: left;">
+            <button type="button" class="noborderradius preview btn btn-default" onclick="window.open('/bbcode.php')">
                 BBCode
             </button>
             <a href="#" class="nerdzcrush-upload">
                 <img width="18" height="16" src="nerdzcrush-logo.svg" alt="Upload File" title="Upload File">
             </a>
         </div>
-        <div class="col-xs-6 nopadding" style="text-align: right;">
-            <button type="button" class="noborderradius preview btn btn-info" data-refto="#message">
+        <div class="col-xs-6 nopadding" style="padding-bottom: 10px; text-align: right;">
+            <button type="button" class="noborderradius preview btn btn-default" data-refto="#message">
                 {$preview}
             </button>
-            <button type="submit" class="noborderradius btn btn-info">{$send}</button>
+            <button type="submit" class="noborderradius btn btn-default">{$send}</button>
         </div>
     </form>
 </div>
