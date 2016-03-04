@@ -7,6 +7,7 @@
         </div>
         <div class="hidden-xs hidden-sm container-fluid nopadding whitebackground littleboxshadow">
             <a href="/{$username4link_n}">
+                <img src="{$gravatarurl_n}&amp;s=180#" alt="{$username}"
                      style="width: 100%; max-width:100%; max-height:100%"
                      onerror="this.src='{$onerrorimgurl_n}'"/>
             </a>
@@ -21,12 +22,6 @@
                 <div class="table-responsive whitebackground" style="padding: 2%;">
                     <table class="table nomarginbottom table-userinfo">
                         <tr>
-                            <td rowspan="6" class="visible-xs">
-                                <a href="/{$username4link_n}">
-                                    <img class="img-circle" src="{$gravatarurl_n}&amp;s=180#" alt="{$username}"
-                                         style="width: 100%; max-width:100%; max-height:100%"
-                                         onerror="this.src='{$onerrorimgurl_n}'"/>
-                                </a>
                             </td>
                             <td>{$id}</td>
                             <td>{$name}</td>
