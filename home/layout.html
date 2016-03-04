@@ -10,123 +10,111 @@
         </div><!-- END PANEL -->
     </div><!-- END LEFT BAR -->
     <!-- CENTER -->
-    <div class="col-xs-8 nopadding darkbackground" style="min-height: 300px;">
+    <div class="col-xs-12 col-sm-8 nopadding darkbackground" style="min-height: 300px;">
         {include="common/form"}
         <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
     </div>
     <!-- END CENTER-->
     <!-- RIGHT BAR -->
-    <div class="col-xs-4 col-md-2 nopaddingleft nopaddingright">
-        <div class="panel panel-default noborderradius noborder">
-            <div class="panel-body nopadding darkbackground">
-                <div class="well well-sm nomarginbottom nomargintop nopaddingtop visible-xs visible-sm">
-                    {include="home/meta-mobile"}
+    <div class="hidden-xs col-sm-4 col-md-2 nopaddingleft nopaddingright">
+        <div class="container-fluid nomarginbottom nomargintop nopaddingtop visible-xs visible-sm">
+            {include="home/meta-mobile"}
+        </div>
+        <!-- TENDENZE -->
+        <div class="container-fluid" style="margin-bottom: 10px">
+            <ul class="nav nav-tabs nav-justified">
+                <li role="presentation" class="active"><a href="#newest-trends"
+                                                          data-toggle="tab">#{$recents}</a></li>
+                <li role="presentation"><a href="#popular-trends" data-toggle="tab">#{$popular}</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active whitebackground littleboxshadow"
+                     id="newest-trends">
+                    <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
+                        {loop="newest_a"}
+                        <li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+                        {/loop}
+                    </ol>
                 </div>
-                <!-- TENDENZE -->
-                <div class="container-fluid hidden-xs nomarginbottom">
-                    <div class="well well-sm nopaddingleft nopaddingright nomarginbottom">
-                        <ul class="nav nav-tabs nav-justified">
-                            <li role="presentation" class="active"><a href="#newest-trends"
-                                                                      data-toggle="tab">#{$recents}</a></li>
-                            <li role="presentation"><a href="#popular-trends" data-toggle="tab">#{$popular}</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active whitebackground littleboxshadow"
-                                 id="newest-trends">
-                                <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
-                                    {loop="newest_a"}
-                                    <li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
-                                    {/loop}
-                                </ol>
-                            </div>
-                            <div role="tabpanel" class="tab-pane whitebackground littleboxshadow" id="popular-trends">
-                                <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
-                                    {loop="popular_a"}
-                                    <li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
-                                    {/loop}
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
+                <div role="tabpanel" class="tab-pane whitebackground littleboxshadow" id="popular-trends">
+                    <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
+                        {loop="popular_a"}
+                        <li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+                        {/loop}
+                    </ol>
                 </div>
-                <!-- OWNER OF -->
-                {if="!empty($ownerof_a)"}
-                <div class="container-fluid hidden-xs nomarginbottom">
-                    <div class="well well-sm nopaddingleft nopaddingright nomarginbottom">
-                        <ul class="nav nav-tabs nav-justified">
-                            <li role="presentation"><a id="your-projects" href="#">{$your_projects}</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="owner-of" role="tabpanel" class="tab-pane active whitebackground littleboxshadow"
-                                 id="your-projects-content">
-                                <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
-                                    {loop="ownerof_a"}
-                                    <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-                                    {/loop}
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <!-- OWNER OF -->
+        {if="!empty($ownerof_a)"}
+        <div class="container-fluid" style="margin-bottom: 10px">
+            <ul class="nav nav-tabs nav-justified">
+                <li role="presentation"><a id="your-projects" href="#">{$your_projects}</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="owner-of" role="tabpanel" class="tab-pane active whitebackground littleboxshadow"
+                     id="your-projects-content">
+                    <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
+                        {loop="ownerof_a"}
+                        <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                        {/loop}
+                    </ol>
                 </div>
-                {/if}
-                <!-- MEMBER OF -->
-                {if="!empty($memberof_a)"}
-                <div class="container-fluid hidden-xs nomarginbottom">
-                    <div class="well well-sm nopaddingleft nopaddingright nomarginbottom">
-                        <ul class="nav nav-tabs nav-justified">
-                            <li role="presentation"><a href="#">{$member_of}</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="member-of" role="tabpanel" class="tab-pane active whitebackground littleboxshadow">
-                                <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
-                                    {loop="memberof_a"}
-                                    <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-                                    {/loop}
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        {/if}
+        <!-- MEMBER OF -->
+        {if="!empty($memberof_a)"}
+        <div class="container-fluid" style="margin-bottom: 10px">
+            <ul class="nav nav-tabs nav-justified">
+                <li role="presentation"><a href="#">{$member_of}</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="member-of" role="tabpanel" class="tab-pane active whitebackground littleboxshadow">
+                    <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
+                        {loop="memberof_a"}
+                        <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+                        {/loop}
+                    </ol>
                 </div>
-                {/if}
-                <!-- FOLLOWING NEW -->
-                {if="!empty($followed_a)"}
-                <div class="container-fluid hidden-xs nomarginbottom">
-                    <div class="well well-sm nopaddingleft nopaddingright nomarginbottom">
-                        <ul class="nav nav-tabs nav-justified">
-                            <li role="presentation"><a href="#">{$you_follow} <span
-                                    class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active whitebackground littleboxshadow mostra"
-                                 id="rightmenu">
-                                <ol class="follow-list-home">
-                                    {loop="followed_a"}
-                                    <li class="follow-list-item-home" {if="!$counter1" }style="margin-top:0" {
-                                    /if}>
-                                    <a href="/{$value.username4link_n}">
-                                        <img alt="{$value.username_n}" class="gravatar-home utente-{if=" $value.online_b"}online{else}offline{/if}"
-                                        src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#"
-                                        height="32" width="32">
-                                    </a>
-                                    <div class="follow-list-container-home">
-                                        <small><a href="/{$value.username4link_n}" class="follow-list-title-home">
-                                            {$value.username_n}
-                                            {if="$value.birthday_b"}
+            </div>
+        </div>
+        {/if}
+        <!-- FOLLOWING NEW -->
+        {if="!empty($followed_a)"}
+        <div class="container-fluid" style="margin-bottom: 10px">
+            <ul class="nav nav-tabs nav-justified">
+                <li role="presentation"><a href="#">{$you_follow} <span
+                        class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active whitebackground littleboxshadow mostra"
+                     id="rightmenu">
+                    <ol class="follow-list-home">
+                        {loop="followed_a"}
+                        <li class="follow-list-item-home" {if="!$counter1" }style="margin-top:0" {
+                        /if}>
+                        <a href="/{$value.username4link_n}">
+                            <img alt="{$value.username_n}" class="gravatar-home utente-{if=" $value.online_b"}online{else}offline{/if}"
+                            src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#"
+                            height="32" width="32">
+                        </a>
+                        <div class="follow-list-container-home">
+                            <small><a href="/{$value.username4link_n}" class="follow-list-title-home">
+                                {$value.username_n}
+                                {if="$value.birthday_b"}
                                             <span class="badge"><span class="glyphicon glyphicon-gift"
                                                                       aria-hidden="true"></span></span>
-                                            {/if}
-                                        </a></small>
-                                    </div>
-                                    </li>
-                                    {/loop}
-                                </ol>
-                            </div>
+                                {/if}
+                            </a></small>
                         </div>
-                    </div>
+                        </li>
+                        {/loop}
+                    </ol>
                 </div>
-                {/if}
-            </div> <!-- END PANEL BODY -->
-        </div> <!-- END PANEL -->
+            </div>
+        </div>
+        {/if}
     </div><!-- END RIGHT BAR-->
 </div><!-- END LAYOUT -->

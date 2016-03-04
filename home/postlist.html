@@ -24,9 +24,9 @@
                {/if}
             </span>
             <!-- DATE -->
-            {if="!$value.news_b"}<small>{$value.date_n} <time>{$value.time_n}</time></small>{/if}
+            {if="!$value.news_b"}<small class="hidden-xs">{$value.date_n} <time>{$value.time_n}</time></small>{/if}
             <!-- THUMBS -->
-            <span class="thumbs">{if="!$value.news_b"}&nbsp;|&nbsp;{/if}
+            <span class="thumbs hidden-xs">{if="!$value.news_b"}&nbsp;|&nbsp;{/if}
                <!-- THUMBS NUMBER -->
                <span class='thumbs-counter{if="$value.thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$value.thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$value.thumbs_n > 0"}+{/if}{$value.thumbs_n}</span>&nbsp;&nbsp;
                <span class="nerdz_thumbs" data-refto="{$value.hpid_n}">

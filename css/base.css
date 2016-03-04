@@ -217,7 +217,7 @@ div.follow-stats a{
 .table-responsive{
     border: 0 !important;
     margin-bottom:  0 !important;
-    padding: 2% !important;
+    padding: 1% !important;
 }
 
 .btn-info{
@@ -246,53 +246,6 @@ div.inputboxgreylight{
     color: #FFFFFF;
     background-color: #7f7f7f;
     padding: 0;
-}
-
-*::-webkit-input-placeholder {
-    color: #696a64 !important;
-}
-*:-moz-placeholder {
-    color: #696a64 !important;
-}
-*::-moz-placeholder {
-    color: #696a64 !important;
-}
-*:-ms-input-placeholder {
-    color: #696a64 !important;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-::-webkit-scrollbar-button {
-    width: 0px;
-    height: 0px;
-}
-::-webkit-scrollbar-thumb {
-    background: #3e3f3a;
-    border: 0px none #ffffff;
-    border-radius: 0px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #3e3f3a;
-}
-::-webkit-scrollbar-thumb:active {
-    background: #212121;
-}
-::-webkit-scrollbar-track {
-    background: #ffffff;
-    border: 0px none #ffffff;
-    border-radius: 50px;
-}
-::-webkit-scrollbar-track:hover {
-    background: #ffffff;
-}
-::-webkit-scrollbar-track:active {
-    background: #ffffff;
-}
-::-webkit-scrollbar-corner {
-    background: transparent;
 }
 
 /* PREFERENCES */

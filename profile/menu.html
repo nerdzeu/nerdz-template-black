@@ -1,0 +1,30 @@
+<div class="btn-group" role="group">
+    <button id="profilepm" type="button" class="btn btn-info noborderradius">{$pm}
+    </button>
+</div>
+<div class="btn-group" role="group">
+    {if="$canifollow_b"}
+    <button id="follow" data-id="{$id_n}" type="button"
+            class="btn btn-success noborderradius">
+        {$follow}
+    </button>
+    {else}
+    <button id="unfollow" data-id="{$id_n}" type="button"
+            class="btn btn-danger noborderradius">
+        {$unfollow}
+    </button>
+    {/if}
+</div>
+<div class="btn-group" role="group">
+    {if="$caniblacklist_b"}
+    <button id="blacklist" data-id="{$id_n}" type="button"
+            class="btn btn-info noborderradius">
+        Blacklist
+    </button>
+    {else}
+    <button id="unblacklist" data-id="{$id_n}" type="button"
+            class="btn btn-info noborderradius">
+        Unblacklist
+    </button>
+    {/if}
+</div>
