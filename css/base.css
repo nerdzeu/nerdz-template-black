@@ -44,7 +44,13 @@ ol.tendenze{
    border-bottom: 1px solid #ccc;
 }
 
-#frmtxt{ width: 96%; margin-left: 2%; height: 60px; resize: vertical; border: 1px solid #ccc; }
+#frmtxt{
+    width: 100%;
+    margin-top: 15px;
+    height: 60px;
+    resize: vertical;
+    border: 0px;
+}
 
 h5.tendenze, h5.panel-title, .uppercase{
 font-size: 11px;
@@ -277,4 +283,14 @@ div.balloon-right{
     align-items: center;
     justify-content: center;
     flex-direction: row;
+}
+
+/* nz element (nerdz element)*/
+.nz-right-sidebar{
+    margin-top: 15px;
+}
+
+.nz-left-sidebar{
+    margin-top: 2px;
+    padding: 13px;
 }
