@@ -1,0 +1,47 @@
+<!-- LOGIN ROW -->
+<div id="title_right" class="container-fluid login littleboxshadow">
+    <h2 class="nomargintop whitetext">{$login}</h2>
+    <form id="loginfrm">
+        <div class="input-group input-group-md whitebackground littleboxshadow nopadding"
+             style="margin-bottom: 10px;">
+            <span class="input-group-addon noborderradius"><span class="glyphicon glyphicon-user"></span></span>
+            <input type="text" class="form-control noborder" name="username" placeholder="{$username} | ID | {$email}" required/>
+        </div>
+        <div class="input-group input-group-md whitebackground littleboxshadow nopadding"
+             style="margin-bottom: 10px;">
+            <span class="input-group-addon noborderradius"><span class="glyphicon glyphicon-lock"></span></span>
+            <input type="password" class="form-control noborder" name="password" placeholder="{$password}" required/>
+            <input type="hidden" value="{$tok_n}" name="tok"/>
+        </div>
+
+        <input type="checkbox" name="setcookie" id="remember" checked><label for="remember" class="whitetext">{$remember_me}</label><br />
+        <input type="checkbox" name="offline" id="markoffline"><label for="markoffline" class="whitetext">{$hide_status}</label><br/>
+        <button type="submit" class="btn btn-success noborderradius littleboxshadow">{$login}</button>
+        &nbsp;
+        <a style="color: white !important;" href="/reset.php"
+           class="btn btn-danger noborderradius littleboxshadow">{$forgot_password}</a>
+    </form>
+    <div id="loginmsgbox" class="error"></div>
+</div>
+<script>
+    $("#loginfrm").on('submit', function (event) {
+        var $me = $(this), t = $("#loginmsgbox");
+        t.html(N.getLangData().LOADING);
+        $me.hide();
+        event.preventDefault();
+        N.json.login($me.serialize(), function (r) {
+            t.html(r.message);
+            if (r.status == 'ok') {
+                setTimeout(function () {
+                    document.location.reload();
+                }, 1500);
+            }
+            else {
+                setTimeout(function () {
+                    t.html('');
+                    $me.show();
+                }, 1500);
+            }
+        });
+    });
+</script>

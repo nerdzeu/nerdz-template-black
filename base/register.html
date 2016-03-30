@@ -6,34 +6,7 @@
             <h1>{$welcome}!</h1>
             <p>{$presentation_n}</p>
         </div>
-        <!-- LOGIN ROW -->
-        <div id="title_right" class="container-fluid login littleboxshadow">
-            <h2 class="nomargintop whitetext">{$login}</h2>
-            <form id="loginfrm">
-                <div class="input-group input-group-md whitebackground littleboxshadow nopadding"
-                     style="margin-bottom: 10px;">
-                    <span class="input-group-addon noborderradius"><span class="glyphicon glyphicon-user"></span></span>
-                    <input type="text" class="form-control noborder" name="username"
-                           placeholder="{$username} | ID | {$email}" required/>
-                </div>
-                <div class="input-group input-group-md whitebackground littleboxshadow nopadding"
-                     style="margin-bottom: 10px;">
-                    <span class="input-group-addon noborderradius"><span class="glyphicon glyphicon-lock"></span></span>
-                    <input type="password" class="form-control noborder" name="password" placeholder="{$password}"
-                           required/>
-                    <input type="hidden" value="{$tok_n}" name="tok"/>
-                </div>
-
-                <input type="checkbox" name="setcookie" id="remember" checked><label
-                    for="remember" class="whitetext">{$remember_me}</label><br/>
-                <input type="checkbox" name="offline" id="markoffline"><label for="markoffline" class="whitetext">{$hide_status}</label><br/>
-                <button type="submit" class="btn btn-success noborderradius littleboxshadow">{$login}</button>
-                &nbsp;
-                <a style="color: white !important;" href="/reset.php"
-                   class="btn btn-danger noborderradius littleboxshadow">{$forgot_password}</a>
-            </form>
-            <div id="loadtxt"></div>
-        </div>
+        {include="common/login"}
     </div>
     <!-- RIGHT COLUMN -->
     <div class="col-xs-12 col-lg-8">
@@ -102,26 +75,6 @@
         </div>
     </div>
     <script>
-        $("#loginfrm").on('submit', function (event) {
-            event.preventDefault();
-            var t = $("#title_right");
-            N.json.login($("#loginfrm").serialize(), function (r) {
-                var tmp = t.html();
-                if (r.status == 'ok') {
-                    t.html(r.message);
-                    setTimeout(function () {
-                        document.location.reload();
-                    }, 1500);
-                }
-                else {
-                    t.html('<h2 class="error">' + r.message + '</h2>');
-                    setTimeout(function () {
-                        t.html(tmp);
-                    }, 1500);
-                }
-            });
-        });
-
         $(function () {
             var date_input = $('#datepicker');
             var container = $('#datepicker').parent();
