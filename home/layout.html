@@ -96,9 +96,8 @@
                         <li class="follow-list-item-home" {if="!$counter1" }style="margin-top:0" {
                         /if}>
                         <a href="/{$value.username4link_n}">
-                            <img alt="{$value.username_n}" class="gravatar-home utente-{if=" $value.online_b"}online{else}offline{/if}"
-                            src="images/default-avatar.png" data-src="{$value.gravatarurl_n}&amp;s=32#"
-                            height="32" width="32">
+                            <img src="images/default-avatar.png" alt="{$value.username_n}" class="gravatar-home utente-{if="$value.online_b"}online{else}offline{/if}"
+                            data-src="{$value.gravatarurl_n}&amp;s=32#" height="32" width="32">
                         </a>
                         <div class="follow-list-container-home">
                             <small><a href="/{$value.username4link_n}" class="follow-list-title-home">
