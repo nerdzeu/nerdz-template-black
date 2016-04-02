@@ -1,0 +1,6 @@
+<form action="{$authorizeurl_n}" method="GET">
+{$client_n.name_n} {$would}:<br />
+{loop="$client_n.scopes_a"}
+    {$value.scope_n}: {$value.description_n}<br />
+{/loop}
+</form>
