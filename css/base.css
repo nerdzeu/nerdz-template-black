@@ -8,8 +8,8 @@ div.forminput{
    line-height: 1.5;
 }
 
-.nomargin{ margin: 0; }
-.nomargintop{ margin-top: 0; }
+.nomargin{ margin: 0 !important; }
+.nomargintop{ margin-top: 0 !important; }
 .nomarginbottom{margin-bottom: 0 !important;}
 
 
@@ -268,6 +268,7 @@ div.balloon-left{
     border-radius: 5px;
     color: #FFFFFF;
     float: left;
+    max-width: 95%;
 }
 div.balloon-right{
     display: inline-block;
@@ -276,6 +277,7 @@ div.balloon-right{
     border-radius: 5px;
     color: #FFFFFF;
     float: right;
+    max-width: 95%;
 }
 
 .vertical-align{

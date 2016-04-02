@@ -1,0 +1,22 @@
+<ul class="nav nav-tabs nav-justified">
+    <li role="presentation" class="active"><a href="#newest-trends"
+                                              data-toggle="tab">#{$recents}</a></li>
+    <li role="presentation"><a href="#popular-trends" data-toggle="tab">#{$popular}</a></li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active whitebackground littleboxshadow"
+         id="newest-trends">
+        <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
+            {loop="newest_a"}
+            <li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+            {/loop}
+        </ol>
+    </div>
+    <div role="tabpanel" class="tab-pane whitebackground littleboxshadow" id="popular-trends">
+        <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
+            {loop="popular_a"}
+            <li><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
+            {/loop}
+        </ol>
+    </div>
+</div>

@@ -14,6 +14,7 @@
     <a href="#" class="all_msgs_btn" data-localization="{$every_msg}" onclick="return false;">{$every_msg}</a>
 </div>
 {/if}
+<div class="whitebackground" style="padding: 5px;">
 {loop="list_a"}
 <div id="pm{$value.pmid_n}" data-pmid="{$value.pmid_n}" class="container-fluid nopadding" style="margin-top: 5px;">
     <div class="littleboxshadow balloon-{if=" $value.from_n==$myusername_n"}right{else}left{/if}">
@@ -26,7 +27,7 @@
                 <small>
                     {if="date('dmy',time()) != date('dmy',$value.timestamp_n)"}
                     {$value.date_n}
-                    {/if}
+                    {/if}&nbsp;
                     {$value.time_n}
                 </small>
             </time>
@@ -34,13 +35,14 @@
     </div>
 </div>
 {/loop}
+</div>
 {if="$showform_b"}
 <div class="container-fluid blackbackground whitetext" style="margin: 10px 0;">
     <h4>{$message}</h4>
     <form id="convfrm">
         <input type="hidden" name="to" id="to" value="{$to_n}"/>
         <textarea class="noborderradius" style="margin-top: 4px; width:100%; height:150px; border: 1px solid #DFD7CA; resize: vertical;" name="message" id="message" placeholder="{$message}"></textarea>
-        <div class="col-xs-6 nopadding" style="padding-bottom: 10px; text-align: left;">
+        <div class="col-xs-4 nopadding" style="padding-bottom: 10px; text-align: left;">
             <button type="button" class="noborderradius preview btn btn-default" onclick="window.open('/bbcode.php')">
                 BBCode
             </button>
@@ -48,11 +50,11 @@
                 <img width="18" height="16" src="nerdzcrush-logo.svg" alt="Upload File" title="Upload File">
             </a>
         </div>
-        <div class="col-xs-6 nopadding" style="padding-bottom: 10px; text-align: right;">
+        <div class="col-xs-8 nopadding" style="padding-bottom: 10px; text-align: right;">
             <button type="button" class="noborderradius preview btn btn-default" data-refto="#message">
                 {$preview}
             </button>
-            <button type="submit" class="noborderradius btn btn-default">{$send}</button>
+            <button type="submit" class="noborderradius btn btn-success">{$send}</button>
         </div>
     </form>
 </div>
@@ -60,3 +62,6 @@
     <span id="res" style="padding: 10px 0; font-weight: bold"></span>
 </div>
 {/if}
+<script type="text/javascript">
+    $("#message").focus();
+</script>

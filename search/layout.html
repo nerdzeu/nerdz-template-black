@@ -1,46 +1,33 @@
-<div id="main">
-    <div id="left_col">
-        <div class="title">{$newest_trends}</div>
-        <ol style="padding:0; list-style-type: none">
-        {loop="newest_a"}
-            <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
-        {/loop}
-        </ol>
-        <div class="title">{$most_popular_trends}</div>
-        <ol style="padding:0; list-style-type: none">
-        {loop="popular_a"}
-            <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
-        {/loop}
-        </ol>
-    </div>
-    <article id="center_col">
-        <h1 style="margin-top:0;text-align:center;border-bottom:1px solid">
+<div id="main" class="container-fluid nopadding" style="padding-top: 10px;">
+    <div class="col-xs-12 col-md-8 nopadding">
+        <h1 class="whitetext text-center">
             {if="!empty($to_n) && !empty($to4link_n)"}
-                {if="$type_n != 'tag'"}
-                    <a href="/{$to4link_n}">{$to_n}</a> ⇒
-                {/if}
-            {else}
-                [
-                {if="$type_n == 'tag'"}
-                    {$trends}
-                {elseif="$type_n == 'profile'"}
-                    {$profiles}
-                {elseif="$type_n == 'project'"}
-                    {$projects}
-                {/if}
-                ]
+            {if="$type_n != 'tag'"}
+            <a href="/{$to4link_n}">{$to_n}</a> ⇒
             {/if}
-            &nbsp;{$results_for}: <span id="qs">{$querystring_n}</span>
+            {else}
+            [
+            {if="$type_n == 'tag'"}
+            {$trends}
+            {elseif="$type_n == 'profile'"}
+            {$profiles}
+            {elseif="$type_n == 'project'"}
+            {$projects}
+            {/if}
+            ]
+            {/if}
+            &nbsp; {$results_for}: <span id="qs">{$querystring_n}</span>
         </h1>
-        <div id="postlist" data-mode="search" data-location="search" data-type="search">
+        <div id="postlist" class="nomargin col-xs-12" data-mode="search" data-location="search" data-type="search">
             {$loading}...
         </div>
-    </article>
-    <aside id="right_col" class="page">
-        <div class="title">{$advertisement}</div>
-        <div class="box">
-            {$banners_a.120x600}
+    </div>
+    <div class="col-xs-12 col-md-4 nopadding">
+        <div class="col-xs-12 hidden-xs hidden-sm"  style="margin-bottom: 10px;">
+            {include="common/trends"}
         </div>
-    </aside>
+        <div class="col-xs-12"">
+            {include="common/banners"}
+        </div>
+    </div>
 </div>
-<br /><br />

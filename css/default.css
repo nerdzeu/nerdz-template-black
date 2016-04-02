@@ -1,3 +1,12 @@
+@font-family-sans-serif
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    Z-index: 0;
+}
+
 #site_title {
     color: #000;
     margin: 0 auto 1.5% auto;
@@ -9,7 +18,7 @@
 
 #site_title a:visited, #site_title a:active, #site_title a:link, .nerdz_comments a:hover, .nerdz_comments a:visited, .nerdz_comments a:active, .nerdz_comments a:link{
     color: #000;
-    font-weight: bold;
+    font-weight: 500;
     text-decoration: none;
     cursor: pointer;
 }
@@ -133,20 +142,13 @@ button, input[type=submit], .page th, .title, .follow, .unfollow {
     padding-left: 1%;
     padding-right: 1%;
     border: 0.5px #000 solid;
-    font-weight: bold;
+    font-weight: 500;
     word-wrap: normal;
     vertical-align: middle;
     cursor: pointer;
     border-radius: 2px;
 }
 
-body {
-    font-family: 'Dejavu Sans', 'Helvetica Neue', Helvetica, Arial, 'lucida grande', tahoma, verdana, arial, sans-serif;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    Z-index: 0;
-}
 
 img {
     border: 0px none;
@@ -297,6 +299,7 @@ html, #body {
 
 .nerdz_from a {
     color: #252525 !important;
+    font-weight: 500;
 }
 
 .nerdz_truncate {
@@ -304,7 +307,7 @@ html, #body {
     text-align: center;
     width: 132px;
     color: #000;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .qu_main {
@@ -324,7 +327,7 @@ html, #body {
     text-align: center;
     overflow: hidden;
     display: block !important;
-    background-color: transparent;
+    background-color: #848484;
     margin-top: .2em;
     cursor: pointer;
     border: 1px solid #FFF;
@@ -335,11 +338,11 @@ html, #body {
 .img_frame span, .yt_frame span {
     height: 17px;
     display: block;
-    background-color: #FFF;
+    background-color: #000;
     text-align: center;
     width: 132px;
-    color: #000;
-    font-weight: bold;
+    color: #FFF;
+    font-weight: 500;
 }
 
 .img_frame img, .yt_frame img {
@@ -375,7 +378,7 @@ html, #body {
 .error {
     color: #FF0000;
     font-size: 80%;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .small {
@@ -388,7 +391,7 @@ html, #body {
 }
 
 .bold {
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .curtext {
@@ -416,7 +419,7 @@ pre {
     height: auto;
     padding-top: 1px;
     padding-left: 2px;
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
     border-bottom: 1px solid white;
     border-top: 1px solid white;

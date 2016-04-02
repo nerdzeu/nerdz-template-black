@@ -58,49 +58,49 @@
          <!-- ROW to force new line instead of clear:both -->
          <div class="row"> </div> <hr style="margin: 5px auto; border: 1px solid rgba(192,192,192,0.1);"/>
          <!-- COMMENTS -->
-         <div class="col-xs-12 col-md-6 nopaddingleft">
+         <div class="col-xs-6 nopaddingleft">
             <a class="showcomments" style="width:60%" data-hpid="{$value.hpid_n}" data-refto="commentlist{$value.hpid_n}">
                <span class="label label-default">{$comments} ({$value.postcomments_n})</span>
             </a>
          </div>
          <!-- POST OPTIONS -->
-         <div class="col-xs-12 col-md-6 nopaddingleft nopaddingright text-right">
+         <div class="col-xs-6 nopaddingleft nopaddingright text-right">
             <!-- REMOVE POST -->
             {if="$value.canremovepost_b"}
-            <a title="{$remove}" class="delpost" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
+            &nbsp;<a title="{$remove}" class="delpost" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </a>
             {/if}
             <!-- EDIT POST -->
             {if="$value.caneditpost_b"}
-            <a title="{$edit}" class="edit" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
+            &nbsp;<a title="{$edit}" class="edit" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             </a> 
             {/if}
             <!-- CLOSE POST -->
             {if="$value.canclosepost_b"}
-            <a title="{if="$value.closed_b"}open{else}close{/if}" class="{if="$value.closed_b"}closepls{else}open{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .pid">
+            &nbsp;<a title="{if="$value.closed_b"}open{else}close{/if}" class="{if="$value.closed_b"}closepls{else}open{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .pid">
                <span class="glyphicon glyphicon-folder-{if="$value.closed_b"}close{else}open{/if}" aria-hidden="true"></span>
             </a>
             {/if} 
             <!-- SHOW LOCK -->
             {if="$value.canshowlock_b"}
-            <span class="glyphicon glyphicon-lock {if="$value.lock_b"}islocked{else}isnotlocked{/if}" data-hpid="{$value.hpid_n}" aria-hidden="true" title="{if="$value.lock_b"}{$recv_notify}{else}{$not_recv_notify}{/if}" style="margin-left: 5px;" onclick=""> </span>
+            &nbsp;<span class="glyphicon glyphicon-lock {if="$value.lock_b"}islocked{else}isnotlocked{/if}" data-hpid="{$value.hpid_n}" aria-hidden="true" title="{if="$value.lock_b"}{$recv_notify}{else}{$not_recv_notify}{/if}" style="margin-left: 5px;" onclick=""> </span>
             {/if}
             <!-- SHOW LURK -->
             {if="$value.canshowlurk_b"}
             {if="$value.lurk_b"}
-            <span class="glyphicon glyphicon-eye-close unlurk" data-hpid="{$value.hpid_n}" title="Unlurk" onclick="" /></span>
+            &nbsp;<span class="glyphicon glyphicon-eye-close unlurk" data-hpid="{$value.hpid_n}" title="Unlurk" onclick="" /></span>
             {else}
-            <span class="glyphicon glyphicon-eye-open lurk" data-hpid="{$value.hpid_n}" title="Lurk" onclick="" /></span>
+            &nbsp;<span class="glyphicon glyphicon-eye-open lurk" data-hpid="{$value.hpid_n}" title="Lurk" onclick="" /></span>
             {/if}
             {/if}
             <!-- SHOW BOOKMARK -->
             {if="$value.canshowbookmark_b"}
             {if="$value.bookmark_b"}
-            <span class="glyphicon glyphicon glyphicon-bookmark unbookmark" data-hpid="{$value.hpid_n}" title="Unbookmark" onclick="" /></span>
+            &nbsp;<span class="glyphicon glyphicon glyphicon-bookmark unbookmark" data-hpid="{$value.hpid_n}" title="Unbookmark" onclick="" /></span>
             {else}
-            <span class="glyphicon glyphicon glyphicon-bookmark bookmark" data-hpid="{$value.hpid_n}" title="Bookmark" onclick="" /></span>
+            &nbsp;<span class="glyphicon glyphicon glyphicon-bookmark bookmark" data-hpid="{$value.hpid_n}" title="Bookmark" onclick="" /></span>
             {/if}
             {/if}
             </div><!-- END POST OPTIONS -->
