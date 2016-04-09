@@ -43,11 +43,17 @@ body {
 }
 
 #notify_list {
+    max-height: 200px;
+    overflow-y: scroll;
+    box-shadow: 0px 0px 10px black;
     position: fixed;
     display: block;
-    top: 60px;
-    right: 0px;
-    background-color: #3E444C;
+    top: 62px;
+    left: 0;
+    padding: 5px;
+    color: black;
+    background-color: rgba(255,255,255,0.95);
+    border: 1px solid rgba(62,63,58,0.3);
 }
 
 #share,#bug_bar {
