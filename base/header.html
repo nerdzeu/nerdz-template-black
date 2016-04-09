@@ -8,6 +8,7 @@
             <span class="icon-bar"></span>
          </button>
           <a class="navbar-brand" href="/">NERDZ</a>
+          {if="$logged_b"}
           <div id="navbar-interactions">
               <ul id="title_right" class="list-inline">
                   <li>
@@ -24,17 +25,21 @@
                   </li>
               </ul>
           </div>
+          {/if}
       </div>
       <div class="collapse navbar-collapse" id="navmenu">
          <ul class="nav navbar-nav navbar-right">
              {if="$logged_b"}
-             <li {if="$position_n == 'home'"}class="active"{/if}>
-             <a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home <span class="sr-only">(current)</span></a>
+             <li>
+                 <a href="/{$myusername4link_n}" accesskey="p">
+                     <img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}
+                 </a>
              </li>
              <li {if="$position_n == 'preferences'"}class="active"{/if}>
-             <a href="/preferences.php" accesskey="z"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {$preferences}</a>
+                <a href="/preferences.php" accesskey="z">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {$preferences}
+                </a>
              </li>
-             <li><a href="/{$myusername4link_n}" accesskey="p"><img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}</a></li>
              <li>
                  <a href="#searchrow" data-toggle="collapse"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> {$search}</a>
              </li>

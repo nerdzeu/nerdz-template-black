@@ -19,10 +19,6 @@
                         <ul>
                            {loop="langs_a"}<li class="selectlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>{/loop}
                         </ul>
-                        <ul id="nerdzvote" style="margin-top: 10px;">
-                           <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                           <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
-                        </ul>
                      </div>
                   </li>
                   <!-- NERDZilla -->
@@ -41,9 +37,9 @@
                   <li class="list-group-item nopadding nobordertop noborderbottom">
                      <div id="userslist" class="collapse">
                         <ul>
-                           <li><a href="/userslist.php" class="small">{$users_list}</a></li>
-                           <li><a href="/deleted.php" class="small">{$deleted}</a></li>
-                           <li><a href="/banned.php" class="small">{$banned}</a></li>
+                           <li><a href="/userslist.php">{$users_list}</a></li>
+                           <li><a href="/deleted.php">{$deleted}</a></li>
+                           <li><a href="/banned.php">{$banned}</a></li>
                         </ul>
                      </div>
                   </li>
