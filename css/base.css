@@ -12,7 +12,6 @@ div.forminput{
 .nomargintop{ margin-top: 0 !important; }
 .nomarginbottom{margin-bottom: 0 !important;}
 
-
 .nopadding{padding: 0;}
 .nopaddingleft{padding-left: 0;}
 .nopaddingright{padding-right: 0;}
@@ -72,6 +71,7 @@ a{
 
 span.islocked{ color: red; }
 span.unbookmark{ color: green; }
+
 .frmcomment textarea{ resize: vertical; }
 
 .littleboxshadow, div.postshadow{
@@ -295,4 +295,19 @@ div.balloon-right{
 .nz-left-sidebar{
     margin-top: 2px;
     padding: 13px;
+}
+
+#navbar-interactions{
+    float: left;
+    padding: 21px 15px;
+    line-height: 20px;
+    height: 62px;
+    font-size: 18px;
+}
+
+.badge-notify{
+    background-color: #3E3F3A !important;
+    position:relative;
+    top: -10px;
+    left: -5px;
 }
