@@ -1,7 +1,5 @@
-<div id="left_col">&nbsp;</div>
-<div id="center_col" class="col-xs-12">
-    <div class="container-fluid blackbackground" style="cursor: pointer">
-        <div id="prefbar" class="btn-group btn-group-justified" role="group" aria-label="...">
+<div class="container-fluid" style="margin-top: 80px;">
+        <div id="prefbar" class="col-xs-3 col-sm-2 col-md-1 blackbackground btn-group-vertical" role="group" aria-label="...">
             <div class="btn-group" role="group">
                 <button id="account" type="button" class="btn btn-info">{$account}</button>
             </div>
@@ -24,13 +22,13 @@
                 <button id="delete" type="button" class="btn btn-info">{$delete}</button>
             </div>
         </div>
-    </div>
-    <div id="content" class="container-fluid nopadding whitebackground littleboxshadow">
+    <div id="content" class="col-xs-9 col-sm-10 col-md-11 whitebackground littleboxshadow nopadding">
         <h3 style="text-align:center;">
             {$description_n}
         </h3>
     </div>
 </div>
-<scrip>
 
-</scrip>
+<script>
+    $("#content").css("min-height", $("#prefbar").height());
+</script>
