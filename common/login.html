@@ -29,11 +29,15 @@
         t.html(N.getLangData().LOADING);
         $me.hide();
         event.preventDefault();
-        N.json.login($me.serialize(), function (r) {
+        N.json.login($me.serialize() +'&queryString={if="isset($querystring_n)"}{$querystring_n}{/if}', function (r) {
             t.html(r.message);
             if (r.status == 'ok') {
                 setTimeout(function () {
-                    document.location.reload();
+                    if(typeof r.redirect === 'undefined') {
+                        document.location.reload();
+                    } else {
+                        document.location.href = r.redirect + window.location.search;
+                    }
                 }, 1500);
             }
             else {
