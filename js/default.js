@@ -67,8 +67,8 @@ $(document).ready(function() {
     });
     $("iframe").attr("scrolling", "no");
     $("body").append($("<br />"));
-    if ($("#left_col").length && window.location.pathname == "/home.php" && typeof Nversion !== "undefined" && Nversion != "null") {
-        $("#left_col .title").eq(0).append("<small><a href='https://github.com/nerdzeu/nerdz.eu/commit/" + Nversion + "' target='wowsoversion'>[" + Nversion + "]</a></small>");
+    if ($("#left_col").length && window.location.pathname == "/home.php" && typeof N.version !== "undefined" && N.version != "null") {
+        $("#left_col .title").eq(0).append("<small><a href='https://github.com/nerdzeu/nerdz.eu/commit/" + N.version + "' target='wowsoversion'>[" + N.version + "]</a></small>");
     }
     var append_theme = "", _h = $("head");
     if (localStorage.getItem("has-dark-theme") == "yep") {
@@ -476,7 +476,7 @@ $(document).ready(function() {
     var plist = $("#postlist");
     function getParentPostType($me) {
         return $me.parentsUntil(plist, 'div[id^="post"]').eq(0).data("type");
-    };
+    }
     plist.on("click", ".qu_user", function(e) {
         if(e.target.tagName.toLowerCase() !== 'a') {
             e.preventDefault();
@@ -839,8 +839,7 @@ $(document).ready(function() {
     });
     plist.on("click", ".more_btn", function() {
         var moreBtn = $(this),
-        commentList = moreBtn.parents('div[id^="commentlist"]');
-        console.log(commentList.parentsUntil(plist, 'div[id^="post"]'));
+        commentList = moreBtn.parents('div[id^="commentlist"]'),
         hpid = $(commentList.parentsUntil(plist, 'div[id^="post"]')[0]).data("hpid"),
         intCounter = moreBtn.data("morecount") || 0;
         if (moreBtn.data("inprogress") === "1") {
