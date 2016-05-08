@@ -1,5 +1,5 @@
-<div id="main" class="container-fluid">
-    <aside id="left_col" class="col-xs-12 col-md-4 col-lg-3 nopadding" style="margin-bottom: 10px;">
+<div id="main" class="container-fluid nopadding">
+    <aside id="left_col" class="col-xs-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="container-fluid nav boxtitle">
             {$name_n}
         </div>
@@ -13,21 +13,15 @@
 
         <div class="container-fluid nopadding whitebackground littleboxshadow">
             {if="!$canshowmenu_b"}
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                <div class="btn-group" role="group">
-                    {if="$canifollow_b"}
-                    <button id="follow" data-id="{$id_n}" type="button"
-                            class="project btn btn-success noborderradius">
+                {if="$canifollow_b"}
+                    <button id="follow" data-id="{$id_n}" type="button" class="project btn btn-success btn-block noborderradius">
                         {$follow}
                     </button>
-                    {else}
-                    <button id="unfollow" data-id="{$id_n}" type="button"
-                            class="project btn btn-danger noborderradius">
+                {else}
+                    <button id="unfollow" data-id="{$id_n}" type="button" class="project btn btn-danger btn-block noborderradius">
                         {$unfollow}
                     </button>
-                    {/if}
-                </div>
-            </div>
+                {/if}
             {/if}
             <div class="table-responsive" style="padding: 2%;">
                 <table class="table nomarginbottom table-userinfo">
