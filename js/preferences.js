@@ -26,7 +26,19 @@ $(document).ready(function() {
         N.json.post("/pages/preferences/profile.html.json.php", $(this).serialize(), function(data) {
             r.html(data.message);
         });
-    }).on("submit", "#gufrm", function(e) {
+    }).on("submit", ".myinterests", function(e) {
+        e.preventDefault();
+        N.json.post("/pages/preferences/interests.json.php?action=del", $(this).serialize(), function(data){});
+        $(this).hide("slow");
+    }).on("submit", "#addinterest", function(e) {
+        e.preventDefault();
+        var r = $("#res");
+        r.html(loading);
+        N.json.post("/pages/preferences/interests.json.php?action=add", $(this).serialize(), function(data) {
+            r.html(data.message);
+        });
+    })
+    .on("submit", "#gufrm", function(e) {
         e.preventDefault();
         var check = $("#gufrm input[name=check]:checked").val();
         N.json.post("/pages/preferences/guests.html.json.php?action=" + check, {

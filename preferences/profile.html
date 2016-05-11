@@ -1,14 +1,25 @@
 <div class="col-xs-12"><h4>{$profile_descr}</h4></div>
 <p class="col-xs-12 darkbackground whitetext" id="res" style="min-height: 0;"></p>
-<form id="edprofrm">
-    <div class="col-xs-12 col-md-6 nopaddingleft ">
-        {$interests} <small>({$one_per_line})</small><br />
-        <textarea name="interests" rows="8" cols="26">
-            {loop="interests_a"}
-                {$value}&#13;
-            {/loop}
-        </textarea>
-    </div>
+
+<div class="col-xs-12 col-md-6">
+    <h3>{$interests}</h3>
+    {loop="interests_a"}
+    <form id="form{$value}" class="myinterests">
+        <div class="form-group form-inline">
+            <input type="hidden" name="tok" value="{$tok_n}" />
+            <input type="text" class="form-control noborderradius" name="interest" value="{$value}" readonly>
+            <button type="submit" class="btn btn-danger noborderradius">Rimuovi</button>
+        </div>
+    </form>
+    {/loop}
+    <form id="addinterest">
+        <div class="form-group form-inline">
+            <input type="text" class="form-control noborderradius" name="interest" placeholder="Interesse..." />
+            <input type="hidden" name="tok" value="{$tok_n}" />
+            <input type="submit" class="btn btn-success noborderradius noborder" value="Aggiungi" />
+        </div>
+    </form>
+</div>
     <div class="col-xs-12 col-md-6 nopaddingleft">
             asd
     </div>
@@ -24,21 +35,6 @@
     <br />
     <br />
 <table class="intable">
-    <tr>
-        <td style="width: 50%; vertical-align: top">
-            {$interests}:
-            <p class="small">
-                {$one_per_line}
-            </p>
-        </td>
-        <td style="width: 50%">
-            <textarea name="interests" rows="8" cols="26">
-                {loop="interests_a"}
-                    {$value}&#13;
-                {/loop}
-            </textarea>
-        </td>
-    </tr>
     <tr>
         <td style="vertical-align: top">
             <br />
