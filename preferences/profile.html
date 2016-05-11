@@ -1,26 +1,31 @@
 <div class="col-xs-12"><h4>{$profile_descr}</h4></div>
 <p class="col-xs-12 darkbackground whitetext" id="res" style="min-height: 0;"></p>
 
-<div class="col-xs-12 col-md-6">
+<div class="col-xs-12 col-md-4">
     <h3>{$interests}</h3>
+
+    <form id="addinterest">
+        <div class="col-xs-10 col-sm-11" style="padding: 0 0 10px 0">
+            <input type="text" class="form-control noborderradius" name="interest" placeholder="Aggiungi interesse..." />
+            <input type="hidden" name="tok" value="{$tok_n}" />
+        </div>
+        <div class="col-xs-1 nopadding">
+            <button type="submit" class="btn btn-success noborderradius noborder"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+        </div>
+    </form>
     {loop="interests_a"}
     <form id="form{$value}" class="myinterests">
-        <div class="form-group form-inline">
+        <div class="col-xs-10 col-sm-11" style="padding: 0 0 10px 0">
             <input type="hidden" name="tok" value="{$tok_n}" />
             <input type="text" class="form-control noborderradius" name="interest" value="{$value}" readonly>
-            <button type="submit" class="btn btn-danger noborderradius">Rimuovi</button>
+        </div>
+        <div class="col-xs-1 nopadding">
+            <button type="submit" class="btn btn-danger noborderradius"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
         </div>
     </form>
     {/loop}
-    <form id="addinterest">
-        <div class="form-group form-inline">
-            <input type="text" class="form-control noborderradius" name="interest" placeholder="Interesse..." />
-            <input type="hidden" name="tok" value="{$tok_n}" />
-            <input type="submit" class="btn btn-success noborderradius noborder" value="Aggiungi" />
-        </div>
-    </form>
 </div>
-    <div class="col-xs-12 col-md-6 nopaddingleft">
+    <div class="col-xs-12 col-md-8">
             asd
     </div>
 
