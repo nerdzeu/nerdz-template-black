@@ -2,7 +2,7 @@ body{margin-top: 60px; background-color: #3E3F3A;}
 div.forminput{
    background-color: #ffffff;
    border: 1px solid #ccc;
-   padding: 1px 10px 0 10px; 
+   padding: 1px 10px 0 10px;
    color: #A5A5A5;
    font-size: 12px;
    line-height: 1.5;
@@ -41,6 +41,13 @@ ol.tendenze{
    border-left: 1px solid #ccc;
    border-right: 1px solid #ccc;
    border-bottom: 1px solid #ccc;
+}
+
+.boxsizingBorder {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 #frmtxt{
