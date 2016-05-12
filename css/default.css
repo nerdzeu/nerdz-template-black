@@ -136,7 +136,7 @@ input[type=checkbox] {
     top: -2px;
 }
 
-input, option, select, textarea, button, .page th, .follow, .unfollow {
+input, option, select, button, .page th, .follow, .unfollow {
     border: 0.5px #000 solid;
     text-align: left;
     background-color: #FFF;

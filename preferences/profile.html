@@ -25,181 +25,98 @@
     </form>
     {/loop}
 </div>
-    <div class="col-xs-12 col-md-8 nopadding">
+<div class="col-xs-12 col-md-8 nopadding">
+    <form id="edprofrm">
+        <!-- biography -->
         <div class="col-xs-12">
             <h3>{$biography}</h3>
             <p>{$biography_sub}</p>
+            <textarea class="boxsizingBorder vertical" name="biography">
+                {$biography_n}
+            </textarea>
         </div>
+        <!-- quotes -->
         <div class="col-xs-12">
-            <textarea class="boxsizingBorder" name="biography">
-            {$biography_n}
+            <h3>{$quotes}</h3>
+            <p>{$one_per_line}</p>
+            <textarea name="quotes" class="boxsizingBorder vertical">
+                {loop="quotes_a"}
+                {$value}&#13;&#10;
+                {/loop}
             </textarea>
         </div>
-    </div>
-
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-<table class="intable">
-    <tr>
-        <td style="vertical-align: top">
-            {$quotes}:
-            <p class="small">
-                {$one_per_line}
-            </p>
-        </td>
-        <td>
-            <br />
-            <textarea name="quotes" rows="8" cols="26">
-                {loop="quotes_a"}
-                    {$value}&#13;&#10;
-                {/loop}
-            </textarea>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$website}:
-        </td>
-        <td>
-            <br />
-            <input type="text" name="website" value="{$website_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$github}:
-        </td>
-        <td>
-            <br />
-            <input type="text" name="github" value="{$github_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$jabber}:
-        </td>
-        <td>
-            <br />
-            <input type="text" name="jabber" value="{$jabber_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$yahoo}:
-        </td>
-        <td>
-            <br />
-            <input type="text" name="yahoo" value="{$yahoo_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$facebook}:<br /><p class="small">{$insert_url}</p>
-        </td>
-        <td>
-            <br />
-            <input type="text" name="facebook" value="{$facebook_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$twitter}:<br /><p class="small">{$insert_url}</p>
-        </td>
-        <td>
-            <br />
-            <input type="text" name="twitter" value="{$twitter_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$steam}:
-        </td>
-        <td>
-            <br />
-            <input type="text" name="steam" value="{$steam_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$skype}:
-        </td>
-        <td>
-            <br />
-            <input type="text" name="skype" value="{$skype_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$user_script}: [<a href="/faq.php#q19" onclick="window.open(this.href); return false;">?</a>]
-            <br />
-            <p class="small">
-                {$insert_url}
-            </p>
-        </td>
-        <td>
-            <br />
-            <input type="text" name="userscript" value="{$userscript_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$date_format}:
-            <br />
-            <p class="small">
-                {$date_format_descr}
-            </p>
-        </td>
-        <td>
-            <br />
-            <input type="text" name="dateformat" value="{$dateformat_n}" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            {$closed_profile}:
-        </td>
-        <td>
-            <br />
-            <input type="checkbox" name="closed" value="1" {if="$closedprofile_b"} checked {/if}/>
-        </td>
-    </tr>
-{if="$canshowwhitelist_b"}
-    <tr>
-        <td style="vertical-align: top">
-            {$whitelist}: [<a href="/faq.php#q17">?</a>]
-            <p class="small">
-                {$one_per_line}
-            </p>
-        </td>
-        <td>
-            <br />
-            <textarea name="whitelist" rows="8" cols="26">
+        <!--whitelist -->
+        {if="$canshowwhitelist_b"}
+        <div class="col-xs-12">
+            <h3>{$whitelist}: [<a href="/faq.php#q17">?</a>]</h3>
+            <p>{$one_per_line}</p>
+            <textarea name="whitelist" class="boxsizingBorder vertical">
                 {loop="whitelist_a"}
-                    {$value}&#13;&#10;
+                {$value}&#13;&#10;
                 {/loop}
             </textarea>
-        </td>
-    </tr>
-{/if}
-    <tr>
-        <td>
-            <br />
-            <input type="submit" value="{$edit}" />
-            </td>
-        <td>
-        </td>
-    </tr>
-    </table>
-    <input type="hidden" name="tok" value="{$tok_n}" />
-</form>
+        </div>
+        {/if}
+        <!-- website -->
+        <div class="col-xs-12">
+            <h3>{$website}</h3>
+            <input type="text" class="form-control noborderradius" name="website" value="{$website_n}" />
+        </div>
+        <!-- github -->
+        <div class="col-xs-12">
+            <h3>{$github}</h3>
+            <input type="text" class="form-control noborderradius" name="github" value="{$github_n}" />
+        </div>
+        <!-- jabber -->
+        <div class="col-xs-12">
+            <h3>{$jabber}</h3>
+            <input type="text" class="form-control noborderradius" name="jabber" value="{$jabber_n}" />
+        </div>
+        <!-- yahoo -->
+        <div class="col-xs-12">
+            <h3>{$yahoo}</h3>
+            <input type="text" class="form-control noborderradius" name="yahoo" value="{$yahoo_n}" />
+        </div>
+        <!-- facebook -->
+        <div class="col-xs-12">
+            <h3>{$facebook}</h3>
+            <input type="text" class="form-control noborderradius" name="facebook" value="{$facebook_n}" />
+        </div>
+        <!-- twitter -->
+        <div class="col-xs-12">
+            <h3>{$twitter}</h3>
+            <input type="text" class="form-control noborderradius" name="twitter" value="{$twitter_n}" />
+        </div>
+        <!-- steam -->
+        <div class="col-xs-12">
+            <h3>{$steam}</h3>
+            <input type="text" class="form-control noborderradius" name="steam" value="{$steam_n}" />
+        </div>
+        <!-- skype -->
+        <div class="col-xs-12">
+            <h3>{$skype}</h3>
+            <input type="text" class="form-control noborderradius" name="skype" value="{$skype_n}" />
+        </div>
+        <!-- user_script -->
+        <div class="col-xs-12">
+            <h3>{$user_script} [<a href="/faq.php#q19" onclick="window.open(this.href); return false;">?</a>]</h3>
+            <input type="text" class="form-control noborderradius" name="userscript" value="{$userscript_n}" />
+        </div>
+        <!-- date_format -->
+        <div class="col-xs-12">
+            <h3>{$date_format}</h3>
+            <p>{$date_format_descr}</p>
+            <input type="text" class="form-control noborderradius" name="dateformat" value="{$dateformat_n}" />
+        </div>
+        <!-- date_format -->
+        <div class="col-xs-12">
+            <h3>{$profile}:</h3>
+            <input type="checkbox" name="closed" value="1" {if="$closedprofile_b"} checked {/if}/> {$closed_profile}
+        </div>
+        <!-- submit -->
+        <div class="col-xs-12">
+            <input type="submit" class="btn btn-success noborder" value="{$edit}" style="margin: 10px auto"/>
+        </div>
+        <input type="hidden" name="tok" value="{$tok_n}" />
+    </form>
+</div>

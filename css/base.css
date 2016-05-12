@@ -50,6 +50,10 @@ ol.tendenze{
             box-sizing: border-box;
 }
 
+textarea.vertical{
+    resize:vertical;
+}
+
 #frmtxt{
     width: 100%;
     margin-top: 15px;
