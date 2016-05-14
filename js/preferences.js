@@ -33,9 +33,15 @@ $(document).ready(function() {
     }).on("submit", "#addinterest", function(e) {
         e.preventDefault();
         var r = $("#res");
+        var interesse = $(this).find('input[name="interest"]').val();
+        var tok = $(this).find('input[name="tok"]').val();
         r.html(loading);
         N.json.post("/pages/preferences/interests.json.php?action=add", $(this).serialize(), function(data) {
             r.html(data.message);
+            if(data.message=='OK'){
+                $( '<form id="form'+interesse+'" class="myinterests"><div class="col-xs-10 col-sm-11" style="padding: 0 0 10px 0"><input type="hidden" name="tok" value="'+tok+'" /><input type="text" class="form-control noborderradius" name="interest" value="'+interesse+'" readonly></div><div class="col-xs-1 nopadding"><button type="submit" class="btn btn-danger noborderradius"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button></div></form>').insertAfter( "#addinterest" );
+                $("#addinterest").find('input[name="interest"]').val("");
+            }
         });
     })
     .on("submit", "#gufrm", function(e) {
