@@ -26,6 +26,8 @@ $(document).ready(function() {
         N.json.post("/pages/preferences/profile.html.json.php", $(this).serialize(), function(data) {
             r.html(data.message);
         });
+        //scroll to top
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     }).on("submit", ".myinterests", function(e) {
         e.preventDefault();
         N.json.post("/pages/preferences/interests.json.php?action=del", $(this).serialize(), function(data){});
@@ -37,11 +39,14 @@ $(document).ready(function() {
         var tok = $(this).find('input[name="tok"]').val();
         r.html(loading);
         N.json.post("/pages/preferences/interests.json.php?action=add", $(this).serialize(), function(data) {
-            r.html(data.message);
             if(data.message=='OK'){
                 $( '<form id="form'+interesse+'" class="myinterests"><div class="col-xs-10 col-sm-11" style="padding: 0 0 10px 0"><input type="hidden" name="tok" value="'+tok+'" /><input type="text" class="form-control noborderradius" name="interest" value="'+interesse+'" readonly></div><div class="col-xs-1 nopadding"><button type="submit" class="btn btn-danger noborderradius"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button></div></form>').insertAfter( "#addinterest" );
                 $("#addinterest").find('input[name="interest"]').val("");
+            } else {
+                r.html(data.message);
             }
+            //scroll to top
+            $("html, body").animate({ scrollTop: 0 }, "slow");
         });
     })
     .on("submit", "#gufrm", function(e) {
