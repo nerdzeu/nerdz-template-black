@@ -29,7 +29,7 @@
         t.html(N.getLangData().LOADING);
         $me.hide();
         event.preventDefault();
-        N.json.login($me.serialize() +'&queryString={if="isset($querystring_n)"}{$querystring_n}{/if}', function (r) {
+        N.json.login($me.serialize() +'&query_string={if="isset($querystring_n)"}{$querystring_n}{/if}', function (r) {
             t.html(r.message);
             if (r.status == 'ok') {
                 setTimeout(function () {
