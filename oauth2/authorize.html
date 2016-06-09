@@ -1,6 +1,23 @@
-<form action="{$authorizeurl_n}" method="GET">
-{$client_n.name_n} {$would}:<br />
-{loop="$client_n.scopes_a"}
-    {$value.scope_n}: {$value.description_n}<br />
-{/loop}
-</form>
+<div id="main" class="container-fluid nopaddingleft nopaddingright">
+    <!-- CENTER -->
+    <div class="col-xs-12 col-sm-8 nopadding transparentbackground" style="min-height: 300px;background-color:#fff">
+    {if="isset($error_n)"}
+        <div class="error">{$error_n}</div>
+    {else}
+        <form action="{$authorizeurl_n}" method="GET">
+        {$client_n} {$would}:<br />
+        {loop="$scopes_a"}
+            {$value}<br />
+        {/loop}
+        <br />
+        <input type="hidden" name="client_id" value="{$clientid_n}" />
+        <input type="hidden" name="redirect_uri" value="{$redirecturi_n}" />
+        <input type="hidden" name="response_type" value="{$responsetype_n}" />
+        <input type="hidden" name="scope" value="{$scope_n}" />
+        <input type="hidden" name="authorized" value="{$authorized_n}" />
+        <input type="hidden" name="authorized_code" value="{$authorizedcode_n}" />
+        <input type="submit" value="OK">
+        </form>
+    {/if}
+    </div>
+</div>
