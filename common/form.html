@@ -15,12 +15,12 @@
             {/if}
             <!-- FORM OPTIONS-->
             <div class="col-md-11 hidden-xs hidden-sm nopadding">
-                <button class="btn btn-info noborderradius preview hidden-sm hidden-xs" href="#" data-refto="#frmtxt" role="button">{$preview}</button>
-                <button class="btn btn-info noborderradius  hidden-sm hidden-xs" href="/bbcode.php" target="_blank" role="button">BBCode</button>
-                <button href="#" class="btn btn-info noborderradius nerdzcrush-upload  hidden-sm hidden-xs" role="button">
+                <a class="btn btn-info noborderradius preview hidden-sm hidden-xs" href="#" data-refto="#frmtxt" role="button">{$preview}</a>
+                <a class="btn btn-info noborderradius  hidden-sm hidden-xs" href="/bbcode.php" target="_blank" role="button">BBCode</a>
+                <a href="#" class="btn btn-info noborderradius nerdzcrush-upload  hidden-sm hidden-xs" role="button">
                     <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
                     &nbsp;NerdzCrush
-                </button>
+                </a>
                 <select name="lang" class="selectpicker hidden-sm hidden-xs" data-width="fit" data-style="btn-info">
                     {loop="langs_a"}
                     <option value="{$value.shortlang_n}" {if="$value.shortlang_n == $mylang_n"}selected{/if}>{$value.longlang_n}</option>
