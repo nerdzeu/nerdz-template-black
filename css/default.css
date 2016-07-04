@@ -147,7 +147,6 @@ input, option, select, button, .page th, .follow, .unfollow {
 button, input[type=submit], .page th, .title, .follow, .unfollow {
     padding-left: 1%;
     padding-right: 1%;
-    border: 0.5px #000 solid;
     font-weight: 500;
     word-wrap: normal;
     vertical-align: middle;

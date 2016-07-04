@@ -14,6 +14,9 @@
             "css/bootstrap-select.css",
             "css/bootstrap-datepicker3.css"
         ],
+        "home": [
+            "css/bootstrap-select.css"
+        ],
         "preferences": [
             "css/bootstrap-select.css",
             "css/bootstrap-datepicker3.css"
@@ -39,7 +42,9 @@
             "js/bootstrap-datepicker.js",
             "js/moment.js"
         ],
-        "home": [ "js/home.js", {
+        "home": [
+        "js/bootstrap-select.min.js",
+        "js/home.js", {
             "lang": [ "HIDDEN_POSTS", "EXPAND", "HIDE" ],
             "outputVersion": true // you should probably not change this
         } ],
