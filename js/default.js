@@ -70,19 +70,7 @@ $(document).ready(function() {
     if ($("#left_col").length && window.location.pathname == "/home.php" && typeof N.version !== "undefined" && N.version != "null") {
         $("#left_col .title").eq(0).append("<small><a href='https://github.com/nerdzeu/nerdz.eu/commit/" + N.version + "' target='wowsoversion'>[" + N.version + "]</a></small>");
     }
-    var append_theme = "", _h = $("head");
-    if (localStorage.getItem("has-dark-theme") == "yep") {
-        append_theme = "?skin=sons-of-obsidian";
-    }
-    var prettify = document.createElement("script");
-    prettify.type = "text/javascript";
-    prettify.src = "https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.js" + append_theme;
-    _h.append(prettify);
-    if (append_theme !== "") {
-        _h.append('<style type="text/css">.nerdz-code-wrapper { background-color: #000; color: #FFF; }</style>');
-    } else {
-        _h.append('<style type="text/css">.nerdz-code-wrapper { background-color: #eee; color: #000; }</style>');
-    }
+
     $("#notifications").on("click", function(e) {
         e.preventDefault();
         var list = $("#notify_list"), $counter = $("#notifycounter"), old = $counter.html();
@@ -431,7 +419,7 @@ $(document).ready(function() {
         var progref = "ref" + Math.round(Math.random() * 100) + "pro";
         var refto = me.parent().parent().find("textarea").attr("id");
         me.find("progress").remove();
-        me.append("<progress id='" + progref + "' style='height: 3px; width:100%; display:none' max='100' value='0'></progress>");
+        me.parent().parent().append("<progress id='" + progref + "' class='progress progress-success noborderradius' style='display:none; width: 100%; margin-top: 5px;' max='100' value='0'></progress>");
         $("#nerdzcrush-file").data("progref", progref).data("refto", refto).click();
     };
     $(".nerdzcrush-upload").on("click", function(e) {
@@ -605,6 +593,7 @@ $(document).ready(function() {
     });
     plist.on("click", ".showcomments", function() {
         var refto = $("#" + $(this).data("refto"));
+        console.log(refto);
         if (refto.html() === "") {
             refto.html(loading + "...");
 
@@ -911,7 +900,7 @@ $(document).ready(function() {
             hpid: hpid
         }, function(m) {
             if (m.status == "ok") {
-                refto.html('<div style="text-align:center">' + m.message + '<br /><span id="delPostOk' + hpid + '" style="cursor:pointer">YES</span> | <span id="delPostNo' + hpid + '" style="cursor:pointer">NO</span></div>');
+                refto.html('<div style="text-align:center; color: white;">' + m.message + '<br /><span id="delPostOk' + hpid + '" style="cursor:pointer">YES</span> | <span id="delPostNo' + hpid + '" style="cursor:pointer">NO</span></div>');
                 refto.on("click", "#delPostOk" + hpid, function() {
                     N.json[parentPostType].delPost({
                         hpid: hpid
@@ -944,7 +933,7 @@ $(document).ready(function() {
             } else {
                 refto.find("a").css("color", "");
                 span.attr("class", "glyphicon glyphicon-folder-open");
-                me.attr("class","open");
+                me.attr("class","btn btn-xs btn-info noborderradius open");
             }
         });
     });
@@ -961,7 +950,7 @@ $(document).ready(function() {
             } else {
                 refto.find("a").css("color", "red");
                 span.attr("class", "glyphicon glyphicon-folder-close");
-                me.attr("class","closepls");
+                me.attr("class","btn btn-xs btn-info noborderradius closepls");
             }
         });
     });

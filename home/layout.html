@@ -28,10 +28,10 @@
         {if="!empty($ownerof_a)"}
         <div class="container-fluid" style="margin-bottom: 10px">
             <ul class="nav nav-tabs nav-justified">
-                <li role="presentation"><a id="your-projects" href="#">{$your_projects}</a></li>
+                <li role="presentation" class="active"><a id="your-projects" href="#">{$your_projects}</a></li>
             </ul>
             <div class="tab-content">
-                <div id="owner-of" role="tabpanel" class="tab-pane active whitebackground littleboxshadow"
+                <div id="owner-of" role="tabpanel" class="tab-pane active blackbackground littleboxshadow"
                      id="your-projects-content">
                     <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
                         {loop="ownerof_a"}
@@ -46,10 +46,10 @@
         {if="!empty($memberof_a)"}
         <div class="container-fluid" style="margin-bottom: 10px">
             <ul class="nav nav-tabs nav-justified">
-                <li role="presentation"><a href="#">{$member_of}</a></li>
+                <li role="presentation" class="active"><a href="#">{$member_of}</a></li>
             </ul>
             <div class="tab-content">
-                <div id="member-of" role="tabpanel" class="tab-pane active whitebackground littleboxshadow">
+                <div id="member-of" role="tabpanel" class="tab-pane active blackbackground littleboxshadow">
                     <ol class="nomarginbottom nostyletype" style="padding: 0 0 0 10px;">
                         {loop="memberof_a"}
                         <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
@@ -63,12 +63,12 @@
         {if="!empty($followed_a)"}
         <div class="container-fluid" style="margin-bottom: 10px">
             <ul class="nav nav-tabs nav-justified">
-                <li role="presentation"><a href="#">{$you_follow} <span
+                <li role="presentation" class="active"><a href="#">{$you_follow} <span
                         class="label label-default valign-middle">[{$followedonlinetot_n}/{$followedtot_n}]</span></a>
                 </li>
             </ul>
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active whitebackground littleboxshadow mostra"
+                <div role="tabpanel" class="tab-pane active blackbackground littleboxshadow mostra"
                      id="rightmenu">
                     <ol class="follow-list-home">
                         {loop="followed_a"}

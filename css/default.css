@@ -268,7 +268,6 @@ html, #body {
 }
 
 .nerdz_thumbs, .revisions {
-    font-size: 80%;
     display: inline;
     position: relative;
     bottom: 1px;
@@ -288,12 +287,12 @@ html, #body {
 }
 
 .vote.up.voted {
-    color: #00E600;
+    color: #00E600 !important;
     cursor: pointer;
 }
 
 .vote.down.voted {
-    color: #FF3300;
+    color: #FF3300 !important;
     cursor: pointer;
 }
 

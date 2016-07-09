@@ -11,7 +11,7 @@ div.forminput{
 .nomargin{ margin: 0 !important; }
 .nomargintop{ margin-top: 0 !important; }
 .nomarginbottom{margin-bottom: 0 !important;}
-
+.marginbottom{margin-bottom: 10px;}
 .nopadding{padding: 0;}
 .nopaddingleft{padding-left: 0;}
 .nopaddingright{padding-right: 0;}
@@ -31,6 +31,7 @@ div.forminput select{color: #676767;}
 div.postoptions{text-align: center;}
 div.postmessaggio{}
 div.postdettagli{ position: relative; float: right; }
+div.postcontainer{ padding: 10px !important;}
 img.avataricon{ width: 16px; height: 16px;}
 img.homeavatar{max-width: 100%; border-radius: 5px;}
 
@@ -89,12 +90,6 @@ span.unbookmark{ color: green; }
     box-shadow: 0 4px 2px -2px #212121;
 }
 
-div.postshadow{
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 2px;
-}
-
 .darkbackground{
     background-color: #3E3F3A;
 }
@@ -102,11 +97,11 @@ div.postshadow{
     background-color: #FFFFFF !important;
 }
 .blackbackground{
-    background-color: #232323;
+    background-color: #212121;
 }
 
 
-.whitetext{
+.whitetext, a.whitetext{
     color: #FFFFFF;
 }
 
@@ -155,17 +150,15 @@ li.listaseguiti{
     border-radius: 0 !important;
 }
 .nav-tabs > li > a{
-    color: white !important;
-    background-color: #212121 !important;
-    border: 1px solid #212121 !important;
-
-}
-
-
-.nav-tabs > li.active a{
     color: #212121 !important;
     background-color: white !important;
     border: 1px solid white !important;
+}
+
+.nav-tabs > li.active a{
+    color: white !important;
+    background-color: #212121 !important;
+    border: 1px solid #212121 !important;
 }
 
 .mostra{
@@ -237,7 +230,7 @@ div.follow-stats a{
 }
 
 .btn-info{
-    background-color: #232323 !important;
+    background-color: #212121 !important;
 }
 
 
@@ -320,4 +313,29 @@ div.balloon-right{
     position:relative;
     top: -10px;
     left: -5px;
+}
+
+
+/* HOME META */
+
+.list-group-item-black, .list-group-item-black-last, .list-group-item-black-last-description {
+    background-color: #212121 !important;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0 !important;
+}
+
+.list-group-item-black, .list-group-item-black-last{
+    border-top: 1px solid #3e3f3a !important;
+    color: #848484;
+}
+
+.list-group-item-black-last-description{
+    border-top: 0 !important;
+}
+
+#informationlist > ul {
+    border-top: 1px solid #3e3f3a !important;
+    border-radius: 0;
 }
