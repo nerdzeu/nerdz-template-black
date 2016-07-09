@@ -117,9 +117,9 @@
             <!-- THUMBS -->
             <span class="nerdz_thumbs" data-refto="{$value.hpid_n}">
                 <!-- THUMB UP -->
-                <a class="btn btn-xs btn-info noborderradius glyphicon glyphicon-menu-up vote up{if="$value.uthumb_n == 1"} voted{/if}"></a>
+                <a class="btn btn-xs btn-info noborderradius glyphicon glyphicon-thumbs-up vote up{if="$value.uthumb_n == 1"} voted{/if}"></a>
                 <!-- THUMB DOWN -->
-                <a class="btn btn-xs btn-info noborderradius glyphicon glyphicon-menu-down vote down{if="$value.uthumb_n ==-1"} voted{/if}"></a>
+                <a class="btn btn-xs btn-info noborderradius glyphicon glyphicon-thumbs-down vote down{if="$value.uthumb_n ==-1"} voted{/if}"></a>
             </span>
             <!-- THUMBS NUMBER -->
             <span class='thumbs-counter{if="$value.thumbs_n > 0"} nerdz_thumbsNumPos{/if}{if="$value.thumbs_n < 0"} nerdz_thumbsNumNeg{/if}'>{if="$value.thumbs_n > 0"}+{/if}{if="$value.thumbs_n != 0"}{$value.thumbs_n}{/if}</span>&nbsp;
