@@ -17,6 +17,12 @@
         "home": [
             "css/bootstrap-select.css"
         ],
+        "profile": [
+            "css/bootstrap-select.css"
+        ],
+        "project": [
+            "css/bootstrap-select.css"
+        ],
         "preferences": [
             "css/bootstrap-select.css",
             "css/bootstrap-datepicker3.css"

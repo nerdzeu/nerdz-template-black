@@ -980,7 +980,7 @@ $(document).ready(function() {
             id = hcid;
         }
         var form = function(fid, id, message, prev, type) {
-            return '<form style="margin-bottom:40px" id="' + fid + '" data-' + type + '="' + id + '">' + '<textarea id="' + fid + 'abc" autofocus style="width:99%; height:125px">' + message + "</textarea><br />" + '<input type="submit" class="btn btn-sm btn-default" value="' + N.getLangData().EDIT + '" style="float: right; margin-top:5px; margin-right: 5px;" />' + '<button type="button" class="btn btn-sm btn-default" style="float:right; margin-right: 5px; margin-top: 5px" class="preview" data-refto="#' + fid + 'abc">' + prev + "</button>" + '<button type="button" class="btn btn-sm btn-default" style="margin-left: 5px; float:left; margin-top:5px" onclick="window.open(\'/bbcode.php\')">BBCode</button>' + "</form>";
+            return '<form style="margin-bottom:40px" id="' + fid + '" data-' + type + '="' + id + '">' + '<textarea id="' + fid + 'abc" autofocus style="width:99%; height:125px">' + message + "</textarea><br />" + '<input type="submit" class="btn btn-sm btn-info" value="' + N.getLangData().EDIT + '" style="float: right; margin-top:5px; margin-right: 5px;" />' + '<button type="button" class="btn btn-sm btn-info" style="float:right; margin-right: 5px; margin-top: 5px" class="preview" data-refto="#' + fid + 'abc">' + prev + "</button>" + '<button type="button" class="btn btn-sm btn-info" style="margin-left: 5px; float:left; margin-top:5px" onclick="window.open(\'/bbcode.php\')">BBCode</button>' + "</form>";
         };
 
         N.json[getParentPostType($(this))][getF](getObj, function(d) {
