@@ -996,6 +996,12 @@ $(document).ready(function() {
                     if (d.status == "ok") {
                         refto.slideToggle("slow");
                         N.html[getParentPostType(me)][getF](getObj, function(o) {
+                            /*
+                                refto.html(o);
+                                problema: o è un div (id=X) che viene inserito all'interno di un div (id=Y)
+                                ma X=Y e quindi oltre a duplicare l'id va a crearsi un'annidamento inutile che rovina il tutto
+                                soluzione: servirebbe che dell'oggetto "o" si prende l'elemento figlio così da non duplicare il div
+                            */
                             refto.html(o);
                             refto.slideToggle("slow");
                             if (typeof N.getLangData().HIDE != "undefined") {

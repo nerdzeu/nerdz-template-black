@@ -35,7 +35,7 @@
                 {/if}
             {/if}
             <span class="thumbs">
-              &nbsp;|&nbsp;              
+              &nbsp;|&nbsp;
               <span class='thumbs-counter{if="$value.thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$value.thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$value.thumbs_n > 0"}+{/if}{$value.thumbs_n}</span>
               &nbsp;&nbsp;
               <div class="nerdz_thumbs comment" data-refto="{$value.hcid_n}">
@@ -60,4 +60,3 @@
 {if="$showform_b"}
     {include="common/comment_form"}
 {/if}
-
