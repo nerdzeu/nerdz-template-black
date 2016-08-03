@@ -593,7 +593,6 @@ $(document).ready(function() {
     });
     plist.on("click", ".showcomments", function() {
         var refto = $("#" + $(this).data("refto"));
-        console.log(refto);
         if (refto.html() === "") {
             refto.html(loading + "...");
 
@@ -984,7 +983,7 @@ $(document).ready(function() {
         };
 
         N.json[getParentPostType($(this))][getF](getObj, function(d) {
-            var fid = refto.data("id") + "editform";
+            var fid = refto.attr("id") + "editform";
             refto.html(form(fid, id, d.message, $(".preview").html(), type));
             var me = $(this);
             $("#" + fid).on("submit", function(e) {
@@ -996,14 +995,7 @@ $(document).ready(function() {
                     if (d.status == "ok") {
                         refto.slideToggle("slow");
                         N.html[getParentPostType(me)][getF](getObj, function(o) {
-                            /*
-                                refto.html(o);
-                                problema: o è un div (id=X) che viene inserito all'interno di un div (id=Y)
-                                ma X=Y e quindi oltre a duplicare l'id va a crearsi un'annidamento inutile che rovina il tutto
-                                soluzione: servirebbe che dell'oggetto "o" si prende l'elemento figlio così da non duplicare il div
-                            */
-                            refto.html(o);
-                            refto.slideToggle("slow");
+                            refto.replaceWith(o);
                             if (typeof N.getLangData().HIDE != "undefined") {
                                 $(refto.find("ul.subnav")[0]).append('<li><a class="hide" data-postid="post' + id + '"><span class="rightarrow"></span>' + N.getLangData().HIDE + "</a></li>");
                             }
