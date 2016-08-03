@@ -558,7 +558,7 @@ $(document).ready(function() {
                         hpid: hpid,
                         hcid: hcid
                     }, function(d) {
-                        var form = refto.find("form.frmcomment").eq(0), pushBefore = form.parent(), newComments = $("<div>" + d + "</div>").find(pattern), internalLengthPointer = comments.length, lastComment = comments.last();
+                        var form = refto.find("form.frmcomment").eq(0), pushBefore = refto.find(".comment-form-wrapper"), newComments = $("<div>" + d + "</div>").find(pattern), internalLengthPointer = comments.length, lastComment = comments.last();
                         if (comments.length > 1) {
                             comments.eq(comments.length - 1).remove();
                             internalLengthPointer--;
