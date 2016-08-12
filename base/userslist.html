@@ -62,17 +62,17 @@
 <div clas="container-fluid" style="text-align: center">
     <nav>
         <ul class="pagination">
-            {if="!empty($prev_url_n)"}
+            {if="empty($prev_url_n)"}
             <li>
-                <a href="{$prev_url_n}" aria-label="Previous" class="noborderradius">
-                    <span aria-hidden="true">&laquo;</span>
+                <a href="{$prev_url_n}" aria-label="Previous" class="noborder noborderradius blackbackground" style="margin-right: 2px;">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 </a>
             </li>
             {/if}
             {if="!empty($next_url_n)"}
             <li>
-                <a href="{$next_url_n}" aria-label="Next" class="noborderradius">
-                    <span aria-hidden="true">&raquo;</span>
+                <a href="{$next_url_n}" aria-label="Next" class="noborder noborderradius blackbackground" style="margin-left: 2px;">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 </a>
             </li>
             {/if}
