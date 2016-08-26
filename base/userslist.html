@@ -62,7 +62,7 @@
 <div clas="container-fluid" style="text-align: center">
     <nav>
         <ul class="pagination">
-            {if="empty($prev_url_n)"}
+            {if="!empty($prev_url_n)"}
             <li>
                 <a href="{$prev_url_n}" aria-label="Previous" class="noborder noborderradius blackbackground" style="margin-right: 2px;">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
