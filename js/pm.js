@@ -39,7 +39,8 @@ $(document).ready(function() {
                             mess = $("#conversation").find(pattern);
                             internalCounter--;
                         }
-                        $("#convfrm").before(d);
+                        //$("#convfrm").before(d); backup line
+                        $("#endofconversation").before(d);
                     });
                 } else {
                     N.html.pm.getConversation({
