@@ -339,3 +339,33 @@ div.balloon-right{
     border-top: 1px solid #3e3f3a !important;
     border-radius: 0;
 }
+
+/* BASE COLORS */
+
+.color-1{ color: #131415; }
+
+.color-2{ color: #3a3a3a; }
+
+.color-3{ color: #a5a5a5; }
+
+.color-4{ color: #cdc7c7; }
+
+.color-5{ color: #131415; }
+
+.color-success{ color: #93C54B; }
+
+.color-alert{ color: #D9534F; }
+
+.bg-color-1{ background-color: #131415; }
+
+.bg-color-2{ background-color: #3a3a3a; }
+
+.bg-color-3{ background-color: #a5a5a5; }
+
+.bg-color-4{ background-color: #cdc7c7; }
+
+.bg-color-5{ background-color: #131415; }
+
+.bg-color-success{ background-color: #93C54B; }
+
+.bg-color-alert{ background-color: #D9534F; }
