@@ -1,3 +1,54 @@
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-color-1 fixed-top">
+  <button class="navbar-toggler navbar-toggler-right color-2" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon" stroke="rgba(255, 0, 0, 0.5)"></span>
+  </button>
+  <div class="navbar-text" style="width: 250px;">
+    <a class="navbar-brand homepage" href="/">NERDZ</a>
+    {if="$logged_b"}
+    <!--ul class="horizontal-list">
+    <li id="navbar-interactions" class="interaction-icon"-->
+      <a href="/pm.php" accesskey="m">
+        <i class="mdi mdi-24px mdi-comment"></i>
+        <span id="pmcounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
+      </a>
+      <!--li id="notifications" class="interaction-icon"-->
+      <a href="#">
+        <i class="mdi mdi-24px mdi-earth"></i>
+        <span id="notifycounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
+      </a>
+      {/if}
+    </div>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <div class="form-inline my-2 my-lg-0" style="margin: 0 auto;"> </div>
+      <ul class="navbar-nav mr-auto" style="margin-right: 0 !important;">
+        {if="$logged_b"}
+        <li class="nav-item">
+         <a class="nav-link" href="/{$myusername4link_n}" accesskey="p">
+           <img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}
+         </a>
+       </li class="nav-item">
+       <li  class="nav-item{if="$position_n == 'preferences'"} active{/if}">
+        <a class="nav-link" href="/preferences.php" accesskey="z">
+          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {$preferences}
+        </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#searchrow" data-toggle="collapse"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> {$search}</a>
+     </li>
+     <li class="nav-item"><a class="nav-link" href="/" id="logout" data-tok="{$tok_n}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {$logout}</a></li>
+     {/if}
+   </ul>
+ </div>
+
+ <div id="searchrow" class="bg-color-1 container-fluid collapse">
+  <form id="footersearch" role="search">
+    <input type="text" style="width: 100%;" name="q" placeholder="{$search}...">
+  </form>
+</div>
+</nav>
+
+<!--
 <nav class="navbar navbar-default navbar-fixed-top">
    <div class="container-fluid">
       <div class="navbar-header">
@@ -60,4 +111,4 @@
         </div>
         </div>
             {/if}
-</nav>
+</nav>-->

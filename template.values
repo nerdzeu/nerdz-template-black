@@ -6,9 +6,10 @@
     // CSS section
     "css": {
         "default": [
-            "css/bootstrap.css",
+            "css/bootstrap-v4.css",
             "css/default.css",
-            "css/base.css"
+            "css/base.css",
+            "css/materialdesignicons.min.css"
         ],
         "index": [
             "css/bootstrap-select.css",
@@ -33,7 +34,8 @@
     // JS sections
     "js": {
         "default": [
-            "js/bootstrap.min.js",
+            "js/tether.min.js",
+            "js/bootstrap-v4.min.js",
             "js/default.js",
             "js/jquery.caret.js",
             "js/jquery.atwho.js",
