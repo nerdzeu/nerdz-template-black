@@ -1,114 +1,68 @@
-
 <nav class="navbar navbar-toggleable-md navbar-light bg-color-1 fixed-top">
   <button class="navbar-toggler navbar-toggler-right color-2" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon" stroke="rgba(255, 0, 0, 0.5)"></span>
   </button>
   <div class="navbar-text" style="width: 250px;">
-    <a class="navbar-brand homepage" href="/">NERDZ</a>
+    <a class="navbar-brand float-left" href="/">NERDZ</a>
     {if="$logged_b"}
-    <!--ul class="horizontal-list">
-    <li id="navbar-interactions" class="interaction-icon"-->
-      <a href="/pm.php" accesskey="m">
-        <i class="mdi mdi-24px mdi-comment"></i>
-        <span id="pmcounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
-      </a>
-      <!--li id="notifications" class="interaction-icon"-->
-      <a href="#">
-        <i class="mdi mdi-24px mdi-earth"></i>
-        <span id="notifycounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
-      </a>
-      {/if}
-    </div>
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <div class="form-inline my-2 my-lg-0" style="margin: 0 auto;"> </div>
-      <ul class="navbar-nav mr-auto" style="margin-right: 0 !important;">
-        {if="$logged_b"}
-        <li class="nav-item">
-         <a class="nav-link" href="/{$myusername4link_n}" accesskey="p">
-           <img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}
-         </a>
-       </li class="nav-item">
-       <li  class="nav-item{if="$position_n == 'preferences'"} active{/if}">
-        <a class="nav-link" href="/preferences.php" accesskey="z">
-          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {$preferences}
+    <a href="/pm.php" accesskey="m">
+      <i class="mdi mdi-24px mdi-comment"></i>
+      <span id="pmcounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
+    </a>
+    <a id="notifications" href="#">
+      <i class="mdi mdi-24px mdi-earth"></i>
+      <span id="notifycounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
+    </a>
+    {/if}
+  </div>
+  <div class="collapse navbar-collapse" id="mainNavbar">
+    <div class="form-inline my-2 my-lg-0" style="margin: 0 auto;"> </div>
+    <ul class="navbar-nav mr-auto" style="margin-right: 0 !important;">
+      {if="$logged_b"}
+      <li class="nav-item">
+        <a class="nav-link" href="/{$myusername4link_n}" accesskey="p">
+          <img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}
         </a>
       </li>
       <li class="nav-item">
-       <a class="nav-link" href="#searchrow" data-toggle="collapse"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> {$search}</a>
-     </li>
-     <li class="nav-item"><a class="nav-link" href="/" id="logout" data-tok="{$tok_n}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {$logout}</a></li>
-     {/if}
-   </ul>
- </div>
-
- <div id="searchrow" class="bg-color-1 container-fluid collapse">
-  <form id="footersearch" role="search">
-    <input type="text" style="width: 100%;" name="q" placeholder="{$search}...">
-  </form>
-</div>
+        <a class="nav-link{if="$position_n == 'preferences'"} active{/if}" href="/preferences.php" accesskey="z">
+          {$preferences}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#searchrow" data-toggle="collapse">
+          {$search}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/" id="logout" data-tok="{$tok_n}">
+          {$logout}
+        </a>
+      </li>
+      {else}
+      <li class="nav-item">
+      <a class="nav-link{if="$position_n == 'stats'"} active{/if}" href="/stats.php">
+          {$stats}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link{if="$position_n == 'terms'"} active{/if}" href="/terms.php">
+          {$terms}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link{if="$position_n == 'informations'"} active{/if}" href="/informations.php">
+          {$informations}
+        </a>
+      </li>
+      {/if}
+    </ul>
+  </div>
+  {if="$logged_b"}
+  <div id="searchrow" class="bg-color-1 container-fluid collapse">
+    <form id="footersearch" role="search">
+      <input type="text" style="width: 100%;" name="q" placeholder="{$search}...">
+    </form>
+  </div>
+  {/if}
 </nav>
-
-<!--123
-<nav class="navbar navbar-default navbar-fixed-top">
-   <div class="container-fluid">
-      <div class="navbar-header">
-         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navmenu" aria-expanded="false">
-            <span class="sr-only">Menu</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-         </button>
-          <a class="navbar-brand" href="/">NERDZ</a>
-          {if="$logged_b"}
-          <div id="navbar-interactions">
-              <ul id="title_right" class="list-inline">
-                  <li>
-                      <a href="/pm.php" accesskey="m">
-                          <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                          <span id="pmcounter" accesskey="q" class="badge badge-notify"></span>
-                      </a>
-                  </li>
-                  <li id="notifications">
-                      <a href="#">
-                          <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                          <span id="notifycounter" accesskey="q" class="badge badge-notify"></span>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-          {/if}
-      </div>
-      <div class="collapse navbar-collapse" id="navmenu">
-         <ul class="nav navbar-nav navbar-right">
-             {if="$logged_b"}
-             <li>
-                 <a href="/{$myusername4link_n}" accesskey="p">
-                     <img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}
-                 </a>
-             </li>
-             <li {if="$position_n == 'preferences'"}class="active"{/if}>
-                <a href="/preferences.php" accesskey="z">
-                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {$preferences}
-                </a>
-             </li>
-             <li>
-                 <a href="#searchrow" data-toggle="collapse"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> {$search}</a>
-             </li>
-             <li><a href="/" id="logout" data-tok="{$tok_n}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> {$logout}</a></li>
-         </ul>
-        </div>
-        </div>
-        <div id="searchrow" class="container-fluid collapse">
-            <form id="footersearch" role="search">
-               <input type="text" style="width: 100%; height: 30px; margin: 10px 0;" name="q" placeholder="{$search}...">
-            </form>
-        </div>
-            {else}
-            <li {if="$position_n == 'informations'"}class="active"{/if}><a href="/informations.php"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> {$informations}</a></li>
-            <li {if="$position_n == 'stats'"}class="active"{/if}><a href="/stats.php"><span class="glyphicon glyphicon-stats" aria-hidden="true"> </span>{$stats}</a></li>
-            <li {if="$position_n == 'terms'"}class="active"{/if}><a href="/terms.php"><span class="glyphicon glyphicon-list" aria-hidden="true"> </span>{$terms}</a></li>
-            </ul>
-        </div>
-        </div>
-            {/if}
-</nav>-->

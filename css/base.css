@@ -356,19 +356,13 @@ body{
 .bg-color-alert{ background-color: #D9534F !important; }
 
 /* HEADER */
-ul.horizontal-list{
-    position: relative;
-    display: inline;
-    list-style: none;
-}
 
-a.homepage, li.interaction-icon{
+.float-left{
     float: left;
 }
 
-#navbar-interactions, #notifications{
-    padding-top: 8px;
-    line-height: 24px;
+a.nav-link.active{
+    font-weight: bold;
 }
 
 span.navbar-toggler-icon{
