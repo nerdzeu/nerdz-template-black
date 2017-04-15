@@ -70,7 +70,10 @@ $(document).ready(function() {
     if ($("#left_col").length && window.location.pathname == "/home.php" && typeof N.version !== "undefined" && N.version != "null") {
         $("#left_col .title").eq(0).append("<small><a href='https://github.com/nerdzeu/nerdz.eu/commit/" + N.version + "' target='wowsoversion'>[" + N.version + "]</a></small>");
     }
-
+    $(".navbar-toggler").on("click", function(){
+        console.log("collapsing");
+        $("#searchrow").collapse('hide');
+    })
     $("#notifications").on("click", function(e) {
         e.preventDefault();
         var list = $("#notify_list"), $counter = $("#notifycounter"), old = $counter.html();

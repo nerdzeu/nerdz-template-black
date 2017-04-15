@@ -1,99 +1,103 @@
-<div class="container-fluid" style="padding: 10px 0 10px 0;">
-    <!-- LEFT COLUMN -->
-    <div class="col-xs-12 col-lg-4">
-        <!-- WELCOME ROW -->
-        <div class="container-fluid whitebackground">
-            <h1>{$welcome}!</h1>
-            <p>{$presentation_n}</p>
+<div class="container">
+    <div class="row d-flex align-items-stretch" style="padding: 20px 0;">
+        <div class="hidden-md-down col-lg-6 font-weight-light">
+            <h2 class="font-weight-bold color-1 uppercase border-bottom">Latest Posts</h2>
+            <div class="console">
+                {loop="list_a"}
+                {if="!$value.news_b"}
+                <div class="message">
+                    <span class="color-4">{$value.from_n}</span>: {$value.message_n}
+                </div>
+                <hr class="home-divider" />
+                {/if}
+                {/loop}
+            </div>
         </div>
-        {include="common/login"}
-    </div>
-    <!-- RIGHT COLUMN -->
-    <div class="col-xs-12 col-lg-8">
-        <!-- SIGN UP ROW -->
-        <div class="container-fluid whitebackground littleboxshadow">
-            <form id="regfrm">
-                <div class="col-xs-12">
-                    <h2>{$register}</h2>
-                </div>
-                <div class="col-xs-12 col-lg-6 ">
-                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="name"
-                           placeholder="{$name}" required/>
-                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="surname"
-                           placeholder="{$surname}" required/>
-
-                    <div class="input-group" style="margin-bottom: 4px;">
-                            <span class="input-group-addon noborderradius noborder" id="basic-addon1"
-                                  style="padding: 0 5px; background-color: black;"><img src="{$captchaurl_n}#" id="captcha"
-                                                                                        title="captcha"> <span class="glyphicon glyphicon-refresh" aria-hidden="true"
-                                                                                                               onclick="N.reloadCaptcha()"
-                                                                                                               style="cursor: pointer; vertical-align: middle; color: white;"></span></span>
-                        <input type="text" id="cptxt" class="form-control noborderradius" name="captcha"
-                               placeholder="{$captcha}:" required aria-describedby="basic-addon1"/>
-                    </div>
-
-                    <div class="col-xs-12 col-lg-6 nopadding" style="text-align: center;">
-                        <select id="gender" class="selectpicker" name="gender" data-width="100%" data-style="btn-info">
-                            <option value="1">{$male}</option>
-                            <option value="2">{$female}</option>
-                        </select>
-                    </div>
-
-                    <div class="col-xs-12 col-lg-6 nopadding" style="text-align: center; margin-bottom: 5px;">
-                        <select id="timezone" class="selectpicker" name="timezone" data-width="100%" >
-                            {loop="timezones_a"}
-                            <option value="{$value}">{$value}</option>
-                            {/loop}
-                        </select>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-lg-6">
-                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="username"
-                           placeholder="{$username}" required/>
-                    <input type="text" class="form-control noborderradius" style="margin-bottom: 4px;" name="email"
-                           placeholder="{$email}" required/>
-                    <input type="password" class="form-control noborderradius" style="margin-bottom: 4px;"
-                           name="password" placeholder="{$password}" required/>
-                    <input class="form-control noborderradius" style="margin-bottom: 4px;" id="datepicker" name="date"
-                           placeholder="{$birth_date}" type="text"/>
-
-                </div>
-                <div class="col-xs-12" style="margin: 10px 0; text-align: right">
-                    <button type="reset" class="btn btn-danger noborderradius" style="color: white; !important;">reset</button>
-                    <button type="submit" class="btn btn-success noborderradius">{$register}</button>
-                </div>
-                <select name="birth_day" hidden>
-                    <option value="-1" selected></option>
-                </select>
-                <select name="birth_month" hidden>
-                    <option value="-1" selected></option>
-                </select>
-                <select name="birth_year" hidden>
-                    <option value="-1" selected></option>
-                </select>
-            </form>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <h2 class="font-weight-bold color-1 uppercase border-bottom">{$welcome}!</h2>
+            <p class="font-weight-light color-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. $presentation_n
+            </p>
+            {include="common/login"}
         </div>
     </div>
-    <script>
-        $(function () {
-            var date_input = $('#datepicker');
-            var container = $('#datepicker').parent();
-            var options = {
-                format: 'dd/mm/yyyy',
-                container: container,
-                todayHighlight: true,
-                orientation: "bottom auto",
-                autoclose: true,
-            };
-            date_input.datepicker(options);
-        });
+</div>
+<!-- REGISTER -->
+<div class="container bg-color-1 color-4" style="padding: 20px 15px;">
+    <div class="col-xs-12">
+        <h2 class="font-weight-bold uppercase">{$register}</h2>
+    </div>
+    <form id="regfrms">
+        <div class="row font-weight-light">
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="reg-name">{$name}</label>
+                    <input class="form-control" type="text" id="reg-name" name="name" placeholder="{$name}" required">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="reg-surname">{$surname}</label>
+                    <input class="form-control" type="text" id="reg-surname" name="surname" placeholder="{$surname}" required">
+                </div>
+                <div class="form-group">
+                    <label for="reg-gender" class="sr-only">{$gender}</label>
+                    <select class="form-control" id="reg-gender" name="gender">
+                        <option value="1">{$male}</option>
+                        <option value="2">{$female}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="reg-birth_date">{$birth_date}</label>
+                    <input class="form-control" type="date" id="reg-birth_date" name="date">
+                </div>
 
-        $("#datepicker").on("change", function() {
-            var data = this.value;
-            var valori = data.split("/");
-            $("select[name=birth_day] option:selected").val(valori[0]);
-            $("select[name=birth_month] option:selected").val(valori[1]);
-            $("select[name=birth_year] option:selected").val(valori[2]);
-        });
-    </script>
+                <div class="form-group">
+                    <!--div class="row container-fluid">
+                        <label for="cptxt" class="col-sm-3 col-md-3 col-lg-2 col-form-label no-padding-right no-padding-left" style="background-color: black;">
+                            <span id="captcha-box" onclick="N.reloadCaptcha()">
+                                <img src="{$captchaurl_n}#" id="captcha" title="captcha">
+                            </span>
+                        </label>
+                        <div class="col-sm-9 col-md-9 col-lg-10">
+                            <input class="form-control" type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required>
+                        </div>
+                    </div-->
+                    <label class="sr-only" for="cptxt">Captcha</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="background-color: black;">
+                            <img src="{$captchaurl_n}#" id="captcha" title="captcha">
+                        </div>
+                        <input class="form-control" type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="reg-timezone" class="sr-only" name="timezone">{$timezone}</label>
+                    <select class="form-control" id="reg-timezone">
+                        {loop="timezones_a"}
+                        <option value="{$value}">{$value}</option>
+                        {/loop}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="reg-username">{$username}</label>
+                    <input class="form-control" type="text" id="reg-username" name="username" placeholder="{$username}" required">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="reg-email">{$email}</label>
+                    <input class="form-control" type="text" id="reg-email" name="email" placeholder="{$email}" required">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="reg-password">{$password}</label>
+                    <input class="form-control" type="password" id="reg-password" name="password" placeholder="{$password}" required">
+                </div>
+
+                <div class="form-group text-right">
+                    <input class="btn btn-danger" type="reset" value="Reset">
+                    <input class="btn btn-success" type="submit" value="{$register}">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 </div>

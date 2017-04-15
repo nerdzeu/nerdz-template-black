@@ -1,36 +1,39 @@
 <!-- LOGIN ROW -->
-<div id="title_right" class="container-fluid login littleboxshadow">
-    <h2 class="nomargintop whitetext">{$login}</h2>
-    <form id="loginfrm">
-        <div class="input-group input-group-md whitebackground littleboxshadow nopadding"
-             style="margin-bottom: 10px;">
-            <span class="input-group-addon noborderradius"><span class="glyphicon glyphicon-user"></span></span>
-            <input type="text" class="form-control noborder" name="username" placeholder="{$username} | ID | {$email}" required/>
-        </div>
-        <div class="input-group input-group-md whitebackground littleboxshadow nopadding"
-             style="margin-bottom: 10px;">
-            <span class="input-group-addon noborderradius"><span class="glyphicon glyphicon-lock"></span></span>
-            <input type="password" class="form-control noborder" name="password" placeholder="{$password}" required/>
-            <input type="hidden" value="{$tok_n}" name="tok"/>
-        </div>
-
-        <input type="checkbox" name="setcookie" id="remember" checked><label for="remember" class="whitetext">{$remember_me}</label><br />
-        <input type="checkbox" name="offline" id="markoffline"><label for="markoffline" class="whitetext">{$hide_status}</label><br/>
-        <button type="submit" class="btn btn-success noborderradius littleboxshadow">{$login}</button>
-        &nbsp;
-        <a style="color: white !important;" href="/reset.php"
-           class="btn btn-danger noborderradius littleboxshadow">{$forgot_password}</a>
-    </form>
-    <div id="loginmsgbox" class="error"></div>
-</div>
+<form id="loginfrm">
+<h2 class="font-weight-bold uppercase">{$login}</h2>
+    <div class="form-group">
+        <label class="sr-only" for="username">{$username}</label>
+        <input type="text" class="form-control border" id="username" name="username" placeholder="{$username} | ID | {$email}" required">
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="username">{$password}</label>
+        <input type="password" class="form-control border" name="password" placeholder="{$password}" required>
+        <input type="hidden" value="{$tok_n}" name="tok"/>
+    </div>
+    <div class="form-check">
+        <label for="remember" class="form-check-label no-padding-left">
+            <input type="checkbox" name="setcookie" id="remember" class="form-check-input" checked>
+            {$remember_me}
+        </label>
+        <label for="markoffline" class="form-check-label no-padding-left">
+            <input type="checkbox" name="offline" id="markoffline" class="form-check-input">
+            {$hide_status}
+        </label>
+    </div>
+    <div class="form-group no-margin-bottom">
+    <button type="submit" class="btn btn-success uppercase">{$login}</button>
+    <a href="/reset.php" class="btn btn-danger uppercase" style="color: #ffffff;">{$reset_password}</a>
+    </div>
+</form>
+<div id="loginmsgbox" class="alert alert-info" role="alert" style="display: none;"></div>
 <script>
     $("#loginfrm").on('submit', function (event) {
         var $me = $(this), t = $("#loginmsgbox");
         t.html(N.getLangData().LOADING);
-        $me.hide();
         event.preventDefault();
         N.json.login($me.serialize() +'&query_string={if="isset($querystring_n)"}{$querystring_n}{/if}', function (r) {
             t.html(r.message);
+            t.css("display", "block");
             if (r.status == 'ok') {
                 setTimeout(function () {
                     if(typeof r.redirect === 'undefined') {
@@ -43,6 +46,7 @@
             else {
                 setTimeout(function () {
                     t.html('');
+                    t.css("display","none")
                     $me.show();
                 }, 1500);
             }

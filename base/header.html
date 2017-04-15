@@ -1,68 +1,68 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-color-1 fixed-top">
-  <button class="navbar-toggler navbar-toggler-right color-2" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon" stroke="rgba(255, 0, 0, 0.5)"></span>
-  </button>
-  <div class="navbar-text" style="width: 250px;">
-    <a class="navbar-brand float-left" href="/">NERDZ</a>
+<nav class="navbar navbar-toggleable-md navbar-light font-weight-light bg-color-1 link-color-4 uppercase fixed-top">
+    <button class="navbar-toggler navbar-toggler-right color-2" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" stroke="rgba(255, 0, 0, 0.5)"></span>
+    </button>
+    <div class="navbar-text" style="width: 250px;">
+        <a class="navbar-brand float-left" href="/">NERDZ</a>
+        {if="$logged_b"}
+        <a href="/pm.php" accesskey="m">
+            <i class="mdi mdi-24px mdi-comment"></i>
+            <span id="pmcounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
+        </a>
+        <a id="notifications" href="#">
+            <i class="mdi mdi-24px mdi-earth"></i>
+            <span id="notifycounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
+        </a>
+        {/if}
+    </div>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+        <div class="form-inline my-2 my-lg-0" style="margin: 0 auto;"> </div>
+        <ul class="navbar-nav mr-auto" style="margin-right: 0 !important;">
+            {if="$logged_b"}
+            <li class="nav-item">
+                <a class="nav-link" href="/{$myusername4link_n}" accesskey="p">
+                    <img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link{if="$position_n == 'preferences'"} active{/if}" href="/preferences.php" accesskey="z">
+                    {$preferences}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#searchrow" data-toggle="collapse">
+                    {$search}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/" id="logout" data-tok="{$tok_n}">
+                    {$logout}
+                </a>
+            </li>
+            {else}
+            <li class="nav-item">
+                <a class="nav-link{if="$position_n == 'stats'"} active{/if}" href="/stats.php">
+                    {$stats}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link{if="$position_n == 'terms'"} active{/if}" href="/terms.php">
+                    {$terms}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link{if="$position_n == 'informations'"} active{/if}" href="/informations.php">
+                    {$informations}
+                </a>
+            </li>
+            {/if}
+        </ul>
+    </div>
     {if="$logged_b"}
-    <a href="/pm.php" accesskey="m">
-      <i class="mdi mdi-24px mdi-comment"></i>
-      <span id="pmcounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
-    </a>
-    <a id="notifications" href="#">
-      <i class="mdi mdi-24px mdi-earth"></i>
-      <span id="notifycounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
-    </a>
+    <div id="searchrow" class="bg-color-1 container-fluid collapse">
+        <form id="footersearch" role="search">
+            <input type="text" style="width: 100%;" name="q" placeholder="{$search}...">
+        </form>
+    </div>
     {/if}
-  </div>
-  <div class="collapse navbar-collapse" id="mainNavbar">
-    <div class="form-inline my-2 my-lg-0" style="margin: 0 auto;"> </div>
-    <ul class="navbar-nav mr-auto" style="margin-right: 0 !important;">
-      {if="$logged_b"}
-      <li class="nav-item">
-        <a class="nav-link" href="/{$myusername4link_n}" accesskey="p">
-          <img class="avataricon" alt="avatar" src="{$mygravatarurl_n}&s=16#" /> {$myusername_n}
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link{if="$position_n == 'preferences'"} active{/if}" href="/preferences.php" accesskey="z">
-          {$preferences}
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#searchrow" data-toggle="collapse">
-          {$search}
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/" id="logout" data-tok="{$tok_n}">
-          {$logout}
-        </a>
-      </li>
-      {else}
-      <li class="nav-item">
-      <a class="nav-link{if="$position_n == 'stats'"} active{/if}" href="/stats.php">
-          {$stats}
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link{if="$position_n == 'terms'"} active{/if}" href="/terms.php">
-          {$terms}
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link{if="$position_n == 'informations'"} active{/if}" href="/informations.php">
-          {$informations}
-        </a>
-      </li>
-      {/if}
-    </ul>
-  </div>
-  {if="$logged_b"}
-  <div id="searchrow" class="bg-color-1 container-fluid collapse">
-    <form id="footersearch" role="search">
-      <input type="text" style="width: 100%;" name="q" placeholder="{$search}...">
-    </form>
-  </div>
-  {/if}
 </nav>

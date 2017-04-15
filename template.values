@@ -13,7 +13,8 @@
         ],
         "index": [
             "css/bootstrap-select.css",
-            "css/bootstrap-datepicker3.css"
+            "css/bootstrap-datepicker3.css",
+            "css/home.css"
         ],
         "home": [
             "css/bootstrap-select.css"
