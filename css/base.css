@@ -110,26 +110,6 @@ body{
 .font-weight-light{ font-weight: 300; }
 .font-weight-bold{ font-weight: 500; }
 
-
-/* CONSOLE */
-
-div.console{
-    max-height: 423px;
-    overflow-y: scroll;
-}
-
-
-div.message{
-    display: block;
-    max-height: 50px;
-    text-overflow: ellipsis;
-    overflow:hidden;
-}
-
-hr.home-divider{
-    width: 30%;
-}
-
 /* NO-BOOTSTRAP-BORDER-RADIUS */
 button, .btn, .form-control, .input-group-addon { border-radius: 0 !important }
 
