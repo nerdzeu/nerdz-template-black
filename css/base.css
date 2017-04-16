@@ -26,39 +26,6 @@ div.balloon-right{
     flex-direction: row;
 }
 
-/* nz element (nerdz element)*/
-.nz-right-sidebar{
-    margin-top: 15px;
-}
-
-.nz-left-sidebar{
-    margin-top: 2px;
-    padding: 13px;
-}
-
-/* HOME META */
-
-.list-group-item-black, .list-group-item-black-last, .list-group-item-black-last-description {
-    background-color: #212121 !important;
-    border-bottom: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0 !important;
-}
-
-.list-group-item-black, .list-group-item-black-last{
-    border-top: 1px solid #3e3f3a !important;
-    color: #848484;
-}
-
-.list-group-item-black-last-description{
-    border-top: 0 !important;
-}
-
-#informationlist > ul {
-    border-top: 1px solid #3e3f3a !important;
-    border-radius: 0;
-}
 /* NEW CSS RULES*/
 /* BODY */
 body{
@@ -116,13 +83,14 @@ body a{
 .border{border: 1px solid !important;}
 .border-bottom{ border-bottom: 1px solid; }
 .border-left{ border-left: 1px solid;}
-
+.no-border{ border: 0 !important; }
 .float-left{ float: left; }
 
 .font-weight-light{ font-weight: 300; }
 .font-weight-bold{ font-weight: 500; }
 
 .link-bold a{ font-weight: 500; }
+.line-height-28{ line-height: 28px !important; }
 /* NO-BOOTSTRAP-BORDER-RADIUS */
 button, .btn, .form-control, .input-group-addon { border-radius: 0 !important }
 /* HEADER */
@@ -158,4 +126,27 @@ span.navbar-toggler-icon{
 ul.clean-list{
     list-style-type: none;
     padding-left: 0;
+}
+
+/* MAIN */
+#frmtxt{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: 0;
+}
+
+.form-toolbar a, .form-toolbar select{
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.nerdz-button{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 10px;
 }

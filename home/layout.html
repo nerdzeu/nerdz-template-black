@@ -1,20 +1,24 @@
-<div id="main" class="container-fluid" style="padding: 20px;">
+<div id="main" class="container-fluid" style="padding-top: 20px;">
     <div class="row">
         <!-- LEFT -->
-        <div class="col">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
             {include="home/meta"}
             {include="home/meta-mobile"}
         </div>
+        <!-- MAIN -->
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-8">
+            {include="common/form"}
+            <div id="postlist" data-type="profile" data-location="home" data-mode="std">
+            </div>
+        </div>
+        <div class="hidden-lg-down col-xl-2">
+            {include="common/trends"}
+        </div>
     </div>
-
-    <div id="main" class="container-fluid nopaddingleft nopaddingright">
+</div>
+    <div id="mains" class="container-fluid nopaddingleft nopaddingright" style="display: none">
         <!-- LEFT BAR -->
         <!-- CENTER -->
-        <div class="col-xs-12 col-sm-8 nopadding transparentbackground" style="min-height: 300px;">
-            {include="common/form"}
-            <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
-        </div>
-        <!-- END CENTER-->
         <!-- RIGHT BAR -->
         <div class="hidden-xs col-sm-4 col-md-2 nopaddingleft nopaddingright nz-right-sidebar">
             <div class="container-fluid nomarginbottom nomargintop nopaddingtop visible-xs visible-sm">
@@ -22,7 +26,7 @@
             </div>
             <!-- TENDENZE -->
             <div class="container-fluid" style="margin-bottom: 10px">
-                {include="common/trends"}
+                
             </div>
             <!-- OWNER OF -->
             {if="!empty($ownerof_a)"}

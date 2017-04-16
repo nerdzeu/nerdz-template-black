@@ -1,48 +1,44 @@
-<div id="fast_nerdz littleboxshadow">
-    <div class="container-fluid nopadding">
-        <form id="stdfrm" data-to="{$id_n}">
-            <textarea id="frmtxt" name="message" class="boxsizingBorder vertical"></textarea>
+<div id="fast_nerdz" class="container-fluid">
+    <form id="stdfrm" data-to="{$id_n}">
+        <div class="row color-3">
             <!-- ADMIN ONLY -->
             {if="$canwritenews_b || $canwriteissue_b"}
-            <div class="col-xs-12 nomargin nopadding whitebackground">
-                {if="$canwritenews_b"}
-                <input type="checkbox" name="news" value="1" id="sendnews" />&nbsp;<label for="sendnews">News</label>
-                {/if}
-                {if="$canwriteissue_b"}
-                <input type="checkbox" name="issue" value="1" id="sendissue" class="" />&nbsp;<label for="sendissue">{$open_issue_on_github}</label>
-                {/if}
-            </div>
+            {if="$canwritenews_b"}
+            <label for="sendnews" class="form-check-label no-padding-left">
+                <input type="checkbox" name="news" value="1" id="sendnews" class="form-check-input">
+                News
+            </label>
             {/if}
-            <!-- FORM OPTIONS-->
-            <div class="col-md-11 hidden-xs hidden-sm nopadding">
-                <a class="btn btn-info noborderradius hidden-sm hidden-xs preview"  href="#" data-refto="#frmtxt" role="button" style="color: #FFFFFF !important;">{$preview}</a>
-                <a class="btn btn-info noborderradius  hidden-sm hidden-xs" href="/bbcode.php" target="_blank" style="color: #FFFFFF !important;" role="button">BBCode</a>
-                <a href="#" class="btn btn-info noborderradius hidden-sm hidden-xs nerdzcrush-upload" style="color: #FFFFFF !important;" role="button">
-                    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-                    &nbsp;NerdzCrush
-                </a>
-                <select name="lang" class="selectpicker hidden-sm hidden-xs" data-width="fit" data-style="btn-info">
+            {if="$canwriteissue_b"}
+            <label for="sendissue" class="form-check-label no-padding-left">
+                <input type="checkbox" name="issue" value="1" id="sendissue" class="form-check-input">
+                {$open_issue_on_github}
+            </label>
+            {/if}
+            {/if}
+        </div>
+        <div class="row color-3">
+            <div class="col-10 col-xs-10 col-sm-10 col-md-10 col-lg-11 col-xl-11 no-padding">
+            </div>
+            <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-1 col-lg-1 no-padding">
+            </div>
+        </div>
+        <div class="row bg-color-3-opacity-20" style="padding: 15px;">
+            <div class="col col-xs-6 col-sm-6 col-md-9 col-lg-10 no-padding-left uppercase form-toolbar">
+                <textarea id="frmtxt" name="message" class="vertical" placeholder="Inserisci il tuo messaggio..." style="background-color: transparent;"></textarea>
+                
+            </div>
+            <div class="col col-xs-6 col-sm-6 col-md-3 col-lg-2 no-padding-left no-padding-right form-toolbar">
+                <select class="form-control color-1" name="lang" style="background-color: transparent; height: 24px;">
                     {loop="langs_a"}
                     <option value="{$value.shortlang_n}" {if="$value.shortlang_n == $mylang_n"}selected{/if}>{$value.longlang_n}</option>
                     {/loop}
                 </select>
-                <div id="pmessage" class="error"></div>
+                <a class="uppercase nerdzcrush-upload" href="#" role="button">NerdzCrush</a>
+                <a preview" href="#" data-refto="#frmtxt">{$preview}</a>
+                <a href="/bbcode.php" target="_blank" role="button">BBCode</a>
+                <input type="submit" class="nerdz-button bg-color-1 color-4 no-border" value="{$nerdz_it}">
             </div>
-            <!-- MOBILE UPLOAD BUTTON -->
-            <div class="col-xs-4 visible-xs visible-sm nomargin nopadding text-right">
-                <a href="#" class="btn btn-info btn-block noborderradius nerdzcrush-upload" style="color: #FFFFFF !important;" role="button">
-                    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-                    &nbsp;NerdzCrush
-                </a>
-            </div>
-            <!-- MOBILE BBCODE BUTTON -->
-            <div class="col-xs-4 visible-xs visible-sm  nomargin nopadding text-right">
-                <a class="btn btn-info btn-block noborderradius" href="/bbcode.php" target="_blank" style="color: #FFFFFF !important;" role="button">BBCode</a>
-            </div>
-            <!-- SUBMIT BUTTON -->
-            <div class="col-xs-4 col-md-1 nomargin nopadding text-right">
-                <input type="submit" class="btn btn-info btn-block noborderradius" value="{$nerdz_it}">
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
