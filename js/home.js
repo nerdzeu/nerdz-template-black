@@ -170,8 +170,8 @@ $(document).ready(function() {
         }
         localStorage.setItem("autolang", lang);
         localStorage.removeItem("autoorder");
-        $(".selectlang").css("color", "");
-        $(this).css("color", "#2370B6");
+        $(".selectlang").removeClass("color-4");
+        $(this).addClass("color-4");
         handleRefresh();
     });
     $(".projlang").on("click", function() {
@@ -243,7 +243,7 @@ $(document).ready(function() {
         el = $("#nerdzlist").find("ul").find("[data-lang='*']");
     }
     el.click();
-    el.css("color", "#2370B6");
+    el.addClass("color-4");
 
     var tmpDivId = "scrtxt";
     var manageScrollResponse = function(data) {
