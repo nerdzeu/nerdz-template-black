@@ -64,6 +64,7 @@ div.balloon-right{
 body{
     font-family: 'Raleway', sans-serif;
     margin-top: 64px;
+    background-color: #3a3a3a;
 }
 /* BASE COLORS */
 
@@ -88,10 +89,12 @@ body{
 .bg-color-4{ background-color: #cdc7c7 !important; }
 
 .bg-color-success{ background-color: #93C54B !important; }
-
 .bg-color-alert{ background-color: #D9534F !important; }
 
+.link-color-1 a{ color: #131415 !important; }
 .link-color-4 a{ color: #cdc7c7 !important; }
+
+
 /* COMMON */
 
 .uppercase{ text-transform: uppercase;}
@@ -110,9 +113,9 @@ body{
 .font-weight-light{ font-weight: 300; }
 .font-weight-bold{ font-weight: 500; }
 
+.link-bold a{ font-weight: 500; }
 /* NO-BOOTSTRAP-BORDER-RADIUS */
 button, .btn, .form-control, .input-group-addon { border-radius: 0 !important }
-
 /* HEADER */
 
 @media screen and (max-width: 991px) { #searchrow{ padding: 0; width: 100%; margin: 0; } } /* search row for mobile */

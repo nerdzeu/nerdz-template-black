@@ -1,21 +1,21 @@
 <div class="container">
     <div class="row d-flex align-items-stretch" style="padding: 20px 0;">
         <div class="hidden-md-down col-lg-6 font-weight-light">
-            <h2 class="font-weight-bold color-1 uppercase border-bottom">Latest Posts</h2>
-            <div class="feed">
+            <h2 class="font-weight-bold color-4 uppercase border-bottom">Latest Posts</h2>
+            <div class="feed color-3">
                 {loop="list_a"}
                 {if="!$value.news_b"}
-                <div class="message">
-                    <span class="color-4">{$value.from_n}</span>: {$value.message_n}
+                <div class="message link-color-1 link-bold">
+                    <span class="color-4 font-weight-bold uppercase">{$value.from_n}</span>: {$value.message_n}
                 </div>
-                <hr class="home-divider" />
+                <hr class="home-divider bg-color-3" />
                 {/if}
                 {/loop}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-            <h2 class="font-weight-bold color-1 uppercase border-bottom">{$welcome}!</h2>
-            <p class="font-weight-light color-2">
+            <h2 class="font-weight-bold color-4 uppercase border-bottom">{$welcome}!</h2>
+            <p class="font-weight-light color-3">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. $presentation_n
             </p>
             {include="common/login"}
@@ -51,16 +51,6 @@
                 </div>
 
                 <div class="form-group">
-                    <!--div class="row container-fluid">
-                        <label for="cptxt" class="col-sm-3 col-md-3 col-lg-2 col-form-label no-padding-right no-padding-left" style="background-color: black;">
-                            <span id="captcha-box" onclick="N.reloadCaptcha()">
-                                <img src="{$captchaurl_n}#" id="captcha" title="captcha">
-                            </span>
-                        </label>
-                        <div class="col-sm-9 col-md-9 col-lg-10">
-                            <input class="form-control" type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required>
-                        </div>
-                    </div-->
                     <label class="sr-only" for="cptxt">Captcha</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="background-color: black;">
