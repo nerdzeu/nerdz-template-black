@@ -92,7 +92,6 @@ body a{
 .link-bold a{ font-weight: 500; }
 .line-height-28{ line-height: 28px !important; }
 /* NO-BOOTSTRAP-BORDER-RADIUS */
-button, .btn, .form-control, .input-group-addon { border-radius: 0 !important }
 /* HEADER */
 
 @media screen and (max-width: 991px) { #searchrow{ padding: 0; width: 100%; margin: 0; } } /* search row for mobile */

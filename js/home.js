@@ -178,8 +178,8 @@ $(document).ready(function() {
         $("#fast_nerdz").hide();
         plist.html("<h1>" + loading + "...</h1>");
         lang = $(this).data("lang");
-        $(".projlang").css("color", "");
-        $(this).css("color", "#2370B6");
+        $(".projlang").removeClass("color-4");
+        $(this).addClass("color-4");
         load = false;
         if (!lang) {
             N.html.project.getFollowedHomePostList(0, function(data) {

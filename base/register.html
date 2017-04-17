@@ -1,93 +1,115 @@
+<div class="container-fluid">
 <div class="container">
     <div class="row d-flex align-items-stretch" style="padding: 20px 0;">
         <div class="hidden-md-down col-lg-6 font-weight-light">
-            <h2 class="font-weight-bold color-4 uppercase border-bottom">Latest Posts</h2>
+            <h2 class="font-weight-bold color-1 uppercase">Latest Posts</h2>
             <div class="feed color-3">
                 {loop="list_a"}
                 {if="!$value.news_b"}
-                <div class="message link-color-1 link-bold">
-                    <span class="color-4 font-weight-bold uppercase">{$value.from_n}</span>: {$value.message_n}
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-2 no-padding-left">
+                            <img class="img-fluid" src="{$value.fromgravatarurl_n}#" alt="Avatar" />
+                        </div>
+                        <div class="col-lg-10" style="padding-right: 3px;">
+                            <div class="message">
+                                <span class="message-content">{$value.message_n}</span>
+                                <div class="text-right">
+                                    <span class="color-1 font-weight-bold">{$value.from_n}</span>
+                                    {$value.date_n} <time>{$value.time_n}</time>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <hr class="home-divider bg-color-3" />
                 {/if}
                 {/loop}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-            <h2 class="font-weight-bold color-4 uppercase border-bottom">{$welcome}!</h2>
-            <p class="font-weight-light color-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. $presentation_n
+            <h2 class="font-weight-bold color-1 uppercase">{$welcome}!</h2>
+            <p id="welcome-text" class="font-weight-light color-3">
+                {$presentation_n}
             </p>
             {include="common/login"}
         </div>
     </div>
 </div>
+</div>
 <!-- REGISTER -->
-<div class="container bg-color-1 color-4" style="padding: 20px 15px;">
-    <div class="col-xs-12">
-        <h2 class="font-weight-bold uppercase">{$register}</h2>
-    </div>
-    <form id="regfrms">
-        <div class="row font-weight-light">
-            <div class="col-xs-12 col-sm-12 col-md-6">
-                <div class="form-group">
-                    <label class="sr-only" for="reg-name">{$name}</label>
-                    <input class="form-control" type="text" id="reg-name" name="name" placeholder="{$name}" required">
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="reg-surname">{$surname}</label>
-                    <input class="form-control" type="text" id="reg-surname" name="surname" placeholder="{$surname}" required">
-                </div>
-                <div class="form-group">
-                    <label for="reg-gender" class="sr-only">{$gender}</label>
-                    <select class="form-control" id="reg-gender" name="gender">
-                        <option value="1">{$male}</option>
-                        <option value="2">{$female}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="reg-birth_date">{$birth_date}</label>
-                    <input class="form-control" type="date" id="reg-birth_date" name="date">
-                </div>
+<div class="container-fluid bg-color-1 color-4">
+    <div class="container" style="padding-top: 20px;">
+        <div class="col-xs-12">
+            <h2 class="font-weight-bold uppercase">{$register}</h2>
+        </div>
+        <form id="regfrms">
+            <div class="row font-weight-light">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label class="sr-only" for="reg-name">{$name}</label>
+                        <input class="form-control bg-color-3-opacity-20" type="text" id="reg-name" name="name" placeholder="{$name}" required">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="reg-surname">{$surname}</label>
+                        <input class="form-control bg-color-3-opacity-20" type="text" id="reg-surname" name="surname" placeholder="{$surname}" required">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-gender" class="sr-only">{$gender}</label>
+                        <select class="form-control bg-color-3-opacity-20 color-1" id="reg-gender" name="gender">
+                            <option value="1">{$male}</option>
+                            <option value="2">{$female}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="reg-birth_date">{$birth_date}</label>
+                        <input class="form-control bg-color-3-opacity-20 color-1" type="date" id="reg-birth_date" name="date">
+                    </div>
 
-                <div class="form-group">
-                    <label class="sr-only" for="cptxt">Captcha</label>
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="background-color: black;">
-                            <img src="{$captchaurl_n}#" id="captcha" title="captcha">
+                    <div class="form-group">
+                        <label class="sr-only" for="cptxt">Captcha</label>
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="background-color: black;">
+                                <img src="{$captchaurl_n}#" id="captcha" title="captcha">
+                            </div>
+                            <input class="form-control bg-color-3-opacity-20" type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required>
                         </div>
-                        <input class="form-control" type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="reg-timezone" class="sr-only" name="timezone">{$timezone}</label>
+                        <select class="form-control bg-color-3-opacity-20 color-1" id="reg-timezone">
+                            {loop="timezones_a"}
+                            <option value="{$value}">{$value}</option>
+                            {/loop}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="reg-username">{$username}</label>
+                        <input class="form-control bg-color-3-opacity-20" type="text" id="reg-username" name="username" placeholder="{$username}" required">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="reg-email">{$email}</label>
+                        <input class="form-control bg-color-3-opacity-20" type="text" id="reg-email" name="email" placeholder="{$email}" required">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="reg-password">{$password}</label>
+                        <input class="form-control bg-color-3-opacity-20" type="password" id="reg-password" name="password" placeholder="{$password}" required">
+                    </div>
+
+                        <div class="form-group text-right">
+                            <input class="btn btn-danger" type="reset" value="Reset">
+                            <input class="btn btn-success" type="submit" value="{$register}">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6">
-                <div class="form-group">
-                    <label for="reg-timezone" class="sr-only" name="timezone">{$timezone}</label>
-                    <select class="form-control" id="reg-timezone">
-                        {loop="timezones_a"}
-                        <option value="{$value}">{$value}</option>
-                        {/loop}
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="reg-username">{$username}</label>
-                    <input class="form-control" type="text" id="reg-username" name="username" placeholder="{$username}" required">
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="reg-email">{$email}</label>
-                    <input class="form-control" type="text" id="reg-email" name="email" placeholder="{$email}" required">
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="reg-password">{$password}</label>
-                    <input class="form-control" type="password" id="reg-password" name="password" placeholder="{$password}" required">
-                </div>
-
-                <div class="form-group text-right">
-                    <input class="btn btn-danger" type="reset" value="Reset">
-                    <input class="btn btn-success" type="submit" value="{$register}">
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
-</form>
 </div>
+<script>
+    $(document).ready(function(){
+        var rightHeight = $("#welcome-text").height()+$("#loginfrm").height()+56;
+        $(".feed").css("max-height",rightHeight);
+    });
+</script>

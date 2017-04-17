@@ -29,7 +29,7 @@
                 
             </div>
             <div class="col col-xs-6 col-sm-6 col-md-3 col-lg-2 no-padding-left no-padding-right form-toolbar">
-                <select class="form-control color-1" name="lang" style="background-color: transparent; height: 24px;">
+                <select class="form-control color-1" name="lang" style="background-color: transparent;">
                     {loop="langs_a"}
                     <option value="{$value.shortlang_n}" {if="$value.shortlang_n == $mylang_n"}selected{/if}>{$value.longlang_n}</option>
                     {/loop}
