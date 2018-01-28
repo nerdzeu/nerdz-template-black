@@ -1,28 +1,27 @@
-<!-- LOGIN ROW -->
-<form id="loginfrm" class="color-1 bg-color-3-opacity-20">
-<h2 class="font-weight-bold uppercase">{$login}</h2>
+<form id="loginfrm" class="margin-bottom-40">
+<h2>{$login}</h2>
     <div class="form-group">
         <label class="sr-only" for="username">{$username}</label>
-        <input type="text" class="form-control bg-color-3-opacity-20 color-1" id="username" name="username" placeholder="{$username} | ID | {$email}" required">
+        <input type="text" class="form-control" id="username" name="username" placeholder="{$username} | ID | {$email}" required>
     </div>
     <div class="form-group">
         <label class="sr-only" for="username">{$password}</label>
-        <input type="password" class="form-control bg-color-3-opacity-20 color-1" name="password" placeholder="{$password}" required>
+        <input type="password" class="form-control" name="password" placeholder="{$password}" required>
         <input type="hidden" value="{$tok_n}" name="tok"/>
     </div>
-    <div class="form-check color-3">
-        <label for="remember" class="form-check-label no-padding-left">
+    <div class="form-check">
+        <label for="remember" class="form-check-label">
             <input type="checkbox" name="setcookie" id="remember" class="form-check-input" checked>
             {$remember_me}
         </label>
-        <label for="markoffline" class="form-check-label no-padding-left">
+        <label for="markoffline" class="form-check-label">
             <input type="checkbox" name="offline" id="markoffline" class="form-check-input">
             {$hide_status}
         </label>
     </div>
-    <div class="form-group no-margin-bottom">
-    <button type="submit" class="btn bg-color-1 color-4 uppercase">{$login}</button>
-    <a href="/reset.php" class="btn bg-color-2 uppercase color-4" >{$reset_password}</a>
+    <div class="form-group">
+    <button type="submit" class="btn login">{$login}</button>
+    <a href="/reset.php" class="btn reset" >{$reset_password}</a>
     </div>
 </form>
 <div id="loginmsgbox" class="alert alert-info" role="alert" style="display: none;"></div>

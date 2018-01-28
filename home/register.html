@@ -1,0 +1,39 @@
+<form id="regfrms" class="margin-bottom-40">
+  <div class="form-group">
+    <label class="sr-only" for="reg-username">{$username}</label>
+    <input class="form-control0" type="text" id="reg-username" name="username" placeholder="{$username}" required>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="reg-email">{$email}</label>
+    <input class="form-control0" type="text" id="reg-email" name="email" placeholder="{$email}" required>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="reg-password">{$password}</label>
+    <input class="form-control0" type="password" id="reg-password" name="password" placeholder="{$password}" required>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="reg-birth_date">{$birth_date}</label>
+    <input class="form-control0" type="date" id="reg-birth_date" name="date">
+  </div>
+  <div class="form-group">
+    <label for="reg-timezone" class="sr-only" name="timezone">{$timezone}</label>
+    <select class="form-control0" id="reg-timezone">
+      {loop="timezones_a"}
+      <option value="{$value}">{$value}</option>
+      {/loop}
+    </select>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="cptxt">Captcha</label>
+    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+      <div class="input-group-addon" style="background-color: black;">
+        <img src="{$captchaurl_n}#" id="captcha" title="captcha">
+      </div>
+      <input class="form-control0" type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn login" type="submit" style="width: auto;">{$register}</button>
+  </div>
+</form>

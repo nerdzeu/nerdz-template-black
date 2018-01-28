@@ -1,151 +1,53 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,500');
-/* MP */
-div.balloon-left{
-    display: inline-block;
-    background-color: #212121 !important;
-    padding: 5px;
-    border-radius: 5px;
-    color: #FFFFFF;
-    float: left;
-    max-width: 95%;
-}
-div.balloon-right{
-    display: inline-block;
-    background-color: #3E3F3A !important;
-    padding: 5px;
-    border-radius: 5px;
-    color: #FFFFFF;
-    float: right;
-    max-width: 95%;
-}
-
-.vertical-align{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-}
-
-/* NEW CSS RULES*/
-/* BODY */
 body{
-    font-family: 'Raleway', sans-serif;
-    margin-top: 64px;
-    background-color: #3a3a3a;
+  padding-top: 80px;
+  font-size: 14px;
+  background-color: #ffffff;
 }
 
-body a{
-    color: #131415 !important;
+h2{
+  color: #000000;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 16px;
 }
 
-/* BASE COLORS */
-
-.color-1{ color: #131415 !important; }
-
-.color-2{ color: #3a3a3a !important; }
-
-.color-3{ color: #a5a5a5 !important; }
-
-.color-4{ color: #cdc7c7 !important; }
-
-.color-success{ color: #93C54B !important; }
-
-.color-alert{ color: #D9534F !important; }
-
-.bg-color-1{ background-color: #131415 !important; }
-
-.bg-color-2{ background-color: #3a3a3a !important; }
-
-.bg-color-3{ background-color: #a5a5a5 !important; }
-
-.bg-color-4{ background-color: #cdc7c7 !important; }
-
-.bg-color-success{ background-color: #93C54B !important; }
-.bg-color-alert{ background-color: #D9534F !important; }
-
-.link-color-1 a{ color: #131415 !important; }
-.link-color-4 a{ color: #cdc7c7 !important; }
-
-
-.bg-color-3-opacity-20{ background-color: rgba(165, 165, 165, 0.2) !important; }
-
-/* COMMON */
-
-.uppercase{ text-transform: uppercase;}
-
-.no-margin-bottom{ margin-bottom: 0 !important;}
-.no-margin{ margin: 0 !important; }
-.margin-bottom-10 {margin-bottom: 10px; }
-
-.no-padding-left{ padding-left: 0 !important; }
-.no-padding-right{ padding-right: 0 !important; }
-.no-padding{ padding: 0 !important; }
-.border{border: 1px solid !important;}
-.border-bottom{ border-bottom: 1px solid; }
-.border-left{ border-left: 1px solid;}
-.no-border{ border: 0 !important; }
-.float-left{ float: left; }
-
-.font-weight-light{ font-weight: 300; }
-.font-weight-bold{ font-weight: 500; }
-
-.link-bold a{ font-weight: 500; }
-.line-height-28{ line-height: 28px !important; }
-/* NO-BOOTSTRAP-BORDER-RADIUS */
-/* HEADER */
-
-@media screen and (max-width: 991px) { #searchrow{ padding: 0; width: 100%; margin: 0; } } /* search row for mobile */
-
-a.nav-link.active{
-    font-weight: bold;
+h2:before {
+    content: "> ";
+    color: #68d7e1;
 }
 
-span.navbar-toggler-icon{
-    background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(165, 165, 165, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/></svg>") !important;
+p{
+  font-size: 14px;
+  line-height: 1.4;
 }
 
-.badge-notify{
-    position:relative;
-    top: -10px;
-    left: -5px;
-}
 
-/* SIDEBAR */
-.menu-entry{
-    padding: 15px;
-    margin-bottom: 15px;
-    font-weight: 500;
-}
-
-.menu-entry-icon{
-    position: absolute;
-    right: 10px;
-}
-
-ul.clean-list{
-    list-style-type: none;
-    padding-left: 0;
-}
-
-/* MAIN */
-#frmtxt{
-    height: 100%;
-    width: 100%;
-    outline: none;
+.alert-info{
+    margin-bottom: 40px;
+    border-radius: 0;
     border: 0;
+    color: black;
+    background-color: #67d7e2;
+    box-shadow: 3px 3px rgba(0,0,0,0.1);
 }
 
-.form-toolbar a, .form-toolbar select{
-    width: 100%;
-    display: block;
-    text-transform: uppercase;
-    margin-bottom: 5px;
+/* NAV */
+.navbar{
+  background-color: #000000;
 }
 
-.nerdz-button{
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 0 10px;
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path stroke='#69d7e2' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/></svg>");
+}
+
+.navbar a{
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.navbar-brand{
+  letter-spacing: 5px;
 }

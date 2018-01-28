@@ -4,7 +4,8 @@
             "css/bootstrap-v4.css",
             "css/default.css",
             "css/base.css",
-            "css/materialdesignicons.min.css"
+            "css/materialdesignicons.min.css",
+            "https://fonts.googleapis.com/css?family=Muli:300,400,700,800"
         ],
         "index": [
             "css/home.css"
