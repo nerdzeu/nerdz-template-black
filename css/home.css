@@ -98,6 +98,7 @@ textarea:-ms-input-placeholder {
 /* FEED */
 
 .message{
+  display: none;
   background-color: #69d7e2;
   margin-bottom: 30px;
   padding: 20px;
