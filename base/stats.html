@@ -1,28 +1,41 @@
-<article id="center_col" class="container color-3" style="padding-top: 10px; text-align: center">
-    {$total_users}: {$totusers_n}<br/>
-    {$total_posts_profiles}: {$totpostsprofiles_n}<br/>
-    {$total_comments_profiles}: {$totcommentsprofiles_n}<br/><br/>
-
-    {$total_projects}: {$totprojects_n}<br/>
-    {$total_posts_projects}: {$totpostsprojects_n}<br/>
-    {$total_comments_projects}: {$totcommentsprojects_n}<br/><br/>
-
-    {$total_online_users}: {$totonlineusers_n}<br/>
-    {$hidden_users}: {$tothiddenusers_n}<br/><br/>
-
-    {$total_online_guests}: {$totonlineguests_n}<br/>
-    {$total_online_bots}: {$totonlinebots_n}<br/><br/>
-    {if="!empty($bots_a)"}
-    {$list_of_bots}:<br/>
-    <div class="light">
-        {loop="bots_a"}
-        {if="$counter % 10 == 0"} <br/> {/if}
-        {$value.name_n}&nbsp;
-        {/loop}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>{$stats}</h1>
     </div>
-    {/if}
-    <br/>
-        <span style="font-style:italic">
-            {$last_update}: {$lastupdate_n}
-        </span>
-</article>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>{$online}</h2>
+      <ul class="stats">
+        <li>{$total_online_users}: <strong>{$totonlineusers_n}</strong></li>
+        <li>{$hidden_users}: <strong>{$tothiddenusers_n}</strong></li>
+        <li>{$total_online_guests}: <strong>{$totonlineguests_n}</strong></li>
+        <li>{$total_online_bots}: <strong>{$totonlinebots_n}</strong></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h2>{$users}</h2>
+      <ul class="stats">
+        <li>{$total_users}: <strong>{$totusers_n}</strong></li>
+        <li>{$total_posts_profiles}: <strong>{$totpostsprofiles_n}</strong></li>
+        <li>{$total_comments_profiles}: <strong>{$totcommentsprofiles_n}</strong></li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h2>{$projects}</h2>
+      <ul class="stats">
+        <li>{$total_projects}: <strong>{$totprojects_n}</strong></li>
+        <li>{$total_posts_projects}: <strong>{$totpostsprojects_n}</strong></li>
+        <li>{$total_comments_projects}: <strong>{$totcommentsprojects_n}</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <span style="font-style: italic;">
+        {$last_update}: <strong>{$lastupdate_n}</strong>
+      </span>
+    </div>
+  </div>
+</div>
