@@ -13,11 +13,12 @@
 }
 
 #loginfrm input, #regfrms input{
-  border: 2px solid #000000;
+  border: 2px solid #797979;
   border-radius: 0;
   padding: 5px 10px;
   font-size: 14px;
   width: 100%;
+  font-weight: bold;
 }
 
 #loginfrm input[type=checkbox], #regfrms input[type=checkbox]{
@@ -26,16 +27,20 @@
 
 #reg-timezone{
   width: 100%;
-  border: 2px solid #000;
+  border: 2px solid #797979;
   border-radius: 0 !important;
   -webkit-appearance: none;
   padding: 5px 10px;
+  font-weight: bold;
 }
 
 
 #loginfrm label{
   padding-left: 0;
   padding-right: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 10px;
 }
 
 #loginfrm .btn, #regfrms .btn{
@@ -101,6 +106,7 @@ textarea:-ms-input-placeholder {
   display: none;
   background-color: #69d7e2;
   margin-bottom: 30px;
+  line-height: 1.6;
   padding: 20px;
   box-shadow: 3px 3px rgba(0,0,0,0.1);
   background: -webkit-linear-gradient(90deg, rgb(105, 215, 226), rgb(105, 226, 220));
