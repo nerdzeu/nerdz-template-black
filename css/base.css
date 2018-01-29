@@ -5,7 +5,11 @@ body{
 }
 
 h1{
+  color: #000000;
+  text-transform: uppercase;
   margin-bottom: 24px;
+  font-size: 26px;
+  font-weight: 800;
 }
 
 h2{
