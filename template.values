@@ -31,7 +31,6 @@
             "js/moment.js"
         ],
         "home": [
-        "js/bootstrap-select.min.js",
         "js/home.js", {
             "lang": [ "HIDDEN_POSTS", "EXPAND", "HIDE" ],
             "outputVersion": true

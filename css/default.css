@@ -14,16 +14,7 @@ body {
   }
 }
 
-#site_title {
-    color: #000;
-    margin: 0 auto 1.5% auto;
-    width: 100%;
-    background-color: #AFAFAF;
-    display: block;
-    overflow: hidden;
-}
-
-#site_title a:visited, #site_title a:active, #site_title a:link, .nerdz_comments a:hover, .nerdz_comments a:visited, .nerdz_comments a:active, .nerdz_comments a:link{
+.nerdz_comments a:hover, .nerdz_comments a:visited, .nerdz_comments a:active, .nerdz_comments a:link{
     color: #000;
     font-weight: 500;
     text-decoration: none;
@@ -92,10 +83,6 @@ body {
 #main {
     word-wrap: break-word;
 }
-#postlist {
-    margin-bottom: 4%;
-    margin: 10px 0 4% 0;
-}
 
 #rightmenu, #member-of, #owner-of {
     overflow-y: auto;
@@ -121,13 +108,7 @@ body {
     overflow: hidden;
 }
 
-a:hover, a:visited, a:active, a:link, .qu_user a:visited, .qu_user a:active, .qu_user a:link, .atilda, .showcomments {
-    color: #2370B6;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-label, .qu_ico, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang, .more, .bookmark, .unbookmark, *[class^="delcomment"] {
+label, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang, .more, .bookmark, .unbookmark, *[class^="delcomment"] {
     cursor: pointer;
 }
 
@@ -161,11 +142,6 @@ button, input[type=submit], .page th, .title, .follow, .unfollow {
     border-radius: 2px;
 }
 
-
-img {
-    border: 0px none;
-}
-
 iframe {
     margin: auto;
     overflow: hidden;
@@ -187,16 +163,6 @@ html, #body {
 
 .nitem {
     border-bottom: 1px solid #FFFFFF;
-}
-
-.qu_ico, .delcomment {
-    float: right;
-    margin-top: -5px;
-    margin-left: 4px;
-}
-
-.delcomment {
-    margin-top: auto;
 }
 
 .page {
@@ -265,32 +231,15 @@ html, #body {
 }
 
 .nerdz_date {
-    display: inline;
-    float: right;
-    font-size: 85%;
-}
-
-.nerdz_date img {
-    margin-top: 0;
-}
-
-.nerdz_thumbs, .revisions {
-    display: inline;
-    position: relative;
-    bottom: 1px;
+    text-align: right;
 }
 
 .nerdz_thumbsNumPos {
-    color: #86DC33;
+    color: #86DC33 !important;
 }
 
 .nerdz_thumbsNumNeg {
-    color: #FF3300;
-}
-
-.vote:hover, .revisions:hover {
-    color: #5A94C8;
-    cursor: pointer;
+    color: #FF3300 !important;
 }
 
 .vote.up.voted {
@@ -301,16 +250,6 @@ html, #body {
 .vote.down.voted {
     color: #FF3300 !important;
     cursor: pointer;
-}
-
-.nerdz_from {
-    margin-bottom: 4px;
-    overflow: hidden;
-}
-
-.nerdz_from a {
-    color: #252525 !important;
-    font-weight: 500;
 }
 
 .nerdz_truncate {

@@ -1,13 +1,13 @@
-<div id="main" class="container-fluid" style="padding-top: 20px;">
+<div id="main" class="container">
     <div class="row">
         <!-- LEFT -->
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
             {include="home/meta"}
             {include="home/meta-mobile"}
         </div>
         <!-- MAIN -->
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-8">
-            {include="common/form"}
+            <!-- }include="common/form"{ -->
             <div id="postlist" data-type="profile" data-location="home" data-mode="std">
             </div>
         </div>
@@ -16,17 +16,14 @@
         </div>
     </div>
 </div>
-    <div id="mains" class="container-fluid nopaddingleft nopaddingright" style="display: none">
-        <!-- LEFT BAR -->
-        <!-- CENTER -->
-        <!-- RIGHT BAR -->
+    <div id="mains" class="container-fluid" style="display: none">
         <div class="hidden-xs col-sm-4 col-md-2 nopaddingleft nopaddingright nz-right-sidebar">
             <div class="container-fluid nomarginbottom nomargintop nopaddingtop visible-xs visible-sm">
                 {include="home/meta-mobile"}
             </div>
             <!-- TENDENZE -->
             <div class="container-fluid" style="margin-bottom: 10px">
-                
+
             </div>
             <!-- OWNER OF -->
             {if="!empty($ownerof_a)"}
