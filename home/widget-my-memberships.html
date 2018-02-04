@@ -1,0 +1,13 @@
+{if="!empty($memberof_a)"}
+<!-- MY MEMBERSHIPS -->
+<div id="lang-filter" class="row widget">
+  <div class="col">
+    <h2>{$member_of}</h2>
+    <ul>
+        {loop="memberof_a"}
+        <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+        {/loop}
+    </ul>
+  </div>
+</div>
+{/if}

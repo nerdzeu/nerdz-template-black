@@ -1,0 +1,13 @@
+{if="!empty($ownerof_a)"}
+<!-- MY PROJECTS -->
+<div id="lang-filter" class="row widget">
+  <div class="col">
+    <h2>{$your_projects}</h2>
+    <ul>
+        {loop="ownerof_a"}
+        <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+        {/loop}
+    </ul>
+  </div>
+</div>
+{/if}

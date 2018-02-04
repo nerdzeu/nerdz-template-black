@@ -13,6 +13,9 @@
             <i class="mdi mdi-24px mdi-earth"></i>
             <span id="notifycounter" accesskey="q" class="badge badge-notify bg-color-2"></span>
         </a>
+        <a href="/feed.php" target="_blank">
+            <i class="mdi mdi-24px mdi-rss"></i>
+        </a>
         {/if}
     </div>
     <div class="collapse navbar-collapse" id="mainNavbar">
@@ -32,6 +35,11 @@
             <li class="nav-item">
                 <a class="nav-link{if="$position_n == 'preferences'"} active{/if}" href="/preferences.php" accesskey="z">
                     {$preferences}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link{if="$position_n == 'projects'"} active{/if}" href="/NERDZilla" accesskey="z">
+                    NERDZilla
                 </a>
             </li>
             <li class="nav-item">

@@ -213,8 +213,14 @@ ul.stats{
   margin: 0;
   list-style: none;
   -webkit-column-count: 2;
-   -moz-column-count: 2;
-        column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+
+.widget ul.one-column{
+  -webkit-column-count: 1;
+  -moz-column-count: 1;
+  column-count: 1;
 }
 
 .widget ul li.selected{
