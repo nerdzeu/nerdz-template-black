@@ -1,0 +1,13 @@
+<!-- LANGUAGE -->
+<div id="lang-filter" class="row widget">
+  <div class="col">
+    <h2>{$language}</h2>
+    <ul>
+        {loop="langs_a"}
+        <li class="selectlang" data-lang="{$value.shortlang_n}">
+            {$value.longlang_n}
+        </li>
+        {/loop}
+    </ul>
+  </div>
+</div>

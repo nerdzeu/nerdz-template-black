@@ -1,44 +1,43 @@
-<div id="fast_nerdz" class="container-fluid">
-    <form id="stdfrm" data-to="{$id_n}">
-        <div class="row color-3">
-            <!-- ADMIN ONLY -->
-            {if="$canwritenews_b || $canwriteissue_b"}
-            {if="$canwritenews_b"}
-            <label for="sendnews" class="form-check-label no-padding-left">
-                <input type="checkbox" name="news" value="1" id="sendnews" class="form-check-input">
-                News
-            </label>
-            {/if}
-            {if="$canwriteissue_b"}
-            <label for="sendissue" class="form-check-label no-padding-left">
-                <input type="checkbox" name="issue" value="1" id="sendissue" class="form-check-input">
-                {$open_issue_on_github}
-            </label>
-            {/if}
-            {/if}
-        </div>
-        <div class="row color-3">
-            <div class="col-10 col-xs-10 col-sm-10 col-md-10 col-lg-11 col-xl-11 no-padding">
-            </div>
-            <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-1 col-lg-1 no-padding">
-            </div>
-        </div>
-        <div class="row bg-color-3-opacity-20" style="padding: 15px;">
-            <div class="col col-xs-6 col-sm-6 col-md-9 col-lg-10 no-padding-left uppercase form-toolbar">
-                <textarea id="frmtxt" name="message" class="vertical" placeholder="Inserisci il tuo messaggio..." style="background-color: transparent;"></textarea>
-                
-            </div>
-            <div class="col col-xs-6 col-sm-6 col-md-3 col-lg-2 no-padding-left no-padding-right form-toolbar">
-                <select class="form-control color-1" name="lang" style="background-color: transparent;">
-                    {loop="langs_a"}
-                    <option value="{$value.shortlang_n}" {if="$value.shortlang_n == $mylang_n"}selected{/if}>{$value.longlang_n}</option>
-                    {/loop}
-                </select>
-                <a class="uppercase nerdzcrush-upload" href="#" role="button">NerdzCrush</a>
-                <a preview" href="#" data-refto="#frmtxt">{$preview}</a>
-                <a href="/bbcode.php" target="_blank" role="button">BBCode</a>
-                <input type="submit" class="nerdz-button bg-color-1 color-4 no-border" value="{$nerdz_it}">
-            </div>
-        </div>
-    </form>
-</div>
+<form id="stdfrm" data-to="{$id_n}">
+  <div id="fast_nerdz" class="container">
+    {if="$canwritenews_b || $canwriteissue_b"}
+    <div class="row">
+      <div class="col">
+        <!-- ADMIN ONLY -->
+        {if="$canwritenews_b"}
+        <label for="sendnews" class="form-check-label">
+          <input type="checkbox" name="news" value="1" id="sendnews" class="form-check-input">
+          News
+        </label>
+        {/if}
+        {if="$canwriteissue_b"}
+        <label for="sendissue" class="form-check-label">
+          <input type="checkbox" name="issue" value="1" id="sendissue" class="form-check-input">
+          {$open_issue_on_github}
+        </label>
+        {/if}
+      </div>
+    </div>
+    {/if}
+    <div class="row">
+      <div class="col">
+        <textarea id="frmtxt" name="message" class="vertical" placeholder="Inserisci il tuo messaggio..."></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <select name="lang">
+          {loop="langs_a"}
+          <option value="{$value.shortlang_n}" {if="$value.shortlang_n == $mylang_n"}selected{/if}>{$value.longlang_n}</option>
+          {/loop}
+        </select>
+        <a class="post-interaction nerdzcrush-upload" href="#" role="button">NerdzCrush</a>
+        <a class="post-interaction" href="/bbcode.php" target="_blank" role="button">BBCode</a>
+      </div>
+      <div class="col-6">
+        <a class="post-interaction preview" href="#" data-refto="#frmtxt">{$preview}</a>
+        <button type="submit" class="post-interaction nerdz-button">{$nerdz_it}</button>
+      </div>
+    </div>
+  </div>
+</form>

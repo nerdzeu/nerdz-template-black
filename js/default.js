@@ -480,7 +480,7 @@ $(document).ready(function() {
             if ((el.height() >= 200 || el.find(".gistLoad").length > 0) && !el.data("parsed")) {
                 el.data("real-height", el.height()).addClass("compressed");
                 var n = el.next();
-                n.prepend('<a class="more"><span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span> ' + N.getLangData().EXPAND + " </a>");
+                n.prepend('<a class="more">' + N.getLangData().EXPAND + "</a>");
             }
             el.attr("data-parsed", "1");
         });
@@ -1134,49 +1134,6 @@ $(document).ready(function() {
     plist.on("click", ".nerdz-code-title a", function(e) {
         e.stopPropagation();
     });
-    /*
-    if ($("nav div").length) {
-        var code = [ 38, 38, 40, 40, 37, 39, 37, 39, 66, 65 ], pressed = [];
-        window._NERDZ_NICK = $.trim(/,(.+)/.exec($("nav div").text())[1]);
-        $(window).keydown(function dEv(e) {
-            pressed.push(e.keyCode);
-            while (pressed.length > code.length) {
-                pressed.shift();
-            }
-            if (JSON.stringify(code) == JSON.stringify(pressed)) {
-                $(window).unbind("keydown", dEv);
-                $("body, a, textarea, input, button").css("cursor", 'url("http://www.nerdz.eu/static/images/owned.cur"), auto');
-                var fuckNicknames = function() {
-                    $(".nerdz_from a").each(function(i, elm) {
-                        if ($.inArray($(elm).html(), [ "Vincenzo", "Xenom0rph", "jorgelorenzo97", "PTKDev" ]) === -1) {
-                            $(elm).html([ "Vincenzo", "Xenom0rph", "jorgelorenzo97", "PTKDev" ][Math.floor(Math.random() * 5)]);
-                        }
-                    });
-                };
-                $(document).ajaxComplete(function(evt, xhr, settings) {
-                    if (/\?action=(show|profile)$|read\.html/.test(settings.url)) {
-                        fuckNicknames();
-                    }
-                });
-                fuckNicknames();
-                $("#title_left a").text("L4M3RZ");
-                setTimeout(function() {
-                    $("aside").hide();
-                    setTimeout(function() {
-                        $("article").hide();
-                        $("#loadtxt").css("text-align", "center").html("Javascript error: Query #" + parseInt(1 + Math.floor(Math.random() * 1e3)) + " failed.<br><span style='color:#F80012;font-size:20px'>!! JS SQL Injection Detected. Shutting down !!</span>");
-                        setTimeout(function() {
-                            $("body").load("/bsod.html", function() {
-                                document.title = "!! SOMETHING F**KED UP !!";
-                                $("*").css("cursor", "none");
-                            });
-                        }, 5e3);
-                    }, 9500);
-                }, 10500);
-            }
-        });
-    }
-    */
     setInterval(function() {
         var nc = $("#notifycounter"), val = parseInt(nc.html());
         nc.css("display", val === 0 || isNaN(val) ? "none" : "inline-block");
