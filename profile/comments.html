@@ -16,17 +16,7 @@
 {loop="list_a"}
 <div id="{$value.uid_n}" data-hcid="{$value.hcid_n}" class="container singlecomment">
   <div class="row">
-
-
-
-
-
-
-
     <div class="col-12 topbar">
-
-
-
       <div class="nerdz_date">
         <img width="16" height="16" src="images/quote.png" alt="quote" class="qu_ico" data-hcid="{$value.hcid_n}" data-type="u" data-refto="commentto{$value.hpid_n}" onclick="" />
         {if="$value.caneditcomment_b"}
@@ -47,22 +37,15 @@
         {/if}
         {/if}
       </div>
-
     </div>
 </div>
 <div class="row content">
-
-
-
     <div class="col col-2 col-lg-2 col-xl-2 avatar-container">
       <a href="/{$value.from4link_n}">
         <img class="img-fluid" src="{$value.gravatarurl_n}#" alt="{$value.from_n}" onerror="this.src = '{$onerrorimgurl_n}'"/>
       </a>
     </div>
-
     <div class="col-10 col-lg-10 col-xl-10 comment-content">
-
-
       <div class="message">
         <a class="author" href="/{$value.from4link_n}">{$value.from_n}:</a>
         <div class="permalink">
@@ -74,8 +57,6 @@
           </span>
         </div>
       </div>
-
-
       <div class="nerdz_comments" style="width:auto; background-color: transparent;">
         {$value.message_n}
       </div>
@@ -86,9 +67,6 @@
             <a class='post-interaction vote up{if="$value.uthumb_n == 1"} voted{/if}'>+</a>
             <a class='post-interaction vote down{if="$value.uthumb_n ==-1"} voted{/if}'>-</a>
           </div>
-        </div>
-        <div class="bottom-interactions">
-
         </div>
       </div>
       <script>$("#nd{$value.uid_n}{$value.hcid_n}").attr("href",(typeof(lnk{$hpid_n})=="undefined"?document.location.pathname:lnk{$hpid_n})+"#{$value.uid_n}");</script>

@@ -188,7 +188,3 @@ ul.stats{
 .singlecomment .comment-content .bottom-bar .thumbs .nerdz_thumbs, .singlecomment .comment-content .bottom-bar .thumbs{
   display: inline;
 }
-
-.singlecomment .comment-content .bottom-bar .bottom-interactions{
-  float: right;
-}
