@@ -1,20 +1,20 @@
-<div class="container comment-form-wrapper">
-    <div class="hidden-xs hidden-sm col-md-1 nopaddingright">
-        <a href="/{$currentuserprofile_n}" style="vertical-align:top">
-            <img src="{$currentusergravatar_n}&amp;s=48#" alt="{$currentusername_n}" onerror="this.src = '{$onerrorimgurl_n}'" style="max-width: 100%; float:left; padding-right:2px" />
-        </a>
+<form class="frmcomment" data-hpid="{$hpid_n}">
+  <div class="container comment-form-wrapper">
+    <div class="row">
+      <div class="col">
+        <textarea id="commentto{$hpid_n}" name="message"></textarea>
+      </div>
     </div>
-    <div class="col-xs-12 col-md-11">
-    <form style="overflow:hidden; width:auto" class="frmcomment" data-hpid="{$hpid_n}">
-        <textarea id="commentto{$hpid_n}" name="message" style="width: 100%; height: 60px; border: 1px solid #DFD7CA;"></textarea>
-        <input type="submit" value="{$nerdz_it}" style="float: right;margin-top:5px; margin-left: 5px;" class="btn btn-sm btn-default" />
-        <button type="button" style="float:right; margin-top: 5px" class="preview btn btn-sm btn-default" data-refto="#commentto{$hpid_n}">{$preview}</button>
-        <button type="button" style="float:left; margin-top:5px" class="btn btn-sm btn-default" onclick="window.open('/bbcode.php')">BBCode</button>
-        <a href="#" class="nerdzcrush-upload">
-            <!--<img width="18" height="16" src="nerdzcrush-logo.svg" alt="Upload File" title="Upload File" style="margin-left:5px;margin-top:5px">-->
-            <button class="btn btn-sm btn-default" style="margin-left: 5px; margin-top: 5px;" ><span class="hidden-xs">NerdzCrush</span> <span class="glyphicon glyphicon-paperclip" title="Upload file" aria-hidden="true"></span></button>
-        </a>
+    <div class="row">
+      <div class="col-6">
+        <a href="/bbcode.php" class="post-interaction" target="_blank ">BBCode</a>
+        <a href="#" class="post-interaction nerdzcrush-upload">NerdzCrush</a>
+      </div>
+      <div class="col-6 text-right">
+        <button type="submit" class="post-interaction">{$nerdz_it}</button>
+      </div>
+    </div>
     <div class="error"></div>
-    </form>
-    </div>
+  </div>
 </div>
+</form>
