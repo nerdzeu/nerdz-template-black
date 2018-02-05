@@ -1,140 +1,137 @@
 <div id="main" class="container">
   <div class="row">
     <aside id="left_col" class="col-12 col-md-4 col-lg-3 col-xl-4" style="margin-bottom: 10px;">
-      <div class="container">
-        <div class="row profile-widget">
-          <div class="col">
-            <h2>{$username_n}</h2>
-            <a href="/{$username4link_n}">
-              <img src="{$gravatarurl_n}&amp;s=180#" alt="{$username}" class="profile-avatar" onerror="this.src='{$onerrorimgurl_n}'"/>
-            </a>
-            {if="!empty($biography_n)"}
-            <p class="biography">{$biography_n}</p>
-            {/if}
-            {if="$canshowmenu_b"}
-            {include="profile/menu"}
-            {/if}
-            <span class="profile-user-status" {if="$online_b"}style="color:#69d7e2{/if}">{if="$online_b"}{$online}{else}{$offline}{/if}</span>
-            <img src="{$flagdir_n}{$lang_n}.png#" alt="{$lang_n}" title="{$lang_n}" width="20"
-            height="14" style="float: right;"/>
-          </div>
+      <div class="row profile-widget">
+        <div class="col">
+          <h2>{$username_n}</h2>
+          <a href="/{$username4link_n}">
+            <img src="{$gravatarurl_n}&amp;s=180#" alt="{$username}" class="profile-avatar" onerror="this.src='{$onerrorimgurl_n}'"/>
+          </a>
+          {if="!empty($biography_n)"}
+          <p class="biography">{$biography_n}</p>
+          {/if}
+          {if="$canshowmenu_b"}
+          {include="profile/menu"}
+          {/if}
+          <span class="profile-user-status" {if="$online_b"}style="color:#69d7e2{/if}">{if="$online_b"}{$online}{else}{$offline}{/if}</span>
+          <img src="{$flagdir_n}{$lang_n}.png#" alt="{$lang_n}" title="{$lang_n}" width="20"
+          height="14" style="float: right;"/>
         </div>
-
-        <div class="row profile-widget">
-          <div class="col">
-            <ul class="one-column">
-              <li style="margin-bottom: 15px; font-weight: 800;">{$name_n} {$surname}</li>
-              <li><strong>{$gender}:</strong> {$gender_n}</li>
-              <li><strong>{$birth_date}:</strong> {$birthdate_n}</li>
-              <li><strong>{$registered_since}:</strong> {$registrationtime_n}</li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row profile-widget">
-          <div class="col">
-            <h2>KARMA</h2>
-            <ul>
-              <li><strong>{$comments}:</strong> {$karmacomments_n}</li>
-              <li><strong>Posts:</strong> {$karmaposts_n}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row profile-widget">
-          <div class="col">
-            <a href="/{$username4link_n}interactions"><h2>{$interactions}</h2></a>
-            <ul class="one-column">
-              <li><strong>{$comments}:</strong> {$totalcomments_n}</li>
-              <li><strong>{$last_visit}:</strong> {$lastvisit_n}</li>
-              <li><strong>Browser:</strong> {$useragent_a.name} {$useragent_a.version}</li>
-              <li><strong>Platform:</strong> {$useragent_a.platform} {$useragent_a.platver}</li>
-              <li><strong>Template:</strong> {$template_n}</li>
-              <li title="- {$stupidstuffless_n} ⇒ {$stupidstuffnext_n}"><strong>5tUp1d stUfF!1:</strong> {$stupidstuffnow_n}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row profile-widget">
-          <div class="col">
-            <h2>{$information}</h2>
-            <ul class="one-column">
-              <li><a href="/{$username4link_n}following"><strong>Followers:</strong> {$followers_n}</a></li>
-              <li><a href="/{$username4link_n}friends"><strong>Friends:</strong> {$friends_n}</a></li>
-              <li><a href="/{$username4link_n}followers"><strong>Following:</strong> {$following_n}</a></li>
-            </ul>
-          </div>
-        </div>
-
-        {if="!empty($quotes_a)"}
-        <div class="row profile-widget">
-          <div class="col">
-            <h2>{$quotes}</h2>
-            <ul class="one-column">
-              {loop="quotes_a"}
-              <li>{$value}</li>
-              {/loop}
-            </ul>
-          </div>
-        </div>
-        {/if}
-
-        {if="!empty($interests_a)"}
-        <div class="row profile-widget">
-          <div class="col">
-            <h2>{$interests}</h2>
-            <ul class="one-column">
-              {loop="interests_a"}
-              <li>{$value}</li>
-              {/loop}
-            </ul>
-          </div>
-        </div>
-        {/if}
-
-        {if="!empty($ownerof_a)"}
-        <div class="row profile-widget">
-          <div class="col">
-            <h2>{$owner_of}</h2>
-            <ul class="one-column">
-              {loop="ownerof_a"}
-              <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-              {/loop}
-            </ul>
-          </div>
-        </div>
-        {/if}
-
-        {if="!empty($memberof_a)"}
-        <div class="row profile-widget">
-          <div class="col">
-            <h2>{$memberof}</h2>
-            <ul class="one-column">
-              {loop="memberof_a"}
-              <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-              {/loop}
-            </ul>
-          </div>
-        </div>
-        {/if}
-
-        {if="!empty($user_of)"}
-        <div class="row profile-widget">
-          <div class="col">
-            <h2>{$user_of}</h2>
-            <ul class="one-column">
-              {loop="userof_a"}
-              <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
-              {/loop}
-            </ul>
-          </div>
-        </div>
-        {/if}
       </div>
-    </aside>
 
+      <div class="row profile-widget">
+        <div class="col">
+          <ul class="one-column">
+            <li style="margin-bottom: 15px; font-weight: 800;">{$name_n} {$surname}</li>
+            <li><strong>{$gender}:</strong> {$gender_n}</li>
+            <li><strong>{$birth_date}:</strong> {$birthdate_n}</li>
+            <li><strong>{$registered_since}:</strong> {$registrationtime_n}</li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row profile-widget">
+        <div class="col">
+          <h2>KARMA</h2>
+          <ul>
+            <li><strong>{$comments}:</strong> {$karmacomments_n}</li>
+            <li><strong>Posts:</strong> {$karmaposts_n}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row profile-widget">
+        <div class="col">
+          <a href="/{$username4link_n}interactions"><h2>{$interactions}</h2></a>
+          <ul class="one-column">
+            <li><strong>{$comments}:</strong> {$totalcomments_n}</li>
+            <li><strong>{$last_visit}:</strong> {$lastvisit_n}</li>
+            <li><strong>Browser:</strong> {$useragent_a.name} {$useragent_a.version}</li>
+            <li><strong>Platform:</strong> {$useragent_a.platform} {$useragent_a.platver}</li>
+            <li><strong>Template:</strong> {$template_n}</li>
+            <li title="- {$stupidstuffless_n} ⇒ {$stupidstuffnext_n}"><strong>5tUp1d stUfF!1:</strong> {$stupidstuffnow_n}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row profile-widget">
+        <div class="col">
+          <h2>{$information}</h2>
+          <ul class="one-column">
+            <li><a href="/{$username4link_n}following"><strong>Followers:</strong> {$followers_n}</a></li>
+            <li><a href="/{$username4link_n}friends"><strong>Friends:</strong> {$friends_n}</a></li>
+            <li><a href="/{$username4link_n}followers"><strong>Following:</strong> {$following_n}</a></li>
+          </ul>
+        </div>
+      </div>
+
+      {if="!empty($quotes_a)"}
+      <div class="row profile-widget">
+        <div class="col">
+          <h2>{$quotes}</h2>
+          <ul class="one-column">
+            {loop="quotes_a"}
+            <li>{$value}</li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+      {/if}
+
+      {if="!empty($interests_a)"}
+      <div class="row profile-widget">
+        <div class="col">
+          <h2>{$interests}</h2>
+          <ul class="one-column">
+            {loop="interests_a"}
+            <li>{$value}</li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+      {/if}
+
+      {if="!empty($ownerof_a)"}
+      <div class="row profile-widget">
+        <div class="col">
+          <h2>{$owner_of}</h2>
+          <ul class="one-column">
+            {loop="ownerof_a"}
+            <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+      {/if}
+
+      {if="!empty($memberof_a)"}
+      <div class="row profile-widget">
+        <div class="col">
+          <h2>{$memberof}</h2>
+          <ul class="one-column">
+            {loop="memberof_a"}
+            <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+      {/if}
+
+      {if="!empty($user_of)"}
+      <div class="row profile-widget">
+        <div class="col">
+          <h2>{$user_of}</h2>
+          <ul class="one-column">
+            {loop="userof_a"}
+            <li><a href="/{$value.name4link_n}">{$value.name_n}</a></li>
+            {/loop}
+          </ul>
+        </div>
+      </div>
+      {/if}
+    </aside>
     <article id="center_col" class="col-12 col-md-8 col-lg-9 col-xl-8">
       {if="$canwrite_b"}
       {include="common/form"}
