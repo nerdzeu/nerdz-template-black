@@ -334,3 +334,19 @@ p.biography a{
   color: #000000;
   font-weight: 800;
 }
+
+/* USERS LIST */
+#userslist .user .profile-avatar{
+  margin-bottom: 0;
+}
+
+#userslist .user ul{
+  list-style: none;
+  padding: 0;
+}
+
+#userslist .user ul li a{
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 10px;
+}

@@ -391,35 +391,6 @@ pre {
     width:100%;
 }
 
-.follow-list-title {
-    margin-bottom: 10px;
-    font-size: 13px;
-}
-
-.follow-list-title-home {
-    vertical-align: -0.5em;
-}
-
-.gravatar, .gravatar-home {
-    float: left;
-    display: block;
-    width: 75px;
-    height: 75px;
-}
-
-.gravatar-home {
-    width: 32px;
-    height: 32px;
-}
-
-.follow-list-container {
-    margin-left: 90px;
-}
-
-.follow-list-container-home {
-    margin-left: 36px;
-}
-
 .atwho-view {
     position:absolute;
     top: 0;
