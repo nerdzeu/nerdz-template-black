@@ -222,13 +222,13 @@ ul.stats{
   text-transform: uppercase;
 }
 
-.widget{
+.widget, .profile-widget{
   margin: 0 0 30px 0;
   background-color: #efefef;
   padding: 20px 0;
 }
 
-.widget ul{
+.widget ul, .profile-widget ul{
   padding: 0;
   margin: 0;
   list-style: none;
@@ -237,7 +237,7 @@ ul.stats{
   column-count: 2;
 }
 
-.widget ul.one-column{
+.widget ul.one-column, .profile-widget ul.one-column{
   -webkit-column-count: 1;
   -moz-column-count: 1;
   column-count: 1;
@@ -247,7 +247,7 @@ ul.stats{
   font-weight: 800;
 }
 
-.widget ul li a{
+.widget ul li a, .profile-widget ul li a{
   color: #000000;
 }
 
@@ -308,6 +308,29 @@ ul.stats{
 }
 
 #projects-table tbody tr td:nth-child(1) a{
+  color: #000000;
+  font-weight: 800;
+}
+
+/* PROFILE */
+.profile-avatar{
+  width: 100%;
+  max-width:100%;
+  max-height:100%;
+  margin-bottom: 20px;
+}
+
+.profile-user-status{
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.profile-user-menu{
+  display: block;
+  margin-bottom: 1rem;
+}
+
+p.biography a{
   color: #000000;
   font-weight: 800;
 }
