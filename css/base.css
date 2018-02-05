@@ -203,7 +203,7 @@ ul.stats{
 
 /* SIDEBAR */
 .widget{
-  margin-bottom: 30px;
+  margin: 0 0 30px 0;
   background-color: #efefef;
   padding: 20px 0;
 }
@@ -229,4 +229,48 @@ ul.stats{
 
 .widget ul li a{
   color: #000000;
+}
+
+.widget .post-interaction{
+  background-color: #68d7e1;
+}
+
+.nerdz-button{
+  background-color: #68d7e1;
+  color: #000000;
+}
+
+/* POST FORM */
+#fast_nerdz .col{
+  padding: 0;
+}
+
+#fast_nerdz select{
+  background-color: #000000;
+  color: #ffffff;
+  border: 0;
+  padding: 3px 20px 3px 15px;
+  text-transform: uppercase;
+  display: inline;
+  font-size: 12px;
+  font-weight: bold;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+#fast_nerdz .lang-selector{
+  display: inline-block;
+  position: relative;
+}
+
+#fast_nerdz .lang-selector:before{
+  position: absolute;
+  right: 8px;
+  top: 0;
+  content: '<';
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 20px;
 }

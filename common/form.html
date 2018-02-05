@@ -20,21 +20,27 @@
     </div>
     {/if}
     <div class="row">
+      <div class="col col-8">
+        <a class="post-interaction nerdzcrush-upload" href="#" role="button">NerdzCrush</a>
+        <a class="post-interaction" href="/bbcode.php" target="_blank" role="button">BBCode</a>
+      </div>
+      <div class="col col-4 text-right">
+        <div class="lang-selector">
+          <select name="lang">
+            {loop="langs_a"}
+            <option value="{$value.shortlang_n}" {if="$value.shortlang_n == $mylang_n"}selected{/if}>{$value.longlang_n}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div class="col">
         <textarea id="frmtxt" name="message" class="vertical" placeholder="Inserisci il tuo messaggio..."></textarea>
       </div>
     </div>
     <div class="row">
-      <div class="col-6">
-        <select name="lang">
-          {loop="langs_a"}
-          <option value="{$value.shortlang_n}" {if="$value.shortlang_n == $mylang_n"}selected{/if}>{$value.longlang_n}</option>
-          {/loop}
-        </select>
-        <a class="post-interaction nerdzcrush-upload" href="#" role="button">NerdzCrush</a>
-        <a class="post-interaction" href="/bbcode.php" target="_blank" role="button">BBCode</a>
-      </div>
-      <div class="col-6">
+      <div class="col text-right">
         <a class="post-interaction preview" href="#" data-refto="#frmtxt">{$preview}</a>
         <button type="submit" class="post-interaction nerdz-button">{$nerdz_it}</button>
       </div>
