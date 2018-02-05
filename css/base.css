@@ -202,6 +202,26 @@ ul.stats{
 }
 
 /* SIDEBAR */
+
+@media screen and (max-width: 767px){
+  .sidebar{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .sidebar{
+    display: block !important;
+  }
+}
+
+#toggle-sidebar{
+  padding: 0 15px 15px 15px;
+  font-weight: 800;
+  color: #000000;
+  text-transform: uppercase;
+}
+
 .widget{
   margin: 0 0 30px 0;
   background-color: #efefef;

@@ -5,6 +5,10 @@ $(document).ready(function() {
   var voteOrder = null;
   var myLang = $("#stdfrm select[name=lang]").val();
   var load = false;
+  $("#toggle-sidebar").click(function(e){
+    e.preventDefault();
+    $(".sidebar").fadeToggle('slow');
+  });
   $(".rightarrow-home").click(function(e) {
     e.preventDefault();
     if (!$(this).hasClass("toggled")) {
