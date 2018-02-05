@@ -1,6 +1,6 @@
 <div class="row widget">
   <div class="col">
-    <h2>{$trends} {$recents}</h2>
+    <h2><span class="hidden-lg-down">{$trends} </span><span class="hidden-xl-up">#</span>{$recents}</h2>
     {loop="newest_a"}
     <a class="post-interaction" href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a>
     {/loop}
@@ -8,7 +8,7 @@
 </div>
 <div class="row widget">
   <div class="col">
-    <h2>{$trends} {$popular}</h2>
+    <h2><span class="hidden-lg-down">{$trends} </span><span class="hidden-xl-up">#</span>{$popular}</h2>
     {loop="popular_a"}
     <a class="post-interaction" href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a>
     {/loop}

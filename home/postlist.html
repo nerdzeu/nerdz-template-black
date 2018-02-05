@@ -45,11 +45,10 @@
       {if="$value.canshowlurk_b"}
       <a href="#" class="post-interaction">
         {if="$value.lurk_b"}
-        &nbsp;<span class="glyphicon glyphicon-eye-close unlurk" data-hpid="{$value.hpid_n}" title="Unlurk" onclick="" /></span>
+        <span class="unlurk" data-hpid="{$value.hpid_n}" title="Unlurk" onclick="" />lurk</span>
         {else}
-        &nbsp;<span class="glyphicon glyphicon-eye-open lurk" data-hpid="{$value.hpid_n}" title="Lurk" onclick="" /></span>
+        <span class="lurk" data-hpid="{$value.hpid_n}" title="Lurk" onclick="" />lurk</span>
         {/if}
-        <span class="visible-md-inline visible-lg-inline">&nbsp;lurk</span>
       </a>
       {/if}
     </div>
