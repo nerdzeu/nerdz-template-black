@@ -6,41 +6,37 @@
       <!-- EDIT POST -->
       {if="$value.caneditpost_b"}
       <a href="#" title="{$edit}" class="post-interaction edit" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
-        {$edit}
+        <i class="mdi mdi-pencil"></i>
       </a>
       {/if}
       <!-- CLOSE POST -->
       {if="$value.canclosepost_b"}
       <a href="#" title="{if="$value.closed_b"}open{else}close{/if}" class="post-interaction {if="$value.closed_b"}closepls{else}open{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .pid">
-        lock
+        {if="$value.closed_b"}<i class="mdi mdi-lock-open-outline"></i>{else}<i class="mdi mdi-lock-outline"></i>{/if}
       </a>
       {/if}
       <!-- REMOVE POST -->
       {if="$value.canremovepost_b"}
       <a href="#" title="{$remove}" class="post-interaction delpost" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n}">
-        {$remove}
+        <i class="mdi mdi-delete"></i>
       </a>
       {/if}
-
       <!-- SHOW LOCK -->
       {if="$value.canshowlock_b"}
       <a href="#" class="post-interaction">
         notifiche
       </a>
       {/if}
-
       <!-- SHOW BOOKMARK -->
       {if="$value.canshowbookmark_b"}
       <a href="#" class="post-interaction">
         {if="$value.bookmark_b"}
-        <span class="glyphicon glyphicon glyphicon-bookmark unbookmark" data-hpid="{$value.hpid_n}" title="Unbookmark" onclick="" /></span>
+        <i class="mdi unbookmark mdi-bookmark" data-hpid="{$value.hpid_n}" title="Unbookmark"></i>
         {else}
-        <span class="glyphicon glyphicon glyphicon-bookmark bookmark" data-hpid="{$value.hpid_n}" title="Bookmark" onclick="" /></span>
+        <i class="mdi bookmark mdi-bookmark" data-hpid="{$value.hpid_n}" title="Bookmark"></i>
         {/if}
-        <span class="visible-md-inline visible-lg-inline">&nbsp;{$bookmarks}</span>
       </a>
       {/if}
-
       <!-- SHOW LURK -->
       {if="$value.canshowlurk_b"}
       <a href="#" class="post-interaction">
