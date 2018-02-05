@@ -1,15 +1,12 @@
 .question {
-    font-size: large;
-    color: #2370B6;
-    cursor:pointer;
+  font-weight: 800;
+}
+
+.answer a{
+  color: #000000;
+  font-weight: 800;
 }
 
 .answer {
-    font-size: medium;
-    color: #fff;
-    font-weight: normal;
-}
-
-.question, .answer {
     margin-bottom: 20px;
 }
