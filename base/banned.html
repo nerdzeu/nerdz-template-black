@@ -1,24 +1,26 @@
-<div class="container-fluid">
-    <div class="table-responsive">
-        <table class="table littleboxshadow">
-            <thead class="blackbackground whitetext">
-            <tr style="cursor: pointer">
-                <th id="id">{$id}</th>
-                <th id="username">{$username}</th>
-                <th id="motivation">{$motivation}</th>
-                <th id="when">{$when}</th>
-            </tr>
-            </thead>
-            <tbody class="whitebackground">
-            {loop="list_a"}
-            <tr>
-                <td>{$value.id_n}</td>
-                <td>{$value.username_n}</a></td>
-                <td>{$value.motivation_n}</td>
-                <td>{$value.date_n}</td>
-            </tr>
-            {/loop}
-            </tbody>
-        </table>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table dark-table">
+        <thead>
+          <tr>
+            <th id="id">{$id}</th>
+            <th id="username">{$username}</th>
+            <th id="motivation">{$motivation}</th>
+            <th id="when">{$when}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {loop="list_a"}
+          <tr>
+            <td>{$value.id_n}</td>
+            <td>{$value.username_n}</a></td>
+            <td>{$value.motivation_n}</td>
+            <td>{$value.date_n}</td>
+          </tr>
+          {/loop}
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
