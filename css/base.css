@@ -296,18 +296,18 @@ ul.stats{
 }
 
 /* PROJECTS LIST */
-#projects-table thead{
+.dark-table thead{
   background-color: #000000;
   color: #ffffff;
 }
 
-#projects-table thead tr th{
+.dark-table thead tr th{
   cursor: pointer;
   font-weight: 800;
   text-transform: uppercase;
 }
 
-#projects-table tbody tr td:nth-child(1) a{
+.dark-table tbody tr td:nth-child(1) a{
   color: #000000;
   font-weight: 800;
 }
