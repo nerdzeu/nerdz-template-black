@@ -255,12 +255,13 @@ ul.stats{
   background-color: #68d7e1;
 }
 
+/* POST FORM */
+
 .nerdz-button{
   background-color: #68d7e1;
   color: #000000;
 }
 
-/* POST FORM */
 #fast_nerdz .col{
   padding: 0;
 }
@@ -349,4 +350,20 @@ p.biography a{
   font-weight: 800;
   color: #000000;
   margin-bottom: 10px;
+}
+
+/* PREFERENCES */
+#prefbar ul{
+  list-style: none;
+  padding: 0;
+}
+
+#prefbar ul li a{
+  width: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#prefbar ul li a:hover, #prefbar ul li a.active{
+  background-color: #69d7e2;
 }

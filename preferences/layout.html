@@ -1,34 +1,49 @@
-<div class="container-fluid" style="margin-top: 80px;">
-        <div id="prefbar" class="col-xs-3 col-sm-2 col-md-1 blackbackground btn-group-vertical" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-                <button id="account" type="button" class="btn btn-info">{$account}</button>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="profile" type="button" class="btn btn-info">{$profile}</button>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="guests" type="button" class="btn btn-info">{$guests}</button>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="projects" type="button" class="btn btn-info">{$projects}</button>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="language" type="button" class="btn btn-info">{$language}</button>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="themes" type="button" class="btn btn-info">{$themes}</button>
-            </div>
-            <div class="btn-group" role="group">
-                <button id="delete" type="button" class="btn btn-info">{$delete}</button>
-            </div>
-        </div>
-    <div id="content" class="col-xs-9 col-sm-10 col-md-11 whitebackground littleboxshadow nopadding">
-        <h3 style="text-align:center;">
-            {$description_n}
-        </h3>
+<div class="container">
+  <div class="row">
+    <div id="prefbar" class="col-4 col-sm-2" role="group" aria-label="...">
+      <ul>
+        <li>
+          <a href="#" title="{$account}" class="post-interaction" id="account">
+            {$account}
+          </a>
+        </li>
+        <li>
+          <a href="#" title="{$profile}" class="post-interaction" id="profile">
+            {$profile}
+          </a>
+        </li>
+        <li>
+          <a href="#" title="{$guests}" class="post-interaction" id="guests">
+            {$guests}
+          </a>
+        </li>
+        <li>
+          <a href="#" title="{$projects}" class="post-interaction" id="projects">
+            {$projects}
+          </a>
+        </li>
+        <li>
+          <a href="#" title="{$language}" class="post-interaction" id="language">
+            {$language}
+          </a>
+        </li>
+        <li>
+          <a href="#" title="{$themes}" class="post-interaction" id="themes">
+            {$themes}
+          </a>
+        </li>
+        <li>
+          <a href="#" title="{$delete}" class="post-interaction" id="delete">
+            {$delete}
+          </a>
+        </li>
+      </ul>
     </div>
+    <div id="content" class="col-8 col-sm-10"></div>
+  </div>
 </div>
-
 <script>
-    $("#content").css("min-height", $("#prefbar").height());
+$(document).ready(function(){
+  $("#account").trigger('click');
+});
 </script>

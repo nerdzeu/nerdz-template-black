@@ -112,9 +112,6 @@ label, .imglocked, .imgunlocked, .lurk, .unlurk, .selectlang, .projlang, .more, 
     cursor: pointer;
 }
 
-.more {
-}
-
 input[type=checkbox] {
     transform: scale(0.8);
     padding: 0;
@@ -134,10 +131,6 @@ html, #body {
     height: 100%;
 }
 
-.box,.hidden {
-    margin: 5px auto 5px auto;
-}
-
 .more {
     position: relative;
     display: block;
@@ -147,43 +140,8 @@ html, #body {
     border-bottom: 1px solid #FFFFFF;
 }
 
-.page {
-    width: 99%;
-    margin: auto;
-}
-
-.page table {
-    margin: auto;
-    width: 100%;
-}
-
-.page .intable {
-    margin-top: 3%;
-    width: 100%;
-    margin-bottom: 3%;
-}
-
-.follow, .unfollow, .title, .page th, .more, .center-text {
-    text-align: center;
-}
-
-.title {
-    cursor: default;
-}
-
-.page th {
-    width: 10%;
-}
-
 .nerdz_message, .nerdz_comments, .news {
     width: auto;
-    /*background-color: #000;
-    border-radius: 2.5px;
-    overflow: visible;
-    padding: 3px;
-    border: 1px #FFFFFF solid;
-    margin-bottom: 10px;
-    font-size: 90%;*/
     word-wrap: break-word;
 }
 
@@ -202,20 +160,11 @@ html, #body {
     margin-bottom: 8px;
 }
 
-.nerdz_comments br, .nerdz_message br {
-    clear: both;
-}
-
 .quote {
     background-color: #FFFDD0;
     position: static;
     overflow: hidden;
 }
-
-.nerdz_date {
-    text-align: right;
-}
-
 .nerdz_thumbsNumPos {
     color: #86DC33 !important;
 }
@@ -314,15 +263,6 @@ html, #body {
     padding: 0 5%;
 }
 
-.small {
-    font-size: 75%;
-}
-
-.light {
-    color: #777;
-    padding-bottom: 2px;
-}
-
 .bold {
     font-weight: 500;
 }
@@ -367,28 +307,20 @@ pre {
     padding: 3px 3px 3px 3px;
 }
 
-.follow-list, .follow-list-home {
-    list-style-type: none;
-    margin: 0px;
-    overflow: hidden;
-}
-.follow-list-home {
-    padding:0;
-}
 
-.follow-list-item {
-    width: 275px;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    border-bottom: 1px solid #EEE;
-}
-
-.follow-list-item, .follow-list-item-home {
-    float: left;
-}
 .follow-list-item-home {
     width:100%;
+    display: inline-block;
+}
+
+
+.follow-list-container-home{
+  float: left;
+  padding: 6px;
+}
+
+.follow-list-item-home img{
+  float: left;
 }
 
 .atwho-view {
