@@ -3,11 +3,13 @@ $(document).ready(function() {
   var c = $("#content");
   $("#prefbar").click(function(event) {
     c.html(loading);
-    /* Remove active link */
+    // Unset the active menu link
     $.each($("#prefbar ul li a"), function(key, value){
       $(value).removeClass('active');
     });
+    // Set active menu link
     $("#"+event.target.id).addClass('active');
+    // Load the page
     N.html.post("/pages/preferences/" + event.target.id + ".html.php", {}, function(data) {
       c.html(data);
     });
@@ -15,6 +17,7 @@ $(document).ready(function() {
   c.on("submit", "#edaccfrm", function(e) {
     e.preventDefault();
     var c = $("#res");
+    c.addClass("message");
     c.html("...");
     N.json.post("/pages/preferences/account.html.json.php", $(this).serialize(), function(data) {
       c.html(data.message);

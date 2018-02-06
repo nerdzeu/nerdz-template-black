@@ -367,3 +367,7 @@ p.biography a{
 #prefbar ul li a:hover, #prefbar ul li a.active{
   background-color: #69d7e2;
 }
+
+#res.message{
+  font-weight: 800;
+}
