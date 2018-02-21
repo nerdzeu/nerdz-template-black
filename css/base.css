@@ -369,13 +369,29 @@ p.biography a{
   background-color: #69d7e2;
 }
 
+
+@media screen and (max-width: 767px){
+  #prefbar ul{
+    text-align: center;
+  }
+
+  #prefbar ul li{
+    width: auto;
+    display: inline;
+  }
+
+  #prefbar ul li a{
+    width: auto;
+  }
+}
+
 #res.message{
   font-weight: 800;
 }
 
 #content{
-    padding: 20px 5px;
-    background-color: #EFEFEF;
+  padding: 20px;
+  background-color: #EFEFEF;
 }
 
 #edaccfrm input, #gufrm input{
