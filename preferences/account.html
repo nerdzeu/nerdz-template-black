@@ -2,83 +2,52 @@
   <div class="col">
     <h2>{$account}</h2>
     <p id="res">{$preferences_descr}</p>
-
-    give me a makeover
     <form id="edaccfrm">
-      <!-- LEFT -->
-      <div class="col-xs-12 col-md-6">
-        <div class="input-group input-group-md" style="margin-bottom: 4px">
-          <span class="input-group-addon" id="sizing-addon1">{$name}</span>
-          <input type="text" class="form-control" value="{$name_n}" name="name" placeholder="{$name}" aria-describedby="sizing-addon1">
-        </div>
-        <div class="input-group input-group-md" style="margin-bottom: 4px">
-          <span class="input-group-addon" id="sizing-addon2">{$surname}</span>
-          <input type="text" class="form-control" value="{$surname_n}" name="surname" placeholder="{$surname}" aria-describedby="sizing-addon2">
-        </div>
-
-        <div class="input-group input-group-md" style="margin-bottom: 4px">
-          <span class="input-group-addon" id="sizing-addon4">{$birth_date}</span>
-          <input id="datepicker" type="text" class="form-control" value="{$day_n}/{$month_n}/{$year_n}" placeholder="{$birth_date}" aria-describedby="sizing-addon4">
-        </div>
-      </div>
-
-      <!-- RIGHT -->
-      <div class="col-xs-12 col-md-6">
-        <div class="input-group input-group-md" style="margin-bottom: 4px">
-          <span class="input-group-addon" id="sizing-addon3">{$email}</span>
-          <input type="text" class="form-control" value="{$email_n}" name="surname" placeholder="{$email}" aria-describedby="sizing-addon3">
-        </div>
-
-        <div class="input-group input-group-md" style="margin-bottom: 4px">
-          <span class="input-group-addon" id="sizing-addon5">{$password}</span>
-          <input type="password" class="form-control" name="password" placeholder="{$leave_empty_pass}" aria-describedby="sizing-addon5">
-        </div>
-
-        <div class="col-xs-4 nopaddingleft"  style="margin-bottom: 4px">
-          <select class="selectpicker" name="gender" data-width="100%" data-style="btn-info">
-            {if="$ismale_b"}
-            <option value="1">{$male}</option>
-            <option value="2">{$female}</option>
-            {else}
-            <option value="2">{$female}</option>
-            <option value="1">{$male}</option>
-            {/if}
-          </select>
-        </div>
-        <div class="col-xs-8 nopaddingleft"  style="margin-bottom: 4px">
-          <select class="selectpicker"  name="timezone">
-            {loop="timezones_a"}
-            {if="$value == $timezone_n"}
-            <option value="{$value}" selected="selected">{$value}</option>
-            {else}
-            <option value="{$value}">{$value}</option>
-            {/if}
-            {/loop}
-          </select>
-        </div>
-      </div>
-      <div class="col-xs-12" style="margin-bottom: 4px">
-        <button type="submit" class="btn btn-info noborderradius">{$edit}</button>
-      </div>
-      <input type="hidden" name="tok" value="{$tok_n}" />
-      <select name="birth_day" hidden>
-        <option value="-1" selected></option>
+        <input type="text" class="form-control" value="{$name_n}" name="name" placeholder="{$name}">
+        <input type="text" class="form-control" value="{$surname_n}" name="surname" placeholder="{$surname}">
+        <input id="datepicker" type="date" class="form-control" value="{$year_n}-{$month_n}-{$day_n}" placeholder="{$birth_date}">
+        <input type="text" class="form-control" value="{$email_n}" name="surname" placeholder="{$email}">
+        <input type="password" class="form-control" name="password" placeholder="{$password} - {$leave_empty_pass}">
+        <select class="selectpicker" name="gender" data-width="100%" data-style="btn-info">
+        {if="$ismale_b"}
+        <option value="1">{$male}</option>
+        <option value="2">{$female}</option>
+        {else}
+        <option value="2">{$female}</option>
+        <option value="1">{$male}</option>
+        {/if}
       </select>
-      <select name="birth_month" hidden>
-        <option value="-1" selected></option>
+      <select class="selectpicker"  name="timezone">
+        {loop="timezones_a"}
+        {if="$value == $timezone_n"}
+        <option value="{$value}" selected="selected">{$value}</option>
+        {else}
+        <option value="{$value}">{$value}</option>
+        {/if}
+        {/loop}
       </select>
-      <select name="birth_year" hidden>
-        <option value="-1" selected></option>
-      </select>
-    </form>
+      <button type="submit" class="post-interaction">{$edit}</button>
+    </div>
   </div>
+  <input type="hidden" name="tok" value="{$tok_n}" />
+  <select name="birth_day" hidden>
+    <option value="-1" selected></option>
+  </select>
+  <select name="birth_month" hidden>
+    <option value="-1" selected></option>
+  </select>
+  <select name="birth_year" hidden>
+    <option value="-1" selected></option>
+  </select>
+</form>
 </div>
 <script>
 $("#datepicker").on("change", function() {
   var data = this.value;
-  var valori = data.split("/");
-  $("select[name=birth_day] option:selected").val(valori[0]);
+  var valori = data.split("-");
+  console.log(valori);
+  $("select[name=birth_day] option:selected").val(valori[2]);
   $("select[name=birth_month] option:selected").val(valori[1]);
-  $("select[name=birth_year] option:selected").val(valori[2]);
+  $("select[name=birth_year] option:selected").val(valori[0]);
 });
 </script>

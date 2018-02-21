@@ -62,9 +62,8 @@
     <div class="{if="!$value.news_b"}col-10 col-lg-10 col-xl-10{else}col{/if}">
       <div class="message">
         {if="!$value.news_b"}
-        <a class="author" href="/{$value.from4link_n}">{$value.from_n}:</a>
-        {if="$value.fromid_n != $value.toid_n"}
-        &nbsp;⇒ <a href="/{$value.to4link_n}">{$value.to_n}</a>
+        <a class="author" href="/{$value.from4link_n}">{$value.from_n}</a>
+        {if="$value.fromid_n != $value.toid_n"}⇒ <a href="/{$value.to4link_n}">{$value.to_n}</a>
         {/if}
         {/if}
         {if="!$value.news_b"}

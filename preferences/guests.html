@@ -1,30 +1,22 @@
-<div class="col-xs-12"><h4>{$guests_descr}</h4></div>
-<p class="col-xs-12 darkbackground whitetext" id="res" style="min-height: 0;"></p>
-<div class="col-xs-12">
+<div class="row">
+  <div class="col">
+    <h2>{$guests_descr}</h2>
+    <p id="res"></p>
     <form id="gufrm" data-tok="{$tok_n}">
-        <div class="input-group">
-            <span class="input-group-addon">
-                <input type="radio" name="check" value="public" {if="!$private_b"}checked{/if} aria-label="...">
-            </span>
-            <a class="form-control" id="makepublic" href="#" aria-label="...">{$public_profile}</a>
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon">
-                <input type="radio" name="check" value="private" {if="$private_b"}checked{/if} aria-label="...">
-            </span>
-            <a class="form-control" id="makeprivate" href="#" aria-label="...">{$private_profile}</a>
-        </div>
-        <div class="col-xs-12 nopaddingleft" style="margin: 4px 0">
-            <button type="submit" class="btn btn-info noborderradius">{$edit}</button>
-        </div>
+      <input type="radio" name="check" value="public" {if="!$private_b"}checked{/if} aria-label="...">
+      <a id="makepublic" href="#">{$public_profile}</a><br />
+      <input type="radio" name="check" value="private" {if="$private_b"}checked{/if} aria-label="...">
+      <a id="makeprivate" href="#" aria-label="...">{$private_profile}</a><br />
+      <button type="submit" class="post-interaction">{$edit}</button>
     </form>
+  </div>
 </div>
 <script>
-    $("#makeprivate").on("click", function () {
-        $("input[value=private]").prop("checked", true);
-    });
+$("#makeprivate").on("click", function () {
+  $("input[value=private]").prop("checked", true);
+});
 
-    $("#makepublic").on("click", function () {
-        $("input[value=public]").prop("checked", true);
-    });
+$("#makepublic").on("click", function () {
+  $("input[value=public]").prop("checked", true);
+});
 </script>
