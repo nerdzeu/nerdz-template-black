@@ -236,9 +236,9 @@ $(document).ready(function() {
 
   var el;
   if (localStorage.getItem("autolang")) {
-    el = $("#lang-filter").find("ul").find("[data-lang='" + localStorage.getItem("autolang") + "']");
+	el = $('.selectlang[data-lang="'+localStorage.getItem("autolang")+'"]');
   } else {
-    $('.selectlang[data-lang="*"]').click();
+    el = $('.selectlang[data-lang="*"]').click();
   }
   el.click();
   el.addClass("selected");
