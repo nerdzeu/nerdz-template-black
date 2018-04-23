@@ -238,7 +238,7 @@ $(document).ready(function() {
   if (localStorage.getItem("autolang")) {
     el = $("#lang-filter").find("ul").find("[data-lang='" + localStorage.getItem("autolang") + "']");
   } else {
-    el = $("#lang-filter").find("ul").find("[data-lang='*']");
+    $('.selectlang[data-lang="*"]').click();
   }
   el.click();
   el.addClass("selected");
