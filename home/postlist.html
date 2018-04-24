@@ -11,8 +11,8 @@
       {/if}
       <!-- CLOSE POST -->
       {if="$value.canclosepost_b"}
-      <a href="#" title="{if="$value.closed_b"}open{else}close{/if}" class="post-interaction {if="$value.closed_b"}closepls{else}open{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .pid">
-        {if="$value.closed_b"}<i class="mdi mdi-lock-open-outline"></i>{else}<i class="mdi mdi-lock-outline"></i>{/if}
+      <a href="#" class="post-interaction {if="$value.closed_b"}closed{else}opened{/if}" data-hpid="{$value.hpid_n}" data-refto="post{$value.hpid_n} .pid">
+        {if="$value.closed_b"}<i class="mdi mdi-lock-outline"></i>{else}<i class="mdi mdi-lock-open-outline"></i>{/if}
       </a>
       {/if}
       <!-- REMOVE POST -->

@@ -9,17 +9,6 @@ $(document).ready(function() {
     e.preventDefault();
     $(".sidebar").fadeToggle('slow');
   });
-  $(".rightarrow-home").click(function(e) {
-    e.preventDefault();
-    if (!$(this).hasClass("toggled")) {
-      $(this).addClass("toggled");
-      $(this).css("transform", "rotate(45deg)");
-    } else {
-      $(this).removeClass("toggled");
-      $(this).css("transform", "");
-    }
-    $(this).parent().next(".hidden").toggle();
-  });
   plist.html("<h1>" + loading + "...</h1>");
   var onRemoveHiddenPost = function() {
     var me = $(this), target = me.data("target"), lv = localStorage.getItem("hid").split("|"), serialized = "";
@@ -143,7 +132,6 @@ $(document).ready(function() {
   $("#profilePostList").on("click", function() {
     plist.html("<h1>" + loading + "...</h1>");
     $("#fast_nerdz").show();
-    $(".selectlang").css("color", "");
     localStorage.removeItem("autolang");
     localStorage.removeItem("autoorder");
     load = false;
@@ -157,7 +145,6 @@ $(document).ready(function() {
   $("#projectPostList").on("click", function() {
     plist.html("<h1>" + loading + "...</h1>");
     $("#fast_nerdz").hide();
-    $(".projlang").css("color", "");
     load = false;
     N.html.home.getFollowedPostList(0, function(data) {
       plist.html(data);
