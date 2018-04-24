@@ -888,10 +888,15 @@ $(document).ready(function() {
 	plist.on("click", ".all_comments_btn", function() {
 		showAllComments(this);
 	});
+	// Quote icon
 	plist.on("click", ".qu_ico", function() {
-		var area = $("#" + $(this).data("refto")), msg = "[quote=" + $(this).data("hcid") + "|" + $(this).data("type") + "]", cpos = area[0].selectionStart, val = area.val(), intx = val.substring(0, cpos) + msg;
+		var area = $("#" + $(this).data("refto")),
+			message = "[quote=" + $(this).data("hcid") + "|" + $(this).data("type") + "]",
+			cpos = area[0].selectionStart,
+			value = area.val(),
+			intx = value.substring(0, cpos) + message;
 		area.focus();
-		area.val(intx + val.substring(cpos));
+		area.val(intx + value.substring(cpos));
 		area[0].setSelectionRange(intx.length, intx.length);
 	});
 	plist.on("click", ".delpost", function(e) {
@@ -922,6 +927,7 @@ $(document).ready(function() {
 			}
 		});
 	});
+	// Closed post icon
 	plist.on("click", ".closed", function(e) {
 		e.preventDefault();
 		var refto = $("#" + $(this).data("refto"));
@@ -938,6 +944,7 @@ $(document).ready(function() {
 			}
 		});
 	});
+	// Opened post icon
 	plist.on("click", ".opened", function(e) {
 		e.preventDefault();
 		var refto = $("#" + $(this).data("refto"));
