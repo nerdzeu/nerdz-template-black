@@ -906,8 +906,9 @@ $(document).ready(function() {
 		N.json[parentPostType].delPostConfirm({
 			hpid: hpid
 		}, function(m) {
+			console.log(m);
 			if (m.status == "ok") {
-				refto.html('<div style="text-align:center; color: white;">' + m.message + '<br /><span id="delPostOk' + hpid + '" style="cursor:pointer">YES</span> | <span id="delPostNo' + hpid + '" style="cursor:pointer">NO</span></div>');
+				refto.html('<div class="confirm-delete">' + m.message + '<br /><span id="delPostOk' + hpid + '" class="option">YES</span><span id="delPostNo' + hpid + '" class="option">NO</span></div>');
 				refto.on("click", "#delPostOk" + hpid, function() {
 					N.json[parentPostType].delPost({
 						hpid: hpid
