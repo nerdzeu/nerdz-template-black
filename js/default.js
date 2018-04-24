@@ -899,6 +899,7 @@ $(document).ready(function() {
 		area.val(intx + value.substring(cpos));
 		area[0].setSelectionRange(intx.length, intx.length);
 	});
+	// Delete post icon
 	plist.on("click", ".delpost", function(e) {
 		e.preventDefault();
 		var me = $(this), refto = $("#" + me.data("refto")), post = refto.html(), hpid = me.data("hpid");
@@ -1067,36 +1068,36 @@ $(document).ready(function() {
 			});
 		}
 	});
-	plist.on("click", ".lurk", function() {
+	// Lurk icon
+	plist.on("click", ".lurk", function(e) {
+		e.preventDefault();
 		var me = $(this);
-		var tog = function(d) {
-			if (d.status == "ok") {
-				me.attr("class", "glyphicon glyphicon-eye-close unlurk");
-				me.attr("title", "Lurk");
-			} else {
-				alert(d.message);
-			}
-		};
 		N.json[getParentPostType(me)].lurkPost({
 			hpid: me.data("hpid")
-		}, function(d) {
-			tog(d);
-		});
-	});
-	plist.on("click", ".unlurk", function() {
-		var me = $(this);
-		var tog = function(d) {
-			if (d.status == "ok") {
-				me.attr("class", "glyphicon glyphicon-eye-open lurk");
+		}, function(result) {
+			if(result.status == 'ok'){
 				me.attr("title", "Unlurk");
+				me.html('Unlurk');
+				me.toggleClass("lurk unlurk");
 			} else {
 				alert(d.message);
 			}
-		};
+		});
+	});
+	// Unlurk icon
+	plist.on("click", ".unlurk", function(e) {
+		e.preventDefault();
+		var me = $(this);
 		N.json[getParentPostType(me)].unlurkPost({
 			hpid: me.data("hpid")
-		}, function(d) {
-			tog(d);
+		}, function(result) {
+			if(result.status == 'ok'){
+				me.attr("title", "Lurk");
+				me.html('Lurk');
+				me.toggleClass("lurk unlurk");
+			} else {
+				alert(d.message);
+			}
 		});
 	});
 	plist.on("click", ".bookmark", function() {

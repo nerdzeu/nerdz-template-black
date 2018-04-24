@@ -39,13 +39,9 @@
       {/if}
       <!-- SHOW LURK -->
       {if="$value.canshowlurk_b"}
-      <a href="#" class="post-interaction">
-        {if="$value.lurk_b"}
-        <span class="unlurk" data-hpid="{$value.hpid_n}" title="Unlurk" onclick="" />lurk</span>
-        {else}
-        <span class="lurk" data-hpid="{$value.hpid_n}" title="Lurk" onclick="" />lurk</span>
-        {/if}
-      </a>
+      <a href="#" data-hpid="{$value.hpid_n}" class="post-interaction {if="$value.lurk_b"}unlurk{else}lurk{/if}" title="{if="$value.lurk_b"}unlurk{else}lurk{/if}">
+		  {if="$value.lurk_b"}Unlurk{else}Lurk{/if}
+	  </a>
       {/if}
     </div>
   </div>
