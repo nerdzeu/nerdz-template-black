@@ -177,6 +177,12 @@ ul.stats{
 	display: inline-block;
 }
 
+/* BOOKMARKS */
+
+.unbookmark i{
+	color: #68d7e1 !important;
+}
+
 /* COMMENTS */
 
 .comments-section{

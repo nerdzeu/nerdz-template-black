@@ -29,12 +29,8 @@
       {/if}
       <!-- SHOW BOOKMARK -->
       {if="$value.canshowbookmark_b"}
-      <a href="#" class="post-interaction">
-        {if="$value.bookmark_b"}
-        <i class="mdi unbookmark mdi-bookmark" data-hpid="{$value.hpid_n}" title="Unbookmark"></i>
-        {else}
-        <i class="mdi bookmark mdi-bookmark" data-hpid="{$value.hpid_n}" title="Bookmark"></i>
-        {/if}
+      <a href="#" class="post-interaction {if="$value.bookmark_b"}unbookmark{else}bookmark{/if}" data-hpid="{$value.hpid_n}">
+        <i class="mdi mdi-bookmark" title="{if="$value.bookmark_b"}Unbookmark{else}Bookmark{/if}"></i>
       </a>
       {/if}
       <!-- SHOW LURK -->

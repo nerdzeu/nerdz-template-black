@@ -891,10 +891,10 @@ $(document).ready(function() {
 	// Quote icon
 	plist.on("click", ".qu_ico", function() {
 		var area = $("#" + $(this).data("refto")),
-			message = "[quote=" + $(this).data("hcid") + "|" + $(this).data("type") + "]",
-			cpos = area[0].selectionStart,
-			value = area.val(),
-			intx = value.substring(0, cpos) + message;
+		message = "[quote=" + $(this).data("hcid") + "|" + $(this).data("type") + "]",
+		cpos = area[0].selectionStart,
+		value = area.val(),
+		intx = value.substring(0, cpos) + message;
 		area.focus();
 		area.val(intx + value.substring(cpos));
 		area[0].setSelectionRange(intx.length, intx.length);
@@ -1100,37 +1100,22 @@ $(document).ready(function() {
 			}
 		});
 	});
-	plist.on("click", ".bookmark", function() {
-		var me = $(this);
-		var tog = function(d) {
-			if (d.status == "ok") {
-				me.attr("class", "glyphicon glyphicon-bookmark unbookmark");
-				me.attr("title", d.message);
-			} else {
-				alert(d.message);
-			}
-		};
-		N.json[getParentPostType(me)].bookmarkPost({
-			hpid: me.data("hpid")
-		}, function(d) {
-			tog(d);
+	plist.on("click", ".bookmark", function(event) {
+		event.preventDefault();
+		var icon = $(this);
+		N.json[getParentPostType(icon)].bookmarkPost({
+			hpid: icon.data("hpid")
+		}, function(result) {
+			updateBookmarkIcon(icon, result);
 		});
 	});
-	plist.on("click", ".unbookmark", function() {
-		var me = $(this);
-		var tog = function(d) {
-			if (d.status == "ok") {
-				me.attr("class", "glyphicon glyphicon-bookmark bookmark");
-				me.attr("title", d.message);
-				me.attr("title", d.message);
-			} else {
-				alert(d.message);
-			}
-		};
-		N.json[getParentPostType(me)].unbookmarkPost({
-			hpid: me.data("hpid")
-		}, function(d) {
-			tog(d);
+	plist.on("click", ".unbookmark", function(event) {
+		event.preventDefault();
+		var icon = $(this);
+		N.json[getParentPostType(icon)].unbookmarkPost({
+			hpid: icon.data("hpid")
+		}, function(result) {
+			updateBookmarkIcon(icon, result);
 		});
 	});
 	plist.on("click", ".nerdz-code-title", function() {
@@ -1148,3 +1133,13 @@ $(document).ready(function() {
 		pc.css("display", val === 0 || isNaN(val) ? "none" : "inline-block");
 	}, 200);
 });
+
+function updateBookmarkIcon(icon, result){
+	if(result.status === 'ok') {
+		var newTitle = icon.find('i').attr('title') === 'Bookmark' ? 'Unbookmark' : 'Bookmark';
+		icon.toggleClass("bookmark unbookmark");
+		icon.find('i').attr('title',newTitle);
+	} else {
+		alert(result.message);
+	}
+}
