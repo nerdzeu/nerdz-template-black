@@ -1069,35 +1069,23 @@ $(document).ready(function() {
 		}
 	});
 	// Lurk icon
-	plist.on("click", ".lurk", function(e) {
-		e.preventDefault();
-		var me = $(this);
-		N.json[getParentPostType(me)].lurkPost({
-			hpid: me.data("hpid")
+	plist.on("click", ".lurk", function(event) {
+		event.preventDefault();
+		var icon = $(this);
+		N.json[getParentPostType(icon)].lurkPost({
+			hpid: icon.data("hpid")
 		}, function(result) {
-			if(result.status == 'ok'){
-				me.attr("title", "Unlurk");
-				me.html('Unlurk');
-				me.toggleClass("lurk unlurk");
-			} else {
-				alert(d.message);
-			}
+			updateLurkIcon(icon, result);
 		});
 	});
 	// Unlurk icon
-	plist.on("click", ".unlurk", function(e) {
-		e.preventDefault();
-		var me = $(this);
-		N.json[getParentPostType(me)].unlurkPost({
-			hpid: me.data("hpid")
+	plist.on("click", ".unlurk", function(event) {
+		event.preventDefault();
+		var icon = $(this);
+		N.json[getParentPostType(icon)].unlurkPost({
+			hpid: icon.data("hpid")
 		}, function(result) {
-			if(result.status == 'ok'){
-				me.attr("title", "Lurk");
-				me.html('Lurk');
-				me.toggleClass("lurk unlurk");
-			} else {
-				alert(d.message);
-			}
+			updateLurkIcon(icon, result);
 		});
 	});
 	plist.on("click", ".bookmark", function(event) {
@@ -1134,11 +1122,22 @@ $(document).ready(function() {
 	}, 200);
 });
 
-function updateBookmarkIcon(icon, result){
+function updateBookmarkIcon(icon, result) {
 	if(result.status === 'ok') {
-		var newTitle = icon.find('i').attr('title') === 'Bookmark' ? 'Unbookmark' : 'Bookmark';
+		var newTitle = icon.attr('title') === 'Bookmark' ? 'Unbookmark' : 'Bookmark';
 		icon.toggleClass("bookmark unbookmark");
-		icon.find('i').attr('title',newTitle);
+		icon.attr('title',newTitle);
+	} else {
+		alert(result.message);
+	}
+}
+
+function updateLurkIcon(icon, result) {
+	if(result.status === 'ok'){
+		var newTitle = icon.attr('title') === 'Lurk' ? 'Unlurk' : 'Lurk';
+		icon.attr("title", newTitle);
+		icon.html(newTitle);
+		icon.toggleClass("lurk unlurk");
 	} else {
 		alert(result.message);
 	}
