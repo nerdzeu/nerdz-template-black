@@ -119,12 +119,14 @@
             <li style="line-height:20px"><a href="/search.php?q={$value.trend4link_n}">{$value.trend_n}</a></li>
         {/loop}
         </ol>
+        {if="!empty($banners_a.120x60)"}
         <div class="title">
             {$advertisement}
         </div>
         <div class="box">
             {$banners_a.120x60}
         </div>
+        {/if}
         <br /><br />
     </aside>
     <article id="center_col" class="page">
