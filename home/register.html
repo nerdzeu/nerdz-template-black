@@ -12,12 +12,29 @@
     <input class="form-control0" type="password" id="reg-password" name="password" placeholder="{$password}" required>
   </div>
   <div class="form-group">
-    <label class="sr-only" for="reg-birth_date">{$birth_date}</label>
-    <input class="form-control0" type="date" id="reg-birth_date" name="date">
+    <label class="sr-only" for="birth_day">{$birth_date}</label>
+    <select name="birth_day" class="form-control0" id="birth_day">
+        <option value="-1">{$day}</option>
+        {loop="days_a"}
+            <option value="{$value}">{$value}</option>
+        {/loop}
+    </select>
+    <select name="birth_month" class="form-control0">
+        <option value="-1">{$month}</option>
+        {loop="months_a"}
+            <option value="{$value}">{$value}</option>
+        {/loop}
+    </select>
+    <select name="birth_year" class="form-control0">
+        <option value="-1">{$year}</option>
+        {loop="years_a"}
+            <option value="{$value}">{$value}</option>
+        {/loop}
+    </select>
   </div>
   <div class="form-group">
-    <label for="reg-timezone" class="sr-only" name="timezone">{$timezone}</label>
-    <select class="form-control0" id="reg-timezone">
+    <label for="reg-timezone" class="sr-only">{$timezone}</label>
+    <select name="timezone" class="form-control0" id="reg-timezone">
       {loop="timezones_a"}
       <option value="{$value}">{$value}</option>
       {/loop}
@@ -26,7 +43,7 @@
   <div class="form-group">
     <label class="sr-only" for="cptxt">Captcha</label>
     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-      <div class="input-group-addon" style="background-color: black;">
+      <div class="input-group-addon" style="background-color: black; padding:0;">
         <img src="{$captchaurl_n}#" id="captcha" title="captcha">
       </div>
       <input class="form-control0" type="text" id="cptxt" name="captcha" placeholder="{$captcha}:" required>
