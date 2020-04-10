@@ -8,15 +8,6 @@
         <input id="datepicker" type="date" class="form-control" value="{$year_n}-{$month_n}-{$day_n}" placeholder="{$birth_date}">
         <input type="text" class="form-control" value="{$email_n}" name="surname" placeholder="{$email}">
         <input type="password" class="form-control" name="password" placeholder="{$password} - {$leave_empty_pass}">
-        <select class="selectpicker" name="gender" data-width="100%" data-style="btn-info">
-        {if="$ismale_b"}
-        <option value="1">{$male}</option>
-        <option value="2">{$female}</option>
-        {else}
-        <option value="2">{$female}</option>
-        <option value="1">{$male}</option>
-        {/if}
-      </select>
       <select class="selectpicker"  name="timezone">
         {loop="timezones_a"}
         {if="$value == $timezone_n"}
