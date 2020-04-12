@@ -77,7 +77,7 @@ $(document).ready(function() {
     }
     var prettify = document.createElement("script");
     prettify.type = "text/javascript";
-    prettify.src = "https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.js" + append_theme;
+    prettify.src = "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js" + append_theme;
     _h.append(prettify);
     if (append_theme !== "") {
         _h.append('<style type="text/css">.nerdz-code-wrapper { background-color: #000; color: #FFF; }</style>');
