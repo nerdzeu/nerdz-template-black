@@ -30,40 +30,6 @@
                         </ul>
                         <br />
                     </div>
-                    <ul style="margin-left:15px; margin-bottom:10px" class="small" id="nerdzvote">
-                        <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                        <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <a class="rightarrow-home"></a>
-                    <a id="projectPostList" href="#">{$projects}</a>
-                    <span style="float:right">
-                        <a href="/feed.php?project=1">
-                            <img src="images/rss.gif" width="16" height="17" alt="Project RSS" />
-                        </a>
-                    </span>
-                </div>
-                <div class="hidden" id="projlist">
-                    <div class="small" style="margin: 5px auto 5px 15px">{$from}:</div>
-                    <div style="margin-left:20px">
-                        <ul>
-                            <li class="projlang" data-lang="*">{$everybody}</li>
-                        </ul>
-                    </div>
-                    <div class="small" style="margin: 6px auto 5px 15px">{$language}:</div>
-                    <div style="margin-left:20px">
-                        <ul>
-                            {loop="langs_a"}
-                            <li class="projlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>
-                            {/loop}
-                        </ul>
-                        <br />
-                    </div>
-                    <ul style="margin-left:15px; margin-bottom:10px" class="small">
-                        <li class="projlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                        <li class="projlang" data-lang="vote" data-order="-">{$less_rated}</li>
-                    </ul>
                 </div>
                 <div class="item">
                     <a class="rightarrow-home"></a>
