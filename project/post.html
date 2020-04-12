@@ -7,7 +7,12 @@
                 <span title="{$number_of_modifications}: {$revisions_n}" class="oldrev" data-refto="post{$hpid_n}" data-revisions="{$revisions_n}" data-hpid="{$hpid_n}">&#9664;</span>&nbsp;&nbsp;
                 {/if}
             </span>
-            {$date_n} <time>{$time_n}</time>
+            <time>
+                {if="date('dmy',time()) != date('dmy',$timestamp_n)"}
+                {$date_n}
+                {/if}
+                {$time_n}
+            </time>
             <span class="thumbs">
                 &nbsp;|&nbsp;              
                 <span class='thumbs-counter{if="$thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$thumbs_n > 0"}+{/if}{$thumbs_n}</span>
