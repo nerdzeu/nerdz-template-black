@@ -661,7 +661,7 @@ $(document).ready(function() {
                     tagTime = tagTime.find("time");
                 }
                 timeVal = tagTime.html();
-                tagTime.html(r.datetime);
+                tagTime.html(r.date + " " + r.time);
                 if (!me.parent().find(".newrev").length) {
                     var s = $(document.createElement("span"));
                     s.attr("class", "newrev" + (id === "hcid" ? " comment" : ""));
