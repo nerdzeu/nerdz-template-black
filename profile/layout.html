@@ -2,7 +2,7 @@
     <aside id="left_col">
         <div>
             <div style="text-align: center; margin-bottom:3px">
-{ignore} src="foto#" così facendo il parser di raintpl non sovrascrive l'url{/ignore}
+{ignore} NOTE: src="url#". Adding the final # tells the parser to do not overwrite the URL{/ignore}
                 <a href="/{$username4link_n}">
                     <img src="{$gravatarurl_n}&amp;s=180#" alt="{$username}" style="max-width:100%; max-height:100%" onerror="this.src='{$onerrorimgurl_n}'" />
                 </a>
@@ -110,16 +110,13 @@
         {include="common/form"}
     {/if}
         <div id="postlist" data-type="profile" data-id="{$id_n}" data-location="profile" data-mode="std">
-            {if="isset($post_n)"} {ignore}handle single post, friends, follwers, ecc{/ignore}
+            {if="isset($post_n)"}
                 {$post_n}
             {/if}
         </div>
         <br /><br />
     </article>
     <aside id="right_col" class="page">
-{ignore}
-        <div class="title">{$about_me}</div>
-{/ignore}
     {if="!empty($biography_n)"}
         <div class="title">{$biography}</div>
         <div class="box" style="overflow:hidden">
@@ -232,7 +229,7 @@
     <script>
         $(document).ready(function() {
             var plist = $("#postlist");
-            var num = 10; {ignore} TODO PARAM? {/ignore}
+            var num = 10;
             var load = false;
             var loading = N.getLangData().LOADING;
             var divId = 'scrtxt';
@@ -249,8 +246,6 @@
             });
             
             $("#showpostlist").click();
-
-            {ignore} Autoload old posts on scrolldown {/ignore}
             $(window).scroll(function() {
                 if($(this).scrollTop()+200 >= ( $(document).height() - $(this).height() ) )
                 {
@@ -284,6 +279,5 @@
             $(".showcomments").click();
     });
     </script>
-    {ignore} tanto se il post è singolo ne esiste solo uno di elemento con questa classe{/ignore}
 {/if}
 </div>
