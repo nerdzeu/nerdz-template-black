@@ -11,11 +11,7 @@
             </p>
         </td>
         <td style="width: 50%">
-            <textarea name="interests" rows="8" cols="26">
-                {loop="interests_a"}
-                    {$value}&#13;
-                {/loop}
-            </textarea>
+            <textarea name="interests" rows="8" cols="26">{loop="interests_a"}{$value}&#13;{/loop}</textarea>
         </td>
     </tr>
     <tr>
@@ -28,9 +24,7 @@
         </td>
         <td>
             <br />
-            <textarea name="biography" rows="8" cols="26">
-            {$biography_n}
-            </textarea>
+            <textarea name="biography" rows="8" cols="26">{$biography_n}</textarea>
         </td>
     </tr>
     <tr>
@@ -42,11 +36,7 @@
         </td>
         <td>
             <br />
-            <textarea name="quotes" rows="8" cols="26">
-                {loop="quotes_a"}
-                    {$value}&#13;&#10;
-                {/loop}
-            </textarea>
+            <textarea name="quotes" rows="8" cols="26">{loop="quotes_a"}{$value}&#13;&#10;{/loop}</textarea>
         </td>
     </tr>
     <tr>
@@ -177,11 +167,7 @@
         </td>
         <td>
             <br />
-            <textarea name="whitelist" rows="8" cols="26">
-                {loop="whitelist_a"}
-                    {$value}&#13;&#10;
-                {/loop}
-            </textarea>
+            <textarea name="whitelist" rows="8" cols="26">{loop="whitelist_a"}{$value}&#13;&#10;{/loop}</textarea>
         </td>
     </tr>
 {/if}
