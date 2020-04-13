@@ -71,7 +71,6 @@ $(document).ready(function() {
     };
     var handleRefresh = function() {
         load = false;
-        console.log("lang: ", lang);
         if (lang == "usersifollow") {
             $("#stdfrm select[name=lang]").val(myLang);
             $("#fast_nerdz").show();

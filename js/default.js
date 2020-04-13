@@ -560,9 +560,9 @@ $(document).ready(function() {
             hcid = last ? last.data("hcid") : 0;
         }
         error.html(loading);
-        N.json[getParentPostType($(this))].addComment({
+        N.json[getParentPostType(me)].addComment({
             hpid: hpid,
-            message: $(this).find("textarea").eq(0).val()
+            message: me.find("textarea").eq(0).val()
         }, function(d) {
             if (d.status == "ok") {
                 if (hcid && last) {
@@ -633,8 +633,8 @@ $(document).ready(function() {
         }
     });
     plist.on("click", ".oldrev", function() {
-        var me = $(this), refto = $(this).data("refto");
-        var revno = parseInt($(this).data("revisions"));
+        var me = $(this), refto = me.data("refto");
+        var revno = parseInt(me.data("revisions"));
         var func = "getRevision";
         var obj = {
             hpid: $(this).data("hpid"),
@@ -653,7 +653,7 @@ $(document).ready(function() {
             $(this).data("original-rev", revno);
         }
         if (revno > 0) {
-            N.json[getParentPostType($(this))][func](obj, function(r) {
+            N.json[getParentPostType(me)][func](obj, function(r) {
                 var tagTime = me.parent().parent(), timeVal = null;
                 if (id === "hcid") {
                     tagTime = tagTime.find('a[id^="ndc"]');
@@ -686,7 +686,7 @@ $(document).ready(function() {
                     }
                     pidTag.remove();
                 }
-                var storeName = getParentPostType($(this)) + "store" + func;
+                var storeName = getParentPostType(me) + "store" + func;
                 var elms = {};
                 if (!sessionStorage[storeName]) {
                     elms[me.data(id)] = [];
@@ -733,7 +733,7 @@ $(document).ready(function() {
             id = "hcid";
             tagTime = me.parent().parent().children('a[id^="ndc"]');
         }
-        var storeName = getParentPostType($(this)) + "store" + func;
+        var storeName = getParentPostType(me) + "store" + func;
         if (sessionStorage[storeName]) {
             var elms = JSON.parse(sessionStorage[storeName]);
             if (elms[me.data(id)]) {
@@ -791,7 +791,7 @@ $(document).ready(function() {
             func = "cthumbs";
         }
         if (curr.hasClass("voted")) {
-            N.json[getParentPostType($(this))][func]($.extend(obj, {
+            N.json[getParentPostType(curr)][func]($.extend(obj, {
                 thumb: 0
             }), function(r) {
                 if (r.status === "error") {
@@ -813,7 +813,7 @@ $(document).ready(function() {
                 }
             });
         } else {
-            N.json[getParentPostType($(this))][func]($.extend(obj, {
+            N.json[getParentPostType(curr)][func]($.extend(obj, {
                 thumb: curr.hasClass("up") ? 1 : -1
             }), function(r) {
                 if (r.status === "error") {
@@ -840,14 +840,13 @@ $(document).ready(function() {
     plist.on("click", ".more_btn", function() {
         var moreBtn = $(this),
         commentList = moreBtn.parents('div[id^="commentlist"]');
-        console.log(commentList.parentsUntil(plist, 'div[id^="post"]'));
         hpid = $(commentList.parentsUntil(plist, 'div[id^="post"]')[0]).data("hpid"),
         intCounter = moreBtn.data("morecount") || 0;
         if (moreBtn.data("inprogress") === "1") {
             return;
         }
         moreBtn.data("inprogress", "1").text(loading + "...");
-        N.html[getParentPostType($(this))].getComments({
+        N.html[getParentPostType(moreBtn)].getComments({
             hpid: hpid,
             start: intCounter + 1,
             num: 10
@@ -874,13 +873,16 @@ $(document).ready(function() {
         });
     });
     var showAllComments = function(el, callback) {
-        var btn = $(el), btnDb = btn.parent().parent(), moreBtn = btnDb.find(".more_btn"), commentList = btn.parents('div[id^="commentlist"]'), hpid = /^post(\d+)$/.exec(commentList.$(parentsUntil(plist, 'div[id^="post"]')[0]).data("id"))[1];
+        var btn = $(el), btnDb = btn.parent().parent(), moreBtn = btnDb.find(".more_btn");
+        var commentList = btn.parents('div[id^="commentlist"]');
+        var post = $(commentList.parentsUntil(plist, 'div[id^="post"]')[0]);
+        var hpid = post.data("hpid");
         if (btn.data("working") === "1" || moreBtn.data("inprogress") === "1") {
             return;
         }
         btn.data("working", "1").text(loading + "...");
         moreBtn.data("inprogress", "1");
-        N.html[getParentPostType($(this))].getComments({
+        N.html[getParentPostType(btn)].getComments({
             hpid: hpid,
             forceNoForm: true
         }, function(res) {
@@ -907,7 +909,7 @@ $(document).ready(function() {
     plist.on("click", ".delpost", function(e) {
         e.preventDefault();
         var me = $(this), refto = $("#" + me.data("refto")), post = refto.html(), hpid = me.data("hpid");
-        var parentPostType = getParentPostType($(this));
+        var parentPostType = getParentPostType(me);
         N.json[parentPostType].delPostConfirm({
             hpid: hpid
         }, function(m) {
