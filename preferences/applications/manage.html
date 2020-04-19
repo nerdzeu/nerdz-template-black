@@ -1,0 +1,78 @@
+<hr />
+
+<form id="edappform">
+<table class="intable">
+    <tr>
+        <td style="vertical-align: top">
+            <br />
+            {$name}:
+        </td>
+        <td>
+            <br />
+            <input type="text" name="name" value="{$name_n}" readonly />
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top">
+            <br />
+            {$description}:
+        </td>
+        <td>
+            <br />
+            <textarea name="description" rows="8" cols="26">{$description_n}</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top">
+            <br />
+            Redirect URI:
+        </td>
+        <td>
+            <br />
+            <input type="text" name="redirect_uri" value="{$redirecturi_n}" />
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top">
+            <br />
+            Secret
+        </td>
+        <td>
+            <br />
+            <input type="text" id="secret" name="secret" value="{$secret_n}" readonly />
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top">
+            <br />
+            Client ID
+        </td>
+        <td>
+            <br />
+            <input type="text" id="id" name="id" value="{$id_n}" readonly />
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top">
+            <br />
+            Scopes
+        </td>
+        <td>
+            <ul>
+                {loop="$scopes_a"}<li>{$value}</li>{/loop}
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <br />
+            <input type="submit" value="{$edit}" />
+            </td>
+        <td>
+            <div id="res"></div>
+        </td>
+    </tr>
+    </table>
+    <input type="hidden" name="tok" value="{$tok_n}" />
+</form>
+<br /><br />

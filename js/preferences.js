@@ -32,7 +32,7 @@ $(document).ready(function() {
         }, function(data) {
             $("#res").html(data.message);
         });
-    }).on("click", ".manage", function(e) {
+    }).on("click", ".manageproject", function(e) {
         e.preventDefault();
         $("#cont").html(loading);
         N.html.post("/pages/preferences/projects.html.html.php", {
@@ -106,6 +106,13 @@ $(document).ready(function() {
                     document.location.reload();
                 }, 1500);
             }
+        });
+    }).on("submit", "#edappform", function(e) {
+        e.preventDefault();
+        var r = $("#res");
+        r.html(loading);
+        N.json.post("/pages/preferences/applications.html.html.json.php?action=update", $(this).serialize(), function(data) {
+            r.html(data.message);
         });
     });
 });
