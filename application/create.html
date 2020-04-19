@@ -1,0 +1,64 @@
+<div id="left_col">&nbsp;</div>
+<div id="center_col">
+    <div>Complete the form below to create your application. Plese note that you can't change these details in future!</div>
+    <hr />
+    <form id="create">
+        <table class="page" style="width:80%">
+        <tr>
+            <td>Application ({$name}):</td>
+            <td>
+                <input type="text" name="name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>{$description}:</td>
+            <td>
+                <textarea name="description" style="width:370px; height: 240px"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Redirect URI:</td>
+            <td>
+                <input type="text" name="redirect_uri"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Scope</td>
+            <td>
+                {loop="scopes_a"}
+                <input type="checkbox" name="scopes[]" value="{$key}"><b>{$key}</b> {$value}<br />
+                {/loop}
+            </td>
+        </tr>
+        <tr>
+            <td>{$captcha}:<br />
+                <img alt="" id="captcha" title="captcha" style="border: 1px solid #FFF" width="90" height="30" /><br />
+                <span onclick="N.reloadCaptcha()" style="font-size:6pt; cursor: pointer">{$reload_captcha}</span>
+            </td>
+            <td><input type="text" name="captcha" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="{$create}" /></td>
+        </tr>
+        </table>
+    </form>
+
+<br /><br />
+</div>
+<div id="left_col"><div class="error" id="err" style="margin-top:80px"></div></div>
+<script>
+$(document).ready(function() {
+    $("#create").on('submit',function(e) {
+        e.preventDefault();
+        N.json.createApplication($(this).serialize(),function(d) {
+            $("#err").html(d.message);
+            if(d.status == 'ok') {
+                setTimeout(function() {
+                    location.href = '/preferences.php'
+                }, 1500);
+            }
+        });    
+    });
+});
+</script>
