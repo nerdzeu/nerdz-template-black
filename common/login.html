@@ -42,7 +42,11 @@ $("#loginfrm").on('submit',function(event) {
         {
             t.html(r.message);
             setTimeout(function() {
-                document.location.reload();
+                if(typeof r.redirect === 'undefined') {
+                    document.location.reload();
+                } else {
+                    document.location.href = r.redirect + window.location.search;
+                }
             },1500);
         }
         else

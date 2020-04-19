@@ -13,7 +13,9 @@
             <span id="pmcounter" style="border-radius:3px; padding-left: 1px; padding-right: 1px" accesskey="q"></span>&nbsp;{$pm}</a>
         <div style="margin-top: 5px; text-align:right;">{$welcome}, {$myusername_n}</div>
 {else}
-    {include="common/login"}
+    {if="$position_n != 'login'"}
+        {include="common/login"}
+    {/if}
 {/if}
         </nav>
     </div>
