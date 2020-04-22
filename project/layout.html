@@ -14,9 +14,6 @@
         {if="$canshowmenu_b"}
             <table class="page">
                 <tr class="small">
-                    <th>
-                        <div class="g-plusone" data-size="small" data-count="1" data-href="http://www.nerdz.eu/{$name4link_n}"></div>
-                    </th>
                     {if="$canifollow_b"}
                         <th id="follow" class="project" data-id="{$id_n}">{$follow}</th>
                     {else}
@@ -24,14 +21,10 @@
                     {/if}
                 </tr>
             </table>
-        {else}
-            <div style="text-align:center;margin-right:-15%">
-                <div class="g-plusone" data-size="small" data-count="1" data-href="http://www.nerdz.eu/{$name4link_n}"></div>
-            </div>
         {/if}
             <hr />
 
-            <div class="title">{$informations}</div><br />
+            <div class="title">{$information}</div><br />
 
             <span class="light">{$name}:<br /></span>
             {$name_n}<br />
@@ -75,8 +68,8 @@
         {include="common/form"}
     {/if}
         <div id="postlist" data-type="project" data-id="{$id_n}" data-location="project" data-limit="0" data-mode="std">
-            {ignore} Data type == project è un progetto, parte da limit 0 a fare le richieste{/ignore}
-            {if="isset($post_n)"} {ignore} handle single post and followers{/ignore}
+            {ignore} see explaination of attrivutes in home/postlist{/ignore}
+            {if="isset($post_n)"}
                 {$post_n}
             {/if}
         </div>
@@ -112,7 +105,7 @@
     <script>
         $(document).ready(function() {
             var plist = $("#postlist");
-            var num = 10; {ignore} TODO PARAM? {/ignore}
+            var num = 10;
             var load = false;
             var loading = N.getLangData().LOADING;
             var divId = 'scrtxt';
@@ -130,8 +123,6 @@
             
             $("#showpostlist").click();
             
-            {ignore} Autoload vecchi post allo scrolldown {/ignore}
-
             $(window).scroll(function() {
                 if($(this).scrollTop()+200 >= ( $(document).height() - $(this).height() ) )
                 {
@@ -163,6 +154,5 @@
             $(".showcomments").click();
     });
     </script>
-    {ignore} tanto se il post è singolo ne esiste solo uno di elemento con questa classe{/ignore}
 {/if}
 </div>

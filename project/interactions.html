@@ -2,7 +2,7 @@
 <ol class="interactions">
 {loop="list_a"}
 <li class="nerdz_comments">
-    <span class="nerdz_date" style="float:left">{$value.datetime_n}</span>&nbsp;
+    <span class="nerdz_date" style="float:left">{$value.date_n} {$value.time_n}</span>&nbsp;
     <span class="rightarrow" style="margin-left:11px"></span>&nbsp;
     {if="$value.type_n == 'groups_members'"}
         {$you_are_now_member_of}&nbsp;

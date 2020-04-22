@@ -1,6 +1,6 @@
 <hr />
 {$projects_descr}
-<span style="float:right; margin-right:5%; margin-top: -2%">
+<span style="float:right; margin-right:5%">
     <button onclick="location.href='/project.php'">{$create}</button>
 </span>
 <hr />
@@ -19,22 +19,10 @@
             <a href="/{$value.name4link_n}">{$value.name_n}</a>
         </td>
         <td>
-            <button class="manage" data-id="{$value.id_n}">{$manage}</button>
+            <button class="manageproject" data-id="{$value.id_n}">{$manage}</button>
         </td>
     </tr>
     {/loop}
 </table>
 </div>
 <br /><br />
-
-<script>
-$(document).ready(function() {
-    $(".manage").on('click',function(e){
-        e.preventDefault();
-        $("#cont").html(N.getLangData().LOADING);
-        N.html.post('/pages/preferences/projects.html.html.php',{id: $(this).data('id')},function(data) {
-            $("#cont").html(data);
-        });
-    });
-});
-</script>

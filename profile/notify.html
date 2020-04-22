@@ -1,6 +1,6 @@
 {loop="list_a"}
     <div class="nerdz_comments" style="margin-bottom: -1px">
-        <span class="small">{$value.datetime_n}:</span>&nbsp;
+        <span class="small">{$value.date_n} {$value.time_n}:</span>&nbsp;
     {if="$value.type_n == 'new_follower'"}
         <a href="/{$value.from4link_n}">{$value.from_n} {$following_you}</a>
     {elseif="$value.type_n == 'new_project_follower'"}

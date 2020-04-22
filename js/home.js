@@ -2,7 +2,6 @@ $(document).ready(function() {
     var plist = $("#postlist");
     var loading = N.getLangData().LOADING;
     var lang = null;
-    var voteOrder = null;
     var myLang = $("#stdfrm select[name=lang]").val();
     var load = false;
     $(".rightarrow-home").click(function(e) {
@@ -77,39 +76,25 @@ $(document).ready(function() {
             $("#fast_nerdz").show();
             N.html.profile.getFollowedHomePostList(0, function(data) {
                 plist.html(data);
-                plist.data("type", "profile");
                 plist.data("mode", "followed");
                 hideHidden();
                 load = true;
             });
         } else {
-            if (lang == "vote") {
-                $("#fast_nerdz").hide();
-                localStorage.setItem("autoorder", voteOrder);
-                N.html.profile.getByVoteHomePostList(0, voteOrder, function(data) {
-                    plist.html(data);
-                    plist.data("type", "profile");
-                    plist.data("mode", "vote");
-                    hideHidden();
-                    load = true;
-                });
+            $("#fast_nerdz").show();
+            if (lang !== null && lang != "*") {
+                $("#stdfrm select[name=lang]").val(lang);
+                $("#stdfrm ul.subnav").show();
             } else {
-                $("#fast_nerdz").show();
-                if (lang !== null && lang != "*") {
-                    $("#stdfrm select[name=lang]").val(lang);
-                    $("#stdfrm ul.subnav").show();
-                } else {
-                    $("#stdfrm select[name=lang]").val(myLang);
-                }
-                load = false;
-                N.html.profile.getByLangHomePostList(0, lang, function(data) {
-                    plist.html(data);
-                    plist.data("mode", "language");
-                    plist.data("type", "profile");
-                    hideHidden();
-                    load = true;
-                });
+                $("#stdfrm select[name=lang]").val(myLang);
             }
+            load = false;
+            N.html.profile.getByLangHomePostList(0, lang, function(data) {
+                plist.html(data);
+                plist.data("mode", "language");
+                hideHidden();
+                load = true;
+            });
         }
     };
     plist.on("click", ".spoiler", function() {
@@ -146,9 +131,8 @@ $(document).ready(function() {
         localStorage.removeItem("autolang");
         localStorage.removeItem("autoorder");
         load = false;
-        N.html.profile.getHomePostList(0, function(data) {
+        N.html.home.getFollowedPostList(0, function(data) {
             plist.html(data);
-            plist.data("type", "profile");
             plist.data("mode", "std");
             hideHidden();
             load = true;
@@ -159,9 +143,8 @@ $(document).ready(function() {
         $("#fast_nerdz").hide();
         $(".projlang").css("color", "");
         load = false;
-        N.html.project.getHomePostList(0, function(data) {
+        N.html.home.getFollowedPostList(0, function(data) {
             plist.html(data);
-            plist.data("type", "project");
             plist.data("mode", "std");
             hideHidden();
             load = true;
@@ -170,9 +153,6 @@ $(document).ready(function() {
     $(".selectlang").on("click", function() {
         plist.html("<h1>" + loading + "...</h1>");
         lang = $(this).data("lang");
-        if (lang == "vote") {
-            voteOrder = $(this).data("order");
-        }
         localStorage.setItem("autolang", lang);
         localStorage.removeItem("autoorder");
         $(".selectlang").css("color", "");
@@ -186,34 +166,20 @@ $(document).ready(function() {
         $(".projlang").css("color", "");
         $(this).css("color", "#2370B6");
         load = false;
-        if (lang == "usersifollow") {
+        if (!lang) {
             N.html.project.getFollowedHomePostList(0, function(data) {
                 plist.html(data);
-                plist.data("type", "project");
                 plist.data("mode", "followed");
                 hideHidden();
                 load = true;
             });
         } else {
-            if (lang == "vote") {
-                $("#fast_nerdz").hide();
-                voteOrder = $(this).data("order");
-                N.html.project.getByVoteHomePostList(0, voteOrder, function(data) {
-                    plist.html(data);
-                    plist.data("type", "project");
-                    plist.data("mode", "vote");
-                    hideHidden();
-                    load = true;
-                });
-            } else {
-                N.html.project.getByLangHomePostList(0, lang, function(data) {
-                    plist.html(data);
-                    plist.data("type", "project");
-                    plist.data("mode", "language");
-                    hideHidden();
-                    load = true;
-                });
-            }
+            N.html.project.getByLangHomePostList(0, lang, function(data) {
+                plist.html(data);
+                plist.data("mode", "language");
+                hideHidden();
+                load = true;
+            });
         }
     });
     $("#stdfrm").on("submit", function(e) {
@@ -237,27 +203,22 @@ $(document).ready(function() {
             }, 5e3);
         });
     });
+
+    var el;
     if (localStorage.getItem("autolang")) {
-        var el;
         if (localStorage.getItem("autoorder")) {
             el = $("#nerdzvote").find("[data-order='" + localStorage.getItem("autoorder") + "']");
         } else {
             $("#nerdzselect").click();
             el = $("#nerdzlist").find("ul").find("[data-lang='" + localStorage.getItem("autolang") + "']");
         }
-        el.click();
-        el.css("color", "#2370B6");
     } else {
-        plist.data("location", "home");
-        load = false;
-        N.html.profile.getHomePostList(0, function(data) {
-            plist.html(data);
-            hideHidden();
-            plist.data("type", "profile");
-            plist.data("mode", "std");
-            load = true;
-        });
+        // Load posts from everyone on default
+        el = $("#nerdzlist").find("ul").find("[data-lang='*']");
     }
+    el.click();
+    el.css("color", "#2370B6");
+
     var tmpDivId = "scrtxt";
     var manageScrollResponse = function(data) {
         $("#" + tmpDivId).remove();
@@ -274,28 +235,22 @@ $(document).ready(function() {
     $(window).scroll(function() {
         if ($(this).scrollTop() + 200 >= $(document).height() - $(this).height()) {
             var num = 10;
-            var hpid = plist.find("div[id^='post']").last().data("hpid");
-            var mode = plist.data("mode");
-            var type = plist.data("type");
-            var append = '<h3 id="' + tmpDivId + '">' + loading + "...</h3>";
+            var $post = plist.find("div[id^='post']").last();
+            var hpid = $post.data("hpid"),
+            mode = plist.data("mode"),
+            type = $post.data('type'),
+            append = '<h3 id="' + tmpDivId + '">' + loading + "...</h3>";
+
             if (load && !$("#" + tmpDivId).length) {
                 plist.append(append);
             }
             if (load) {
                 load = false;
                 if (mode == "std") {
-                    N.html[type].getHomePostListBeforeHpid(num, hpid, manageScrollResponse);
+                    N.html.home.getFollowedPostListBeforeHpid(num, hpid, type, manageScrollResponse);
                 } else {
-                    if (mode == "followed") {
-                        N.html[type].getFollowedHomePostListBeforeHpid(num, hpid, manageScrollResponse);
-                    } else {
-                        if (mode == "language") {
-                            N.html[type].getByLangHomePostListBeforeHpid(num, lang, hpid, manageScrollResponse);
-                        } else {
-                            if (mode == "vote") {
-                                N.html[type].getByVoteHomePostListBeforeHpid(num, voteOrder, hpid, manageScrollResponse);
-                            }
-                        }
+                    if (mode == "language") {
+                        N.html[type].getByLangHomePostListBeforeHpid(num, lang, hpid, manageScrollResponse);
                     }
                 }
             }

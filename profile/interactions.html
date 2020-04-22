@@ -2,7 +2,7 @@
 <ol class="interactions">
 {loop="list_a"}
 <li class="nerdz_comments">
-    <span class="nerdz_date" style="float:left">{$value.datetime_n}</span>&nbsp;
+    <span class="nerdz_date" style="float:left">{$value.time_n} {$value.time_n}</span>&nbsp;
     <span class="rightarrow" style="margin-left:11px"></span>&nbsp;
     {if="$value.type_n == 'blacklist' || $value.type_n == 'followers' || $value.type_n == 'whitelist' || $value.type_n == 'mentions' || $value.type_n == 'pms'"}
         {if="$value.type_n == 'blacklist'"}

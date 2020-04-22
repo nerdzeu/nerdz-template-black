@@ -22,7 +22,7 @@ FILE: template.values
 ---------------------
 This file allows the template creator to specify javascript and css files to be included in following pages:  
 
-> codelist.php, error.php, faq.php, home.php, index.php, informations.php, list.php, pm.php, preferences.php, profile.php, project.php, rank.php, reset.php, share.php, stats.php, terms.php  
+> codelist.php, error.php, faq.php, home.php, index.php, information.php, list.php, pm.php, preferences.php, profile.php, project.php, rank.php, reset.php, share.php, stats.php, terms.php
 
 Most important, note that in the two `javascript` and `css` sections it's possible to specify the default css and js file:  
 `default: "js/default.js"`  

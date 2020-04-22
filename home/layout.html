@@ -19,7 +19,6 @@
                     <div style="margin-left:20px">
                         <ul>
                             <li class="selectlang" data-lang="*">{$everybody}</li>
-                            <li class="selectlang" data-lang="usersifollow">{$users_i_follow}</li>
                         </ul>
                     </div>
                     <div class="small" style="margin: 6px auto 5px 15px">{$language}:</div>
@@ -31,41 +30,6 @@
                         </ul>
                         <br />
                     </div>
-                    <ul style="margin-left:15px; margin-bottom:10px" class="small" id="nerdzvote">
-                        <li class="selectlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                        <li class="selectlang" data-lang="vote" data-order="-">{$less_rated}</li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <a class="rightarrow-home"></a>
-                    <a id="projectPostList" href="#">{$projects}</a>
-                    <span style="float:right">
-                        <a href="/feed.php?project=1">
-                            <img src="images/rss.gif" width="16" height="17" alt="Project RSS" />
-                        </a>
-                    </span>
-                </div>
-                <div class="hidden" id="projlist">
-                    <div class="small" style="margin: 5px auto 5px 15px">{$from}:</div>
-                    <div style="margin-left:20px">
-                        <ul>
-                            <li class="projlang" data-lang="*">{$everybody}</li>
-                            <li class="projlang" data-lang="usersifollow">{$users_i_follow}</li>
-                        </ul>
-                    </div>
-                    <div class="small" style="margin: 6px auto 5px 15px">{$language}:</div>
-                    <div style="margin-left:20px">
-                        <ul>
-                            {loop="langs_a"}
-                            <li class="projlang" data-lang="{$value.shortlang_n}">{$value.longlang_n}</li>
-                            {/loop}
-                        </ul>
-                        <br />
-                    </div>
-                    <ul style="margin-left:15px; margin-bottom:10px" class="small">
-                        <li class="projlang" data-lang="vote" data-order="+">{$top_rated}</li>
-                        <li class="projlang" data-lang="vote" data-order="-">{$less_rated}</li>
-                    </ul>
                 </div>
                 <div class="item">
                     <a class="rightarrow-home"></a>
@@ -93,7 +57,7 @@
                 </div>
                 <div class="item">
                     <a class="rightarrow-home"></a>
-                    <a href="/informations.php">{$informations}</a>
+                    <a href="/information.php">{$information}</a>
                 </div>
                 <div class="hidden">
                     <ul style="margin-left:20px; margin-bottom:10px">
@@ -133,15 +97,16 @@
         {include="common/form"}
         <div id="postlist" data-type="profile" data-location="home" data-mode="std"></div>
         <br /><br /><br />
-        {ignore} Data type == profile di default, ma cambia poi quando si aggiorna #postlist con i projetti
-                 location sta a indicare dove ci troviamo (che lo utilizzo e modifico nel footersearch)
-                mode è li per indicare al gestore dello scrolldown se deve caricare normalemente (std) oppure scrollare la pagina di ricerca (search)
+        {ignore}
+        Data type = profile (default).
+        Location = where we are (used in the footer search)
+        mode = tells to the scrolldown manager if the load standard messages (std) or continue the search (search)
         {/ignore}
     </article>
     <aside id="right_col" class="page">
     {if="!empty($followed_a)"}
         <div class="title" style="overflow:hidden">
-            <span style="vertical-align:middle">{$you_follow}</span><br />
+            <span style="vertical-align:middle"><a href="/{$myusername4link_n}following" style="color:#000">{$you_follow}</a></span><br />
             <span style="font-style: italic;vertical-align:middle" class="small">[{$followedonlinetot_n}/{$followedtot_n}]</span>
         </div>
         <br />

@@ -23,7 +23,7 @@
                 <span title="{$number_of_modifications}: {$value.revisions_n}" class="oldrev comment" data-refto="{$value.uid_n}" data-revisions="{$value.revisions_n}" data-hcid="{$value.hcid_n}">&#9664;</span>&nbsp;&nbsp;
                 {/if}
             </span>
-            <a href="#{$value.uid_n}" title="Permalink" style="color: #fff" data-refto="post{$value.hpid_n}" id="nd{$value.uid_n}{$value.hcid_n}">{$value.datetime_n}</a>
+            <a href="#{$value.uid_n}" title="Permalink" style="color: #fff" data-refto="post{$value.hpid_n}" id="nd{$value.uid_n}{$value.hcid_n}">{$value.date_n} {$value.time_n}</a>
             {if="$value.canshowlock_b"}
                 {if="$value.lock_b"}
                     <img class="imglocked" width="16" height="16" data-hpid="{$value.hpid_n}" data-silent="{$value.fromid_n}" src="images/lock.png" alt="" title="{$recv_notify}" onclick="" />
@@ -52,7 +52,6 @@
     <script>$("#nd{$value.uid_n}{$value.hcid_n}").attr("href",(typeof(lnk{$hpid_n})=="undefined"?document.location.pathname:lnk{$hpid_n})+"#{$value.uid_n}");</script>
 </div>
 {/loop}
-{ignore}Il form non viene caricato, quando si gettano i commenti dopo uno specifico hcid{/ignore}
 {if="$showform_b"}
     {include="common/comment_form"}
 {/if}

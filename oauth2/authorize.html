@@ -1,0 +1,24 @@
+<div id="main">
+    {if="isset($error_n)"}
+        <div class="error">{$error_n}</div>
+    {else}
+        <h1>{$client_n}</h1>
+        <p>
+            <small>{$description_n}</small>
+        </p>
+        <form action="{$authorizeurl_n}" method="GET">
+            <b>{$client_n}</b> {$would}:<br />
+            <ul>
+                {loop="$scopes_a"}<li>{$value}</li>{/loop}
+            </ul>
+            <input type="hidden" name="client_id" value="{$clientid_n}" />
+            <input type="hidden" name="redirect_uri" value="{$redirecturi_n}" />
+            <input type="hidden" name="response_type" value="{$responsetype_n}" />
+            <input type="hidden" name="scope" value="{$scope_n}" />
+            <input type="hidden" name="state" value="{$state_n}" />
+            <input type="hidden" name="authorized" value="{$authorized_n}" />
+            <input type="hidden" name="authorized_code" value="{$authorizedcode_n}" />
+            <input type="submit" value="OK">
+        </form>
+    {/if}
+</div>

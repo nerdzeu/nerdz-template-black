@@ -1,4 +1,4 @@
-<div id="post{$hpid_n}">
+<div id="post{$hpid_n}" data-type="project" data-hpid="{$hpid_n}">
     <div class="nerdz_from">
         <a href="/{$from4link_n}">{$from_n}</a> ⇒ <a href="/{$to4link_n}">{$to_n}</a>
         <div class="nerdz_date">
@@ -7,7 +7,12 @@
                 <span title="{$number_of_modifications}: {$revisions_n}" class="oldrev" data-refto="post{$hpid_n}" data-revisions="{$revisions_n}" data-hpid="{$hpid_n}">&#9664;</span>&nbsp;&nbsp;
                 {/if}
             </span>
-            <time>{$datetime_n}</time>
+            <time>
+                {if="date('dmy',time()) != date('dmy',$timestamp_n)"}
+                {$date_n}
+                {/if}
+                {$time_n}
+            </time>
             <span class="thumbs">
                 &nbsp;|&nbsp;              
                 <span class='thumbs-counter{if="$thumbs_n > 0"} nerdz_thumbsNumPos{else}{if="$thumbs_n < 0"} nerdz_thumbsNumNeg{/if}{/if}'>{if="$thumbs_n > 0"}+{/if}{$thumbs_n}</span>
@@ -20,8 +25,8 @@
             {if="$language_n != $mylang_n"}
             <img src="{$flagdir_n}{$language_n}.png#" alt="{$language_n}" title="{$language_n}" width="18" height="12" />&nbsp;
             {/if}
-            <span class="small{if="$canremovepost_b || $caneditpost_b || $canclosepost_b"} pid{/if}"{if="$closed_b"} style="color:red" title="{$closed_post}"{/if}>
-                <a href="/{$to4link_n}{$pid_n}" class="post_link">#{$pid_n}</a>
+            <span class="small{if="$canremovepost_b || $caneditpost_b || $canclosepost_b"} pid{/if}">
+                <a href="/{$to4link_n}{$pid_n}" class="post_link"{if="$closed_b"} style="color:red" title="{$closed_post}"{/if}>#{$pid_n}</a>
             </span>
         </div>
     </div>
