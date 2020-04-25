@@ -19,18 +19,8 @@
                 {if="$type_n != 'tag'"}
                     <a href="/{$to4link_n}">{$to_n}</a> ⇒
                 {/if}
-            {else}
-                [
-                {if="$type_n == 'tag'"}
-                    {$trends}
-                {elseif="$type_n == 'profile'"}
-                    {$profiles}
-                {elseif="$type_n == 'project'"}
-                    {$projects}
-                {/if}
-                ]
             {/if}
-            &nbsp; {$results_for}: <span id="searchterm">{$searchterm_n}</span>
+            {$results_for}: <span id="searchterm">{$searchterm_n}</span>
         </h1>
         <div id="postlist" data-mode="search" data-location="search" data-type="search">
             {$loading}...
