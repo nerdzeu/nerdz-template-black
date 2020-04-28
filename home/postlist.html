@@ -3,12 +3,7 @@
     <script>var lnk{$value.hpid_n} = "/{$value.to4link_n}{$value.pid_n}";</script>
     <div class="nerdz_from">
         {if="!$value.news_b"}
-        <a href="/{$value.from4link_n}">{$value.from_n}</a>
-        {if="$value.fromid_n != $value.toid_n"}
-        &nbsp;⇒ <a href="/{$value.to4link_n}">{$value.to_n}</a>
-        {else}
-        :
-        {/if}
+        <a href="/{$value.from4link_n}">{$value.from_n}</a>{if="$value.fromid_n != $value.toid_n"}&nbsp;⇒ <a href="/{$value.to4link_n}">{$value.to_n}</a>{/if}
         {/if}
         <div class="nerdz_date"{if="$value.news_b"} style="width:100%; text-align:right"{/if}>
             {if="$value.news_b"}

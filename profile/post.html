@@ -1,11 +1,7 @@
 <div id="post{$hpid_n}" data-type="profile" data-hpid="{$hpid_n}">
     <div class="nerdz_from">
         <a href="/{$from4link_n}">{$from_n}</a>
-        {if="$fromid_n != $toid_n"}
-        &nbsp;⇒ <a href="/{$to4link_n}">{$to_n}</a>
-        {else}
-        :
-        {/if}
+        {if="$fromid_n != $toid_n"}&nbsp;⇒ <a href="/{$to4link_n}">{$to_n}</a>{/if}
         <div class="nerdz_date">
             <span class="revisions">
                 {if="$revisions_n > 0"}
