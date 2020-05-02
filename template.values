@@ -24,8 +24,7 @@
             "js/index.js"
         ],
         "home": [ "js/home.js", {
-            "lang": [ "HIDDEN_POSTS", "EXPAND", "HIDE" ],
-            "outputVersion": true // you should probably not change this
+            "lang": [ "HIDDEN_POSTS", "EXPAND", "HIDE" ]
         } ],
         "preferences": "js/preferences.js",
         "profile": [ "js/profile.js", {
