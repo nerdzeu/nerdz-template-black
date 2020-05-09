@@ -5,8 +5,11 @@
     <span class="nerdz_date" style="float:left">{$value.date_n} {$value.time_n}</span>&nbsp;
     <span class="rightarrow" style="margin-left:11px"></span>&nbsp;
     {if="$value.type_n == 'groups_members'"}
-        {$you_are_now_member_of}&nbsp;
-        <a href="/to4link_n">{$to_n}</a>
+        {$you_are_now_member_of}&nbsp;<a href="/{$value.link_n}">{$value.postto_n}</a>
+    {elseif="$value.type_n == 'groups_owners'"}
+        {$you_are_the_new_owner_of}&nbsp;<a href="/{$value.link_n}">{$value.postto_n}</a>
+    {elseif="$value.type_n == 'groups_followers'"}
+        {$you_follow}&nbsp;<a href="/{$value.link_n}">{$value.postto_n}</a>
     {else}
         {if="$value.type_n == 'groups_comments'"}
             {$you_commented_on}
