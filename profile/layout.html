@@ -181,7 +181,7 @@
         </div>
         <br />
     {/if}
-    {if="!empty($jabber_n) || !empty($yahoo_n) || !empty($skype_n) || !empty($steam_n) || !empty($facebook_n) || !empty($twitter_n) || !empty($github_n)"}
+    {if="!empty($jabber_n) || !empty($telegram_n) || !empty($skype_n) || !empty($steam_n) || !empty($facebook_n) || !empty($twitter_n) || !empty($github_n)"}
         <div class="title">{$contact_info}</div>
         <div class="box">
         {if="!empty($github_n)"}
@@ -192,9 +192,9 @@
             <span class="light">{$jabber}:<br /></span>
                 {$jabber_n}<br /><br />
         {/if}
-        {if="!empty($yahoo_n)"}
-            <span class="light">{$yahoo}:<br /></span>
-                {$yahoo_n}<br /><br />
+        {if="!empty($telegram_n)"}
+            <span class="light">{$telegram}:<br /></span>
+                {$telegram_n}<br /><br />
         {/if}
         {if="!empty($skype_n)"}
             <span class="light">{$skype}:<br /></span>
