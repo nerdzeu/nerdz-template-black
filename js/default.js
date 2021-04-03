@@ -392,51 +392,6 @@ $(document).ready(function() {
             }
         });
     });
-    $("#nerdzcrush-file").on("change", function(e) {
-        e.preventDefault();
-        var $me = $(this), progress = $("#" + $me.data("progref"));
-        progress.show();
-        NERDZCrush.upload(document.getElementById("nerdzcrush-file").files[0], function(media) {
-            var file = document.getElementById("nerdzcrush-file").files[0];
-            if(!file) {
-                progress.hide();
-                return;
-            }
-            var ext = file.name.split(".").pop().toLowerCase();
-            var tag = "url";
-            if (file.type.indexOf("image") > -1) {
-                tag = ext != "gif" ? "img" : "video";
-            } else if (file.type.indexOf("audio") > -1) {
-                tag = "music";
-            } else if (file.type.indexOf("video") > -1) {
-                tag = "video";
-            }
-
-            var $area = $("#" + $me.data("refto"));
-            progress.hide();
-            var msg = "[" + tag + "]https://media.nerdz.eu/" + media.hash + "." + ext + "[/" + tag + "]";
-            var cpos = $area[0].selectionStart, val = $area.val(), intx = val.substring(0, cpos) + msg;
-            $area.focus();
-            $area.val(intx + val.substring(cpos));
-            $area[0].setSelectionRange(intx.length, intx.length);
-            $me.val("");
-        }, function(e) {
-            if (e.lengthComputable) {
-                progress.val((e.loaded / e.total) * 100);
-            }
-        });
-    });
-    var handleUpload = function(me, e) {
-        e.preventDefault();
-        var progref = "ref" + Math.round(Math.random() * 100) + "pro";
-        var refto = me.parent().parent().find("textarea").attr("id");
-        me.find("progress").remove();
-        me.append("<progress id='" + progref + "' style='height: 3px; width:100%; display:none' max='100' value='0'></progress>");
-        $("#nerdzcrush-file").data("progref", progref).data("refto", refto).click();
-    };
-    $(".nerdzcrush-upload").on("click", function(e) {
-        handleUpload($(this), e);
-    });
     var handleFolUn = function(me, d, oldValue) {
         me.html(d.message);
         if (d.status == "ok") {
@@ -494,9 +449,6 @@ $(document).ready(function() {
             el.attr("data-parsed", "1");
         });
     };
-    plist.on("click", ".nerdzcrush-upload", function(e) {
-        handleUpload($(this), e);
-    });
     plist.on("click", ".more", function() {
         var me = $(this), par = me.parent(), jenk = par.prev();
         if (me.data("busy") == "godyes") {
