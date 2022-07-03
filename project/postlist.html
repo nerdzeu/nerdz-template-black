@@ -9,7 +9,7 @@
                 {/if}
             </span>
             <time>
-                {if="date('dmy',time()) != date('dmy',$value.timestamp_n)"}
+                {if="date('dmy',time()) != date('dmy', intval($value.timestamp_n))"}
                 {$value.date_n}
                 {/if}
                 {$value.time_n}

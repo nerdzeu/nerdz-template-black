@@ -7,8 +7,8 @@
             <a href="{$value.from4link_n}" data-fromid="{$value.fromid_n}">{$value.from_n}</a>:
         </span>
         <span class="nerdz_date">
-            <time data-timestamp="{$value.timestamp_n}">
-                {if="date('dmy',time()) != date('dmy',$value.timestamp_n)"}
+            <time data-timestamp="{intval($value.timestamp_n)}">
+                {if="date('dmy',time()) != date('dmy', intval($value.timestamp_n))"}
                 {$value.date_n}
                 {/if}
                 {$value.time_n}

@@ -8,7 +8,7 @@
         <div class="nerdz_date"{if="$value.news_b"} style="width:100%; text-align:right"{/if}>
             {if="$value.news_b"}
             <time class="nerdz_date" style="float:left">
-                {if="date('dmy',time()) != date('dmy',$value.timestamp_n)"}
+                {if="date('dmy',time()) != date('dmy',intval($value.timestamp_n))"}
                 {$value.date_n}
                 {/if}
                 {$value.time_n}
@@ -20,7 +20,7 @@
                 {/if}
             </span>
             <time>
-                {if="date('dmy',time()) != date('dmy',$value.timestamp_n)"}
+                {if="date('dmy',time()) != date('dmy',intval($value.timestamp_n))"}
                 {$value.date_n}
                 {/if}
                 {$value.time_n}

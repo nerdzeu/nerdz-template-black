@@ -8,7 +8,7 @@
                 {/if}
             </span>
             <time>
-                {if="date('dmy',time()) != date('dmy',$timestamp_n)"}
+                {if="date('dmy',time()) != date('dmy', intval($timestamp_n))"}
                 {$date_n}
                 {/if}
                 {$time_n}
