@@ -10,8 +10,9 @@
             <time>
                 {if="date('dmy',time()) != date('dmy', intval($timestamp_n))"}
                 {$date_n}
-                {/if}
+                {else}
                 {$time_n}
+                {/if}
             </time>
             <span class="thumbs">
                 &nbsp;|&nbsp;              

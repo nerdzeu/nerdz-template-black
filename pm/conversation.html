@@ -10,8 +10,9 @@
             <time data-timestamp="{intval($value.timestamp_n)}">
                 {if="date('dmy',time()) != date('dmy', intval($value.timestamp_n))"}
                 {$value.date_n}
-                {/if}
+                {else}
                 {$value.time_n}
+                {/if}
            </time>
         </span>
         <div class="nerdz_message" style="border: 1pt solid #FFF">{$value.message_n}</div>
